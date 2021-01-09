@@ -1,7 +1,7 @@
 package us.greatapps4you.greatsales.entities.sales;
 
-import us.greatapps4you.greatsales.entities.registry.Address;
-import us.greatapps4you.greatsales.entities.registry.Identification;
+import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.registration.Identification;
 
 import java.io.Serializable;
 import java.util.List;
