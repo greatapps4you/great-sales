@@ -1,6 +1,6 @@
 package us.greatapps4you.greatsales.entities.inventory;
 
-import us.greatapps4you.greatsales.entities.supply.Vendor;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
