@@ -49,22 +49,22 @@
         <!-- 
         <property name="hibernate.current_session_context_class">thread</property>-->
         <!-- Names the annotated entity class -->
-        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.AccountingGroup" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.AccountingRecord" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.BalanceSheet" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.FinnancialStatement" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.inventory.Inventory" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.inventory.Product" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.registry.Address" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.registry.Identification" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.Customer" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.Enviado" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.SaleForm" />        
-        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.SaleHeader" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.SaleItem" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.Salesman" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.supply.PurchaseHeader" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.supply.PurchaseItem" />
-        <mapping class="br.com.greatsoft.greaterp.model.entity.supply.Vendor" />
+        <mapping class="entity.finnance.AccountingGroup" />
+        <mapping class="entity.finnance.AccountingRecord" />
+        <mapping class="entity.finnance.BalanceSheet" />
+        <mapping class="entity.finnance.FinnancialStatement" />
+        <mapping class="entity.inventory.Inventory" />
+        <mapping class="entity.inventory.Product" />
+        <mapping class="entity.registry.Address" />
+        <mapping class="entity.registry.Identification" />
+        <mapping class="entity.sales.Customer" />
+        <mapping class="entity.sales.Enviado" />
+        <mapping class="entity.sales.SaleForm" />
+        <mapping class="entity.sales.SaleHeader" />
+        <mapping class="entity.sales.SaleItem" />
+        <mapping class="entity.sales.Salesman" />
+        <mapping class="entity.supply.PurchaseHeader" />
+        <mapping class="entity.supply.PurchaseItem" />
+        <mapping class="entity.supply.Vendor" />
     </session-factory>
 </hibernate-configuration>
