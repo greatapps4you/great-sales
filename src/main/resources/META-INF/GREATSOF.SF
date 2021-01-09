@@ -1,0 +1,563 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: LOGP7eYYHZRUyorLfkB5NcrRLD5h5
+ N0TqjCIGBvi114=
+SHA-256-Digest-Manifest: u4hRxqyZunIkajByzHRhkgMdiixhbpxg85rTd+R/IRg=
+Created-By: 1.8.0_40 (Oracle Corporation)
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab.class
+SHA-256-Digest: Lt5+gi9ksg17eQUKtFa/SVu+aUfa8gRSH6OffJfAykg=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$7.class
+SHA-256-Digest: WXrjrnVNDU4qVXF+4FfAujXY/TuMoWQPzrolHD7n/NI=
+
+Name: images/logo.png
+SHA-256-Digest: PFF4MfNJ97suoARNBYWTg0CkIkLHb5Fx4p92v1Ts9ac=
+
+Name: br/com/greatsoft/greaterp/view/MainView$8.class
+SHA-256-Digest: 0X5ySNB8VWmROqQ/e82W2S1snd55xZdBLtUpvFpVbMg=
+
+Name: br/com/greatsoft/greaterp/model/entity/supply/Vendor.class
+SHA-256-Digest: Ps1zezQ7g4byKMlR200auRXUFGA15dxZ8j0Gr8wsfng=
+
+Name: br/com/greatsoft/greaterp/model/util/DBConnector.class
+SHA-256-Digest: HnWwRKmOM2XJB3M4ifmaQ56qjLJLzSdH6F2j29/djuw=
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab$3.class
+SHA-256-Digest: gZo6zwN87+SN6x7rCh7STY3R2TmJKNAtDrOQLQcuzTw=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/Rn.class
+SHA-256-Digest: yv22/URbhGH2KVl+cIvREqEcQ5GaNr+4clhlH0TE6II=
+
+Name: br/com/greatsoft/greaterp/controller/bean/TestBean.class
+SHA-256-Digest: VaXP8AmmabsvymkUnaoJMJ1ypSEAIqYZX8Ux5A0XF1I=
+
+Name: br/com/greatsoft/greaterp/view/MainView.class
+SHA-256-Digest: Tqxupykm4JIjp6rnCLZNljxqKvoQeKyVm874ZU/B0bU=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListTM.class
+SHA-256-Digest: AxFvTWtHSlK74SBMzUDn54oeeRCRbGYZSjeAfkuI85E=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView$1.class
+SHA-256-Digest: C5egVJr8TyO8g1KdqzNgiVaq4/VY06XmHtr3uqlKylk=
+
+Name: META-INF/INDEX.LIST
+SHA-256-Digest: zRMYeqmWduyYtNxl0uXUzYga0YndqTE2FTmdIDz1kTo=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/util/InitSaleForm.c
+ lass
+SHA-256-Digest: GhKXwHHq6f5edkGdRGhlRMW9SmVx52wUpWUY1pUCiIE=
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab$3$1.class
+SHA-256-Digest: AMoKCNXj9VI2dnjjuFCpWV9IT4XbO4YrAWWQQxQwRYA=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView$1.class
+SHA-256-Digest: CToF5Pxmebfw2/wvRTi5IW2w4DN8Nr6p81rIKfbBn5U=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorEditView$1.class
+SHA-256-Digest: 2J5yuVhbsAW7Kpb9OKrHEOne5vPDw0tFJ5wkEtK/mvA=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/Customer.class
+SHA-256-Digest: C25sUgTCbyvK/F4ASrOk7RqFX3iESLfxrqBHt+KxaE4=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/SaleRn.class
+SHA-256-Digest: B0dwHGrdP2GnQkabcf0PvMD++fNdly9X2xga1293Et4=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasMa
+ ster$3.class
+SHA-256-Digest: +FNQ4BNh1c6opcdmXhu4jIREX3B2kc1PAfWcaL6XQf0=
+
+Name: br/com/greatsoft/greaterp/resource/greath2server.jar
+SHA-256-Digest: wZd1WW0tb1JysFtvD/CPYqYo5n+lY4IqqYnKsB64JCQ=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView$4.class
+SHA-256-Digest: 7NjwsX7LKcx3cBu8HMIueKudhg5MmHkCnckbvP4ScTU=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView$5$1.cla
+ ss
+SHA-256-Digest: M5/xmurk8ThQZmK6YE0SHDofSrOG3SMaRgCodWblTkI=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$1.class
+SHA-256-Digest: limTpQJo9bOo0CcnlRh5/bZtPmdFfoGZcgaOW3Oa7hk=
+
+Name: br/com/greatsoft/greaterp/model/entity/finnance/AccountingGroup.
+ class
+SHA-256-Digest: op3g0w6uBIZ2ezK2gaBb/gyy2IL0Cp6wpfoZ9S8iAYU=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerEditView$3.class
+SHA-256-Digest: lFliBCes2XEeohIVyXJ4tCZY7g1A3qhuWkz1q25oYwk=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/ProductRn.class
+SHA-256-Digest: UW0KxELKuMBEzoOl2FPU81JbUTxv3Fvr39L8WZsk+38=
+
+Name: br/com/greatsoft/greaterp/resource/launch-server.jnlp
+SHA-256-Digest: 66iqRcMFH44BYiInD3YEgwRArob0mVyem8NC43UCvQQ=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView$4.class
+SHA-256-Digest: Oh/z/VsAu4iJ1wXATa8MKpDIYNljmcfYmnpw84TnY1g=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/CustomerDaoHb.cl
+ ass
+SHA-256-Digest: TONt86s0DoU8c9Zb7e3h+mFRBL7Qq8O0WcENLSexqkQ=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerEditView$1.class
+SHA-256-Digest: fm7IMGflbGgLm0LVmxiU4K8V+z2Bgq3P/tQsVFPaeWk=
+
+Name: br/com/greatsoft/greaterp/view/MainView$5.class
+SHA-256-Digest: vKNDn0HXAfyObTMSoY0zTaczombcVhIK19JYNfuJivg=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/SaleDaoHb.class
+SHA-256-Digest: 4SwV2ga6KsU2/v1VeDAj3opgX5nmoupDZkc6fGO62uQ=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/SaleItemRn.class
+SHA-256-Digest: 4TtPNSkbPdLZmaYi5VUq+kQlErrKtA99yV3Aso0TmDg=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView$4.class
+SHA-256-Digest: EzhtgF8r5Q4Qn0juEA9V9UGlKNwLmpDiIuR8O909KpY=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$4.class
+SHA-256-Digest: XYsrOl1NHpWfqjK6K7bht8lW4kBFhAdCQe5Itz8qkj4=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/SaleForm.class
+SHA-256-Digest: cCI9P13CmpT3+elTaX5dysJ37S/RLJHOV//6ayeeyvE=
+
+Name: br/com/greatsoft/greaterp/common/OS.class
+SHA-256-Digest: D6ZM1JU/yx4CoAftcyr1VPcL7lyqRR46AqByCxqE/nk=
+
+Name: br/com/greatsoft/greaterp/common/MailSender$1.class
+SHA-256-Digest: QuWWgpCk4sBW8nXzsSZRu0+Hk7ymQtJz3fuw/E/t4Qk=
+
+Name: br/com/greatsoft/greaterp/controller/bean/ProductBean.class
+SHA-256-Digest: WzXdbRJcA/XIG/yXJBcycANPrejG0zT0U93I6zEzBsU=
+
+Name: br/com/greatsoft/greaterp/view/util/ProgressBarView.class
+SHA-256-Digest: c49lDGUZVYCjED9A7OBMSLflR1secJxVIPMn4wc+l0o=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$10.class
+SHA-256-Digest: 68WuI4T48N8MES2MC7JVjl0Di2ZrHiC5koB73JeIAcA=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$13.class
+SHA-256-Digest: 5qQXYi1O7eY4E3xxA+y6aUki0wvmtpBKlQtlAG2dITI=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasMa
+ ster.class
+SHA-256-Digest: G+Vwpu6HYOiH9A2DN9dkXq5U7xHu7lX7ps0pbuZaCC0=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView$5$1.class
+SHA-256-Digest: Duqw43QjuRA3tqjgggGWF+Ll+lU1tXifcd2IdEftqgI=
+
+Name: br/com/greatsoft/greaterp/model/ConfigModel.class
+SHA-256-Digest: UQV+uRCiLdjY5e196HcOVjdNgfobpj6aZds3bIVa1j0=
+
+Name: br/com/greatsoft/greaterp/view/MainView$2.class
+SHA-256-Digest: eql0pGa2TCwX+KIuAiRKoTV2VpX3nhA2iHu/Cx7Tgu4=
+
+Name: br/com/greatsoft/greaterp/view/document/Translator.class
+SHA-256-Digest: I9g9XdxtxemY6TtuI4mt7qFP1VdGAnOqNIIqRWnVvEk=
+
+Name: br/com/greatsoft/greaterp/common/wait/MailBoard.class
+SHA-256-Digest: JwiY+FrilC9BitYW5iEhrshnjYxw6CeV+V3MBQBtgnY=
+
+Name: br/com/greatsoft/greaterp/view/config/ConfigView$1$1.class
+SHA-256-Digest: EEUPC694VeNluonO/coqoe1wsQrYf0TI/Ang/Kjz5Kw=
+
+Name: br/com/greatsoft/greaterp/view/MainView$Progress.class
+SHA-256-Digest: rj5uKOlNt9hmoD3H37TnjzMJWKnnEskQrS4x1UtSHkY=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$EnvioPedidoT
+ hread.class
+SHA-256-Digest: CQWm8tj9p0rhZ0Bily5LjT3oFQXu5ltR13Iu64YV3m0=
+
+Name: br/com/greatsoft/greaterp/view/util/ProgressBarView$1.class
+SHA-256-Digest: 6gv4EheMLCs3iPb831xQa0P5uJVvCiTqm5i/T80T6oY=
+
+Name: br/com/greatsoft/greaterp/common/TextUtil.class
+SHA-256-Digest: HOhWfYRlx/gr3JJZtqShXf7TJ554XQ1/+dgZ801+ajs=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/EnviadoRn.class
+SHA-256-Digest: 4CKz1f8IxfNCrMcRLpWpMKmIZfMF03hT2WyS2WgWlHs=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesmanView$2.class
+SHA-256-Digest: +/9rrwLUa+Vy2TFm3lbYRKqx9dxB2+Wt89nNiZjIVGI=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView$1.class
+SHA-256-Digest: LycmgnQb/tAskEIdVrptYsqWWt6M6ydV/t0jRLMTHVA=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView.class
+SHA-256-Digest: RI/mRCUrjh4W5RheK4ESgPwG9QFrnPS7IoEFiSlcuzY=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView$2.class
+SHA-256-Digest: oe9ZYom/4D+asCyUPZtqS9nzKlMF9PApgcbNyNLC/9g=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/DaoHibernate.cla
+ ss
+SHA-256-Digest: Qn0Wwz9KKwpkOTfDIhDbOaM3mN3pOG+JfQqH13FvgbQ=
+
+Name: br/com/greatsoft/greaterp/view/config/ConfigView.class
+SHA-256-Digest: FA1ihDQwLyeD6k8O5foLxY6swIgFDnjcxMJPZcXRgmU=
+
+Name: br/com/greatsoft/greaterp/common/wait/MailWait.class
+SHA-256-Digest: jMamxMnWO9qgG94wygHY5HtjY7k6Nej4TLQcwWhKf54=
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab$2.class
+SHA-256-Digest: 5NVofgptaSZD9jfgYDkiIOiAz9O2OrQlD632Gu9Zg3k=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView$1.class
+SHA-256-Digest: 1sB06NpBR0fquxjfrF6+4KVOJV+eMyqnr26RgNmQQfk=
+
+Name: br/com/greatsoft/greaterp/view/document/PdfCreator.class
+SHA-256-Digest: oJVOUekILGKe0MDwd54+PXgzMQAlRzRQLpNjPssTVT8=
+
+Name: br/com/greatsoft/greaterp/view/sales/PdvView$1.class
+SHA-256-Digest: FgysWzLeNbbmUUhN6n9a7GOmDZkIpUrW139VFU3l4DQ=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView$3.class
+SHA-256-Digest: +21U5aR/keSHE/wyz4O2D8dtcdoJ8IaYTriuZ61HPs4=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$19.class
+SHA-256-Digest: l2WAVMuqWeP2AEhIkqyuyX+4RRoB6deNXc7jVn8g8cQ=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$2.class
+SHA-256-Digest: 7ZSoRum5LyFmmROQs1Ew5mIBtLfkzpi6c8bPT8GALbc=
+
+Name: br/com/greatsoft/greaterp/view/MainView$6.class
+SHA-256-Digest: C2nQXCZtX8aJKAmHwCNJ0rXFq1Clin3nyKI2NTVzIhA=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView.class
+SHA-256-Digest: 3fG/3S3XCFf/89ri6Uq9KQsyRxAmO8xcp/jZ33JfqOk=
+
+Name: br/com/greatsoft/greaterp/model/entity/inventory/Inventory.class
+SHA-256-Digest: fIChVx32k9xsSwkM5PQLl5fBGGohGUVVY4KqC4kkne8=
+
+Name: br/com/greatsoft/greaterp/view/MainView$11.class
+SHA-256-Digest: dO0q5eq5mr7f1OEG1AJaZbQ8iM8p7UmUQRgUUsn1XnA=
+
+Name: br/com/greatsoft/greaterp/view/MainView$7.class
+SHA-256-Digest: syPso7ahTqfit4YieQqMTIzkceU3bJNxw4Lkw1gWCQk=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/VendorRn.class
+SHA-256-Digest: /6Mg7RURlLNEOzlAUd386FTYGJ4F3uHy/kRbP0dzJt4=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$12.class
+SHA-256-Digest: GgyMe9hR8NyJvyuKywAFHHxiFBZXRzvEBd5mY/flBaE=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasTM
+ .class
+SHA-256-Digest: QRci1VjdSQwPQpONPdfiQrxXKguDWNRqOuxyY4mO+U8=
+
+Name: br/com/greatsoft/greaterp/common/FinnancialMath.class
+SHA-256-Digest: HuY49CgniNEhMcwr/HIs1jvSTkzrPrfQ99/jVTBoUME=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/Salesman.class
+SHA-256-Digest: 1K+P1wpGXi4y5woXzrIeIUlVAEMU/qGpbtjCbybf+6Q=
+
+Name: br/com/greatsoft/greaterp/common/DateUtil.class
+SHA-256-Digest: Vu1yR/P35DNf9ZJ1Lg6OQypTvO6llvCu/2+XLKRbe74=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/EnviadoDaoHb.cla
+ ss
+SHA-256-Digest: VCEV8bayQQKHuKPUNiScLCahf6aFE/mVElQCH9AUOsg=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$3.class
+SHA-256-Digest: Z2WKSC8jNlzd5957STIcEyh/Gz3IllE0Bfk6I9Qg0Tc=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView$2.class
+SHA-256-Digest: N0pOaZYuuk3j2J9juX71okB3E88LmvQjecz/S0war3M=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesmanView.class
+SHA-256-Digest: +KewNdLPrh0PXGIRGJceczlP1EKW/vK3vkaG8Gn8B0o=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasMa
+ ster$1.class
+SHA-256-Digest: W52AYDnnbGZ/4+/7fvw6YDrkPZVyAmuDRjV02etRPQk=
+
+Name: br/com/greatsoft/greaterp/controller/bean/VendorBean.class
+SHA-256-Digest: xrppA1UoLJzgd5Z5+lclX3QwgtOdFyvgMgr9J18KoYo=
+
+Name: br/com/greatsoft/greaterp/resource/h2-1.3.175.jar
+SHA-256-Digest: +DljUHw3zs+eze3GNN/PUJkRJ8jW9PZzIsYzhO8jE40=
+
+Name: br/com/greatsoft/greaterp/model/entity/finnance/FinnancialStatem
+ ent.class
+SHA-256-Digest: Kpb0INfMaTHae9thqf3L9OcKxXhtnsxxmGvN0NwMOlU=
+
+Name: br/com/greatsoft/greaterp/controller/ConfigController.class
+SHA-256-Digest: zPWoMQ4TRPomBeJXN5imCbXfG8sR6JINQkHXG/8v0aE=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView$2.class
+SHA-256-Digest: tf0GFTx5SO0CF5yUST4dQqb6k1rdWz3fiy+SaU26QFI=
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab$1.class
+SHA-256-Digest: xbARROlXzOaDIJDnKNKWXSQ+ETzBbEYsETj92W67Eyo=
+
+Name: br/com/greatsoft/greaterp/view/MainView$12.class
+SHA-256-Digest: xJeMAT9vCJnT0tdna7SWnGnUqVBnL6D/naUx4lE/EAY=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$9.class
+SHA-256-Digest: FoLJnB5NdIU7ukskxISBldZRxyfGy6mhev6cICEmTeg=
+
+Name: br/com/greatsoft/greaterp/common/wait/MailWait$1.class
+SHA-256-Digest: 1ob2cHToz902fvENpu1QJDENxlE/7z6BOMPyuFy0ZCg=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView$2.class
+SHA-256-Digest: QrQaXBhi+ZXk0TzElL9i05d/y1VkzLwmN/msVuQeH8c=
+
+Name: br/com/greatsoft/greaterp/controller/ConfigController$SalvarList
+ ener.class
+SHA-256-Digest: M9YWLo+SOe8jBCb31Zt0YpCuU8fR3n7kMidFqkwIIDA=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$18.class
+SHA-256-Digest: vL5P3clEYFD6bbN/0vC7pZZ8iNh6FULZiNt/De1McmQ=
+
+Name: br/com/greatsoft/greaterp/model/entity/supply/PurchaseHeader.cla
+ ss
+SHA-256-Digest: NaXS1ZSgJiWsjY5eHLez5TkKsHnmAXrGOaCytezs38o=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/SalesmanDaoHb.cl
+ ass
+SHA-256-Digest: zZk6KxlgOs6+98MFqf/GjcIAZzUsgZHpTHtd6QSOBHE=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$11.class
+SHA-256-Digest: uSU4X4GT0lVsP1wxCSWCNMDGIetHecpYslyk/j0PUtM=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView$3.class
+SHA-256-Digest: 5yq2fWwZrNthcsO1rpY8nNZUtQNPrqAaoOTi73vVugM=
+
+Name: br/com/greatsoft/greaterp/view/MainView$1.class
+SHA-256-Digest: XKmIkNeB/pTcUqN0u3+I5hpxamVKxRcPKzIs+zKPI6I=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListTM.class
+SHA-256-Digest: w1xZmN+ngtD65uOmsBlya0nAjrLOCaYJs8llKSe97Ag=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView$5$1.class
+SHA-256-Digest: VvZyp4xbdOHsKrje1+z4c44ALR0xMGlwDvC2t98A4T4=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView$5.class
+SHA-256-Digest: moFeZ3oPhlgxyv7ThPuNTykbVvhJ9d+8AOIRxHRcdMc=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorEditView$2.class
+SHA-256-Digest: BuFAn3JZal+sgIEosamI2C3/bvKAtFlwTT24+9Cq5DM=
+
+Name: br/com/greatsoft/greaterp/view/config/ConfigView$1.class
+SHA-256-Digest: jULpr2ns1hE/H0EcJ8WyVDpGKNaeQmRb3AdlqV3tSrg=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$14.class
+SHA-256-Digest: YZLZzZY68NIF1Oq90zKEnU8Cua1UUDDqbU2qb8XP9lU=
+
+Name: br/com/greatsoft/greaterp/model/util/HibernateUtil.class
+SHA-256-Digest: FI710cPUNjs19Bk7eng9N/QvePAacUkc6WZHq7JU1GQ=
+
+Name: br/com/greatsoft/greaterp/model/entity/inventory/Product.class
+SHA-256-Digest: yya1E/PxpPdo2Ak+5ATVNSsaHpBxkMJhsWMIwuaL5zM=
+
+Name: br/com/greatsoft/greaterp/resource/leia-me.txt
+SHA-256-Digest: d9A0ZFWJMrMLUkaCqfE25nEhwQiVcQ1LK2AG3F8S2gs=
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab$AcaoPesada.class
+SHA-256-Digest: aZQ1hdco1kDiMrYE0olupbvlFRHfkxBkZbXDKRdU2f0=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$17.class
+SHA-256-Digest: r8An2nfcEjpNZZgSA7qDR6UFR/TEXMIvR8suETng5E8=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/SaleFormDaoHb.cl
+ ass
+SHA-256-Digest: WCiHbGw3tRGjTBNlWr1QsnFtyJxxhwWefOPquydpDA4=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListTM.class
+SHA-256-Digest: MKvH5RJF2Wdtsgs5qkeMggC5HNv0VMI9zwgCH+ba2Dw=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView$3.class
+SHA-256-Digest: Ogzmr3zqvzAD/oYp4VyNG40RQypp2s+o93LFNnKFiw0=
+
+Name: br/com/greatsoft/greaterp/model/entity/finnance/BalanceSheet.cla
+ ss
+SHA-256-Digest: tc6G+3H+eLhB3D88eGjyk/cFNoHpW79GH7C1ty1y9Ok=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesmanView$1.class
+SHA-256-Digest: DGg9b+wSs6pxj7EDPwhshThx27lIBJKpDek/NvDNFG8=
+
+Name: br/com/greatsoft/greaterp/view/MainView$9.class
+SHA-256-Digest: DoebvH2VtkYORcJI9Vg5LDTKKN7VQ/4kKqWYVFbe5fo=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView$5$1.class
+SHA-256-Digest: sxAWii5g/romVNiRJfTj/11/iEedBY1sW8q60F9PeZ0=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductEditView$1.class
+SHA-256-Digest: 6S4R1DNGlSIX+gFf/RlXVyF3+AybaH/8QfG9q+O38sw=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$8.class
+SHA-256-Digest: /QQLqIc+30iChbAG/PBzmGk5VIm48BnyfqcT50+mJLc=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView$3.class
+SHA-256-Digest: TljiFUVXZzmPMk/dzQC5PnaHVFs37Hfq/IrfU/S2Sbw=
+
+Name: hibernate.cfg.xml
+SHA-256-Digest: HmSUUb8hhVKHvr5lpdJHvlAkwr099xdptcN8o9G80bo=
+
+Name: br/com/greatsoft/greaterp/controller/bean/SaleBean.class
+SHA-256-Digest: fWHNPg9Ww/Nby5RL97pxOZObNQhbhWRf1aWv1c6FjMU=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasMa
+ ster$2.class
+SHA-256-Digest: mVyJCv6/y6V8PkRAAeaY72Gc/bfdy0rz4ipP9Yp3WyE=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListTM.class
+SHA-256-Digest: 4jC2k3+MA0L/SRaR/TC4MnG1SN7Ps1WM+Y5XZhPy/S0=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/CustomerRn.class
+SHA-256-Digest: 0CL0czl8y6wiCF1r5sCEI+dscUqzA6pYkoz5nDoWasA=
+
+Name: br/com/greatsoft/greaterp/view/MainView$10.class
+SHA-256-Digest: wVBrWAoSxHZu3gshYRO1H7KCGSnBGUqXMSjcXYffmRU=
+
+Name: br/com/greatsoft/greaterp/model/entity/registry/Identification.c
+ lass
+SHA-256-Digest: Onnj6CXj8O0ZMh+AHVgUN9cPXypGRI0OxaQyPBPuq4Q=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/SaleItemDaoHb.cl
+ ass
+SHA-256-Digest: /Q/0+O5ZHd027RROhZz2eqVZtp4JsD22jxECcLZ4uRs=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView.class
+SHA-256-Digest: xvKU21ZXNeQZ1afgZs+zYCjFynyUOnQkY6OuIR45AGY=
+
+Name: br/com/greatsoft/greaterp/view/sales/SaleItemsTM.class
+SHA-256-Digest: cJaYf/YhoXuEhIpw3kiiRKWHhN3raU3cwzaLYo70wBc=
+
+Name: br/com/greatsoft/greaterp/view/util/ProgressBarView$1$1.class
+SHA-256-Digest: 097zNEOH0/xw121BrFWBP8Lm4eLXQET4Uinq4ZFgBzo=
+
+Name: br/com/greatsoft/greaterp/resource/image/mail-white.png
+SHA-256-Digest: wEJ2+2avgrs1718hW7R0n1rT7xyvsfoVrHkFYaT56aA=
+
+Name: br/com/greatsoft/greaterp/model/entity/supply/PurchaseItem.class
+SHA-256-Digest: +H42TWh8YrP1vor4i3boUiccgVzHuJbtE51rwbhnrEg=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesmanView$2$1.class
+SHA-256-Digest: 20wQNKTT0T3YX3FJb3lEgXWpMoDO/0+HFfE0UMw8IdE=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasMa
+ ster$5.class
+SHA-256-Digest: SEK5PmWsRhzEvO33TDR1Avx9PfUOimDrqq1F3S1iN2U=
+
+Name: br/com/greatsoft/greaterp/view/lab/Lab$Progress.class
+SHA-256-Digest: UeiHH2IgBWCXY/OGys0e9KoyPdPE1oyuxGPzUUlhYsw=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerListView$5.class
+SHA-256-Digest: PCVHk67HR5/urkWQ6CihXcXmogs22tOl2ylGpdhKlco=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView.class
+SHA-256-Digest: 7CqGv6SSfkR2PbiOLyLGBHdX/yHl00avkEufxl9WkRc=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerEditView.class
+SHA-256-Digest: hzYx7h+ZXFTrJ9E3L1ycHW7tBR93P5CWpWzZ0RRS69I=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$16.class
+SHA-256-Digest: vWz+teVxp0JhxM43IKON6bkYbe8jlZBP7tLOS94fyu0=
+
+Name: br/com/greatsoft/greaterp/view/img/logo-vof.jpg
+SHA-256-Digest: mDso6pKC+5lXSJtlcXZSTEwwmBCBTA0Ydgm2Wkgqe9k=
+
+Name: br/com/greatsoft/greaterp/view/sales/PdvView.class
+SHA-256-Digest: Phji44VXq52jPb11HKagPJt4gZfzM8MKFQAXvFCDcLU=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/SaleHeader.class
+SHA-256-Digest: TgsaIYvQjFxBtKzRf1qrlfwR3Qg5HZTpmaE7Zfmrwf4=
+
+Name: br/com/greatsoft/greaterp/view/MainView$3.class
+SHA-256-Digest: Nga7/drfEjsqtXLak18MkC32r1vwv4lRkTrQGMSTpqo=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$5.class
+SHA-256-Digest: KyThjUUMW4oSGDPtlDF1MaMBBox7v7D221VObsVIXfY=
+
+Name: br/com/greatsoft/greaterp/model/entity/registry/Address.class
+SHA-256-Digest: 0v5Y3HoRtX9Jfc63AGtbPxgbS4BbetRRxqwabmmELKA=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/ProductDaoHb.cla
+ ss
+SHA-256-Digest: 2NfCoVRraqJolEDM4Pnq2QLB3O00ocHr2enj7VqIMF8=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorEditView.class
+SHA-256-Digest: j5qj2Ee9y4jPUfSfeYKFe2rVGVZy1sSmnHG9q86reFY=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView$4.class
+SHA-256-Digest: ee0YIt9UOFxkFHY30VQWJqeuKHnizuYdoQ9Tux9TVt8=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/Dao.class
+SHA-256-Digest: N1rLVnYs1ax/Df9oHVcs38p0Htoy7sdpQttbP348KLs=
+
+Name: br/com/greatsoft/greaterp/common/MailSender$2.class
+SHA-256-Digest: NseEfnIo/xHumkBvW6E1sxO5QqmBUYJSwE2CGAHAtvs=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductEditView.class
+SHA-256-Digest: sOO2x0K40PulbYnuYJUZPIeY9XU1xTLRrZ5P48rsAJ0=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/SaleItem.class
+SHA-256-Digest: H8smWT4AC1fEUVU6r8wfBIvM9ZcrAcJI/RXgcfj0kXg=
+
+Name: br/com/greatsoft/greaterp/model/persistence/dao/VendorDaoHb.clas
+ s
+SHA-256-Digest: JbQ2IcNRTnARPY3MEa1KNKghA/OodnKQzFbCfllpMEU=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesListView$5.class
+SHA-256-Digest: GvRyB4BGyE1oPPpK08AXjoNj/DigXqONPkDtPiVClLw=
+
+Name: br/com/greatsoft/greaterp/view/vendor/VendorListView$5.class
+SHA-256-Digest: PVAugEtpEjkZYVB2bA0K7Mn9CO8MaifsuG8FApK71hw=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/SaleFormRn.class
+SHA-256-Digest: owN1i8z5KVlxhcsDfAZbBDmWp2iKy70EILnGzMjsGZw=
+
+Name: br/com/greatsoft/greaterp/common/FileUtil.class
+SHA-256-Digest: 6RpOiOMONAH+7ythuPk+fzcSCr6h/0qPDICnFfc/VEM=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$Progress.cla
+ ss
+SHA-256-Digest: 6HzOV897Cjg3Lyyy8nbYrueXT4bJYkDScdKpWRaTeJA=
+
+Name: br/com/greatsoft/greaterp/view/img/logo.png
+SHA-256-Digest: kfYkQmkuC6s9Zn9bwhkzaPWPCmBAiXmj+Pai9xn9VcE=
+
+Name: br/com/greatsoft/greaterp/view/MainView$4.class
+SHA-256-Digest: 17T108AanWCbxwlewQfScMnmyJkHtl9tB5+G58fQk6Q=
+
+Name: br/com/greatsoft/greaterp/common/MailSender.class
+SHA-256-Digest: QwxHm0cmXjRltc6gIRy4TM8X4Y7IStpkbvdipDAUHMk=
+
+Name: br/com/greatsoft/greaterp/controller/bean/CustomerBean.class
+SHA-256-Digest: oeDnbWvICGxXAyLvY/3dzS5CWyXlWa2pTMxofvDNoro=
+
+Name: br/com/greatsoft/greaterp/model/entity/sales/Enviado.class
+SHA-256-Digest: Xd/bG4lLOET1Wc3ZsYLWWtPpbQHJQx6JbXU354mcJSE=
+
+Name: br/com/greatsoft/greaterp/model/entity/finnance/AccountingRecord
+ .class
+SHA-256-Digest: hJPLftgbVdleo41LYjBpMWj5ONYFflRbe0pzS4DQbqQ=
+
+Name: br/com/greatsoft/greaterp/model/util/H2Server.class
+SHA-256-Digest: 2cccO4sVrSUeCOOXwNEfRx3xdoIoHn3FGdQKucUqG08=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$15.class
+SHA-256-Digest: tBpuu3b1040TaC65iMm2EnLCJw/VWVmTzrcuQrmnoOk=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductEditView$2.class
+SHA-256-Digest: zJS2jiGa8iYw/i4fYhp0imm1lHPpEdku6rNtoKP6UbE=
+
+Name: br/com/greatsoft/greaterp/model/persistence/rn/SalesmanRn.class
+SHA-256-Digest: /PjoP8IPXwbqpCIhj0GmXN0U+EUdBLbzIAq+xrBbQVw=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$20.class
+SHA-256-Digest: 4tp8wNBbrWa90F3nXiXlsMzK84bguz+BSFPQRRwM0tc=
+
+Name: br/com/greatsoft/greaterp/view/product/ProductListView.class
+SHA-256-Digest: s5OifgihdcH1LlmYfR5Mbz+y0VhUHx8CAqLJouNVpLw=
+
+Name: br/com/greatsoft/greaterp/view/sales/relatorio/RelatorioVendasMa
+ ster$4.class
+SHA-256-Digest: Slt+rRKyddh+byvv02/6ecJD2csgB9WMzGQbZAk1kkI=
+
+Name: br/com/greatsoft/greaterp/view/customer/CustomerEditView$2.class
+SHA-256-Digest: unEWq/GomaEY4/g78wZ2CYDeKW3Afhzw1ThROqUzQXU=
+
+Name: br/com/greatsoft/greaterp/view/sales/SalesAgentView$6.class
+SHA-256-Digest: VL1mqDhLUFqE0Yx7sKsyY1S55b9xILPFsd45MEBXYSE=
+

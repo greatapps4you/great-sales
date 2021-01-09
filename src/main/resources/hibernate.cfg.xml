@@ -1,0 +1,70 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- H2 Database 
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property> 
+        <property name="connection.driver_class">org.h2.Driver</property>--> 
+        <!--Client/Server-->   
+        <!--Remote   
+        <property name="connection.url">jdbc:h2:tcp://192.168.1.7:9081/c:/greatsoft/greatsales/db/greatsales</property>-->  
+        <!--Local
+        <property name="connection.url">jdbc:h2:tcp://localhost:9081/greatsoft/greatsales/db/greatsales</property>  -->       
+        
+        <!--Embedded
+        <property name="connection.url">jdbc:h2:greatsales/db/greatsales</property> 
+        <property name="connection.username">greatsoft</property>
+        <property name="connection.password">Wort12</property> --> 
+        
+        <!--Derby    
+        <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>  -->        
+        <!--Na URL não esquecer:  ...;create=true-->
+        <!--Embedded
+        <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
+        <property name="hibernate.connection.url">jdbc:derby:greatsales/db/greatsales;create=true</property>-->
+        <!--Client/Server
+        <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+        <property name="hibernate.connection.url">jdbc:derby://localhost:1527/greatsales/db/greatsales;create=true</property>        
+        <property name="connection.username">greatsoft</property>
+        <property name="connection.password">Wort12</property> -->   
+        
+        <!-- PostgreSQL 
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/greaterp</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">Wort12</property> --> 
+        
+        <!-- JDBC connection pool (use the built-in) 
+        <property name="connection.pool_size">10000</property>-->
+
+        <!-- Disable the second-level cache 
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
+
+        <!-- Echo all executed SQL to stdout 
+        <property name="show_sql">true</property>-->
+
+        <!-- Drop and re-create the database schema on startup 
+        <property name="hbm2ddl.auto">update</property>-->
+        
+        <!-- 
+        <property name="hibernate.current_session_context_class">thread</property>-->
+        <!-- Names the annotated entity class -->
+        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.AccountingGroup" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.AccountingRecord" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.BalanceSheet" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.finnance.FinnancialStatement" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.inventory.Inventory" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.inventory.Product" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.registry.Address" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.registry.Identification" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.Customer" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.Enviado" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.SaleForm" />        
+        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.SaleHeader" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.SaleItem" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.sales.Salesman" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.supply.PurchaseHeader" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.supply.PurchaseItem" />
+        <mapping class="br.com.greatsoft.greaterp.model.entity.supply.Vendor" />
+    </session-factory>
+</hibernate-configuration>
