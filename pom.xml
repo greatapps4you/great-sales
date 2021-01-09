@@ -8,6 +8,14 @@
     <artifactId>great-sales</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
 
         <!--Legacy-->
@@ -36,11 +44,11 @@
             <version>1.5.1</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>org.xhtmlrenderer</groupId>
-            <artifactId>core-renderer-minimal</artifactId>
-            <version>8.0</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.xhtmlrenderer</groupId>
+             <artifactId>core-renderer-minimal</artifactId>
+             <version>8.0</version>
+         </dependency>-->
 
         <dependency>
             <groupId>org.xhtmlrenderer</groupId>
@@ -48,11 +56,11 @@
             <version>R8</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>apache-xerces</groupId>
-            <artifactId>xml-apis</artifactId>
-            <version>2.9.1</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>apache-xerces</groupId>
+             <artifactId>xml-apis</artifactId>
+             <version>2.9.1</version>
+         </dependency>-->
 
         <dependency>
             <groupId>cglib</groupId>
@@ -78,17 +86,17 @@
             <version>0.9.1</version>
         </dependency>
 
-     <!--   <dependency>
-            <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-core</artifactId>
-            <version>4.2.1.CR1</version>
-        </dependency>-->
+        <!--   <dependency>
+               <groupId>org.infinispan</groupId>
+               <artifactId>infinispan-core</artifactId>
+               <version>4.2.1.CR1</version>
+           </dependency>-->
 
-    <!--    <dependency>
-            <groupId>org.jboss.cache</groupId>
-            <artifactId>jbosscache-core</artifactId>
-            <version>3.2.7.GA</version>
-        </dependency>-->
+        <!--    <dependency>
+                <groupId>org.jboss.cache</groupId>
+                <artifactId>jbosscache-core</artifactId>
+                <version>3.2.7.GA</version>
+            </dependency>-->
 
         <dependency>
             <groupId>opensymphony</groupId>
@@ -151,11 +159,11 @@
             <scope>test</scope>
         </dependency>
 
-     <!--   <dependency>
-            <groupId>hibernate</groupId>
-            <artifactId>hibernate3</artifactId>
-            <version>3.2.3.GA</version>
-        </dependency>-->
+        <!--   <dependency>
+               <groupId>hibernate</groupId>
+               <artifactId>hibernate3</artifactId>
+               <version>3.2.3.GA</version>
+           </dependency>-->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -172,11 +180,33 @@
 
     </dependencies>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>
+                                        br.com.greatsoft.greaterp.view.MainView
+                                    </mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

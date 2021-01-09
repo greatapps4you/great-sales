@@ -79,7 +79,7 @@ public class MainView extends JFrame {
                 String port = prop.getProperty("port");
                 String mode = prop.getProperty("mode");
                 if (mode.equals("client")) {
-                    H2Server.start(port);
+                    //H2Server.start(port);
                 }
             }
 
