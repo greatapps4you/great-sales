@@ -1,7 +1,9 @@
 package us.greatapps4you.greatsales.entities.accounting;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * <b>Double-entry bookkeeping</b>
@@ -32,12 +34,117 @@ import java.time.LocalDateTime;
  * Credit, bank account, $1500 (money came from the bank account)
  * Debit, rent expense, $1500 (money went to the rent expense account)
  */
-public class DoubleEntry {
+public class DoubleEntry implements Serializable {
+
+    private Long sequential;
+    private UUID uuid;
     private String description;
     private Account debited;
     private Account credited;
     private BigDecimal amount;
     private LocalDateTime transactionTime;
 
+    public DoubleEntry() {
+    }
 
+    public DoubleEntry(Long sequential, UUID uuid, String description, Account debited, Account credited, BigDecimal amount, LocalDateTime transactionTime) {
+        this.sequential = sequential;
+        this.uuid = uuid;
+        this.description = description;
+        this.debited = debited;
+        this.credited = credited;
+        this.amount = amount;
+        this.transactionTime = transactionTime;
+    }
+
+    public Long getSequential() {
+        return sequential;
+    }
+
+    public void setSequential(Long sequential) {
+        this.sequential = sequential;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Account getDebited() {
+        return debited;
+    }
+
+    public void setDebited(Account debited) {
+        this.debited = debited;
+    }
+
+    public Account getCredited() {
+        return credited;
+    }
+
+    public void setCredited(Account credited) {
+        this.credited = credited;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public LocalDateTime getTransactionTime() {
+        return transactionTime;
+    }
+
+    public void setTransactionTime(LocalDateTime transactionTime) {
+        this.transactionTime = transactionTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DoubleEntry that = (DoubleEntry) o;
+
+        if (!description.equals(that.description)) return false;
+        if (!debited.equals(that.debited)) return false;
+        if (!credited.equals(that.credited)) return false;
+        if (!amount.equals(that.amount)) return false;
+        return transactionTime.equals(that.transactionTime);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = description.hashCode();
+        result = 31 * result + debited.hashCode();
+        result = 31 * result + credited.hashCode();
+        result = 31 * result + amount.hashCode();
+        result = 31 * result + transactionTime.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "DoubleEntry{" +
+                "description='" + description + '\'' +
+                ", debited=" + debited +
+                ", credited=" + credited +
+                ", amount=" + amount +
+                ", transactionTime=" + transactionTime +
+                '}';
+    }
 }
