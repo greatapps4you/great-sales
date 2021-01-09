@@ -2,7 +2,6 @@ package br.com.greatsoft.greaterp.view.sales.relatorio;
 
 import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
 import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
-import br.com.greatsoft.greaterp.model.persistence.rn.SaleItemRn;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.HeadlessException;
@@ -128,7 +127,8 @@ public class RelatorioVendasMaster extends JFrame {
             formatter = new SimpleDateFormat("dd/MM/yyyy");
             dataIn = formatter.parse(dataInicial);
             Date dataFin = formatter.parse(dataFinal);
-            saleItems = (new SaleItemRn()).listarRelatorioComissoes(dataIn, dataFin, "SaleItem");
+            //FIXME: Review this code
+            //saleItems = (new SaleItemRn()).listarRelatorioComissoes(dataIn, dataFin, "SaleItem");
             this.totalComissoes.setText(Double.toString(this.calcularComissoes((List)saleItems)));
         } catch (Exception var7) {
             System.out.println("Erro ao tentar inicializar RelatorioVendasTM com as vendas deste mes");

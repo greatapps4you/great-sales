@@ -3,7 +3,6 @@ package br.com.greatsoft.greaterp.view.sales;
 import br.com.greatsoft.greaterp.controller.bean.ProductBean;
 import br.com.greatsoft.greaterp.model.entity.inventory.Product;
 import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
-import br.com.greatsoft.greaterp.model.persistence.rn.VendorRn;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -77,7 +76,8 @@ public class PdvView extends JDialog {
         try {
             this.modelFornecedorlJCB.removeAllElements();
             new ArrayList();
-            List<Vendor> vendors = (new VendorRn()).listar();
+            List<Vendor> vendors = null;
+                    //(new VendorRn()).listar();
             Iterator var2 = vendors.iterator();
 
             while(var2.hasNext()) {

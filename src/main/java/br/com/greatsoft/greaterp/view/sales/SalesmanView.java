@@ -3,7 +3,6 @@ package br.com.greatsoft.greaterp.view.sales;
 import br.com.greatsoft.greaterp.common.FileUtil;
 import br.com.greatsoft.greaterp.common.MailSender;
 import br.com.greatsoft.greaterp.model.entity.sales.Salesman;
-import br.com.greatsoft.greaterp.model.persistence.rn.SalesmanRn;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -50,7 +49,8 @@ public class SalesmanView extends JDialog {
 
     private void initFields() {
         try {
-            this.salesman = (Salesman)(new SalesmanRn()).carregar("id", 1L);
+            //FIXME: Review this code
+            //this.salesman = (Salesman)(new SalesmanRn()).carregar("id", 1L);
             this.nome.setText(this.salesman.getName());
             this.email.setText(this.salesman.getEmail());
             this.senha.setText(this.salesman.getPassword());
@@ -111,7 +111,8 @@ public class SalesmanView extends JDialog {
     private void salvar() {
         if (!this.areEmptyFields() && this.validateCredentials()) {
             this.initBean();
-            (new SalesmanRn()).salvar(this.salesman);
+            //FIXME: Review this code
+            //(new SalesmanRn()).salvar(this.salesman);
             JOptionPane.showMessageDialog(this.rootPane, "Salvo com sucesso!");
             this.dispose();
         } else {

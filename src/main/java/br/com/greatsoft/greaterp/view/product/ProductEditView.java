@@ -3,7 +3,6 @@ package br.com.greatsoft.greaterp.view.product;
 import br.com.greatsoft.greaterp.controller.bean.ProductBean;
 import br.com.greatsoft.greaterp.model.entity.inventory.Product;
 import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
-import br.com.greatsoft.greaterp.model.persistence.rn.VendorRn;
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -68,7 +67,9 @@ public class ProductEditView extends JDialog {
         try {
             this.modelFornecedorJCB.removeAllElements();
             new ArrayList();
-            List<Vendor> vendors = (new VendorRn()).listar();
+            //FIXME: Review this code
+            List<Vendor> vendors = null;
+                    //(new VendorRn()).listar();
             Iterator var2 = vendors.iterator();
 
             while(var2.hasNext()) {

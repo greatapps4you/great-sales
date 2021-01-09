@@ -5,8 +5,6 @@ import br.com.greatsoft.greaterp.controller.ConfigController;
 import br.com.greatsoft.greaterp.model.ConfigModel;
 import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
 import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
-import br.com.greatsoft.greaterp.model.persistence.rn.SaleItemRn;
-import br.com.greatsoft.greaterp.model.persistence.rn.SaleRn;
 import br.com.greatsoft.greaterp.model.util.H2Server;
 import br.com.greatsoft.greaterp.view.config.ConfigView;
 import br.com.greatsoft.greaterp.view.customer.CustomerListView;
@@ -272,7 +270,9 @@ public class MainView extends JFrame {
         System.out.println(password);
         if (password != null) {
             if (password.equals("Wort12")) {
-                List<SaleHeader> headers = (new SaleRn()).listar();
+                //FIXME: Review this code
+                List<SaleHeader> headers = null;
+                        //(new SaleRn()).listar();
                 Iterator var4 = headers.iterator();
 
                 while(var4.hasNext()) {
@@ -285,7 +285,8 @@ public class MainView extends JFrame {
                         try {
                             i.setSaleHeader(s);
                             System.out.println("Novo Cabecalho: " + i.getSaleHeader());
-                            (new SaleItemRn()).salvar(i);
+                            //FIXME: Review this code
+                            //(new SaleItemRn()).salvar(i);
                         } catch (Exception var9) {
                             System.out.println(i.getId() + "Nao contem SaleHeader");
                         }
@@ -305,14 +306,17 @@ public class MainView extends JFrame {
         System.out.println(password);
         if (password != null) {
             if (password.equals("Wort12")) {
-                List<SaleItem> itens = (new SaleItemRn()).listar();
+                //FIXME: Review this code
+                List<SaleItem> itens = null;
+                        //(new SaleItemRn()).listar();
                 Iterator var4 = itens.iterator();
 
                 while(var4.hasNext()) {
                     SaleItem i = (SaleItem)var4.next();
                     System.out.println("Header: " + i.getSaleHeader() + " Id Item: " + i.getId() + " Data Entrega: " + i.getDataEntrega());
                     if (i.getSaleHeader() == null) {
-                        (new SaleItemRn()).excluir(i);
+                        //FIXME: Review this code
+                        //(new SaleItemRn()).excluir(i);
                     }
                 }
             } else {

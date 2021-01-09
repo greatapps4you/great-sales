@@ -2,7 +2,6 @@ package br.com.greatsoft.greaterp.view.customer;
 
 import br.com.greatsoft.greaterp.controller.bean.CustomerBean;
 import br.com.greatsoft.greaterp.model.entity.sales.Customer;
-import br.com.greatsoft.greaterp.model.persistence.rn.CustomerRn;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -63,13 +62,15 @@ public class CustomerListView extends JDialog {
                 int linha = this.customerJT.getSelectedRow();
                 long id = (Long)this.modelo.getValueAt(linha, 7);
                 CustomerBean vendorDelBean = new CustomerBean();
-                Customer customerDelete = (Customer)(new CustomerRn()).carregar("id", id);
-                if (vendorDelBean.excluir(customerDelete)) {
+                //FIXME: Review this code
+                //Customer customerDelete = (Customer)(new CustomerRn()).carregar("id", id);
+                //FIXME: Review this code
+                /*if (vendorDelBean.excluir(customerDelete)) {
                     this.atualizarTabela();
                     JOptionPane.showMessageDialog(this.rootPane, "Excluído com sucesso");
                 } else {
                     JOptionPane.showMessageDialog(this.rootPane, "Registro não pode ser excluído\npois está sendo referenciado em outra tabela!");
-                }
+                }*/
             } catch (Exception var7) {
                 System.out.println("Tentou excluir registro sem selecionar linha.");
             }

@@ -1,7 +1,6 @@
 package br.com.greatsoft.greaterp.model.entity.sales.util;
 
 import br.com.greatsoft.greaterp.model.entity.sales.SaleForm;
-import br.com.greatsoft.greaterp.model.persistence.rn.SaleFormRn;
 
 public class InitSaleForm {
     public InitSaleForm() {
@@ -11,7 +10,8 @@ public class InitSaleForm {
         SaleForm form = new SaleForm();
         form.setDescription("Formulário VOF");
         form.setHtmlTemplate("");
-        (new SaleFormRn()).salvar(form);
+        //FIXME: Review this code
+        //(new SaleFormRn()).salvar(form);
     }
 
     private String generateHtml() {

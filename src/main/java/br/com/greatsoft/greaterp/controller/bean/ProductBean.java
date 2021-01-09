@@ -1,7 +1,6 @@
 package br.com.greatsoft.greaterp.controller.bean;
 
 import br.com.greatsoft.greaterp.model.entity.inventory.Product;
-import br.com.greatsoft.greaterp.model.persistence.rn.ProductRn;
 import java.io.Serializable;
 import java.util.List;
 
@@ -24,7 +23,8 @@ public class ProductBean implements Serializable {
 
     public void salvar() {
         try {
-            (new ProductRn()).salvar(this.product);
+            //FIXME: Review this code
+            //(new ProductRn()).salvar(this.product);
             this.lista = null;
             this.product = null;
         } catch (Exception var2) {
@@ -36,7 +36,8 @@ public class ProductBean implements Serializable {
 
     public boolean excluir(Product product) {
         try {
-            (new ProductRn()).excluir(product);
+            //FIXME: Review this code
+            //(new ProductRn()).excluir(product);
             this.lista = null;
             this.product = new Product();
             System.out.println("Produto excluído!");
@@ -53,7 +54,9 @@ public class ProductBean implements Serializable {
     }
 
     public Product getProduct(long id) {
-        return this.product == null ? (Product)(new ProductRn()).carregar("id", id) : this.product;
+        //FIXME: Review this code
+        return null;
+        //return this.product == null ? (Product)(new ProductRn()).carregar("id", id) : this.product;
     }
 
     public void setProduct(Product product) {
@@ -62,7 +65,8 @@ public class ProductBean implements Serializable {
 
     public List<Product> getLista() {
         if (this.lista == null) {
-            this.lista = (new ProductRn()).listar();
+            //FIXME: Review this code
+            //this.lista = (new ProductRn()).listar();
         }
 
         return this.lista;

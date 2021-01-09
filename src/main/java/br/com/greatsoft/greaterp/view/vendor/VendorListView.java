@@ -2,7 +2,6 @@ package br.com.greatsoft.greaterp.view.vendor;
 
 import br.com.greatsoft.greaterp.controller.bean.VendorBean;
 import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
-import br.com.greatsoft.greaterp.model.persistence.rn.VendorRn;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -63,7 +62,9 @@ public class VendorListView extends JDialog {
                 int linha = this.vendorsJT.getSelectedRow();
                 long id = (Long)this.modelo.getValueAt(linha, 7);
                 VendorBean vendorDelBean = new VendorBean();
-                Vendor vendorDelete = (Vendor)(new VendorRn()).carregar("id", id);
+                //FIXME: Review this code
+                Vendor vendorDelete = null;
+                        //(Vendor)(new VendorRn()).carregar("id", id);
                 if (vendorDelBean.excluir(vendorDelete)) {
                     this.atualizarTabela();
                     JOptionPane.showMessageDialog(this.rootPane, "Excluído com sucesso");

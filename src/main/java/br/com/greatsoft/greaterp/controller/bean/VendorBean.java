@@ -3,7 +3,6 @@ package br.com.greatsoft.greaterp.controller.bean;
 import br.com.greatsoft.greaterp.model.entity.registry.Address;
 import br.com.greatsoft.greaterp.model.entity.registry.Identification;
 import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
-import br.com.greatsoft.greaterp.model.persistence.rn.VendorRn;
 import java.io.Serializable;
 import java.util.List;
 
@@ -41,7 +40,8 @@ public class VendorBean implements Serializable {
 
     public void salvar() {
         try {
-            (new VendorRn()).salvar(this.vendor);
+            //FIXME: Review this code
+            //(new VendorRn()).salvar(this.vendor);
             this.lista = null;
             this.vendor = null;
         } catch (Exception var2) {
@@ -53,7 +53,8 @@ public class VendorBean implements Serializable {
 
     public boolean excluir(Vendor vendor) {
         try {
-            (new VendorRn()).excluir(vendor);
+            //FIXME: Review this code
+            //(new VendorRn()).excluir(vendor);
             this.lista = null;
             this.vendor = new Vendor();
             System.out.println("Fornecedor excluído!");
@@ -70,7 +71,9 @@ public class VendorBean implements Serializable {
     }
 
     public Vendor getVendor(long id) {
-        return this.vendor == null ? (Vendor)(new VendorRn()).carregar("id", id) : this.vendor;
+        //FIXME: Review this code
+        return null;
+        //return this.vendor == null ? (Vendor)(new VendorRn()).carregar("id", id) : this.vendor;
     }
 
     public void setVendor(Vendor vendor) {
@@ -79,7 +82,8 @@ public class VendorBean implements Serializable {
 
     public List<Vendor> getLista() {
         if (this.lista == null) {
-            this.lista = (new VendorRn()).listar();
+            //FIXME: Review this code
+           // this.lista = (new VendorRn()).listar();
         }
 
         return this.lista;

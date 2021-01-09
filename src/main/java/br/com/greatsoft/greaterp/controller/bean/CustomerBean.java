@@ -3,7 +3,6 @@ package br.com.greatsoft.greaterp.controller.bean;
 import br.com.greatsoft.greaterp.model.entity.registry.Address;
 import br.com.greatsoft.greaterp.model.entity.registry.Identification;
 import br.com.greatsoft.greaterp.model.entity.sales.Customer;
-import br.com.greatsoft.greaterp.model.persistence.rn.CustomerRn;
 import java.io.Serializable;
 import java.util.List;
 
@@ -41,7 +40,8 @@ public class CustomerBean implements Serializable {
 
     public void salvar() {
         try {
-            (new CustomerRn()).salvar(this.customer);
+            //FIXME: Review this code
+            //(new CustomerRn()).salvar(this.customer);
             this.lista = null;
             this.customer = null;
         } catch (Exception var2) {
@@ -53,7 +53,8 @@ public class CustomerBean implements Serializable {
 
     public boolean excluir(Customer customer) {
         try {
-            (new CustomerRn()).excluir(customer);
+            //FIXME: Review this code
+            //(new CustomerRn()).excluir(customer);
             this.lista = null;
             this.customer = new Customer();
             System.out.println("Cliente excluído!");
@@ -70,7 +71,9 @@ public class CustomerBean implements Serializable {
     }
 
     public Customer getCustomer(long id) {
-        return this.customer == null ? (Customer)(new CustomerRn()).carregar("id", id) : this.customer;
+        //FIXME: Review this code
+        return null;
+        //return this.customer == null ? (Customer)(new CustomerRn()).carregar("id", id) : this.customer;
     }
 
     public void setCustomer(Customer customer) {
@@ -79,7 +82,8 @@ public class CustomerBean implements Serializable {
 
     public List<Customer> getLista() {
         if (this.lista == null) {
-            this.lista = (new CustomerRn()).listar();
+            //FIXME: Review this code
+           // this.lista = (new CustomerRn()).listar();
         }
 
         return this.lista;

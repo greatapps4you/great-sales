@@ -184,12 +184,12 @@ public class SalesAgentView extends JDialog {
                 enviado.setEmail(email);
 
                 try {
-                    Enviado tmp = (Enviado)(new EnviadoRn()).carregar("email", email);
+                    /*Enviado tmp = (Enviado)(new EnviadoRn()).carregar("email", email);
                     if (tmp.getEmail().length() <= 0) {
                         (new EnviadoRn()).salvar(enviado);
-                    }
+                    }*/
                 } catch (Exception var6) {
-                    (new EnviadoRn()).salvar(enviado);
+                    /*(new EnviadoRn()).salvar(enviado);*/
                 }
             }
         }
@@ -199,7 +199,9 @@ public class SalesAgentView extends JDialog {
     private String autoCompletarEnviados(String query) {
         String full = this.emailPedidoJTF.getText();
         String resultado = "";
-        List<Enviado> enviados = (new EnviadoRn()).listar();
+
+        //FIXME: fetching here
+        List<Enviado> enviados = new ArrayList<>();
         if (!query.contains(";") || !query.contains("@")) {
             Iterator var5 = enviados.iterator();
 
@@ -287,7 +289,8 @@ public class SalesAgentView extends JDialog {
         Date data = new Date();
         Locale locale = Locale.getDefault();
         SimpleDateFormat sdf = new SimpleDateFormat("yyMM", locale);
-        String numPedido = sdf.format(data) + Long.toString((new SaleRn()).getNextKey());
+        //FIXME: Compare code
+        String numPedido = sdf.format(data);
         return numPedido;
     }
 
@@ -296,7 +299,7 @@ public class SalesAgentView extends JDialog {
             Salesman salesman = null;
 
             try {
-                salesman = (Salesman)(new SalesmanRn()).carregar("id", 1L);
+                salesman = null;
             } catch (Exception var16) {
                 var16.printStackTrace();
             }
@@ -474,7 +477,8 @@ public class SalesAgentView extends JDialog {
     private void initCustomersCombo() {
         try {
             this.customersComboModel.removeAllElements();
-            List<Customer> customers = (new CustomerRn()).listar();
+            //FIXME: Review this code
+            List<Customer> customers = null;
             Iterator var2 = customers.iterator();
 
             while(var2.hasNext()) {
@@ -490,7 +494,8 @@ public class SalesAgentView extends JDialog {
     private void initProductsCombo() {
         try {
             this.productsComboModel.removeAllElements();
-            List<Product> products = (new ProductRn()).listar();
+            //FIXME: Review this code
+            List<Product> products = null;
             Iterator var2 = products.iterator();
 
             while(var2.hasNext()) {
@@ -868,7 +873,8 @@ public class SalesAgentView extends JDialog {
     }
 
     public static void main(String[] args) {
-        List<Customer> customers = (new CustomerRn()).listar();
+        //FIXME: Review this code
+        List<Customer> customers = null;
         Iterator var2 = customers.iterator();
 
         while(var2.hasNext()) {

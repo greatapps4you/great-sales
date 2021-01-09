@@ -4,10 +4,6 @@ import br.com.greatsoft.greaterp.model.entity.inventory.Product;
 import br.com.greatsoft.greaterp.model.entity.sales.Customer;
 import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
 import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
-import br.com.greatsoft.greaterp.model.persistence.rn.CustomerRn;
-import br.com.greatsoft.greaterp.model.persistence.rn.ProductRn;
-import br.com.greatsoft.greaterp.model.persistence.rn.SaleItemRn;
-import br.com.greatsoft.greaterp.model.persistence.rn.SaleRn;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,11 +21,13 @@ public class SaleBean implements Serializable {
     public static void main(String[] args) {
         SaleBean saleBean = new SaleBean();
         SaleHeader saleHeader = new SaleHeader();
-        Customer customer = (Customer)(new CustomerRn()).carregar("id", 1L);
+        //FIXME: Review this code
+        Customer customer = null;
         saleHeader.setCustomer(customer);
         saleHeader.setDataPedido(new Date());
         SaleItem item = new SaleItem();
-        Product product = (Product)(new ProductRn()).carregar("id", 1L);
+        //FIXME: Review this code
+        Product product = null;
         double quantity = 14000.0D;
         double unPrice = 7.69D;
         item.setProduct(product);
@@ -51,7 +49,8 @@ public class SaleBean implements Serializable {
 
     public void salvar() {
         try {
-            (new SaleRn()).salvar(this.saleHeader);
+            //FIXME: Review this code
+            //(new SaleRn()).salvar(this.saleHeader);
             this.lista = null;
             this.saleHeader = null;
         } catch (Exception var2) {
@@ -63,7 +62,8 @@ public class SaleBean implements Serializable {
 
     public boolean excluir(SaleHeader saleHeader) {
         try {
-            (new SaleRn()).excluir(saleHeader);
+            //FIXME: Review this code
+            //(new SaleRn()).excluir(saleHeader);
             this.lista = null;
             this.saleHeader = new SaleHeader();
             System.out.println("Venda excluída!");
@@ -79,7 +79,9 @@ public class SaleBean implements Serializable {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dataIn = formatter.parse(dataInicial);
         Date dataFin = formatter.parse(dataFinal);
-        return (new SaleItemRn()).listarRelatorioComissoes(dataIn, dataFin, "SaleItem");
+        //FIXME: Review this code
+        return null;
+        //return (new SaleItemRn()).listarRelatorioComissoes(dataIn, dataFin, "SaleItem");
     }
 
     public void novo() {
@@ -87,7 +89,9 @@ public class SaleBean implements Serializable {
     }
 
     public SaleHeader getSaleHeader(long id) {
-        return this.saleHeader == null ? (SaleHeader)(new SaleRn()).carregar("id", id) : this.saleHeader;
+        return null;
+        //FIXME: Review this code
+        //return this.saleHeader == null ? (SaleHeader)(new SaleRn()).carregar("id", id) : this.saleHeader;
     }
 
     public void setSaleHeader(SaleHeader saleHeader) {
@@ -96,7 +100,8 @@ public class SaleBean implements Serializable {
 
     public List<SaleHeader> getLista() {
         if (this.lista == null) {
-            this.lista = (new SaleRn()).listarSaleHeader();
+            return null;
+            //this.lista = (new SaleRn()).listarSaleHeader();
         }
 
         return this.lista;
