@@ -1,60 +1,80 @@
 package us.greatapps4you.greatsales.entities.inventory;
 
-import us.greatapps4you.greatsales.entities.supply.Vendor;
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Product implements Serializable {
 
-    private long id;
-    private String barCode;
-    private Vendor vendor;
+    private Long sequential;
+    private UUID uuid;
+    private String sku;
     private String description;
-    private String characteristics;
 
     public Product() {
     }
 
-    public String toString() {
-        return this.description + " - " + this.characteristics;
+    public Product(Long sequential, UUID uuid, String sku, String description) {
+        this.sequential = sequential;
+        this.uuid = uuid;
+        this.sku = sku;
+        this.description = description;
     }
 
-    public long getId() {
-        return this.id;
+    public Long getSequential() {
+        return sequential;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setSequential(Long sequential) {
+        this.sequential = sequential;
     }
 
-    public String getBarCode() {
-        return this.barCode;
+    public UUID getUuid() {
+        return uuid;
     }
 
-    public void setBarCode(String barCode) {
-        this.barCode = barCode;
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
-    public Vendor getVendor() {
-        return this.vendor;
+    public String getSku() {
+        return sku;
     }
 
-    public void setVendor(Vendor vendor) {
-        this.vendor = vendor;
+    public void setSku(String sku) {
+        this.sku = sku;
     }
 
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getCharacteristics() {
-        return this.characteristics;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (!sku.equals(product.sku)) return false;
+        return description.equals(product.description);
     }
 
-    public void setCharacteristics(String characteristics) {
-        this.characteristics = characteristics;
+    @Override
+    public int hashCode() {
+        int result = sku.hashCode();
+        result = 31 * result + description.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "sku='" + sku + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
