@@ -3,12 +3,6 @@ package br.com.greatsoft.greaterp.view.document;
 import br.com.greatsoft.greaterp.common.DateUtil;
 import br.com.greatsoft.greaterp.common.FileUtil;
 import br.com.greatsoft.greaterp.common.FinnancialMath;
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
-import br.com.greatsoft.greaterp.model.entity.registry.Address;
-import br.com.greatsoft.greaterp.model.entity.registry.Identification;
-import br.com.greatsoft.greaterp.model.entity.sales.Customer;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
 import com.lowagie.text.DocumentException;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -21,13 +15,18 @@ import java.util.Map;
 import java.util.Map.Entry;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
+import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.registration.Identification;
+import us.greatapps4you.greatsales.entities.sale.Customer;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
 
 public class Translator {
     public Translator() {
         FileUtil.exportLogo();
     }
 
-    public String translateSaleHeader(SaleHeader saleHeader) throws IllegalArgumentException, IllegalAccessException {
+    public String translateSaleHeader(Sale saleHeader) throws IllegalArgumentException, IllegalAccessException {
         String html = this.getSaleHeaderHtml();
         Map dictionary = this.initDictionary(saleHeader);
 

@@ -1,8 +1,8 @@
 package br.com.greatsoft.greaterp.view.sales;
 
 import br.com.greatsoft.greaterp.controller.bean.ProductBean;
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
-import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
