@@ -6,13 +6,7 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.inventory;
+package us.greatapps4you.greatsales.desktop;
 
-public enum ProductUnit {
-    UNITY,
-    TON,
-    KG,
-    G,
-    L,
-    ML
+public class GreatSalesController {
 }
