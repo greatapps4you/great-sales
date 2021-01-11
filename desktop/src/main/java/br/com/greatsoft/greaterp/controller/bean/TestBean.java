@@ -1,6 +1,7 @@
 package br.com.greatsoft.greaterp.controller.bean;
 
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
+
 import java.text.ParseException;
 import java.util.Iterator;
 import java.util.List;
@@ -18,7 +19,7 @@ public class TestBean {
 
         while(var4.hasNext()) {
             SaleItem v = (SaleItem)var4.next();
-            System.out.println("Num. Pedido: " + v.getSaleHeader() + "Data Entrega: " + v + "Data Entrega: " + v.getTotalPrice());
+            //System.out.println("Num. Pedido: " + v.getSaleHeader() + "Data Entrega: " + v + "Data Entrega: " + v.getTotalPrice());
         }
 
     }

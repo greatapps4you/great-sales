@@ -3,8 +3,6 @@ package br.com.greatsoft.greaterp.view;
 import br.com.greatsoft.greaterp.common.FileUtil;
 import br.com.greatsoft.greaterp.controller.ConfigController;
 import br.com.greatsoft.greaterp.model.ConfigModel;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
 import br.com.greatsoft.greaterp.model.util.H2Server;
 import br.com.greatsoft.greaterp.view.config.ConfigView;
 import br.com.greatsoft.greaterp.view.customer.CustomerListView;
@@ -15,6 +13,9 @@ import br.com.greatsoft.greaterp.view.sales.SalesmanView;
 import br.com.greatsoft.greaterp.view.sales.relatorio.RelatorioVendasMaster;
 import br.com.greatsoft.greaterp.view.util.ProgressBarView;
 import br.com.greatsoft.greaterp.view.vendor.VendorListView;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -231,7 +232,7 @@ public class MainView extends JFrame {
     }
 
     private void iniciarVendaJMIActionPerformed(ActionEvent evt) {
-        SalesAgentView sale = new SalesAgentView(new JFrame(), false, (SaleHeader)null);
+        SalesAgentView sale = new SalesAgentView(new JFrame(), false, (Sale)null);
         sale.setVisible(true);
     }
 
@@ -271,24 +272,24 @@ public class MainView extends JFrame {
         if (password != null) {
             if (password.equals("Wort12")) {
                 //FIXME: Review this code
-                List<SaleHeader> headers = null;
+                List<Sale> headers = null;
                         //(new SaleRn()).listar();
                 Iterator var4 = headers.iterator();
 
                 while(var4.hasNext()) {
-                    SaleHeader s = (SaleHeader)var4.next();
+                    Sale s = (Sale)var4.next();
                     Iterator var6 = s.getItems().iterator();
 
                     while(var6.hasNext()) {
                         SaleItem i = (SaleItem)var6.next();
 
                         try {
-                            i.setSaleHeader(s);
-                            System.out.println("Novo Cabecalho: " + i.getSaleHeader());
+                            //i.setSaleHeader(s);
+                            //System.out.println("Novo Cabecalho: " + i.getSaleHeader());
                             //FIXME: Review this code
                             //(new SaleItemRn()).salvar(i);
                         } catch (Exception var9) {
-                            System.out.println(i.getId() + "Nao contem SaleHeader");
+                           // System.out.println(i.getId() + "Nao contem SaleHeader");
                         }
                     }
                 }
@@ -313,11 +314,11 @@ public class MainView extends JFrame {
 
                 while(var4.hasNext()) {
                     SaleItem i = (SaleItem)var4.next();
-                    System.out.println("Header: " + i.getSaleHeader() + " Id Item: " + i.getId() + " Data Entrega: " + i.getDataEntrega());
-                    if (i.getSaleHeader() == null) {
+                    //System.out.println("Header: " + i.getSaleHeader() + " Id Item: " + i.getId() + " Data Entrega: " + i.getDataEntrega());
+                   /* if (i.getSaleHeader() == null) {
                         //FIXME: Review this code
                         //(new SaleItemRn()).excluir(i);
-                    }
+                    }*/
                 }
             } else {
                 JOptionPane.showMessageDialog(this.rootPane, "Somente O Administrador do Sistemapode utilizar esta funcionalidade!");

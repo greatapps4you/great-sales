@@ -1,8 +1,9 @@
 package br.com.greatsoft.greaterp.controller.bean;
 
-import br.com.greatsoft.greaterp.model.entity.registry.Address;
-import br.com.greatsoft.greaterp.model.entity.registry.Identification;
-import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
+import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.registration.Identification;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,9 +18,9 @@ public class VendorBean implements Serializable {
         VendorBean vendorBean = new VendorBean();
         Vendor vendor = new Vendor();
         Identification ident = new Identification();
-        ident.setNomeFantasia("José Esteves de Souza Neto");
+       /* ident.setNomeFantasia("José Esteves de Souza Neto");
         ident.setCnpj("02966076909");
-        ident.setInscEst("3154049-DF");
+        ident.setInscEst("3154049-DF");*/
         Address address = new Address();
         address.setStreet("Rua Pereira Passos");
         address.setNumber("838");

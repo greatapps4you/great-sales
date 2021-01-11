@@ -1,7 +1,8 @@
 package br.com.greatsoft.greaterp.view.sales;
 
 import br.com.greatsoft.greaterp.controller.bean.SaleBean;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -45,13 +46,13 @@ public class SalesListView extends JDialog {
 
     private void editar() {
         int linha = this.salesJT.getSelectedRow();
-        SaleHeader saleHeader = (SaleHeader)this.salesListTM.getValueAt(linha, 4);
+        Sale saleHeader = (Sale)this.salesListTM.getValueAt(linha, 4);
         SalesAgentView editDlg = new SalesAgentView(new JFrame(), false, saleHeader);
         editDlg.setVisible(true);
     }
 
     private void novo() {
-        SalesAgentView editDlg = new SalesAgentView(new JFrame(), true, (SaleHeader)null);
+        SalesAgentView editDlg = new SalesAgentView(new JFrame(), true, (Sale)null);
         editDlg.setVisible(true);
     }
 
@@ -60,7 +61,7 @@ public class SalesListView extends JDialog {
         if (option == 0) {
             try {
                 int linha = this.salesJT.getSelectedRow();
-                SaleHeader saleDel = (SaleHeader)this.salesListTM.getValueAt(linha, 4);
+                Sale saleDel = (Sale)this.salesListTM.getValueAt(linha, 4);
                 SaleBean saleDelBean = new SaleBean();
                 if (saleDelBean.excluir(saleDel)) {
                     this.atualizarTabela();
@@ -94,7 +95,7 @@ public class SalesListView extends JDialog {
 
     private void inicializarModelo() {
         this.saleBean = new SaleBean();
-        List<SaleHeader> sales = this.saleBean.getLista();
+        List<Sale> sales = this.saleBean.getLista();
         if (sales != null) {
             this.salesListTM = new SalesListTM(sales);
         }

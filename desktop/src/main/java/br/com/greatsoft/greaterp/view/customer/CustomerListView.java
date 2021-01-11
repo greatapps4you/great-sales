@@ -1,7 +1,8 @@
 package br.com.greatsoft.greaterp.view.customer;
 
 import br.com.greatsoft.greaterp.controller.bean.CustomerBean;
-import br.com.greatsoft.greaterp.model.entity.sales.Customer;
+import us.greatapps4you.greatsales.entities.sale.Customer;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;

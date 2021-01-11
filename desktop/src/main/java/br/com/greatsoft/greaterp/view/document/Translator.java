@@ -128,7 +128,12 @@ public class Translator {
                             for(Iterator var33 = saleItems.iterator(); var33.hasNext(); ++rows) {
                                 Object o = var33.next();
                                 SaleItem sl = (SaleItem)o;
-                                addressField = addressField + "<tr><td>" + sl.getProduct().getDescription() + "</td>" + "<td>" + FinnancialMath.formatarMoeda(sl.getQuantity(), 0) + "</td>" + "<td>" + sl.getProduct().getCharacteristics() + "</td>" + "<td>" + DateUtil.toStringDDmmYYYY(sl.getDataEntrega()) + "</td>" + "<td>" + FinnancialMath.formatarMoeda(sl.getUnPrice(), 2) + "</td>" + "<td>" + FinnancialMath.formatarMoeda(sl.getTotalPrice(), 2) + "</td>" + "</tr>";
+                                //FIXME: DELIVERY DATE FIELD MISSING
+                                addressField = addressField + "<tr><td>" + sl.getInventory().getProduct().getDescription() + "</td>" + "<td>" + FinnancialMath.formatarMoeda(sl.getQuantity().doubleValue(), 0) + "</td>" + "<td>" + sl.getInventory().getProduct().getDescription() + "</td>" + "<td>" + "DELIVERY DATE FIELD MISSING" + "</td>" + "<td>"
+                                        //+ FinnancialMath.formatarMoeda(sl.getUnPrice(), 2)
+                                        + "</td>" + "<td>"
+                                        //+ FinnancialMath.formatarMoeda(sl.getTotalPrice(), 2)
+                                        + "</td>" + "</tr>";
                             }
 
                             int numRowsToAdd = maxRows - rows;
@@ -192,13 +197,13 @@ public class Translator {
     }
 
     public static void main(String[] args) throws SAXException, DocumentException, ParserConfigurationException, IOException, IllegalArgumentException, IllegalAccessException, SAXException {
-        SaleHeader saleHeader = new SaleHeader();
+        Sale saleHeader = new Sale();
         Customer customer = new Customer();
         Identification ide = new Identification();
-        ide.setNomeFantasia("José Esteves de Souza Neto");
+        /*ide.setNomeFantasia("José Esteves de Souza Neto");
         ide.setCnpj("02966076909");
         ide.setInscEst("789987");
-        ide.setInscMun("123321");
+        ide.setInscMun("123321");*/
         Address add = new Address();
         add.setStreet("Rua Pereira Passos");
         add.setNumber("838");
@@ -212,7 +217,7 @@ public class Translator {
         saleHeader.setCustomer(customer);
         List items = new ArrayList();
         SaleItem item = new SaleItem();
-        item.setQuantity(14000.0D);
+       /* item.setQuantity(14000.0D);
         item.setUnPrice(6.5D);
         item.setDataEntrega(new Date());
         double subTotal = item.getQuantity() * item.getUnPrice();
@@ -237,7 +242,7 @@ public class Translator {
         String defaulAddress = saleHeader.getCustomer().getAddress().getStreet() + ", " + saleHeader.getCustomer().getAddress().getNumber() + " - Bairro " + saleHeader.getCustomer().getAddress().getNeighborhood() + " - CEP " + saleHeader.getCustomer().getAddress().getZip() + " - " + saleHeader.getCustomer().getAddress().getCity() + "-" + saleHeader.getCustomer().getAddress().getCountryState();
         saleHeader.setEndEntrega(defaulAddress);
         saleHeader.setEndFatura(defaulAddress);
-        PdfCreator creator = new PdfCreator();
+        */PdfCreator creator = new PdfCreator();
         Translator trans = new Translator();
         String html = trans.translateSaleHeader(saleHeader);
         creator.createFromHtml(html, "pedido");

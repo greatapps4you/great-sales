@@ -2,7 +2,8 @@ package br.com.greatsoft.greaterp.view.product;
 
 import br.com.greatsoft.greaterp.common.FileUtil;
 import br.com.greatsoft.greaterp.controller.bean.ProductBean;
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -46,13 +47,13 @@ public class ProductListView extends JDialog {
     private void editar() {
         int linha = this.productJT.getSelectedRow();
         Product produto = (Product)this.modelo.getValueAt(linha, 1);
-        ProductEditView editDlg = new ProductEditView(new JFrame(), true, produto);
-        editDlg.setVisible(true);
+        //ProductEditView editDlg = new ProductEditView(new JFrame(), true, produto);
+        //editDlg.setVisible(true);
     }
 
     private void novo() {
-        ProductEditView editDlg = new ProductEditView(new JFrame(), true, (Product)null);
-        editDlg.setVisible(true);
+        //ProductEditView editDlg = new ProductEditView(new JFrame(), true, (Product)null);
+        //editDlg.setVisible(true);
     }
 
     private void excluir() {

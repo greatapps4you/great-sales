@@ -2,7 +2,8 @@ package br.com.greatsoft.greaterp.view.sales;
 
 import br.com.greatsoft.greaterp.common.FileUtil;
 import br.com.greatsoft.greaterp.common.MailSender;
-import br.com.greatsoft.greaterp.model.entity.sales.Salesman;
+import us.greatapps4you.greatsales.entities.sale.Salesman;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -51,23 +52,24 @@ public class SalesmanView extends JDialog {
         try {
             //FIXME: Review this code
             //this.salesman = (Salesman)(new SalesmanRn()).carregar("id", 1L);
-            this.nome.setText(this.salesman.getName());
+            /*this.nome.setText(this.salesman.getName());
             this.email.setText(this.salesman.getEmail());
             this.senha.setText(this.salesman.getPassword());
             this.fone.setText(this.salesman.getPhone());
-            this.celular.setText(this.salesman.getCellPhone());
+            this.celular.setText(this.salesman.getCellPhone());*/
         } catch (Exception var2) {
+            var2.printStackTrace();
         }
 
     }
 
     private void initBean() {
-        this.salesman = new Salesman();
+        /*this.salesman = new Salesman();
         this.salesman.setEmail(this.email.getText().trim());
         this.salesman.setName(this.nome.getText());
         this.salesman.setPassword(new String(this.senha.getPassword()));
         this.salesman.setPhone(this.fone.getText());
-        this.salesman.setCellPhone(this.celular.getText());
+        this.salesman.setCellPhone(this.celular.getText());*/
     }
 
     private boolean areEmptyFields() {

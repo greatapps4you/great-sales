@@ -2,6 +2,7 @@ package br.com.greatsoft.greaterp.view.sales;
 
 import br.com.greatsoft.greaterp.controller.bean.ProductBean;
 import us.greatapps4you.greatsales.entities.inventory.Product;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -62,15 +63,15 @@ public class PdvView extends JDialog {
     }
 
     private void initFields() {
-        this.codBarrasJTF.setText(this.product.getBarCode());
+     /*   this.codBarrasJTF.setText(this.product.getBarCode());
         this.caracteristicasJTF.setText(this.product.getCharacteristics());
-    }
+*/    }
 
     private void initBean() {
-        this.product.setBarCode(this.codBarrasJTF.getText());
+    /*    this.product.setBarCode(this.codBarrasJTF.getText());
         this.product.setCharacteristics(this.caracteristicasJTF.getText());
         this.product.setVendor((Vendor)this.modelFornecedorlJCB.getSelectedItem());
-    }
+*/    }
 
     private void initFornecedorCombo() {
         try {

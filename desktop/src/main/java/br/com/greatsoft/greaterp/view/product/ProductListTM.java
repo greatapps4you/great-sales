@@ -1,6 +1,7 @@
 package br.com.greatsoft.greaterp.view.product;
 
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -53,13 +54,13 @@ public class ProductListTM extends AbstractTableModel {
         try {
             switch(columnIndex) {
                 case 0:
-                    value = product.getBarCode();
+                    //value = product.getBarCode();
                     break;
                 case 1:
                     value = product;
                     break;
                 case 2:
-                    value = product.getVendor().getIdentification().getNomeFantasia();
+                    //value = product.getVendor().getIdentification().getNomeFantasia();
             }
         } catch (Exception var6) {
             System.out.println("Erro em ProductListTM.getValueAt()");

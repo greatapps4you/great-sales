@@ -1,8 +1,9 @@
 package br.com.greatsoft.greaterp.view.product;
 
 import br.com.greatsoft.greaterp.controller.bean.ProductBean;
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
-import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -41,7 +42,7 @@ public class ProductEditView extends JDialog {
         this.initComponents();
         this.productBean = new ProductBean();
         if (produto != null) {
-            this.product = this.productBean.getProduct(produto.getId());
+           // this.product = this.productBean.getProduct(produto.getId());
             this.initFields();
         } else {
             this.product = new Product();
@@ -50,18 +51,18 @@ public class ProductEditView extends JDialog {
     }
 
     private void initFields() {
-        this.codBarrasJTF.setText(this.product.getBarCode());
+        /*this.codBarrasJTF.setText(this.product.getBarCode());
         this.descricaoJTF.setText(this.product.getDescription());
         this.caracteristicasJTF.setText(this.product.getCharacteristics());
         this.fornecedorJCB.setSelectedItem(this.product.getVendor());
-    }
+*/    }
 
     private void initBean() {
-        this.product.setBarCode(this.codBarrasJTF.getText());
+      /*  this.product.setBarCode(this.codBarrasJTF.getText());
         this.product.setDescription(this.descricaoJTF.getText());
         this.product.setCharacteristics(this.caracteristicasJTF.getText());
         this.product.setVendor((Vendor)this.modelFornecedorJCB.getSelectedItem());
-    }
+*/    }
 
     private void initFornecedorCombo() {
         try {

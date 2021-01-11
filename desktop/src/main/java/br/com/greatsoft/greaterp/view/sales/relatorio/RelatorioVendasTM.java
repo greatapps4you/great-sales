@@ -1,7 +1,7 @@
 package br.com.greatsoft.greaterp.view.sales.relatorio;
 
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -44,7 +44,7 @@ public class RelatorioVendasTM extends AbstractTableModel {
         Class type = String.class;
         switch(columnIndex) {
             case 0:
-                type = SaleHeader.class;
+                type = Sale.class;
             case 1:
             default:
                 break;
@@ -65,16 +65,16 @@ public class RelatorioVendasTM extends AbstractTableModel {
         try {
             switch(columnIndex) {
                 case 0:
-                    value = saleItem.getSaleHeader();
+                   // value = saleItem.getSaleHeader();
                     break;
                 case 1:
-                    value = saleItem.getSaleHeader().getCustomer().getIdentification().getRazaoSocial();
+                    //value = saleItem.getSaleHeader().getCustomer().getIdentification().getRazaoSocial();
                     break;
                 case 2:
                     value = saleItem;
                     break;
                 case 3:
-                    value = saleItem.getTotalPrice();
+                    //value = saleItem.getTotalPrice();
             }
         } catch (Exception var6) {
             System.out.println("Erro em RelatorioVendasTM.getValueAt()");

@@ -1,7 +1,8 @@
 package br.com.greatsoft.greaterp.view.sales.relatorio;
 
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.HeadlessException;
@@ -75,8 +76,8 @@ public class RelatorioVendasMaster extends JFrame {
 
     private void detalharComissao() {
         int linha = this.pedidosJT.getSelectedRow();
-        SaleHeader venda = (SaleHeader)this.relatorioTM.getValueAt(linha, 0);
-        JOptionPane.showMessageDialog(this.rootPane, "Total: " + venda.getTotal() + "\nComissão (" + venda.getComissaoPercent() + "%): R$ " + venda.getComissaoDinheiro());
+        Sale venda = (Sale)this.relatorioTM.getValueAt(linha, 0);
+        //JOptionPane.showMessageDialog(this.rootPane, "Total: " + venda.getTotal() + "\nComissão (" + venda.getComissaoPercent() + "%): R$ " + venda.getComissaoDinheiro());
     }
 
     private void addDuploClickTabela() {
@@ -145,10 +146,10 @@ public class RelatorioVendasMaster extends JFrame {
             SaleItem si = (SaleItem)var4.next();
 
             try {
-                totCom += si.getSaleHeader().getComissaoDinheiro();
+                //totCom += si.getSaleHeader().getComissaoDinheiro();
             } catch (Exception var7) {
                 totCom += 0.0D;
-                System.out.println("Valor null no SaleHeader o SaleItem " + si.getId());
+               // System.out.println("Valor null no SaleHeader o SaleItem " + si.getId());
             }
         }
 

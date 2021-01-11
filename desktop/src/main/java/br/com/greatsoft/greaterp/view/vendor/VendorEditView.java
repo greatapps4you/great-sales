@@ -1,9 +1,10 @@
 package br.com.greatsoft.greaterp.view.vendor;
 
 import br.com.greatsoft.greaterp.controller.bean.VendorBean;
-import br.com.greatsoft.greaterp.model.entity.registry.Address;
-import br.com.greatsoft.greaterp.model.entity.registry.Identification;
-import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
+import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.registration.Identification;
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -68,11 +69,11 @@ public class VendorEditView extends JDialog {
     }
 
     private void initFields() {
-        this.nomeJTF.setText(this.vendor.getIdentification().getNomeFantasia());
+        /*this.nomeJTF.setText(this.vendor.getIdentification().getNomeFantasia());
         this.razaoJTF.setText(this.vendor.getIdentification().getRazaoSocial());
         this.cnpjJTF.setText(this.vendor.getIdentification().getCnpj());
         this.ieJTF.setText(this.vendor.getIdentification().getInscEst());
-        this.cepJTF.setText(this.vendor.getAddress().getZip());
+*/        this.cepJTF.setText(this.vendor.getAddress().getZip());
         this.ruaJTF.setText(this.vendor.getAddress().getStreet());
         this.numeroJTF.setText(this.vendor.getAddress().getNumber());
         this.complementoJTF.setText(this.vendor.getAddress().getComplement());
@@ -88,11 +89,11 @@ public class VendorEditView extends JDialog {
 
     private void initBean() {
         Identification ident = new Identification();
-        ident.setNomeFantasia(this.nomeJTF.getText());
+       /* ident.setNomeFantasia(this.nomeJTF.getText());
         ident.setRazaoSocial(this.razaoJTF.getText());
         ident.setCnpj(this.cnpjJTF.getText());
         ident.setInscEst(this.ieJTF.getText());
-        Address address = new Address();
+ */       Address address = new Address();
         address.setStreet(this.ruaJTF.getText());
         address.setNumber(this.numeroJTF.getText());
         address.setComplement(this.complementoJTF.getText());

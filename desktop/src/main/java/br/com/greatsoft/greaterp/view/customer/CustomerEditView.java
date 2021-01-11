@@ -1,9 +1,10 @@
 package br.com.greatsoft.greaterp.view.customer;
 
 import br.com.greatsoft.greaterp.controller.bean.CustomerBean;
-import br.com.greatsoft.greaterp.model.entity.registry.Address;
-import br.com.greatsoft.greaterp.model.entity.registry.Identification;
-import br.com.greatsoft.greaterp.model.entity.sales.Customer;
+import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.registration.Identification;
+import us.greatapps4you.greatsales.entities.sale.Customer;
+
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -63,7 +64,7 @@ public class CustomerEditView extends JDialog {
         this.initComponents();
         this.customerBean = new CustomerBean();
         if (customerId > 0L) {
-            this.customer = this.customerBean.getCustomer(customerId);
+            //this.customer = this.customerBean.getCustomer(customerId);
             this.initFields();
         } else {
             this.customer = new Customer();
@@ -72,12 +73,12 @@ public class CustomerEditView extends JDialog {
     }
 
     private void initFields() {
-        this.nomeJTF.setText(this.customer.getIdentification().getNomeFantasia());
+        /*this.nomeJTF.setText(this.customer.getIdentification().getNomeFantasia());
         this.razaoJTF.setText(this.customer.getIdentification().getRazaoSocial());
         this.cnpjJTF.setText(this.customer.getIdentification().getCnpj());
         this.ieJTF.setText(this.customer.getIdentification().getInscEst());
         this.inscMunJTF.setText(this.customer.getIdentification().getInscMun());
-        this.cepJTF.setText(this.customer.getAddress().getZip());
+   */     this.cepJTF.setText(this.customer.getAddress().getZip());
         this.ruaJTF.setText(this.customer.getAddress().getStreet());
         this.numeroJTF.setText(this.customer.getAddress().getNumber());
         this.complementoJTF.setText(this.customer.getAddress().getComplement());
@@ -89,17 +90,17 @@ public class CustomerEditView extends JDialog {
         this.celularJTF.setText(this.customer.getAddress().getCellPhone());
         this.emailJTF.setText(this.customer.getAddress().getEmail());
         this.siteJTF.setText(this.customer.getAddress().getWebsite());
-        this.endCobrancaJTF.setText(this.customer.getEndCobranca());
+       // this.endCobrancaJTF.setText(this.customer.getEndCobranca());
     }
 
     private void initBean() {
         Identification ident = new Identification();
-        ident.setNomeFantasia(this.nomeJTF.getText());
+      /*  ident.setNomeFantasia(this.nomeJTF.getText());
         ident.setRazaoSocial(this.razaoJTF.getText());
         ident.setCnpj(this.cnpjJTF.getText());
         ident.setInscEst(this.ieJTF.getText());
         ident.setInscMun(this.inscMunJTF.getText());
-        Address address = new Address();
+*/        Address address = new Address();
         address.setStreet(this.ruaJTF.getText());
         address.setNumber(this.numeroJTF.getText());
         address.setComplement(this.complementoJTF.getText());
@@ -114,12 +115,12 @@ public class CustomerEditView extends JDialog {
         address.setWebsite(this.siteJTF.getText());
         this.customer.setIdentification(ident);
         this.customer.setAddress(address);
-        this.customer.setEndCobranca(this.endCobrancaJTF.getText());
+        //this.customer.setEndCobranca(this.endCobrancaJTF.getText());
     }
 
     private void salvar() {
         this.initBean();
-        this.customerBean.setCustomer(this.customer);
+        //this.customerBean.setCustomer(this.customer);
         this.customerBean.salvar();
         JOptionPane.showMessageDialog(this.rootPane, "Salvo com sucesso!");
         this.dispose();

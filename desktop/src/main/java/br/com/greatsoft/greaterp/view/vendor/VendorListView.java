@@ -1,7 +1,8 @@
 package br.com.greatsoft.greaterp.view.vendor;
 
 import br.com.greatsoft.greaterp.controller.bean.VendorBean;
-import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Frame;

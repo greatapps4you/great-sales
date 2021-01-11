@@ -1,15 +1,16 @@
 package br.com.greatsoft.greaterp.view.sales;
 
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class SalesListTM extends AbstractTableModel {
-    private final List<SaleHeader> sales;
+    private final List<Sale> sales;
 
-    public SalesListTM(List<SaleHeader> sales) {
+    public SalesListTM(List<Sale> sales) {
         this.sales = new ArrayList(sales);
     }
 
@@ -56,29 +57,29 @@ public class SalesListTM extends AbstractTableModel {
                 type = Double.class;
                 break;
             case 4:
-                type = SaleHeader.class;
+                type = Sale.class;
         }
 
         return type;
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        SaleHeader saleHeader = (SaleHeader)this.sales.get(rowIndex);
+        Sale saleHeader = (Sale)this.sales.get(rowIndex);
         Object value = null;
 
         try {
             switch(columnIndex) {
                 case 0:
-                    value = saleHeader.getDataPedido();
+                    //value = saleHeader.getDataPedido();
                     break;
                 case 1:
-                    value = saleHeader.getCustomer().getIdentification().getNomeFantasia();
+                   // value = saleHeader.getCustomer().getIdentification().getNomeFantasia();
                     break;
                 case 2:
-                    value = saleHeader.getTotal();
+                    //value = saleHeader.getTotal();
                     break;
                 case 3:
-                    value = saleHeader.getPrazoPgto();
+                    //value = saleHeader.getPrazoPgto();
                     break;
                 case 4:
                     value = saleHeader;

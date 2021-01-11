@@ -1,8 +1,9 @@
 package br.com.greatsoft.greaterp.controller.bean;
 
-import br.com.greatsoft.greaterp.model.entity.registry.Address;
-import br.com.greatsoft.greaterp.model.entity.registry.Identification;
-import br.com.greatsoft.greaterp.model.entity.sales.Customer;
+import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.registration.Identification;
+import us.greatapps4you.greatsales.entities.sale.Customer;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,9 +18,9 @@ public class CustomerBean implements Serializable {
         CustomerBean customerBean = new CustomerBean();
         Customer customer = new Customer();
         Identification ident = new Identification();
-        ident.setNomeFantasia("José Esteves de Souza Neto");
+        /*ident.setNomeFantasia("José Esteves de Souza Neto");
         ident.setCnpj("02966076909");
-        ident.setInscEst("3154049-DF");
+        ident.setInscEst("3154049-DF");Address*/
         Address address = new Address();
         address.setStreet("Rua Pereira Passos");
         address.setNumber("838");

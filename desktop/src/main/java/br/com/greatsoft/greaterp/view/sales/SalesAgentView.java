@@ -7,12 +7,6 @@ import br.com.greatsoft.greaterp.common.MailSender;
 import br.com.greatsoft.greaterp.common.TextUtil;
 import br.com.greatsoft.greaterp.common.wait.MailWait;
 import br.com.greatsoft.greaterp.controller.bean.SaleBean;
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
-import br.com.greatsoft.greaterp.model.entity.sales.Customer;
-import br.com.greatsoft.greaterp.model.entity.sales.Enviado;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleHeader;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
-import br.com.greatsoft.greaterp.model.entity.sales.Salesman;
 import br.com.greatsoft.greaterp.view.document.PdfCreator;
 import br.com.greatsoft.greaterp.view.document.Translator;
 import com.lowagie.text.DocumentException;
@@ -58,11 +52,16 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.text.MaskFormatter;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+import us.greatapps4you.greatsales.entities.sale.Customer;
+import us.greatapps4you.greatsales.entities.sale.Sale;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
+import us.greatapps4you.greatsales.entities.sale.Salesman;
 
 public class SalesAgentView extends JDialog {
     private SaleItemsTM itemsTM;
     private SaleBean saleBean;
-    private SaleHeader saleHeader;
+    private Sale saleHeader;
     private List<SaleItem> items;
     private final DefaultComboBoxModel customersComboModel = new DefaultComboBoxModel();
     private final DefaultComboBoxModel productsComboModel;
@@ -124,7 +123,7 @@ public class SalesAgentView extends JDialog {
     private JTextField transportadoraJTF;
     private JTextField unValueJTF;
 
-    public SalesAgentView(Frame parent, boolean modal, SaleHeader saleHeader) {
+    public SalesAgentView(Frame parent, boolean modal, Sale saleHeader) {
         super(parent, modal);
         this.initCustomersCombo();
         this.productsComboModel = new DefaultComboBoxModel();
@@ -135,19 +134,19 @@ public class SalesAgentView extends JDialog {
         this.saleBean = new SaleBean();
         if (saleHeader != null) {
             this.editando = true;
-            this.saleHeader = saleHeader;
+            //this.saleHeader = saleHeader;
             this.initFields();
-            this.numeroPedido = saleHeader.getNumeroPedido();
+            //this.numeroPedido = saleHeader.getNumeroPedido();
             this.numPedidoJTF.setText(this.numeroPedido);
-            this.saleHeader.setId(Long.parseLong(this.numeroPedido));
+            //this.saleHeader.setId(Long.parseLong(this.numeroPedido));
             this.checarBotoes(saleHeader);
             this.alterarPedido.setEnabled(this.editando);
         } else {
             this.editando = false;
-            this.saleHeader = new SaleHeader();
+            this.saleHeader = new Sale();
             this.numeroPedido = this.gerarNumeroPedido();
             this.numPedidoJTF.setText(this.numeroPedido);
-            this.saleHeader.setId(Long.parseLong(this.numeroPedido));
+            //this.saleHeader.setId(Long.parseLong(this.numeroPedido));
             this.items = new ArrayList();
             this.alterarPedido.setEnabled(this.editando);
         }
@@ -155,8 +154,8 @@ public class SalesAgentView extends JDialog {
         this.addDuploClickTabela();
     }
 
-    private void checarBotoes(SaleHeader saleHeader) {
-        this.salvarJB.setEnabled(saleHeader.isEditavel());
+    private void checarBotoes(Sale saleHeader) {
+        //this.salvarJB.setEnabled(saleHeader.isEditavel());
         this.alterarPedido.setEnabled(this.editando);
     }
 
@@ -180,8 +179,8 @@ public class SalesAgentView extends JDialog {
 
             while(var2.hasNext()) {
                 String email = (String)var2.next();
-                Enviado enviado = new Enviado();
-                enviado.setEmail(email);
+               /* Enviado enviado = new Enviado();
+                enviado.setEmail(email);*/
 
                 try {
                     /*Enviado tmp = (Enviado)(new EnviadoRn()).carregar("email", email);
@@ -201,7 +200,7 @@ public class SalesAgentView extends JDialog {
         String resultado = "";
 
         //FIXME: fetching here
-        List<Enviado> enviados = new ArrayList<>();
+        /*List<Enviado> enviados = new ArrayList<>();
         if (!query.contains(";") || !query.contains("@")) {
             Iterator var5 = enviados.iterator();
 
@@ -213,7 +212,7 @@ public class SalesAgentView extends JDialog {
                     this.emailPedidoJTF.setText(full + resultado + ";");
                 }
             }
-        }
+        }*/
 
         return resultado;
     }
@@ -258,7 +257,7 @@ public class SalesAgentView extends JDialog {
     }
 
     private void resetMembers() {
-        this.saleHeader = new SaleHeader();
+        this.saleHeader = new Sale();
         this.saleBean = new SaleBean();
         this.editando = false;
         this.items = new ArrayList();
@@ -269,7 +268,7 @@ public class SalesAgentView extends JDialog {
     private boolean salvar() {
         try {
             this.initBean();
-            this.saleBean.setSaleHeader(this.saleHeader);
+            //this.saleBean.setSaleHeader(this.saleHeader);
             this.saleBean.salvar();
 
             try {
@@ -308,9 +307,9 @@ public class SalesAgentView extends JDialog {
                 JOptionPane.showMessageDialog(this.rootPane, "Cadastre o email e a senha do representante");
                 return false;
             } else {
-                String sender = salesman.getEmail();
+                //String sender = salesman.getEmail();
                 String password = salesman.getPassword();
-                String subject = "Pedido Para " + this.saleHeader.getCustomer().getIdentification().getRazaoSocial();
+                //String subject = "Pedido Para " + this.saleHeader.getCustomer().getIdentification().getRazaoSocial();
                 String messageText = this.mensagemJTF.getText();
                 PdfCreator creator = new PdfCreator();
                 Translator translator = new Translator();
@@ -328,10 +327,10 @@ public class SalesAgentView extends JDialog {
                     String recipient = this.emailPedidoJTF.getText();
 
                     try {
-                        MailSender.send(sender, password, recipient, subject, messageText, pedidoPdf);
+                        /*MailSender.send(sender, password, recipient, subject, messageText, pedidoPdf);
                         this.saleHeader.setEditavel(false);
                         this.saleBean.setSaleHeader(this.saleHeader);
-                        this.saleBean.salvar();
+                */        this.saleBean.salvar();
                         return true;
                     } catch (Exception var13) {
                         JOptionPane.showMessageDialog(this.rootPane, "Falha ao tentar enviar email para: " + recipient);
@@ -344,16 +343,16 @@ public class SalesAgentView extends JDialog {
                         String r = (String)var10.next();
 
                         try {
-                            MailSender.send(sender, password, r, subject, messageText, pedidoPdf);
+                           // MailSender.send(sender, password, r, subject, messageText, pedidoPdf);
                         } catch (Exception var14) {
                             var14.printStackTrace();
                             JOptionPane.showMessageDialog(this.rootPane, "Falha ao tentar enviar email para: " + r);
                         }
                     }
 
-                    this.saleHeader.setEditavel(false);
+                   /* this.saleHeader.setEditavel(false);
                     this.saleBean.setSaleHeader(this.saleHeader);
-                    this.saleBean.salvar();
+                */    this.saleBean.salvar();
                     return true;
                 }
             }
@@ -373,7 +372,7 @@ public class SalesAgentView extends JDialog {
             var2.printStackTrace();
         }
 
-        this.endEntregaJTF.setText(this.saleHeader.getEndEntrega());
+        /*this.endEntregaJTF.setText(this.saleHeader.getEndEntrega());
         this.endCobrancaJTF.setText(this.saleHeader.getEndFatura());
         this.totalPedido = this.saleHeader.getTotal();
         this.totalJTF.setText(Double.toString(this.totalPedido));
@@ -389,7 +388,7 @@ public class SalesAgentView extends JDialog {
         this.emailDanfeJTF.setText(this.saleHeader.getEmailDanfe());
         this.comissaoPercentJTF.setText(Double.toString(this.saleHeader.getComissaoPercent()));
         this.comissaoDinheiroJTF.setText(Double.toString(this.saleHeader.getComissaoDinheiro()));
-    }
+*/    }
 
     private void initBean() {
         try {
@@ -397,14 +396,14 @@ public class SalesAgentView extends JDialog {
 
             while(var1.hasNext()) {
                 SaleItem it = (SaleItem)var1.next();
-                it.setSaleHeader(this.saleHeader);
+                //it.setSaleHeader(this.saleHeader);
             }
         } catch (Exception var4) {
             var4.printStackTrace();
         }
 
         this.saleHeader.setItems(this.items);
-        this.saleHeader.setEditavel(false);
+       /* this.saleHeader.setEditavel(false);
         this.saleHeader.setNumeroPedido(this.numeroPedido);
         this.saleHeader.setCustomer((Customer)this.customersComboModel.getSelectedItem());
         if (!this.manterData) {
@@ -427,7 +426,7 @@ public class SalesAgentView extends JDialog {
         this.saleHeader.setPedidoCliente(this.pedidoCliJTF.getText());
         this.saleHeader.setFrete(this.freteJTF.getText());
         this.saleHeader.setTransportadora(this.transportadoraJTF.getText());
-
+*/
         try {
             //this.saleHeader.setRepresentante((Salesman)(new SalesmanRn()).carregar("id", 1L));
         } catch (Exception var3) {
@@ -443,13 +442,13 @@ public class SalesAgentView extends JDialog {
                 SaleItem item = new SaleItem();
                 double unPrice = Double.parseDouble(this.unValueJTF.getText().replaceAll(",", "."));
                 double quantity = Double.parseDouble(this.quantityJTF.getText().replaceAll(",", "."));
-                item.setProduct((Product)this.productsComboModel.getSelectedItem());
+              /*  item.setProduct((Product)this.productsComboModel.getSelectedItem());
                 item.setQuantity(quantity);
                 item.setUnPrice(unPrice);
                 double totalPrice = FinnancialMath.roundDecimal(unPrice * quantity, 2);
                 item.setTotalPrice(totalPrice);
                 item.setDataEntrega(DateUtil.toDateDDmmYYYY(this.dataEntregaJTF.getText()));
-                this.totalPedido += totalPrice;
+ */               //this.totalPedido += totalPrice;
                 this.totalJTF.setText(Double.toString(FinnancialMath.roundDecimal(this.totalPedido, 2)));
                 this.items.add(item);
                 this.atualizarTabela();
@@ -788,7 +787,7 @@ public class SalesAgentView extends JDialog {
         try {
             Customer comboCustomer = (Customer)this.customersComboModel.getSelectedItem();
             this.saleHeader.setCustomer(comboCustomer);
-            this.endCobrancaJTF.setText(this.saleHeader.getCustomer().getEndCobranca());
+            //this.endCobrancaJTF.setText(this.saleHeader.getCustomer().getEndCobranca());
             this.emailDanfeJTF.setText(comboCustomer.getAddress().getEmail());
         } catch (Exception var3) {
             var3.printStackTrace();
@@ -814,14 +813,14 @@ public class SalesAgentView extends JDialog {
     }
 
     private void alterarPedidoActionPerformed(ActionEvent evt) {
-        int option = JOptionPane.showConfirmDialog(this.rootPane, "Deseja manter a data original do pedido: " + DateUtil.toStringDDmmYYYY(this.saleHeader.getDataPedido()));
-        if (option == 0) {
+       //int option = JOptionPane.showConfirmDialog(this.rootPane, "Deseja manter a data original do pedido: " + DateUtil.toStringDDmmYYYY(this.saleHeader.getDataPedido()));
+        /*if (option == 0) {
             this.manterData = true;
             this.salvarJB.setEnabled(true);
         } else if (option == 1) {
             this.manterData = false;
             this.salvarJB.setEnabled(true);
-        }
+        }*/
 
     }
 
@@ -879,7 +878,7 @@ public class SalesAgentView extends JDialog {
 
         while(var2.hasNext()) {
             Customer c = (Customer)var2.next();
-            System.out.println(c.getIdentification().getRazaoSocial());
+            //System.out.println(c.getIdentification().getRazaoSocial());
         }
 
     }

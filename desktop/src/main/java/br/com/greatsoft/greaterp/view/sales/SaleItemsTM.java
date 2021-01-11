@@ -1,10 +1,9 @@
 package br.com.greatsoft.greaterp.view.sales;
 
-import br.com.greatsoft.greaterp.common.DateUtil;
-import br.com.greatsoft.greaterp.model.entity.sales.SaleItem;
+import us.greatapps4you.greatsales.entities.sale.SaleItem;
+import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.table.AbstractTableModel;
 
 public class SaleItemsTM extends AbstractTableModel {
     private final List<SaleItem> items;
@@ -77,16 +76,16 @@ public class SaleItemsTM extends AbstractTableModel {
                     value = item;
                     break;
                 case 2:
-                    value = item.getUnPrice();
+                    //value = item.getUnPrice();
                     break;
                 case 3:
-                    value = item.getProduct().getCharacteristics();
+                    //value = item.getProduct().getCharacteristics();
                     break;
                 case 4:
-                    value = DateUtil.toStringDDmmYYYY(item.getDataEntrega());
+                   // value = DateUtil.toStringDDmmYYYY(item.getDataEntrega());
                     break;
                 case 5:
-                    value = item.getTotalPrice();
+                   // value = item.getTotalPrice();
             }
         } catch (Exception var6) {
             System.out.println("Erro em SaleHeaderTM.getValueAt()");

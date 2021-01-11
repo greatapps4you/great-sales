@@ -1,6 +1,7 @@
 package br.com.greatsoft.greaterp.controller.bean;
 
-import br.com.greatsoft.greaterp.model.entity.inventory.Product;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,9 +15,9 @@ public class ProductBean implements Serializable {
     public static void main(String[] args) {
         ProductBean productBean = new ProductBean();
         Product product = new Product();
-        product.setBarCode("7865757876771");
+       // product.setBarCode("7865757876771");
         product.setDescription("GEB 1");
-        product.setCharacteristics("Dureza 80");
+        //product.setCharacteristics("Dureza 80");
         productBean.setProduct(product);
         productBean.salvar();
     }

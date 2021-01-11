@@ -1,6 +1,7 @@
 package br.com.greatsoft.greaterp.view.customer;
 
-import br.com.greatsoft.greaterp.model.entity.sales.Customer;
+import us.greatapps4you.greatsales.entities.sale.Customer;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -66,10 +67,10 @@ public class CustomerListTM extends AbstractTableModel {
         Object value = null;
         switch(columnIndex) {
             case 0:
-                value = customer.getIdentification().getCnpj();
+                //value = customer.getIdentification().getCnpj();
                 break;
             case 1:
-                value = customer.getIdentification().getNomeFantasia();
+                //value = customer.getIdentification().getNomeFantasia();
                 break;
             case 2:
                 value = customer.getAddress().getStreet() + ", " + customer.getAddress().getNumber();
@@ -87,7 +88,7 @@ public class CustomerListTM extends AbstractTableModel {
                 value = customer.getAddress().getPhone();
                 break;
             case 7:
-                value = customer.getId();
+                //value = customer.getId();
         }
 
         return value;

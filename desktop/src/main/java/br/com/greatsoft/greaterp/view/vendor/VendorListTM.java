@@ -1,6 +1,7 @@
 package br.com.greatsoft.greaterp.view.vendor;
 
-import br.com.greatsoft.greaterp.model.entity.supply.Vendor;
+import us.greatapps4you.greatsales.entities.purchase.Vendor;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -66,10 +67,10 @@ public class VendorListTM extends AbstractTableModel {
         Object value = null;
         switch(columnIndex) {
             case 0:
-                value = vendor.getIdentification().getCnpj();
+                //value = vendor.getIdentification().getCnpj();
                 break;
             case 1:
-                value = vendor.getIdentification().getNomeFantasia();
+                //value = vendor.getIdentification().getNomeFantasia();
                 break;
             case 2:
                 value = vendor.getAddress().getStreet() + ", " + vendor.getAddress().getNumber();
@@ -87,7 +88,7 @@ public class VendorListTM extends AbstractTableModel {
                 value = vendor.getAddress().getPhone();
                 break;
             case 7:
-                value = vendor.getId();
+                //value = vendor.getId();
         }
 
         return value;
