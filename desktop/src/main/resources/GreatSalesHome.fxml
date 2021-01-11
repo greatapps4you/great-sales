@@ -11,6 +11,6 @@
   ~  CSSML NDSMD VRS + SNMV SMQL IVB
   -->
 
-<GridPane fx:controller="us.greatapps4you.greatsales.desktop.GreatSalesController"
+<GridPane fx:controller="us.greatapps4you.greatsales.desktop.main.GreatSalesController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 </GridPane>

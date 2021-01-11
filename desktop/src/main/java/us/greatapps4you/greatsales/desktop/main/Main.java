@@ -6,7 +6,7 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.desktop;
+package us.greatapps4you.greatsales.desktop.main;
 
 public class Main {
     public static void main(String[] args) {

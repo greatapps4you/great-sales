@@ -81,7 +81,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.5</version>
                 <configuration>
-                    <mainClass>us.greatapps4you.greatsales.desktop.GreatSalesApplication</mainClass>
+                    <mainClass>us.greatapps4you.greatsales.desktop.main.GreatSalesApplication</mainClass>
                 </configuration>
             </plugin>
 
@@ -98,7 +98,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>us.greatapps4you.greatsales.desktop.Main</mainClass>
+                                    <mainClass>us.greatapps4you.greatsales.desktop.main.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
