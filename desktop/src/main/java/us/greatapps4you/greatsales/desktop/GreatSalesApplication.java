@@ -20,7 +20,7 @@ public class GreatSalesApplication extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/GreatSalesHome.fxml"));
         primaryStage.setTitle("GreatSales 2.0");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 1024, 768));
         primaryStage.show();
     }
 
