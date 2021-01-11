@@ -61,6 +61,9 @@ public class Inventory implements Serializable {
     private Vendor vendor;
 
     public Inventory() {
+        if(quantity == null) {
+            quantity = BigDecimal.ZERO;
+        }
     }
 
     public Inventory(Long sequential, UUID uuid, String lotNumber, Product product, BigDecimal quantity, BigDecimal minimalThreshold, ProductUnit unit, BigDecimal buyingPrice, BigDecimal sellingPrice, BigInteger shelfLife, LocalDateTime expiryDate, LocalDateTime buyingDate, Vendor vendor) {
