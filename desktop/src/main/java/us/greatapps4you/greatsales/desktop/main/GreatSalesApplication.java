@@ -13,7 +13,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
+@Component
 public class GreatSalesApplication extends Application {
 
     @Override
@@ -24,7 +28,11 @@ public class GreatSalesApplication extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    /**
+     * String[] args here not necessary since this is a Desktop Application
+     */
+    @PostConstruct
+    public static void main() {
+        launch();
     }
 }

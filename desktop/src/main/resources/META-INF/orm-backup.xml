@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ GreatApps4you LLC Copyright (c) 2021
+  ~ https://greatapps4you.us
+  ~ CSSML NDSMD VRS + NSMV SMQL IVB
+  -->
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+    <description>GreatTweet Entities</description>
+    <package>us.greatapps4you.greatsales.entities</package>
+
+    <entity class="us.greatapps4you.greatsales.entities.order.Order" name="Order">
+        <table name="ORDER"/>
+        <attributes>
+
+            <id name="sequential">
+                <generated-value strategy="SEQUENCE" generator="order-generator"/>
+                <sequence-generator name="order-generator" sequence-name="ORDER_SEQ"/>
+            </id>
+
+            <basic name="orderNumber">
+                <column name="ORDER_NUMBER" length="32"/>
+            </basic>
+
+            <basic name="orderTime">
+                <column name="ORDER_TIME" length="32"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
+

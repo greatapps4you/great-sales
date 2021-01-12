@@ -8,8 +8,16 @@
 
 package us.greatapps4you.greatsales.desktop.main;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Main {
+    /**
+     * SpringBoot will later boot up JavaFX Entry Point
+     * GreatSalesApplication via @PostConstruct
+     */
     public static void main(String[] args) {
-        GreatSalesApplication.main(args);
+        SpringApplication.run(Main.class, args);
     }
 }
