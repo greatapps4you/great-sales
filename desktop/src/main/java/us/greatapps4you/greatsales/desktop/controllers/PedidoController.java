@@ -6,12 +6,7 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-import org.junit.jupiter.api.Test;
+package us.greatapps4you.greatsales.desktop.controllers;
 
-public class OrderTest {
-
-    @Test
-    void whenRequestOrder_ThenCreateNewOrder() {
-
-    }
+public class PedidoController {
 }

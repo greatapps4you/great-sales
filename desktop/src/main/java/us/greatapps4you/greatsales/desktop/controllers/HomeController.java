@@ -6,7 +6,7 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.desktop.main;
+package us.greatapps4you.greatsales.desktop.controllers;
 
-public class GreatSalesController {
+public class HomeController {
 }

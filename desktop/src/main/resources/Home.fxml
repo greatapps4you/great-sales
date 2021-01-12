@@ -1,0 +1,16 @@
+<!--
+  ~ Copyright (c) 2021 GreatApps4you LLC
+  ~  This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
+  ~  https://www.gnu.org/licenses/gpl-3.0.txt
+  ~  https://greatapps4you.us
+  ~  CSSML NDSMD VRS + SNMV SMQL IVB
+  -->
+
+<?import javafx.scene.control.TabPane?>
+<TabPane fx:id="tabPane"
+         fx:controller="us.greatapps4you.greatsales.desktop.controllers.HomeController"
+         xmlns:fx="http://javafx.com/fxml">
+    <tabs>
+        <fx:include fx:id="orderTab" source="Pedido.fxml"/>
+    </tabs>
+</TabPane>

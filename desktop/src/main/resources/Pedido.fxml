@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2021 GreatApps4you LLC
+  ~  This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
+  ~  https://www.gnu.org/licenses/gpl-3.0.txt
+  ~  https://greatapps4you.us
+  ~  CSSML NDSMD VRS + SNMV SMQL IVB
+  -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<Tab fx:id="orderForm" text="Pedido" xmlns:fx="http://javafx.com/fxml">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                    prefWidth="200.0">
+            <children>
+                <Label layoutX="27.0" layoutY="45.0" text="Name"/>
+                <Label layoutX="27.0" layoutY="102.0" text="Password"
+                />
+                <Label layoutX="27.0" layoutY="151.0" text="City"/>
+                <Label layoutX="27.0" layoutY="204.0" text="Email"/>
+                <Label layoutX="27.0" layoutY="246.0" text="Phone"/>
+                <TextField fx:id="name"
+                           layoutX="164.0" layoutY="41.0"/>
+                <TextField fx:id="passwd" layoutX="164.0"
+                           layoutY="98.0"/>
+                <TextField fx:id="city" layoutX="164.0"
+                           layoutY="147.0"/>
+                <TextField fx:id="email" layoutX="164.0"
+                           layoutY="200.0"/>
+                <TextField fx:id="phone" layoutX="164.0"
+                           layoutY="242.0"/>
+                <Button fx:id="register" layoutX="129.0"
+                        layoutY="308.0" mnemonicParsing="false" text="Register"/>
+                <Button fx:id="cancel" cancelButton="true"
+                        layoutX="274.0" layoutY="308.0" mnemonicParsing="false" text="Cancel"/>
+            </children>
+        </AnchorPane>
+    </content>
+</Tab>
