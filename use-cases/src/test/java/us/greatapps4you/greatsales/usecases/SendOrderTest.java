@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import us.greatapps4you.greatsales.entities.order.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -35,7 +34,6 @@ public class SendOrderTest {
 
     @BeforeEach
     void setUp() {
-        orderProcessor = new OrderProcessor();
         orderRequest = new OrderRequest();
         orderRequest.setSequential(1L);
         customer = new Customer();
@@ -141,11 +139,13 @@ public class SendOrderTest {
         orderRequest.setCustomerOrderNumber("9999");
         orderRequest.setPaymentConditions("PAYMENT CONDITIONS");
         orderRequest.setObservations("OBSERVATIONS");
+
+        orderProcessor = new OrderProcessor(orderRequest);
     }
 
     @Test
     void whenOrderDataInput_ThenNewOrderCreated() {
-        Order actual = orderProcessor.receive(orderRequest);
+        Order actual = orderProcessor.create();
         Assertions.assertEquals(orderRequest.getCustomer(), actual.getCustomer());
         Assertions.assertEquals(orderRequest.getTotalAmount(), actual.getTotalAmount());
         Assertions.assertEquals(LocalDateTime.now().getHour(), actual.getOrderTime().getHour());

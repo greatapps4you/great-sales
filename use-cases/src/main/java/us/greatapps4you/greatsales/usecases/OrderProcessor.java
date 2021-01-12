@@ -9,12 +9,18 @@
 package us.greatapps4you.greatsales.usecases;
 
 import us.greatapps4you.greatsales.entities.order.Order;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public abstract class OrderProcessor {
-    public Order receive(OrderRequest orderRequest) {
+public class OrderProcessor {
+
+    private OrderRequest orderRequest;
+
+    public OrderProcessor(OrderRequest orderRequest) {
+        this.orderRequest = orderRequest;
+    }
+
+    public Order create() {
         Order order = new Order();
         order.setSequential(orderRequest.getSequential());
         order.setCustomer(orderRequest.getCustomer());
