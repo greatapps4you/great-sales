@@ -6,33 +6,30 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.sale;
+package us.greatapps4you.greatsales.entities.order;
 
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Customer implements Serializable {
+public class Salesman implements Serializable {
 
     private Long sequential;
     private UUID uuid;
     private Identification identification;
     private Address address;
-    private Address billingAddress;
-    private LocalDateTime registrationTime;
+    private String password;
 
-    public Customer() {
+    public Salesman() {
     }
 
-    public Customer(Long sequential, UUID uuid, Identification identification, Address address, Address billingAddress, LocalDateTime registrationTime) {
+    public Salesman(Long sequential, UUID uuid, Identification identification, Address address, String password) {
         this.sequential = sequential;
         this.uuid = uuid;
         this.identification = identification;
         this.address = address;
-        this.billingAddress = billingAddress;
-        this.registrationTime = registrationTime;
+        this.password = password;
     }
 
     public Long getSequential() {
@@ -67,20 +64,12 @@ public class Customer implements Serializable {
         this.address = address;
     }
 
-    public Address getBillingAddress() {
-        return billingAddress;
+    public String getPassword() {
+        return password;
     }
 
-    public void setBillingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
-    }
-
-    public LocalDateTime getRegistrationTime() {
-        return registrationTime;
-    }
-
-    public void setRegistrationTime(LocalDateTime registrationTime) {
-        this.registrationTime = registrationTime;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -88,21 +77,25 @@ public class Customer implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Customer customer = (Customer) o;
+        Salesman salesman = (Salesman) o;
 
-        return identification.equals(customer.identification);
+        if (!identification.equals(salesman.identification)) return false;
+        if (!address.equals(salesman.address)) return false;
+        return password.equals(salesman.password);
     }
 
     @Override
     public int hashCode() {
-        return identification.hashCode();
+        int result = identification.hashCode();
+        result = 31 * result + address.hashCode();
+        result = 31 * result + password.hashCode();
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Salesman{" +
                 "identification=" + identification +
-                ", registrationTime=" + registrationTime +
                 '}';
     }
 }

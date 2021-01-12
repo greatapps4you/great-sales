@@ -16,7 +16,7 @@
         - Its own form must be selected and filled with the Data I am entering.
 
     When the Order is sent,
-        - The order must me emailed to the Vendor;
+        - The order must be emailed to the Vendor;
         - Bookkeeping entries for my sales man services must be 
           automatically recorded;
 

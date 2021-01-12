@@ -6,30 +6,28 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.sale;
+package us.greatapps4you.greatsales.entities.order;
 
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Salesman implements Serializable {
+public class Carrier implements Serializable {
 
     private Long sequential;
     private UUID uuid;
     private Identification identification;
     private Address address;
-    private String password;
 
-    public Salesman() {
+    public Carrier() {
     }
 
-    public Salesman(Long sequential, UUID uuid, Identification identification, Address address, String password) {
+    public Carrier(Long sequential, UUID uuid, Identification identification, Address address) {
         this.sequential = sequential;
         this.uuid = uuid;
         this.identification = identification;
         this.address = address;
-        this.password = password;
     }
 
     public Long getSequential() {
@@ -64,37 +62,27 @@ public class Salesman implements Serializable {
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Salesman salesman = (Salesman) o;
+        Carrier carrier = (Carrier) o;
 
-        if (!identification.equals(salesman.identification)) return false;
-        if (!address.equals(salesman.address)) return false;
-        return password.equals(salesman.password);
+        if (!identification.equals(carrier.identification)) return false;
+        return address.equals(carrier.address);
     }
 
     @Override
     public int hashCode() {
         int result = identification.hashCode();
         result = 31 * result + address.hashCode();
-        result = 31 * result + password.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Salesman{" +
+        return "Carrier{" +
                 "identification=" + identification +
                 '}';
     }

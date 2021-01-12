@@ -1,62 +1,43 @@
 /*
  * Copyright (c) 2021 GreatApps4you LLC
- *  This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
+ *  This Software is licenced under the GNU GENERAL private LICENSE v3
  *  https://www.gnu.org/licenses/gpl-3.0.txt
  *  https://greatapps4you.us
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.sale;
+package us.greatapps4you.greatsales.usecases;
 
+import us.greatapps4you.greatsales.entities.order.Carrier;
+import us.greatapps4you.greatsales.entities.order.Customer;
+import us.greatapps4you.greatsales.entities.order.OrderItem;
+import us.greatapps4you.greatsales.entities.order.Salesman;
 import us.greatapps4you.greatsales.entities.registration.Address;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
-public class Sale implements Serializable {
+public class OrderRequest {
     private Long sequential;
-    private UUID uuid;
-    private String orderNumber;
-    private LocalDateTime orderTime;
     private Customer customer;
-    private List<SaleItem> items;
+    private List<OrderItem> items;
     private BigDecimal totalAmount;
-
     private Salesman salesman;
     private Address deliveryAddress;
     private Address billingAddress;
-    private Customer buyer;
-
     private String mailMessage;
     private String mailOrderTo;
-    private String mailInvoiceTo;
-
+    private String invoiceTo;
     private LocalDate deliveryDate;
     private BigDecimal deliveryFee;
     private Carrier carrier;
-
     private BigDecimal commissionInCurrency;
     private BigDecimal commissionInPercentage;
     private BigDecimal taxInPercentage;
-
     private String customerOrderNumber;
     private String paymentConditions;
-
     private String observations;
-
-    public Sale() {
-    }
-
-    public Sale(String orderNumber, Customer customer, Salesman salesman, String customerOrderNumber) {
-        this.orderNumber = orderNumber;
-        this.customer = customer;
-        this.salesman = salesman;
-        this.customerOrderNumber = customerOrderNumber;
-    }
 
     public Long getSequential() {
         return sequential;
@@ -64,30 +45,6 @@ public class Sale implements Serializable {
 
     public void setSequential(Long sequential) {
         this.sequential = sequential;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getOrderNumber() {
-        return orderNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    public LocalDateTime getOrderTime() {
-        return orderTime;
-    }
-
-    public void setOrderTime(LocalDateTime orderTime) {
-        this.orderTime = orderTime;
     }
 
     public Customer getCustomer() {
@@ -98,11 +55,11 @@ public class Sale implements Serializable {
         this.customer = customer;
     }
 
-    public List<SaleItem> getItems() {
+    public List<OrderItem> getItems() {
         return items;
     }
 
-    public void setItems(List<SaleItem> items) {
+    public void setItems(List<OrderItem> items) {
         this.items = items;
     }
 
@@ -138,14 +95,6 @@ public class Sale implements Serializable {
         this.billingAddress = billingAddress;
     }
 
-    public Customer getBuyer() {
-        return buyer;
-    }
-
-    public void setBuyer(Customer buyer) {
-        this.buyer = buyer;
-    }
-
     public String getMailMessage() {
         return mailMessage;
     }
@@ -162,12 +111,12 @@ public class Sale implements Serializable {
         this.mailOrderTo = mailOrderTo;
     }
 
-    public String getMailInvoiceTo() {
-        return mailInvoiceTo;
+    public String getInvoiceTo() {
+        return invoiceTo;
     }
 
-    public void setMailInvoiceTo(String mailInvoiceTo) {
-        this.mailInvoiceTo = mailInvoiceTo;
+    public void setInvoiceTo(String invoiceTo) {
+        this.invoiceTo = invoiceTo;
     }
 
     public LocalDate getDeliveryDate() {
@@ -247,30 +196,28 @@ public class Sale implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Sale sale = (Sale) o;
+        OrderRequest that = (OrderRequest) o;
 
-        if (!orderNumber.equals(sale.orderNumber)) return false;
-        if (!orderTime.equals(sale.orderTime)) return false;
-        if (!customer.equals(sale.customer)) return false;
-        if (!totalAmount.equals(sale.totalAmount)) return false;
-        return salesman.equals(sale.salesman);
+        if (!customer.equals(that.customer)) return false;
+        if (!totalAmount.equals(that.totalAmount)) return false;
+        if (!deliveryAddress.equals(that.deliveryAddress)) return false;
+        return customerOrderNumber.equals(that.customerOrderNumber);
     }
 
     @Override
     public int hashCode() {
-        int result = orderNumber.hashCode();
-        result = 31 * result + orderTime.hashCode();
-        result = 31 * result + customer.hashCode();
+        int result = customer.hashCode();
         result = 31 * result + totalAmount.hashCode();
-        result = 31 * result + salesman.hashCode();
+        result = 31 * result + deliveryAddress.hashCode();
+        result = 31 * result + customerOrderNumber.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Sale{" +
-                "orderNumber='" + orderNumber + '\'' +
-                ", orderTime=" + orderTime +
+        return "OrderRequest{" +
+                "sequential=" + sequential +
+                ", customer=" + customer +
                 ", totalAmount=" + totalAmount +
                 '}';
     }

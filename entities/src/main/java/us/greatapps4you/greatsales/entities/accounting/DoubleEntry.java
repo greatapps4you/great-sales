@@ -34,7 +34,7 @@ import java.util.UUID;
  * The transactions for the month of June would be recorded
  * with the following journal entries:
  *
- * June 12, 2015: Sale of delicious beef jerky to customer
+ * June 12, 2015: Order of delicious beef jerky to customer
  * Credit, sales revenue, $1800 (money came from the customer)
  * Debit, bank account, $1800 (money went to the bank account)
  *

@@ -6,28 +6,33 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.sale;
+package us.greatapps4you.greatsales.entities.order;
 
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Carrier implements Serializable {
+public class Customer implements Serializable {
 
     private Long sequential;
     private UUID uuid;
     private Identification identification;
     private Address address;
+    private Address billingAddress;
+    private LocalDateTime registrationTime;
 
-    public Carrier() {
+    public Customer() {
     }
 
-    public Carrier(Long sequential, UUID uuid, Identification identification, Address address) {
+    public Customer(Long sequential, UUID uuid, Identification identification, Address address, Address billingAddress, LocalDateTime registrationTime) {
         this.sequential = sequential;
         this.uuid = uuid;
         this.identification = identification;
         this.address = address;
+        this.billingAddress = billingAddress;
+        this.registrationTime = registrationTime;
     }
 
     public Long getSequential() {
@@ -62,28 +67,42 @@ public class Carrier implements Serializable {
         this.address = address;
     }
 
+    public Address getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(Address billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public LocalDateTime getRegistrationTime() {
+        return registrationTime;
+    }
+
+    public void setRegistrationTime(LocalDateTime registrationTime) {
+        this.registrationTime = registrationTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Carrier carrier = (Carrier) o;
+        Customer customer = (Customer) o;
 
-        if (!identification.equals(carrier.identification)) return false;
-        return address.equals(carrier.address);
+        return identification.equals(customer.identification);
     }
 
     @Override
     public int hashCode() {
-        int result = identification.hashCode();
-        result = 31 * result + address.hashCode();
-        return result;
+        return identification.hashCode();
     }
 
     @Override
     public String toString() {
-        return "Carrier{" +
+        return "Customer{" +
                 "identification=" + identification +
+                ", registrationTime=" + registrationTime +
                 '}';
     }
 }

@@ -6,14 +6,14 @@
  *  CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.sale;
+package us.greatapps4you.greatsales.entities.order;
 
 import us.greatapps4you.greatsales.entities.inventory.Inventory;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class SaleItem implements Serializable {
+public class OrderItem implements Serializable {
 
     private Long sequential;
     private UUID uuid;
@@ -21,10 +21,10 @@ public class SaleItem implements Serializable {
     private BigDecimal quantity;
     private BigDecimal totalAmount;
 
-    public SaleItem() {
+    public OrderItem() {
     }
 
-    public SaleItem(Long sequential, UUID uuid, Inventory inventory, BigDecimal quantity, BigDecimal totalAmount) {
+    public OrderItem(Long sequential, UUID uuid, Inventory inventory, BigDecimal quantity, BigDecimal totalAmount) {
         this.sequential = sequential;
         this.uuid = uuid;
         this.inventory = inventory;
@@ -77,11 +77,11 @@ public class SaleItem implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        SaleItem saleItem = (SaleItem) o;
+        OrderItem orderItem = (OrderItem) o;
 
-        if (!inventory.equals(saleItem.inventory)) return false;
-        if (!quantity.equals(saleItem.quantity)) return false;
-        return totalAmount.equals(saleItem.totalAmount);
+        if (!inventory.equals(orderItem.inventory)) return false;
+        if (!quantity.equals(orderItem.quantity)) return false;
+        return totalAmount.equals(orderItem.totalAmount);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class SaleItem implements Serializable {
 
     @Override
     public String toString() {
-        return "SaleItem{" +
+        return "OrderItem{" +
                 "inventory=" + inventory +
                 ", quantity=" + quantity +
                 ", totalAmount=" + totalAmount +
