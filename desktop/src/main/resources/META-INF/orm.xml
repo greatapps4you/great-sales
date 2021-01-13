@@ -16,8 +16,8 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
     <description>GreatTweet Entities</description>
     <package>us.greatapps4you.greatsales.entities</package>
 
-    <entity class="us.greatapps4you.greatsales.entities.order.Order" name="Order">
-        <table name="ORDER"/>
+    <entity class="us.greatapps4you.greatsales.entities.inventory.Product" name="Product">
+        <table name="PRODUCT"/>
         <attributes>
 
             <id name="sequential">
@@ -25,12 +25,12 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
                 <sequence-generator name="order-generator" sequence-name="ORDER_SEQ"/>
             </id>
 
-            <basic name="orderNumber">
-                <column name="ORDER_NUMBER" length="32"/>
+            <basic name="sku">
+                <column name="SKU" length="64"/>
             </basic>
 
-            <basic name="orderTime">
-                <column name="ORDER_TIME" length="32"/>
+            <basic name="description">
+                <column name="DESCRIPTION" length="256"/>
             </basic>
         </attributes>
     </entity>
