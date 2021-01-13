@@ -8,5 +8,14 @@
 
 package us.greatapps4you.greatsales.desktop.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 public class PedidoController {
+
+    @FXML
+    public void save(ActionEvent event) {
+        System.out.println("Saving...");
+
+    }
 }
