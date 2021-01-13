@@ -12,15 +12,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.greatapps4you.greatsales.entities.inventory.Product;
-import us.greatapps4you.greatsales.entities.order.*;
+import us.greatapps4you.greatsales.entities.order.Carrier;
+import us.greatapps4you.greatsales.entities.order.Customer;
+import us.greatapps4you.greatsales.entities.order.Order;
+import us.greatapps4you.greatsales.entities.order.Salesman;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class SendOrderTest {
@@ -28,7 +29,6 @@ public class SendOrderTest {
     private OrderProcessor orderProcessor;
     private OrderRequest orderRequest;
     private Customer customer;
-    private List<OrderItem> items;
     private Salesman salesman;
     private Address deliveryAddress;
     private Address billingAddress;
@@ -36,111 +36,122 @@ public class SendOrderTest {
 
     @BeforeEach
     void setUp() {
-        orderRequest = new OrderRequest();
-        orderRequest.setSequential(1L);
-        customer = new Customer();
-        customer.setIdentification(new Identification(
-                1L, UUID.randomUUID(),
-                "CUSTOMER NAME",
-                "CUSTOMER TRADE NAME",
-                "CUSTOMER TAX ID"
-        ));
-        customer.setAddress(new Address(
-                1L, UUID.randomUUID(),
-                "CUSTOMER STREET",
-                "999", "CUSTOMER COMPLEMENT",
-                "99999", "CUSTOMER NEIGHBORHOOD",
-                "CUSTOMER CITY", "CUSTOMER STATE",
-                "CUSTOMER COUNTRY",
-                "www.customer.com",
-                "customer@order.com",
-                "CELL PHONE 99999999999",
-                "PHONE 99999999999"
-        ));
-        orderRequest.setCustomer(customer);
-        items = new ArrayList<>();
-        orderRequest.setItems(items);
-        orderRequest.setTotalAmount(new BigDecimal("200000.00"));
-        salesman = new Salesman(
-                1L, UUID.randomUUID(),
-                new Identification(
-                        1L, UUID.randomUUID(),
-                        "SALESMAN NAME",
-                        "SALESMAN TRADE NAME",
-                        "SALESMAN TAX ID"
-                ), new Address(
-                1L, UUID.randomUUID(),
-                "SALESMAN STREET",
-                "999", "SALESMAN COMPLEMENT",
-                "99999", "SALESMAN NEIGHBORHOOD",
-                "SALESMAN CITY", "SALESMAN STATE",
-                "SALESMAN COUNTRY",
-                "www.salesman.com",
-                "salesman@order.com",
-                "CELL PHONE 99999999999",
-                "PHONE 99999999999"
-        ), "abc123");
-        orderRequest.setSalesman(salesman);
-        deliveryAddress = new Address(
-                1L, UUID.randomUUID(),
-                "DELIVERY STREET",
-                "999", "DELIVERY COMPLEMENT",
-                "99999", "DELIVERY NEIGHBORHOOD",
-                "DELIVERY CITY", "DELIVERY STATE",
-                "DELIVERY COUNTRY",
-                "www.delivey.com",
-                "delivery@order.com",
-                "CELL PHONE 99999999999",
-                "PHONE 99999999999"
-        );
-        orderRequest.setDeliveryAddress(deliveryAddress);
-        billingAddress = new Address(
-                1L, UUID.randomUUID(),
-                "BILLING STREET",
-                "999", "BILLING COMPLEMENT",
-                "99999", "BILLING NEIGHBORHOOD",
-                "BILLING CITY", "BILLING STATE",
-                "BILLING COUNTRY",
-                "www.billing.com",
-                "billing@order.com",
-                "CELL PHONE 99999999999",
-                "PHONE 99999999999"
-        );
-        orderRequest.setBillingAddress(billingAddress);
-        orderRequest.setMailMessage("Sending Order");
-        orderRequest.setMailOrderTo("vendor@order.com");
-        orderRequest.setInvoiceTo("customer@order.com");
-        orderRequest.setDeliveryDate(LocalDate.now().plusDays(15));
-        orderRequest.setDeliveryFee(new BigDecimal("1000.00"));
-        carrier = new Carrier(
-                1L,
-                UUID.randomUUID(),
-                new Identification(
-                        1L, UUID.randomUUID(),
-                        "CARRIER NAME",
-                        "CARRIER TRADE NAME",
-                        "CARRIER TAX ID"
-                ),
-                new Address(
-                        1L, UUID.randomUUID(),
-                        "CARRIER STREET",
-                        "999", "CARRIER COMPLEMENT",
-                        "99999", "CARRIER NEIGHBORHOOD",
-                        "CARRIER CITY", "CARRIER STATE",
-                        "CARRIER COUNTRY",
-                        "www.billing.com",
-                        "billing@order.com",
-                        "CELL PHONE 99999999999",
-                        "PHONE 99999999999"
-                )
-        );
-        orderRequest.setCarrier(carrier);
-        orderRequest.setCommissionInCurrency(new BigDecimal("2500.00"));
-        orderRequest.setCommissionInPercentage(new BigDecimal("2.00"));
-        orderRequest.setTaxInPercentage(new BigDecimal("12"));
-        orderRequest.setCustomerOrderNumber("9999");
-        orderRequest.setPaymentConditions("PAYMENT CONDITIONS");
-        orderRequest.setObservations("OBSERVATIONS");
+        customer = Customer.builder()
+                .identification(Identification.builder()
+                        .uuid(UUID.randomUUID())
+                        .name("CUSTOMER NAME")
+                        .tradeName("CUSTOMER TRADE NAME")
+                        .taxId("CUSTOMER TAX ID").build())
+                .address(Address.builder()
+                        .uuid(UUID.randomUUID())
+                        .street("CUSTOMER STREET")
+                        .number("999")
+                        .complement("CUSTOMER COMPLEMENT")
+                        .zip("99999")
+                        .neighborhood("CUSTOMER NEIGHBORHOOD")
+                        .city("CUSTOMER CITY")
+                        .countryState("CUSTOMER STATE")
+                        .country("CUSTOMER COUNTRY")
+                        .website("www.customer.com")
+                        .email("customer@order.com")
+                        .cellPhone("CELL PHONE 99999999999")
+                        .phone("PHONE 99999999999").build())
+                .build();
+
+        salesman = Salesman.builder()
+                .identification(Identification.builder()
+                        .uuid(UUID.randomUUID())
+                        .name("SALESMAN NAME")
+                        .tradeName("SALESMAN TRADE NAME")
+                        .taxId("SALESMAN TAX ID").build())
+                .address(Address.builder()
+                        .uuid(UUID.randomUUID())
+                        .street("SALESMAN STREET")
+                        .number("999")
+                        .complement("SALESMAN COMPLEMENT")
+                        .zip("99999")
+                        .neighborhood("SALESMAN NEIGHBORHOOD")
+                        .city("SALESMAN CITY")
+                        .countryState("SALESMAN STATE")
+                        .country("SALESMAN COUNTRY")
+                        .website("www.SALESMAN.com")
+                        .email("SALESMAN@order.com")
+                        .cellPhone("CELL PHONE 99999999999")
+                        .phone("PHONE 99999999999").build())
+                .build();
+
+        deliveryAddress = Address.builder()
+                .uuid(UUID.randomUUID())
+                .street("DELIVERY STREET")
+                .number("999")
+                .complement("DELIVERY COMPLEMENT")
+                .zip("99999")
+                .neighborhood("DELIVERY NEIGHBORHOOD")
+                .city("DELIVERY CITY")
+                .countryState("DELIVERY STATE")
+                .country("DELIVERY COUNTRY")
+                .website("www.DELIVERY.com")
+                .email("DELIVERY@order.com")
+                .cellPhone("CELL PHONE 99999999999")
+                .phone("PHONE 99999999999").build();
+
+        billingAddress = Address.builder()
+                .uuid(UUID.randomUUID())
+                .street("BILLING STREET")
+                .number("999")
+                .complement("BILLING COMPLEMENT")
+                .zip("99999")
+                .neighborhood("BILLING NEIGHBORHOOD")
+                .city("BILLING CITY")
+                .countryState("BILLING STATE")
+                .country("BILLING COUNTRY")
+                .website("www.BILLING.com")
+                .email("BILLING@order.com")
+                .cellPhone("CELL PHONE 99999999999")
+                .phone("PHONE 99999999999").build();
+
+        carrier = Carrier.builder()
+                .identification(Identification.builder()
+                        .uuid(UUID.randomUUID())
+                        .name("CARRIER NAME")
+                        .tradeName("CARRIER TRADE NAME")
+                        .taxId("CARRIER TAX ID").build())
+                .address(Address.builder()
+                        .uuid(UUID.randomUUID())
+                        .street("CARRIER STREET")
+                        .number("999")
+                        .complement("CARRIER COMPLEMENT")
+                        .zip("99999")
+                        .neighborhood("CARRIER NEIGHBORHOOD")
+                        .city("CARRIER CITY")
+                        .countryState("CARRIER STATE")
+                        .country("CARRIER COUNTRY")
+                        .website("www.CARRIER.com")
+                        .email("CARRIER@order.com")
+                        .cellPhone("CELL PHONE 99999999999")
+                        .phone("PHONE 99999999999").build())
+                .build();
+
+        orderRequest = OrderRequest.builder()
+                .customer(customer)
+                .salesman(salesman)
+                .carrier(carrier)
+                .deliveryAddress(deliveryAddress)
+                .billingAddress(billingAddress)
+                .items(new ArrayList<>())
+                .totalAmount(new BigDecimal("200000.00"))
+                .mailMessage("Sending Order")
+                .mailOrderTo("vendor@order.com")
+                .invoiceTo("customer@order.com")
+                .deliveryDate(LocalDate.now().plusDays(15))
+                .deliveryFee(new BigDecimal("1000.00"))
+                .commissionInCurrency(new BigDecimal("2500.00"))
+                .commissionInPercentage(new BigDecimal("2.00"))
+                .taxInPercentage(new BigDecimal("12"))
+                .customerOrderNumber("9999")
+                .paymentConditions("PAYMENT CONDITIONS")
+                .observations("OBSERVATIONS")
+                .build();
 
         orderProcessor = new OrderProcessor(orderRequest);
     }

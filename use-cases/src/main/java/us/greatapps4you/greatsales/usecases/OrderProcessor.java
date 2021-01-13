@@ -21,35 +21,32 @@ public class OrderProcessor {
     }
 
     public Order create() {
-        Order order = new Order();
-        order.setSequential(orderRequest.getSequential());
-        order.setCustomer(orderRequest.getCustomer());
-        order.setItems(orderRequest.getItems());
-        order.setTotalAmount(orderRequest.getTotalAmount());
-        order.setSalesman(orderRequest.getSalesman());
-        order.setDeliveryAddress(orderRequest.getDeliveryAddress());
-        order.setBillingAddress(orderRequest.getBillingAddress());
-        order.setMailMessage(orderRequest.getMailMessage());
-        order.setMailOrderTo(orderRequest.getMailOrderTo());
-        order.setMailInvoiceTo(orderRequest.getInvoiceTo());
-        order.setDeliveryDate(orderRequest.getDeliveryDate());
-        order.setDeliveryFee(orderRequest.getDeliveryFee());
-        order.setCarrier(orderRequest.getCarrier());
-        order.setCommissionInCurrency(orderRequest.getCommissionInCurrency());
-        order.setCommissionInPercentage(orderRequest.getCommissionInPercentage());
-        order.setTaxInPercentage(orderRequest.getTaxInPercentage());
-        order.setCustomerOrderNumber(orderRequest.getCustomerOrderNumber());
-        order.setPaymentConditions(orderRequest.getPaymentConditions());
-        order.setObservations(orderRequest.getObservations());
-
-        // Locally filled fields
-        order.setOrderTime(LocalDateTime.now());
+        LocalDateTime orderTime = LocalDateTime.now();
         StringBuilder orderNumber = new StringBuilder("");
-        orderNumber.append(order.getOrderTime().getYear())
-        .append(order.getOrderTime().getMonthValue())
-        .append(order.getSequential());
-        order.setOrderNumber(orderNumber.toString());
-        order.setUuid(UUID.randomUUID());
-        return order;
+        orderNumber.append(orderTime.getYear())
+                .append(orderTime.getMonthValue());
+
+        return Order.builder()
+                .orderTime(orderTime)
+                .orderNumber(orderNumber.toString())
+                .uuid(UUID.randomUUID())
+                .customer(orderRequest.getCustomer())
+                .items(orderRequest.getItems())
+                .totalAmount(orderRequest.getTotalAmount())
+                .salesman(orderRequest.getSalesman())
+                .deliveryAddress(orderRequest.getDeliveryAddress())
+                .billingAddress(orderRequest.getBillingAddress())
+                .mailMessage(orderRequest.getMailMessage())
+                .mailOrderTo(orderRequest.getMailOrderTo())
+                .mailInvoiceTo(orderRequest.getInvoiceTo())
+                .deliveryDate(orderRequest.getDeliveryDate())
+                .deliveryFee(orderRequest.getDeliveryFee())
+                .carrier(orderRequest.getCarrier())
+                .commissionInCurrency(orderRequest.getCommissionInCurrency())
+                .commissionInPercentage(orderRequest.getCommissionInPercentage())
+                .taxInPercentage(orderRequest.getTaxInPercentage())
+                .customerOrderNumber(orderRequest.getCustomerOrderNumber())
+                .paymentConditions(orderRequest.getPaymentConditions())
+                .observations(orderRequest.getObservations()).build();
     }
 }
