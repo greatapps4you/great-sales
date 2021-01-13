@@ -11,6 +11,7 @@
          fx:controller="us.greatapps4you.greatsales.desktop.controllers.HomeController"
          xmlns:fx="http://javafx.com/fxml">
     <tabs>
-        <fx:include fx:id="orderTab" source="Pedido.fxml"/>
+       <!-- <fx:include fx:id="orderTab" source="Order.fxml"/>-->
+        <fx:include fx:id="productTab" source="Product.fxml"/>
     </tabs>
 </TabPane>

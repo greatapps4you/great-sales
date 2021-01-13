@@ -10,7 +10,6 @@ package us.greatapps4you.greatsales.usecases;
 
 import us.greatapps4you.greatsales.entities.order.Order;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class OrderProcessor {
 
@@ -29,7 +28,7 @@ public class OrderProcessor {
         return Order.builder()
                 .orderTime(orderTime)
                 .orderNumber(orderNumber.toString())
-                .uuid(UUID.randomUUID())
+                .uuid(orderRequest.getUuid())
                 .customer(orderRequest.getCustomer())
                 .items(orderRequest.getItems())
                 .totalAmount(orderRequest.getTotalAmount())

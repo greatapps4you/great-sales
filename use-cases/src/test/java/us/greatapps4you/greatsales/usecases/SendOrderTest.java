@@ -133,6 +133,7 @@ public class SendOrderTest {
                 .build();
 
         orderRequest = OrderRequest.builder()
+                .uuid(UUID.randomUUID())
                 .customer(customer)
                 .salesman(salesman)
                 .carrier(carrier)

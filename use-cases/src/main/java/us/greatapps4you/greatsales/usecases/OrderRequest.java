@@ -18,11 +18,12 @@ import us.greatapps4you.greatsales.entities.registration.Address;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
 public class OrderRequest {
-    private Long sequential;
+    private UUID uuid;
     private Customer customer;
     private List<OrderItem> items;
     private BigDecimal totalAmount;
