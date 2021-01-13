@@ -11,9 +11,11 @@ package us.greatapps4you.greatsales.usecases;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsales.entities.order.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -141,6 +143,17 @@ public class SendOrderTest {
         orderRequest.setObservations("OBSERVATIONS");
 
         orderProcessor = new OrderProcessor(orderRequest);
+    }
+
+    @Test
+    void testProduct() {
+        Product product = Product.builder()
+                .sku("999999")
+                .uuid(UUID.randomUUID())
+                .description("Borracha")
+                .build();
+
+        System.out.println(product);
     }
 
     @Test

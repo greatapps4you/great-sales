@@ -20,9 +20,8 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
         <table name="PRODUCT"/>
         <attributes>
 
-            <id name="sequential">
-                <generated-value strategy="SEQUENCE" generator="order-generator"/>
-                <sequence-generator name="order-generator" sequence-name="ORDER_SEQ"/>
+            <id name="uuid">
+                <column name="UUID"/>
             </id>
 
             <basic name="sku">
