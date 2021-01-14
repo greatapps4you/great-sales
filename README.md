@@ -1,2 +1,2 @@
 # GreatSales
-A Sales System in a Clean Architecture
+A Desktop Sales System in a Clean Architecture
