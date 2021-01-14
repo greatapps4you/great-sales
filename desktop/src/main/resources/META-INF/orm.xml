@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ Copyright (c) 2021 GreatApps4you LLC
+  ~ This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
+  ~ https://www.gnu.org/licenses/gpl-3.0.txt
+  ~ https://greatapps4you.us
+  ~ CSSML NDSMD VRS + SNMV SMQL IVB
+  -->
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+    <description>GreatTweet Entities</description>
+    <package>us.greatapps4you.greatsales.entities</package>
+
+    <entity class="us.greatapps4you.greatsales.entities.inventory.Product" name="Product">
+        <table name="PRODUCT"/>
+        <attributes>
+
+            <id name="uuid">
+                <column name="UUID"/>
+            </id>
+
+            <basic name="sku">
+                <column name="SKU" length="64"/>
+            </basic>
+
+            <basic name="description">
+                <column name="DESCRIPTION" length="256"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
+
