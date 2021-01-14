@@ -22,6 +22,10 @@ public class ProductController {
     private ProductRepository productRepository;
     private Product product;
 
+    public ProductController init() {
+        return this;
+    }
+
     @FXML
     public void save(ActionEvent event) {
         product = Product.builder()
@@ -33,6 +37,6 @@ public class ProductController {
     }
 
     public Product createProduct(Product product) {
-        return (Product) productRepository.save(product);
+        return productRepository.save(product);
     }
 }
