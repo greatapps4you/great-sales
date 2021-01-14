@@ -27,7 +27,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="project" />
-    <orderEntry type="module" module-name="use-cases" />
+    <orderEntry type="library" name="Maven: us.greatapps4you.greatsales:use-cases:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="entities" />
     <orderEntry type="module-library">
       <library name="Maven: org.openjfx:javafx-base:15.0.1">
