@@ -6,7 +6,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package com.mvp.java;
+package us.greatapps4you.greatsaltes.desktop;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -47,25 +47,3 @@ public class Main extends Application {
     }
 
 }
-
-
-
-
-        
-//Options ...   
-//gets called for each Controller that you want DI. If you put a println
-//in before the return, you can see which Controller gets DI by spring
-
-//via good old anonymous class
-//        loader.setControllerFactory(new Callback<Class<?>, Object>() {
-//            @Override
-//            public Object call(Class<?> clazz) {
-//                return springContext.getBean(clazz);
-//            }
-//        });
-
-// via lambda
-//        loader.setControllerFactory((clazz) -> springContext.getBean(clazz));
-
-//  via method reference       
-// loader.setControllerFactory(springContext::getBean);

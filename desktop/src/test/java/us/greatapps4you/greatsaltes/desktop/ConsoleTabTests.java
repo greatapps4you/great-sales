@@ -6,9 +6,9 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package com.mvp.java;
+package us.greatapps4you.greatsaltes.desktop;
 
-import com.mvp.java.services.MissionsService;
+import us.greatapps4you.greatsaltes.desktop.services.MissionsService;
 import java.io.IOException;
 import static org.junit.Assert.*;
 import org.junit.Test;

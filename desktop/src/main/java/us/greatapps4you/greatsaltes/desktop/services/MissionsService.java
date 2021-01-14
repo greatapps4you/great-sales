@@ -6,7 +6,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package com.mvp.java.services;
+package us.greatapps4you.greatsaltes.desktop.services;
 
 import java.io.BufferedReader;
 import java.io.IOException;

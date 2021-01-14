@@ -6,7 +6,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package com.mvp.java.controllers;
+package us.greatapps4you.greatsaltes.desktop.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;

@@ -6,9 +6,9 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package com.mvp.java.controllers;
+package us.greatapps4you.greatsaltes.desktop.controllers;
 
-import com.mvp.java.services.MissionsService;
+import us.greatapps4you.greatsaltes.desktop.services.MissionsService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javafx.collections.FXCollections;
@@ -30,7 +30,8 @@ public class ConsoleTabController {
     @Autowired @Qualifier("stringPrintWriter")
     private PrintWriter stackTraceWriter;
     
-    @Autowired MissionsService service;
+    @Autowired
+    MissionsService service;
     private TabPaneManger tabManager;
 
     public void initialize() {

@@ -6,7 +6,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package com.mvp.java.spring.config;
+package us.greatapps4you.greatsaltes.desktop.spring.config;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
