@@ -11,13 +11,15 @@ package us.greatapps4you.greatsales.desktop.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import us.greatapps4you.greatsales.desktop.repositories.ProductRepository;
 import us.greatapps4you.greatsales.entities.inventory.Product;
 
 import java.util.UUID;
 
-@Controller
+@Component
+@Qualifier("productTabController")
 public class ProductTabController {
 
     private ProductRepository productRepository;

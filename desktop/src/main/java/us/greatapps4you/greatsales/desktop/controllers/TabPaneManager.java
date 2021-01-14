@@ -9,9 +9,10 @@
 package us.greatapps4you.greatsales.desktop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-@Controller
+@Component @Qualifier("tabPaneManager")
 public class TabPaneManager {
     private final ProductTabController productTabController;
 
