@@ -11,19 +11,21 @@ package us.greatapps4you.greatsales.desktop.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.desktop.repositories.ProductRepository;
 import us.greatapps4you.greatsales.entities.inventory.Product;
 
 import java.util.UUID;
 
-public class ProductController {
+@Controller
+public class ProductTabController {
 
-    @Autowired
     private ProductRepository productRepository;
     private Product product;
 
-    public ProductController init() {
-        return this;
+    @Autowired
+    public ProductTabController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @FXML

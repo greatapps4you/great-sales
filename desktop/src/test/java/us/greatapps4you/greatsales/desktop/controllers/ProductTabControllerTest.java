@@ -22,12 +22,12 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ProductControllerTest {
+class ProductTabControllerTest {
 
     @Mock
     private ProductRepository productRepository;
     @InjectMocks
-    private ProductController productController;
+    private ProductTabController productTabController;
 
     @Test
     public void whenRequestOrder_ThenCreateNewOrder() {
@@ -41,7 +41,7 @@ class ProductControllerTest {
         // Return the same object passed as parameter
         when(productRepository.save(any(Product.class))).then(returnsFirstArg());
 
-        Product actual = productController.createProduct(product);
+        Product actual = productTabController.createProduct(product);
         System.out.println(actual);
 
         assertThat(actual).isNotNull();
