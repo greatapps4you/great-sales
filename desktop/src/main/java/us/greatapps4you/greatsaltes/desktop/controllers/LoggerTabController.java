@@ -10,12 +10,31 @@ package us.greatapps4you.greatsaltes.desktop.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import us.greatapps4you.greatsales.entities.inventory.Product;
+import us.greatapps4you.greatsaltes.desktop.repositories.ProductRepository;
+
+import java.util.UUID;
 
 @Component
 public class LoggerTabController {
 
     @FXML private TextArea loggerTxtArea;
+    @Autowired
+    private ProductRepository productRepository;
+
+    @FXML
+    public void printLog() {
+        System.out.println("Printing log...");
+
+        Product product = Product.builder()
+                .uuid(UUID.randomUUID())
+                .sku("PRODUCT_SKU")
+                .description("New Product").build();
+
+        System.out.println(productRepository.save(product));
+    }
 
     public TextArea getLoggerTxtArea() {
         return loggerTxtArea;
