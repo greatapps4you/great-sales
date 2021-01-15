@@ -20,24 +20,27 @@ import java.util.UUID;
 @Component
 public class ProductTabController {
 
-    @FXML private TextArea loggerTxtArea;
+    @FXML
+    private TextArea loggerTxtArea;
     @Autowired
     private ProductRepository productRepository;
 
     @FXML
-    public void printLog() {
-        System.out.println("Printing log...");
-
+    public void save() {
         Product product = Product.builder()
                 .uuid(UUID.randomUUID())
                 .sku("PRODUCT_SKU")
-                .description("New Product").build();
+                .description("PRODUCTION_PRODUCT").build();
 
-        System.out.println(productRepository.save(product));
+        System.out.println(createProduct(product));
+    }
+
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
     }
 
     public TextArea getLoggerTxtArea() {
         return loggerTxtArea;
     }
-    
+
 }
