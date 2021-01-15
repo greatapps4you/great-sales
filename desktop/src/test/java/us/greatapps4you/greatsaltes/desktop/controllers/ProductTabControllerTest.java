@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsaltes.desktop.Main;
@@ -22,6 +23,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
+@ActiveProfiles("test")
 public class ProductTabControllerTest {
 
     @Autowired
@@ -36,7 +38,7 @@ public class ProductTabControllerTest {
         Product product = Product.builder()
                 .uuid(uuid)
                 .sku("TEST_PRODUCT_SKU")
-                .description("TEST_PRODUCT").build();
+                .description("IN_MEMORY_PRODUCT").build();
 
         Product persisted = productTabController.createProduct(product);
         Product found = productRepository.findOne(uuid);
