@@ -8,8 +8,7 @@
 
 package us.greatapps4you.greatsales.entities.inventory;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import us.greatapps4you.greatsales.entities.purchase.Vendor;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -45,8 +44,12 @@ import java.util.UUID;
  * for minimizing stock holding and handling costs.
  */
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Inventory {
     private UUID uuid;
     private String lotNumber;

@@ -8,12 +8,15 @@
 
 package us.greatapps4you.greatsales.entities.registration;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import java.util.UUID;
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Identification {
     private UUID uuid;
     private String name;

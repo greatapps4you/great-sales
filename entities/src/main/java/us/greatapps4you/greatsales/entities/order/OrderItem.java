@@ -8,14 +8,17 @@
 
 package us.greatapps4you.greatsales.entities.order;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import us.greatapps4you.greatsales.entities.inventory.Inventory;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderItem {
     private UUID uuid;
     private Inventory inventory;

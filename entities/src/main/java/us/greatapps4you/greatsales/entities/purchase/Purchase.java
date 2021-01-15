@@ -8,15 +8,19 @@
 
 package us.greatapps4you.greatsales.entities.purchase;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Purchase {
     private UUID uuid;
     private LocalDateTime purchaseTime;

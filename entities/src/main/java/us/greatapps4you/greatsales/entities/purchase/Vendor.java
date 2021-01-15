@@ -8,14 +8,17 @@
 
 package us.greatapps4you.greatsales.entities.purchase;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
 import java.util.UUID;
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vendor {
     private UUID uuid;
     private Identification identification;

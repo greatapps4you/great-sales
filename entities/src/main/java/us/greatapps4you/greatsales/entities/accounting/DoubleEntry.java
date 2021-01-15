@@ -8,8 +8,8 @@
 
 package us.greatapps4you.greatsales.entities.accounting;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -43,8 +43,12 @@ import java.util.UUID;
  * Credit, bank account, $1500 (money came from the bank account)
  * Debit, rent expense, $1500 (money went to the rent expense account)
  */
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class DoubleEntry {
     private UUID uuid;
     private String description;

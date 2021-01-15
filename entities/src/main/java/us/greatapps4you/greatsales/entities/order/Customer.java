@@ -8,15 +8,18 @@
 
 package us.greatapps4you.greatsales.entities.order;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
     private UUID uuid;
     private Identification identification;

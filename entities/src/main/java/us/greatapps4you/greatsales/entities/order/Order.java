@@ -8,8 +8,7 @@
 
 package us.greatapps4you.greatsales.entities.order;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,8 +16,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
     private UUID uuid;
     private String orderNumber;

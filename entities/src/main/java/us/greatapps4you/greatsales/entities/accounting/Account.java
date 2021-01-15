@@ -8,8 +8,8 @@
 
 package us.greatapps4you.greatsales.entities.accounting;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+
 import java.util.UUID;
 
 /**
@@ -27,8 +27,12 @@ import java.util.UUID;
  * Generally the most used accounts should be kept near the top of each group.
  */
 
-@Data
 @Builder
+@Data
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
     private UUID uuid;
     private String name;
