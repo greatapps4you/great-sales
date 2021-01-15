@@ -15,17 +15,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class TabPaneManger {
 
-    private final ConsoleTabController consoleTabController;
-    private final LoggerTabController loggerTabController;
+    private final OrderTabController orderTabController;
+    private final ProductTabController productTabController;
 
     @Autowired
-    public TabPaneManger(ConsoleTabController consoleTabController, LoggerTabController loggerTabController) {
-        this.consoleTabController = consoleTabController;
-        this.loggerTabController = loggerTabController;
+    public TabPaneManger(OrderTabController orderTabController, ProductTabController productTabController) {
+        this.orderTabController = orderTabController;
+        this.productTabController = productTabController;
     }
 
     public TextArea getVisualLog() {
-        return loggerTabController.getLoggerTxtArea();
+        return productTabController.getLoggerTxtArea();
     }
 
 }

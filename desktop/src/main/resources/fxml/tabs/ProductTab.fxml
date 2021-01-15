@@ -16,8 +16,8 @@
   ~ CSSML NDSMD VRS + SNMV SMQL IVB
   -->
 
-<Tab fx:id="tabLogger" text="Logger" xmlns:fx="http://javafx.com/fxml/1"
-     fx:controller="us.greatapps4you.greatsaltes.desktop.controllers.LoggerTabController">
+<Tab fx:id="tabLogger" text="Produto" xmlns:fx="http://javafx.com/fxml/1"
+     fx:controller="us.greatapps4you.greatsaltes.desktop.controllers.ProductTabController">
     <content>
         <VBox prefHeight="200.0" prefWidth="100.0">
             <children>

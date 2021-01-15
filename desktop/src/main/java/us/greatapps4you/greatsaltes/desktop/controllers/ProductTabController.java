@@ -18,7 +18,7 @@ import us.greatapps4you.greatsaltes.desktop.repositories.ProductRepository;
 import java.util.UUID;
 
 @Component
-public class LoggerTabController {
+public class ProductTabController {
 
     @FXML private TextArea loggerTxtArea;
     @Autowired

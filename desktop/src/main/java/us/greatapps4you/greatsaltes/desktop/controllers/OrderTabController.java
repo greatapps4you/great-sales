@@ -22,7 +22,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConsoleTabController {
+public class OrderTabController {
 
     @FXML private TextArea missionOverviewText;
     @FXML private ListView<String> missionsList;

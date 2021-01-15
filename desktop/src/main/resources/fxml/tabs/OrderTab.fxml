@@ -15,9 +15,9 @@
   ~ CSSML NDSMD VRS + SNMV SMQL IVB
   -->
 
-<Tab fx:id="consoleTab" text="Console" xmlns:fx="http://javafx.com/fxml/1"
+<Tab fx:id="consoleTab" text="Pedido" xmlns:fx="http://javafx.com/fxml/1"
      xmlns="http://javafx.com/javafx/8" 
-     fx:controller="us.greatapps4you.greatsaltes.desktop.controllers.ConsoleTabController">
+     fx:controller="us.greatapps4you.greatsaltes.desktop.controllers.OrderTabController">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
             <children>
