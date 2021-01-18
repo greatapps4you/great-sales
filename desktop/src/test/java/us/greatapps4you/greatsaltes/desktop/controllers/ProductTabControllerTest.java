@@ -41,7 +41,7 @@ public class ProductTabControllerTest {
                 .description("IN_MEMORY_PRODUCT").build();
 
         Product persisted = productTabController.createProduct(product);
-        Product found = productRepository.findOne(uuid);
+        Product found = productRepository.findById(uuid).get();
 
         assertEquals(product, persisted);
         Assertions.assertNotNull(found);
