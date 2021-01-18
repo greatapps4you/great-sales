@@ -8,22 +8,23 @@
 
 package us.greatapps4you.greatsaltes.desktop.services;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.*;
+
 @Service
 public class MissionsService {
-    
+
     @Value(("${specs.dir}"))
     private String specsPath;
 
     public String getMissionInfo(String missionName) throws IOException {
+        String specFile = specsPath + missionName;
+        System.out.println("Getting Specs: " + specFile);
         final StringBuilder fileContents = new StringBuilder(2000);
-        final InputStream is = this.getClass().getResourceAsStream(specsPath + missionName);
+
+        final InputStream is = new FileInputStream(specFile);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is));) {
             String line;
