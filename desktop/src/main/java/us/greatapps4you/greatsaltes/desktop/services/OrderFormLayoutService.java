@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.util.Arrays;
 
 @Service
 public class OrderFormLayoutService {
@@ -20,7 +21,7 @@ public class OrderFormLayoutService {
     private String vendorLayoutsDir;
 
     public String getOrderLayoutForVendor(String vendorName) throws IOException {
-        String layoutFile = vendorLayoutsDir + vendorName;
+        String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout.html";
         System.out.println("Getting Specs: " + layoutFile);
         final StringBuilder fileContents = new StringBuilder(2000);
 
@@ -36,11 +37,16 @@ public class OrderFormLayoutService {
     }
 
     public void saveOrderLayoutForVendor(String vendorName, String layoutContent) throws IOException {
-        String layoutFile = vendorLayoutsDir + vendorName;
+        String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout";
         System.out.println("Saving: " + layoutFile);
         try (FileOutputStream fos = new FileOutputStream(layoutFile)) {
             byte[] layoutContentBytes = layoutContent.getBytes();
             fos.write(layoutContentBytes);
         }
+    }
+
+    public String[] getAllLayoutNames() {
+        File[] files = new File(vendorLayoutsDir).listFiles();
+        return Arrays.stream(files).map(f -> f.getName().toUpperCase()).toArray(String[]::new);
     }
 }

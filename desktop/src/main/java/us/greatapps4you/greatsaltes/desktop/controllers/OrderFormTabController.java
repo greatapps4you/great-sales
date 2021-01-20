@@ -26,18 +26,21 @@ import java.io.PrintWriter;
 @Component
 public class OrderFormTabController {
 
-    @FXML private TextArea orderFormLayout;
-    @FXML private ListView<String> vendors;
-    
-    @Autowired @Qualifier("stringPrintWriter")
+    @FXML
+    private TextArea orderFormLayout;
+    @FXML
+    private ListView<String> vendors;
+
+    @Autowired
+    @Qualifier("stringPrintWriter")
     private PrintWriter stackTraceWriter;
-    
+
     @Autowired
     OrderFormLayoutService orderFormLayoutService;
     private TabPaneManger tabManager;
 
     public void initialize() {
-        ObservableList<String> missions = FXCollections.observableArrayList("Sweetmix", "VOF", "GEB");
+        ObservableList<String> missions = FXCollections.observableArrayList(orderFormLayoutService.getAllLayoutNames());
         vendors.setItems(missions);
     }
 
@@ -59,23 +62,23 @@ public class OrderFormTabController {
             e.printStackTrace();
         }
     }
-    
+
     @Autowired
-    private void setTabManager(TabPaneManger tabManager){
+    private void setTabManager(TabPaneManger tabManager) {
         this.tabManager = tabManager;
     }
- 
+
     public String getInfo(String selectedVendor) {
-        String missionInfo = null ;
-                
+        String missionInfo = null;
+
         try {
             missionInfo = orderFormLayoutService.getOrderLayoutForVendor(selectedVendor);
             getLog().appendText("Sucessfully retrieved layout for " + selectedVendor + "\n");
         } catch (IOException exception) {
-            exception.printStackTrace (stackTraceWriter);
+            exception.printStackTrace(stackTraceWriter);
             getLog().appendText(stackTraceWriter.toString() + "\n");
         }
-        
+
         return missionInfo;
     }
 
@@ -86,8 +89,8 @@ public class OrderFormTabController {
     public ListView<String> getMissionsList() {
         return vendors;
     }
-    
-    private TextArea getLog(){
+
+    private TextArea getLog() {
         return tabManager.getVisualLog();
     }
 
