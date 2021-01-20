@@ -10,6 +10,7 @@ package us.greatapps4you.greatsaltes.desktop.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -17,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import us.greatapps4you.greatsaltes.desktop.services.MissionsService;
+import us.greatapps4you.greatsaltes.desktop.services.OrderFormLayoutService;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,7 +33,7 @@ public class OrderFormTabController {
     private PrintWriter stackTraceWriter;
     
     @Autowired
-    MissionsService service;
+    OrderFormLayoutService orderFormLayoutService;
     private TabPaneManger tabManager;
 
     public void initialize() {
@@ -43,9 +44,20 @@ public class OrderFormTabController {
     @FXML
     private void vendorSelected(MouseEvent event) {
         orderFormLayout.clear();
-        final String selectedItem = vendors.getSelectionModel().getSelectedItem();
+        final String selectedVendor = vendors.getSelectionModel().getSelectedItem();
         orderFormLayout.positionCaret(0);
-        orderFormLayout.appendText(getInfo(selectedItem));
+        orderFormLayout.appendText(getInfo(selectedVendor));
+    }
+
+    @FXML
+    private void saveLayout(ActionEvent event) {
+        final String selectedVendor = vendors.getSelectionModel().getSelectedItem();
+        final String layoutContent = orderFormLayout.getText();
+        try {
+            orderFormLayoutService.saveOrderLayoutForVendor(selectedVendor, layoutContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     @Autowired
@@ -53,12 +65,12 @@ public class OrderFormTabController {
         this.tabManager = tabManager;
     }
  
-    public String getInfo(String selectedItem) {
+    public String getInfo(String selectedVendor) {
         String missionInfo = null ;
                 
         try {
-            missionInfo = service.getMissionInfo(selectedItem); 
-            getLog().appendText("Sucessfully retrieved mission info for " + selectedItem + "\n");
+            missionInfo = orderFormLayoutService.getOrderLayoutForVendor(selectedVendor);
+            getLog().appendText("Sucessfully retrieved layout for " + selectedVendor + "\n");
         } catch (IOException exception) {
             exception.printStackTrace (stackTraceWriter);
             getLog().appendText(stackTraceWriter.toString() + "\n");

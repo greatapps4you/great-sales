@@ -59,7 +59,7 @@
                                     </contextMenu>
                                 </TextArea>
 
-                                <Button mnemonicParsing="false" text="Salvar"  AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                <Button mnemonicParsing="false" text="Salvar" onAction="#saveLayout" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
 
                             </children>
                         </AnchorPane>
