@@ -1,1 +1,158 @@
-<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><style>table.centralizado{width:100%;}table.detalhes{border-collapse:collapse; border:1px solid black; width:100%;font-size:13px; margin-left:auto; margin-right:auto;}table.detalhes th, table.detalhes tr, table.detalhes td{border-collapse:collapse; border:1px solid black;}table.detalhes td{text-align:center;}table.dadosCliente{border-collapse:collapse; border:1px solid black; width:100%;font-size:13px; margin-left:auto; margin-right:auto;}table.dadosCliente th, table.dadosCliente tr, table.dadosCliente td{border-collapse:collapse; border:1px solid black;}table.dadosCliente td{text-align:left;}</style></head><body><table border="0" style="margin-left:auto; margin-right:auto; width:100%;"><tbody><tr><td><table class="centralizado" border="0" style="margin-left:auto; margin-right:auto;"><tbody><tr style="font-size:8px;"><td align="left"><img src='logo.jpg' style="width: 150px; height: 75px;"/></td><td colspan="9" align="center"><strong>Matriz : V.O.F. BORRACHAS INDUSTRIAIS EIRELI.</strong><br/>ENDERECO: RUA MAJOR CARLOS DEL FRETE, 497 BAIRRO: SANTO ANTONIO<br/>CEP: 09530-001 CIDADE: SÃO CAETANO DO SUL ESTADO : SP<br/>CNPJ: 12.924.521/0001-14 INSCR.EST: 636.222.791.118<br/>TELEFONES: (11)3895-2200 (11) 2843-0944<br/>E-mail : vof@vofborrachas.com.br / faturamento@vofborrachas.com.br</td><td colspan="9" align="center"><strong>Filial : V.O.F. BORRACHAS INDUSTRIAIS EIRELI.</strong><br/>ENDERECO: Rua Pedro Picussa,920 BAIRRO: Umbara<br/>CEP: 81930-610 CIDADE: Curitiba ESTADO : PR<br/>CNPJ: 12.924.521/0002-03 INSCR.EST: 90646935-97<br/>TELEFONES: (41)3348-0526<br/>E-mail : vof@vofborrachas.com.br / faturamento@vofborrachas.com.br</td></tr></tbody></table></td></tr><tr><td><table class="centralizado" style="font-size:13px; margin-left:auto; margin-right:auto;"><tbody><tr><td colspan="9" align="left"><strong>PEDIDO N.: </strong>numeroPedido</td><td align="right"><strong>DATA:</strong> dataPedido</td></tr><tr><td colspan="9" align="left"><strong>PEDIDO CLIENTE: </strong>pedidoCliente</td><td></td></tr><tr><td><br/></td></tr></tbody></table><table class="dadosCliente"><tbody><tr><td colspan="9"><strong>CLIENTE: </strong>razaoSocialCli</td></tr><tr><td style="width: 48%"><strong>CNPJ: </strong>cnpjCli</td><td style="width: 25%"><strong> INSC. EST.: </strong>inscEstCli</td><td style="width: 27%"><strong> INSC. MUN.: </strong>inscMunCli</td></tr><tr><td><strong>ENDERECO: </strong>streetCli, numberCli - neighborhoodCli</td><td><strong> CEP: </strong>zipCli</td><td><strong> CIDADE: </strong>cityCli - countryStateCli</td></tr><tr><td><strong>COMPRADOR: </strong>comprador</td><td><strong>PRAZO: </strong>prazoPgto</td><td><strong> ICMS: </strong>icms %</td></tr><tr><td><strong>DANFE: </strong>emailCli</td><td><strong>TRANSP.: </strong>transportadora</td><td><strong> FRETE: </strong>frete </td></tr><tr><td colspan="4"><strong>END. ENTREGA.: </strong>endEntrega</td></tr><tr><td colspan="4"><strong>END. COBRANÇA: </strong>endFatura</td></tr><tr><td colspan="4"><strong>REPRESENTANTE: </strong>representante</td></tr></tbody></table></td></tr><tr><td><br/></td></tr><tr><td><table class="detalhes"><tbody><tr><td><strong>TIPO</strong></td><td><strong>QUANT. KG</strong></td><td><strong>ESPECIF.</strong></td><td><strong>ENTREGA</strong></td><td><strong>PREÇO R$</strong></td><td><strong>TOTAL</strong></td></tr>items</tbody></table><table align="right" style="font-size:13px; border-collapse:collapse; border:1px solid black;"><tbody><tr><td colspan="9" align="center" style="width: 123px;"><strong>TOTAL </strong></td><td align="center" style="width: 100px;">total</td></tr></tbody></table></td></tr><tr><td><strong> OBS.: </strong>observacoes</td></tr></tbody></table></body></html>
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title></title>
+    <style>table.centralizado {
+        width: 100%;
+    }
+
+    table.detalhes {
+        border-collapse: collapse;
+        border: 1px solid black;
+        width: 100%;
+        font-size: 13px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    table.detalhes th, table.detalhes tr, table.detalhes td {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+    table.detalhes td {
+        text-align: center;
+    }
+
+    table.dadosCliente {
+        border-collapse: collapse;
+        border: 1px solid black;
+        width: 100%;
+        font-size: 13px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    table.dadosCliente th, table.dadosCliente tr, table.dadosCliente td {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+    table.dadosCliente td {
+        text-align: left;
+    }</style>
+</head>
+<body>
+<table border="0" style="margin-left:auto; margin-right:auto; width:100%;">
+    <tbody>
+    <tr>
+        <td>
+            <table class="centralizado" border="0" style="margin-left:auto; margin-right:auto;">
+                <tbody>
+                <tr style="font-size:8px;">
+                    <td align="left"><img src='logo.jpg' style="width: 150px; height: 75px;"/></td>
+                    <td colspan="9" align="center"><strong>Matriz : V.O.F. BORRACHAS INDUSTRIAIS EIRELI.</strong><br/>ENDERECO:
+                        RUA MAJOR CARLOS DEL FRETE, 497 BAIRRO: SANTO ANTONIO<br/>CEP: 09530-001 CIDADE: SÃO CAETANO DO
+                        SUL ESTADO : SP<br/>CNPJ: 12.924.521/0001-14 INSCR.EST: 636.222.791.118<br/>TELEFONES:
+                        (11)3895-2200 (11) 2843-0944<br/>E-mail : vof@vofborrachas.com.br /
+                        faturamento@vofborrachas.com.br
+                    </td>
+                    <td colspan="9" align="center"><strong>Filial : V.O.F. BORRACHAS INDUSTRIAIS EIRELI.</strong><br/>ENDERECO:
+                        Rua Pedro Picussa,920 BAIRRO: Umbara<br/>CEP: 81930-610 CIDADE: Curitiba ESTADO : PR<br/>CNPJ:
+                        12.924.521/0002-03 INSCR.EST: 90646935-97<br/>TELEFONES: (41)3348-0526<br/>E-mail :
+                        vof@vofborrachas.com.br / faturamento@vofborrachas.com.br
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="centralizado" style="font-size:13px; margin-left:auto; margin-right:auto;">
+                <tbody>
+                <tr>
+                    <td colspan="9" align="left"><strong>PEDIDO N.: </strong>numeroPedido</td>
+                    <td align="right"><strong>DATA:</strong> dataPedido</td>
+                </tr>
+                <tr>
+                    <td colspan="9" align="left"><strong>PEDIDO CLIENTE: </strong>pedidoCliente</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><br/></td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="dadosCliente">
+                <tbody>
+                <tr>
+                    <td colspan="9"><strong>CLIENTE: </strong>razaoSocialCli</td>
+                </tr>
+                <tr>
+                    <td style="width: 48%"><strong>CNPJ: </strong>cnpjCli</td>
+                    <td style="width: 25%"><strong> INSC. EST.: </strong>inscEstCli</td>
+                    <td style="width: 27%"><strong> INSC. MUN.: </strong>inscMunCli</td>
+                </tr>
+                <tr>
+                    <td><strong>ENDERECO: </strong>streetCli, numberCli - neighborhoodCli</td>
+                    <td><strong> CEP: </strong>zipCli</td>
+                    <td><strong> CIDADE: </strong>cityCli - countryStateCli</td>
+                </tr>
+                <tr>
+                    <td><strong>COMPRADOR: </strong>comprador</td>
+                    <td><strong>PRAZO: </strong>prazoPgto</td>
+                    <td><strong> ICMS: </strong>icms %</td>
+                </tr>
+                <tr>
+                    <td><strong>DANFE: </strong>emailCli</td>
+                    <td><strong>TRANSP.: </strong>transportadora</td>
+                    <td><strong> FRETE: </strong>frete</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><strong>END. ENTREGA.: </strong>endEntrega</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><strong>END. COBRANÇA: </strong>endFatura</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><strong>REPRESENTANTE: </strong>representante</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td><br/></td>
+    </tr>
+    <tr>
+        <td>
+            <table class="detalhes">
+                <tbody>
+                <tr>
+                    <td><strong>TIPO</strong></td>
+                    <td><strong>QUANT. KG</strong></td>
+                    <td><strong>ESPECIF.</strong></td>
+                    <td><strong>ENTREGA</strong></td>
+                    <td><strong>PREÇO R$</strong></td>
+                    <td><strong>TOTAL</strong></td>
+                </tr>
+                items
+                </tbody>
+            </table>
+            <table align="right" style="font-size:13px; border-collapse:collapse; border:1px solid black;">
+                <tbody>
+                <tr>
+                    <td colspan="9" align="center" style="width: 123px;"><strong>TOTAL </strong></td>
+                    <td align="center" style="width: 100px;">total</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td><strong> OBS.: </strong>observacoes</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
