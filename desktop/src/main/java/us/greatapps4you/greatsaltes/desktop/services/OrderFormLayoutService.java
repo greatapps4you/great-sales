@@ -26,7 +26,11 @@ public class OrderFormLayoutService {
 
     public String getOrderLayoutForVendor(String vendorName) throws IOException {
         String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout.html";
-        logger.debug("Getting Specs: {}", layoutFile);
+        logger.info("Getting: {}", layoutFile);
+
+        if(!new File(layoutFile).exists()) {
+            return "";
+        }
 
         final StringBuilder fileContents = new StringBuilder(2000);
         final InputStream is = new FileInputStream(layoutFile);
@@ -41,8 +45,8 @@ public class OrderFormLayoutService {
     }
 
     public void saveOrderLayoutForVendor(String vendorName, String layoutContent) throws IOException {
-        String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout.htm";
-        logger.debug("Saving: {}", layoutFile);
+        String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout.html";
+        logger.info("Saving: {}", layoutFile);
 
         try (FileOutputStream fos = new FileOutputStream(layoutFile)) {
             byte[] layoutContentBytes = layoutContent.getBytes();
