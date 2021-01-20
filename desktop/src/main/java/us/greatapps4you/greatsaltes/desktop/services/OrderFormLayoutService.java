@@ -8,6 +8,8 @@
 
 package us.greatapps4you.greatsaltes.desktop.services;
 
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +18,16 @@ import java.util.Arrays;
 
 @Service
 public class OrderFormLayoutService {
+    private Logger logger = LoggerFactory.getLogger(OrderFormLayoutService.class);
 
     @Value(("${vendor.layouts.dir}"))
     private String vendorLayoutsDir;
 
     public String getOrderLayoutForVendor(String vendorName) throws IOException {
         String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout.html";
-        System.out.println("Getting Specs: " + layoutFile);
-        final StringBuilder fileContents = new StringBuilder(2000);
+        logger.debug("Getting Specs: {}", layoutFile);
 
+        final StringBuilder fileContents = new StringBuilder(2000);
         final InputStream is = new FileInputStream(layoutFile);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is));) {
@@ -37,8 +40,9 @@ public class OrderFormLayoutService {
     }
 
     public void saveOrderLayoutForVendor(String vendorName, String layoutContent) throws IOException {
-        String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout";
-        System.out.println("Saving: " + layoutFile);
+        String layoutFile = vendorLayoutsDir + vendorName.toLowerCase() + "/layout.htm";
+        logger.debug("Saving: {}", layoutFile);
+
         try (FileOutputStream fos = new FileOutputStream(layoutFile)) {
             byte[] layoutContentBytes = layoutContent.getBytes();
             fos.write(layoutContentBytes);
