@@ -25,8 +25,8 @@ import java.io.PrintWriter;
 @Component
 public class OrderFormTabController {
 
-    @FXML private TextArea missionOverviewText;
-    @FXML private ListView<String> missionsList;
+    @FXML private TextArea orderFormLayout;
+    @FXML private ListView<String> providers;
     
     @Autowired @Qualifier("stringPrintWriter")
     private PrintWriter stackTraceWriter;
@@ -37,15 +37,15 @@ public class OrderFormTabController {
 
     public void initialize() {
         ObservableList<String> missions = FXCollections.observableArrayList("Sweetmix", "VOF", "GEB");
-        missionsList.setItems(missions);
+        providers.setItems(missions);
     }
 
     @FXML
     private void onMouseClicked(MouseEvent event) {
-        missionOverviewText.clear();
-        final String selectedItem = missionsList.getSelectionModel().getSelectedItem();
-        missionOverviewText.positionCaret(0);
-        missionOverviewText.appendText(getInfo(selectedItem));
+        orderFormLayout.clear();
+        final String selectedItem = providers.getSelectionModel().getSelectedItem();
+        orderFormLayout.positionCaret(0);
+        orderFormLayout.appendText(getInfo(selectedItem));
     }
     
     @Autowired
@@ -68,11 +68,11 @@ public class OrderFormTabController {
     }
 
     public TextArea getMissionOverviewText() {
-        return missionOverviewText;
+        return orderFormLayout;
     }
 
     public ListView<String> getMissionsList() {
-        return missionsList;
+        return providers;
     }
     
     private TextArea getLog(){
