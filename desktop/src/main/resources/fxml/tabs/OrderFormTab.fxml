@@ -30,10 +30,10 @@
                                     <children>
                                         <AnchorPane prefHeight="32.0" prefWidth="235.0">
                                             <children>
-                                                <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Fornecedores" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                                                <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Layouts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
                                             </children>
                                         </AnchorPane>
-                                        <ListView fx:id="vendors" onMouseClicked="#vendorSelected" prefHeight="246.0" prefWidth="235.0" VBox.vgrow="ALWAYS">
+                                        <ListView fx:id="layouts" onMouseClicked="#layoutSelected" prefHeight="246.0" prefWidth="235.0" VBox.vgrow="ALWAYS">
                                             <VBox.margin>
                                                 <Insets />
                                             </VBox.margin>

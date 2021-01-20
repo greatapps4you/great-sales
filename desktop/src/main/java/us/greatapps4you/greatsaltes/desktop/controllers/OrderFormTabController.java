@@ -29,7 +29,7 @@ public class OrderFormTabController {
     @FXML
     private TextArea orderFormLayout;
     @FXML
-    private ListView<String> vendors;
+    private ListView<String> layouts;
 
     @Autowired
     @Qualifier("stringPrintWriter")
@@ -41,20 +41,20 @@ public class OrderFormTabController {
 
     public void initialize() {
         ObservableList<String> missions = FXCollections.observableArrayList(orderFormLayoutService.getAllLayoutNames());
-        vendors.setItems(missions);
+        layouts.setItems(missions);
     }
 
     @FXML
-    private void vendorSelected(MouseEvent event) {
+    private void layoutSelected(MouseEvent event) {
         orderFormLayout.clear();
-        final String selectedVendor = vendors.getSelectionModel().getSelectedItem();
+        final String selectedVendor = layouts.getSelectionModel().getSelectedItem();
         orderFormLayout.positionCaret(0);
         orderFormLayout.appendText(getInfo(selectedVendor));
     }
 
     @FXML
     private void saveLayout(ActionEvent event) {
-        final String selectedVendor = vendors.getSelectionModel().getSelectedItem();
+        final String selectedVendor = layouts.getSelectionModel().getSelectedItem();
         final String layoutContent = orderFormLayout.getText();
         try {
             orderFormLayoutService.saveOrderLayoutForVendor(selectedVendor, layoutContent);
@@ -87,7 +87,7 @@ public class OrderFormTabController {
     }
 
     public ListView<String> getMissionsList() {
-        return vendors;
+        return layouts;
     }
 
     private TextArea getLog() {
