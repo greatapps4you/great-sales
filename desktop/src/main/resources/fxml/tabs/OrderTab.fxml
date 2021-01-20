@@ -15,7 +15,7 @@
   ~ CSSML NDSMD VRS + SNMV SMQL IVB
   -->
 
-<Tab fx:id="consoleTab" text="Pedido" xmlns:fx="http://javafx.com/fxml/1"
+<Tab fx:id="consoleTab" text="Formulários" xmlns:fx="http://javafx.com/fxml/1"
      xmlns="http://javafx.com/javafx/8" 
      fx:controller="us.greatapps4you.greatsaltes.desktop.controllers.OrderTabController">
     <content>
@@ -30,7 +30,7 @@
                                     <children>
                                         <AnchorPane prefHeight="32.0" prefWidth="235.0">
                                             <children>
-                                                <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Missions" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                                                <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Fornecedores" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
                                             </children>
                                         </AnchorPane>
                                         <ListView fx:id="missionsList" onMouseClicked="#onMouseClicked" prefHeight="246.0" prefWidth="235.0" VBox.vgrow="ALWAYS">
@@ -45,11 +45,10 @@
                                 </VBox>
                             </children>
                         </AnchorPane>
-                        
-                        
+
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="511.0">
                             <children>
-                                <TextArea fx:id="missionOverviewText" editable="false" prefHeight="431.0" prefWidth="511.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TextArea fx:id="missionOverviewText" editable="true" prefHeight="431.0" prefWidth="511.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <contextMenu>
                                         <ContextMenu>
                                             <items>
@@ -59,10 +58,12 @@
                                         </ContextMenu>
                                     </contextMenu>
                                 </TextArea>
+
+                                <Button mnemonicParsing="false" text="Salvar"  AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+
                             </children>
                         </AnchorPane>
-                        
-                        
+
                     </items>
                 </SplitPane>
             </children>

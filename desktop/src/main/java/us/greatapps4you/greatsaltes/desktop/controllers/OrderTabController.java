@@ -8,9 +8,6 @@
 
 package us.greatapps4you.greatsaltes.desktop.controllers;
 
-import us.greatapps4you.greatsaltes.desktop.services.MissionsService;
-import java.io.IOException;
-import java.io.PrintWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,6 +17,10 @@ import javafx.scene.input.MouseEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import us.greatapps4you.greatsaltes.desktop.services.MissionsService;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Component
 public class OrderTabController {
@@ -35,7 +36,7 @@ public class OrderTabController {
     private TabPaneManger tabManager;
 
     public void initialize() {
-        ObservableList<String> missions = FXCollections.observableArrayList("Apollo", "Shuttle", "Skylab");
+        ObservableList<String> missions = FXCollections.observableArrayList("Sweetmix", "VOF", "GEB");
         missionsList.setItems(missions);
     }
 
