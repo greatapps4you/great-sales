@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @Component
-public class OrderTabController {
+public class OrderFormTabController {
 
     @FXML private TextArea missionOverviewText;
     @FXML private ListView<String> missionsList;

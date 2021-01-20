@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class TabPaneManger {
 
-    private final OrderTabController orderTabController;
+    private final OrderFormTabController orderFormTabController;
     private final ProductTabController productTabController;
 
     @Autowired
-    public TabPaneManger(OrderTabController orderTabController, ProductTabController productTabController) {
-        this.orderTabController = orderTabController;
+    public TabPaneManger(OrderFormTabController orderFormTabController, ProductTabController productTabController) {
+        this.orderFormTabController = orderFormTabController;
         this.productTabController = productTabController;
     }
 
