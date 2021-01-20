@@ -47,6 +47,9 @@ public class OrderFormLayoutService {
 
     public String[] getAllLayoutNames() {
         File[] files = new File(vendorLayoutsDir).listFiles();
-        return Arrays.stream(files).map(f -> f.getName().toUpperCase()).toArray(String[]::new);
+        return Arrays.stream(files)
+                .filter(f -> !f.isHidden() && f.isDirectory())
+                .map(f -> f.getName().toUpperCase())
+                .toArray(String[]::new);
     }
 }
