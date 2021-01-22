@@ -14,7 +14,7 @@
   ~ CSSML NDSMD VRS + SNMV SMQL IVB
   -->
 
-<VBox prefHeight="602.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8"
+<VBox prefWidth="1024" prefHeight="768"  xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <fx:include fx:id="TabPane" source="tabs/TabPane.fxml" />
