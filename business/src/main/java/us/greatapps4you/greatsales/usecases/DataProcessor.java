@@ -12,5 +12,10 @@ import java.util.function.Consumer;
 
 @FunctionalInterface
 public interface DataProcessor<T> {
-    T save(T data, Consumer<T> consumer);
+    void init();
+
+    default T save(T data, Consumer<T> consumer) {
+        consumer.accept(data);
+        return data;
+    }
 }

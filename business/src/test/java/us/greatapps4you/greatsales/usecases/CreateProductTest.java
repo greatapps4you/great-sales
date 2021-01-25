@@ -28,14 +28,11 @@ public class CreateProductTest {
                 .sku("SKU_BORRACHA")
                 .build();
 
-        dataProcessor = (p, c) -> {
-            c.accept(p);
-            return p;
-        };
-
-        consumer = (p) -> {
+        Consumer consumer = (p) -> {
             System.out.println("Consuming: " + p);
         };
+
+        dataProcessor = () -> System.out.println();
 
         Product saved = dataProcessor.save(product, consumer);
 
