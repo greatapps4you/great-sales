@@ -7,7 +7,7 @@
  */
 
 
-package us.greatapps4you.greatsaltes.desktop.controllers;
+/*package us.greatapps4you.greatsaltes.desktop.controllers;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -50,4 +50,4 @@ public class ProductTabControllerTest {
 
         System.out.println(actual);
     }
-}
+}*/
