@@ -4,7 +4,7 @@
  * https://www.gnu.org/licenses/gpl-3.0.txt
  * https://greatapps4you.us
  * CSSML NDSMD VRS + SNMV SMQL IVB
- *//*
+ */
 
 
 package us.greatapps4you.greatsaltes.desktop.controllers;
@@ -50,4 +50,4 @@ public class ProductTabControllerTest {
 
         System.out.println(actual);
     }
-}*/
+}
