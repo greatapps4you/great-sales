@@ -28,7 +28,7 @@ public class CreateProductTest {
                 .sku("SKU_BORRACHA")
                 .build();
 
-        dataProcessor =  (p, c) -> {
+        dataProcessor = (p, c) -> {
             c.accept(p);
             return p;
         };
