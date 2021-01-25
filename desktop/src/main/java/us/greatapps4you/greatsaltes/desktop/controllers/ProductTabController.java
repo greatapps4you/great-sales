@@ -13,7 +13,7 @@ import javafx.scene.control.TextArea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.greatapps4you.greatsales.entities.inventory.Product;
-import us.greatapps4you.greatsaltes.desktop.repositories.ProductRepository;
+import us.greatapps4you.greatsaltes.desktop.services.ProductService;
 
 import java.util.UUID;
 
@@ -23,20 +23,21 @@ public class ProductTabController {
     @FXML
     private TextArea loggerTxtArea;
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @FXML
     public void save() {
+        UUID uuid = UUID.randomUUID();
         Product product = Product.builder()
-                .uuid(UUID.randomUUID())
-                .sku("PRODUCT_SKU")
+                .uuid(uuid)
+                .sku(uuid + "")
                 .description("PRODUCTION_PRODUCT").build();
 
         System.out.println(createProduct(product));
     }
 
     public Product createProduct(Product product) {
-        return productRepository.save(product);
+        return productService.save(product);
     }
 
     public TextArea getLoggerTxtArea() {

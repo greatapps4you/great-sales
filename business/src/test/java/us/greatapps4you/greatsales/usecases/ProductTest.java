@@ -15,7 +15,7 @@ import us.greatapps4you.greatsales.entities.inventory.Product;
 import java.util.UUID;
 import java.util.function.Function;
 
-public class CreateProductTest {
+public class ProductTest {
 
     private UUID uuid = UUID.randomUUID();
 

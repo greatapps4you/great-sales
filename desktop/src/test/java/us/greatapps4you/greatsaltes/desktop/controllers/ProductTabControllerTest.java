@@ -4,7 +4,8 @@
  * https://www.gnu.org/licenses/gpl-3.0.txt
  * https://greatapps4you.us
  * CSSML NDSMD VRS + SNMV SMQL IVB
- */
+ *//*
+
 
 package us.greatapps4you.greatsaltes.desktop.controllers;
 
@@ -17,7 +18,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import us.greatapps4you.greatsales.entities.inventory.Product;
-import us.greatapps4you.greatsaltes.desktop.repositories.ProductRepository;
 
 import java.util.UUID;
 
@@ -30,7 +30,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class ProductTabControllerTest {
 
     @Autowired
-    private ProductRepository repository;
+    private ProductTabController controller;
 
     @Test
     public void testPersistProduct() {
@@ -44,12 +44,10 @@ public class ProductTabControllerTest {
                 .description(description)
                 .build();
 
-        repository.save(given);
-
-        Product actual = repository.findById(uuid).get();
+        Product actual = controller.createProduct(given);
         Assert.assertEquals(actual.getUuid(), uuid);
         assertThat(actual.getUuid()).isEqualTo(uuid);
 
         System.out.println(actual);
     }
-}
+}*/
