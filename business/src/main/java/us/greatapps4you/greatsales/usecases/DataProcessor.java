@@ -8,14 +8,14 @@
 
 package us.greatapps4you.greatsales.usecases;
 
-import java.util.function.Consumer;
+import java.util.function.Function;
 
 @FunctionalInterface
-public interface DataProcessor<T> {
+public interface DataProcessor<T, R> {
+
     void init();
 
-    default T save(T data, Consumer<T> consumer) {
-        consumer.accept(data);
-        return data;
+    default R process(T data, Function<T, R> algorithm) {
+        return algorithm.apply(data);
     }
 }
