@@ -51,4 +51,8 @@ public class ProductService {
         return deleting.process(uuid, deleteAlgorithm);
     }
 
+    public Iterable<Product> findAll() {
+        return repository.findAll();
+    }
+
 }

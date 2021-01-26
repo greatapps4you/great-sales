@@ -8,12 +8,19 @@
 
 package us.greatapps4you.greatsaltes.desktop.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsaltes.desktop.services.ProductService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ProductTabController {
@@ -23,12 +30,30 @@ public class ProductTabController {
     @FXML
     private TextField sku;
     @FXML
+    private ListView<Product> products;
+
+    @Autowired
+    private ProductService productService;
+
+    @FXML
     public void save() {
         System.out.println(createProduct(initProduct()));
     }
 
-    @Autowired
-    private ProductService productService;
+    @FXML
+    public void productSelected(MouseEvent mouseEvent) {
+        final Product selectedProduct = products.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Product: " + selectedProduct);
+        description.setText(selectedProduct.getDescription());
+        sku.setText(selectedProduct.getSku());
+    }
+
+    public void initialize() {
+        List<Product> allProductsFound = new ArrayList<>();
+        productService.findAll().iterator().forEachRemaining(allProductsFound::add);
+        ObservableList<Product> productsObservable = FXCollections.observableArrayList(allProductsFound);
+        products.setItems(productsObservable);
+    }
 
     private Product initProduct() {
         return Product.builder()
@@ -40,5 +65,6 @@ public class ProductTabController {
     public Product createProduct(Product product) {
         return productService.save(product);
     }
+
 
 }
