@@ -8,7 +8,6 @@
 
 package us.greatapps4you.greatsaltes.desktop.controllers;
 
-import javafx.scene.control.TextArea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,9 +22,4 @@ public class TabPaneManger {
         this.orderFormTabController = orderFormTabController;
         this.productTabController = productTabController;
     }
-
-    public TextArea getVisualLog() {
-        return productTabController.getLoggerTxtArea();
-    }
-
 }

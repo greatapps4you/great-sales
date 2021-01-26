@@ -9,39 +9,37 @@
 package us.greatapps4you.greatsaltes.desktop.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsaltes.desktop.services.ProductService;
 
-import java.util.UUID;
-
 @Component
 public class ProductTabController {
 
     @FXML
-    private TextArea loggerTxtArea;
+    private TextField description;
+    @FXML
+    private TextField sku;
+    @FXML
+    public void save() {
+        Product product = initProduct();
+        System.out.println(createProduct(product));
+    }
+
     @Autowired
     private ProductService productService;
 
-    @FXML
-    public void save() {
-        UUID uuid = UUID.randomUUID();
-        Product product = Product.builder()
-                .uuid(uuid)
-                .sku(uuid + "")
-                .description("PRODUCTION_PRODUCT").build();
-
-        System.out.println(createProduct(product));
+    private Product initProduct() {
+        return Product.builder()
+                .sku(sku.getText())
+                .description(description.getText())
+                .build();
     }
 
     public Product createProduct(Product product) {
         return productService.save(product);
-    }
-
-    public TextArea getLoggerTxtArea() {
-        return loggerTxtArea;
     }
 
 }

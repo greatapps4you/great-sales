@@ -19,6 +19,7 @@ import java.util.function.Function;
 
 @Service
 public class ProductService {
+
     private DataProcessor<UUID, Product> deleting = () -> {};
     private DataProcessor<Product, Product> saving = () -> {};
 

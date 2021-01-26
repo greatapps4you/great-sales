@@ -73,10 +73,8 @@ public class OrderFormTabController {
 
         try {
             missionInfo = orderFormLayoutService.getOrderLayoutForVendor(selectedVendor);
-            getLog().appendText("Sucessfully retrieved layout for " + selectedVendor + "\n");
         } catch (IOException exception) {
             exception.printStackTrace(stackTraceWriter);
-            getLog().appendText(stackTraceWriter.toString() + "\n");
         }
 
         return missionInfo;
@@ -90,8 +88,5 @@ public class OrderFormTabController {
         return layouts;
     }
 
-    private TextArea getLog() {
-        return tabManager.getVisualLog();
-    }
 
 }
