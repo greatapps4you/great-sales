@@ -24,8 +24,7 @@ public class ProductTabController {
     private TextField sku;
     @FXML
     public void save() {
-        Product product = initProduct();
-        System.out.println(createProduct(product));
+        System.out.println(createProduct(initProduct()));
     }
 
     @Autowired
