@@ -21,6 +21,7 @@ import us.greatapps4you.greatsaltes.desktop.services.ProductService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class ProductTabController {
@@ -34,6 +35,7 @@ public class ProductTabController {
 
     @Autowired
     private ProductService productService;
+    private Product selectedProduct;
 
     @FXML
     public void save() {
@@ -42,7 +44,7 @@ public class ProductTabController {
 
     @FXML
     public void productSelected(MouseEvent mouseEvent) {
-        final Product selectedProduct = products.getSelectionModel().getSelectedItem();
+        selectedProduct = products.getSelectionModel().getSelectedItem();
         System.out.println("Selected Product: " + selectedProduct);
         description.setText(selectedProduct.getDescription());
         sku.setText(selectedProduct.getSku());
@@ -55,8 +57,16 @@ public class ProductTabController {
         products.setItems(productsObservable);
     }
 
+    /**
+     * The ultimate source of truth is the screen
+     */
     private Product initProduct() {
+        UUID uuid = null;
+        if (selectedProduct != null) {
+            uuid = selectedProduct.getUuid();
+        }
         return Product.builder()
+                .uuid(uuid)
                 .sku(sku.getText())
                 .description(description.getText())
                 .build();

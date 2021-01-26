@@ -71,28 +71,25 @@
                     <Insets top="20" right="0" bottom="20" left="0"></Insets>
                 </GridPane.margin>
             </Button>
+
+            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <AnchorPane prefHeight="32.0" prefWidth="235.0">
+                        <children>
+                            <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Layouts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                        </children>
+                    </AnchorPane>
+                    <ListView fx:id="products" onMouseClicked="#productSelected" prefHeight="246.0" prefWidth="235.0" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin>
+                    </ListView>
+                </children>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+            </VBox>
         </GridPane>
 
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-            <children>
-                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <AnchorPane prefHeight="32.0" prefWidth="235.0">
-                            <children>
-                                <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Layouts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                            </children>
-                        </AnchorPane>
-                        <ListView fx:id="products" onMouseClicked="#productSelected" prefHeight="246.0" prefWidth="235.0" VBox.vgrow="ALWAYS">
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                        </ListView>
-                    </children>
-                    <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </padding>
-                </VBox>
-            </children>
-        </AnchorPane>
     </content>
 </Tab>
