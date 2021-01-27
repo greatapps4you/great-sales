@@ -60,6 +60,18 @@
             <TextField fx:id="description" prefHeight="40"
                        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
+            <!-- Add New Button -->
+            <Button fx:id="newButton" text="Novo"
+                    prefWidth="100" prefHeight="40" defaultButton="true"
+                    GridPane.columnIndex="0" GridPane.rowIndex="3"
+                    GridPane.columnSpan="2" GridPane.rowSpan="1"
+                    GridPane.halignment="RIGHT"
+                    onAction="#newProduct">
+                <GridPane.margin>
+                    <Insets top="20" right="120" bottom="20" left="0"></Insets>
+                </GridPane.margin>
+            </Button>
+
 
             <!-- Add Save Button -->
             <Button fx:id="saveButton" text="Salvar"

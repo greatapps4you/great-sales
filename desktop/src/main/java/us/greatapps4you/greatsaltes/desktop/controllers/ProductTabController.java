@@ -40,7 +40,13 @@ public class ProductTabController {
 
     @FXML
     public void save() {
-        createProduct(initProduct());
+        saveProduct(initProduct());
+        clearScreen();
+        initialize();
+    }
+
+    @FXML
+    public void newProduct() {
         clearScreen();
         initialize();
     }
@@ -91,7 +97,7 @@ public class ProductTabController {
         description.clear();
     }
 
-    public Product createProduct(Product product) {
+    public Product saveProduct(Product product) {
         return productService.save(product);
     }
 
