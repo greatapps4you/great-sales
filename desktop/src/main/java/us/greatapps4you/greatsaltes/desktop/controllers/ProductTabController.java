@@ -40,13 +40,23 @@ public class ProductTabController {
 
     @FXML
     public void save() {
-        saveProduct(initProduct());
+        productService.save(initProduct());
         clearScreen();
         initialize();
     }
 
     @FXML
-    public void newProduct() {
+    public void create() {
+        clearScreen();
+        initialize();
+    }
+
+    @FXML
+    public void delete() {
+        if (selectedProduct == null) {
+            return;
+        }
+        productService.delete(selectedProduct.getUuid());
         clearScreen();
         initialize();
     }
@@ -63,7 +73,9 @@ public class ProductTabController {
 
     private void handleProductSelection() {
         selectedProduct = productsData.getSelectionModel().getSelectedItem();
-        System.out.println("Selected Product: " + selectedProduct);
+        if(selectedProduct == null) {
+            return;
+        }
         description.setText(selectedProduct.getDescription());
         sku.setText(selectedProduct.getSku());
     }
@@ -96,10 +108,5 @@ public class ProductTabController {
         sku.clear();
         description.clear();
     }
-
-    public Product saveProduct(Product product) {
-        return productService.save(product);
-    }
-
 
 }
