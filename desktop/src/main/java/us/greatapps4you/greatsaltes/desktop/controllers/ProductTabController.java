@@ -39,7 +39,9 @@ public class ProductTabController {
 
     @FXML
     public void save() {
-        System.out.println(createProduct(initProduct()));
+        createProduct(initProduct());
+        clearScreen();
+        initialize();
     }
 
     @FXML
@@ -70,6 +72,13 @@ public class ProductTabController {
                 .sku(sku.getText())
                 .description(description.getText())
                 .build();
+    }
+
+    private void clearScreen() {
+        products.getSelectionModel().clearSelection();
+        selectedProduct = null;
+        sku.clear();
+        description.clear();
     }
 
     public Product createProduct(Product product) {

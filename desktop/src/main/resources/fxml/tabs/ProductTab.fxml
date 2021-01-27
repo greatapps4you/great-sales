@@ -63,32 +63,20 @@
             <!-- Add Save Button -->
             <Button fx:id="saveButton" text="Salvar"
                     prefWidth="100" prefHeight="40" defaultButton="true"
-                    GridPane.columnIndex="0" GridPane.rowIndex="4"
+                    GridPane.columnIndex="0" GridPane.rowIndex="3"
                     GridPane.columnSpan="2" GridPane.rowSpan="1"
-                    GridPane.halignment="CENTER"
+                    GridPane.halignment="RIGHT"
                     onAction="#save">
                 <GridPane.margin>
                     <Insets top="20" right="0" bottom="20" left="0"></Insets>
                 </GridPane.margin>
             </Button>
 
-            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <children>
-                    <AnchorPane prefHeight="32.0" prefWidth="235.0">
-                        <children>
-                            <Label graphicTextGap="0.0" prefHeight="30.0" prefWidth="114.0" text="Layouts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-                        </children>
-                    </AnchorPane>
-                    <ListView fx:id="products" onMouseClicked="#productSelected" prefHeight="246.0" prefWidth="235.0" VBox.vgrow="ALWAYS">
-                        <VBox.margin>
-                            <Insets />
-                        </VBox.margin>
-                    </ListView>
-                </children>
-                <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                </padding>
-            </VBox>
+            <ListView fx:id="products" onMouseClicked="#productSelected"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="5" GridPane.columnSpan="2"
+                      GridPane.rowSpan="1" GridPane.halignment="CENTER"/>
+
         </GridPane>
 
     </content>
