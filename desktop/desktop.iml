@@ -11,6 +11,9 @@
         <naming-strategy-map />
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -100,5 +103,15 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.7.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.200" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:mac:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:mac:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:linux:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:12.0.1" level="project" />
   </component>
 </module>
