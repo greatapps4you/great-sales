@@ -11,7 +11,7 @@ package us.greatapps4you.greatsaltes.desktop.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -32,7 +32,7 @@ public class ProductTabController {
     @FXML
     private TextField sku;
     @FXML
-    private ListView<Product> products;
+    private TableView<Product> productsData;
 
     @Autowired
     private ProductService productService;
@@ -56,7 +56,7 @@ public class ProductTabController {
     }
 
     private void handleProductSelection() {
-        selectedProduct = products.getSelectionModel().getSelectedItem();
+        selectedProduct = productsData.getSelectionModel().getSelectedItem();
         System.out.println("Selected Product: " + selectedProduct);
         description.setText(selectedProduct.getDescription());
         sku.setText(selectedProduct.getSku());
@@ -66,7 +66,7 @@ public class ProductTabController {
         List<Product> allProductsFound = new ArrayList<>();
         productService.findAll().iterator().forEachRemaining(allProductsFound::add);
         ObservableList<Product> productsObservable = FXCollections.observableArrayList(allProductsFound);
-        products.setItems(productsObservable);
+        productsData.setItems(productsObservable);
     }
 
     /**
@@ -85,7 +85,7 @@ public class ProductTabController {
     }
 
     private void clearScreen() {
-        products.getSelectionModel().clearSelection();
+        productsData.getSelectionModel().clearSelection();
         selectedProduct = null;
         sku.clear();
         description.clear();

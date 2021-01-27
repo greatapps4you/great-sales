@@ -10,6 +10,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <Tab fx:id="tabLogger" text="Produto" xmlns:fx="http://javafx.com/fxml/1"
@@ -52,7 +53,7 @@
 
 
             <!-- Add Description Label -->
-            <Label text="Description : " GridPane.columnIndex="0"
+            <Label text="Descrição : " GridPane.columnIndex="0"
                    GridPane.rowIndex="2">
             </Label>
             <!-- Add Description Text Field -->
@@ -72,13 +73,35 @@
                 </GridPane.margin>
             </Button>
 
-            <ListView fx:id="products" onMouseClicked="#selectedByMouse"
-                      onKeyReleased="#selectedByKey"
-                      GridPane.columnIndex="0"
-                      GridPane.rowIndex="5" GridPane.columnSpan="2"
-                      GridPane.rowSpan="1" GridPane.halignment="CENTER"/>
+            <TableView fx:id="productsData"
+                       onMouseClicked="#selectedByMouse"
+                       onKeyReleased="#selectedByKey"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5" GridPane.columnSpan="2"
+                       GridPane.rowSpan="1" GridPane.halignment="CENTER">
+                <columns>
+                    <TableColumn text="UUID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="uuid" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="SKU">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="sku" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="sortingColumn" text="Descrição">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="description" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+
+                <sortOrder>
+                    <fx:reference source="sortingColumn"/>
+                </sortOrder>
+            </TableView>
 
         </GridPane>
-
     </content>
 </Tab>
