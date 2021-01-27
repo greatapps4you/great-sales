@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -45,7 +46,16 @@ public class ProductTabController {
     }
 
     @FXML
-    public void productSelected(MouseEvent mouseEvent) {
+    public void selectedByMouse(MouseEvent mouseEvent) {
+        handleProductSelection();
+    }
+
+    @FXML
+    public void selectedByKey(KeyEvent keyEvent) {
+        handleProductSelection();
+    }
+
+    private void handleProductSelection() {
         selectedProduct = products.getSelectionModel().getSelectedItem();
         System.out.println("Selected Product: " + selectedProduct);
         description.setText(selectedProduct.getDescription());

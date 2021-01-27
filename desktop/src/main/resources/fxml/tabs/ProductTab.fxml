@@ -72,7 +72,8 @@
                 </GridPane.margin>
             </Button>
 
-            <ListView fx:id="products" onMouseClicked="#productSelected"
+            <ListView fx:id="products" onMouseClicked="#selectedByMouse"
+                      onKeyReleased="#selectedByKey"
                       GridPane.columnIndex="0"
                       GridPane.rowIndex="5" GridPane.columnSpan="2"
                       GridPane.rowSpan="1" GridPane.halignment="CENTER"/>
