@@ -40,9 +40,17 @@ public class ProductTabController {
 
     @FXML
     public void save() {
+        if (isEmptyMandatoryFields()) {
+            return;
+        }
         productService.save(initProduct());
         clearScreen();
         initialize();
+    }
+
+    private boolean isEmptyMandatoryFields() {
+        return sku.getText().isEmpty()
+                || description.getText().isEmpty();
     }
 
     @FXML
@@ -73,7 +81,7 @@ public class ProductTabController {
 
     private void handleProductSelection() {
         selectedProduct = productsData.getSelectionModel().getSelectedItem();
-        if(selectedProduct == null) {
+        if (selectedProduct == null) {
             return;
         }
         description.setText(selectedProduct.getDescription());
