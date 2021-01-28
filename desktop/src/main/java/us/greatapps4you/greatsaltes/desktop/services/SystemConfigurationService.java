@@ -26,6 +26,8 @@ public class SystemConfigurationService
 
     @Value("${vendor.layouts.dir}")
     private String layoutsDir;
+    @Value("${vendor.layouts.default}")
+    private String defaultLayout;
 
     @Override
     public void onApplicationEvent(final ApplicationReadyEvent event) {
@@ -38,14 +40,14 @@ public class SystemConfigurationService
     }
 
     private void exportFormLayout() throws IOException {
-        String destinationDir = layoutsDir + "/guerra/";
+        String destinationDir = layoutsDir + defaultLayout;
         File destinationDirPath = new File(destinationDir);
         if (!destinationDirPath.exists()) {
             Files.createDirectories(destinationDirPath.toPath());
         }
-        exportResource("layouts/guerra/layout.html",
+        exportResource("layouts/default/layout.html",
                 destinationDir + "layout.html");
-        exportResource("layouts/guerra/logo.png",
+        exportResource("layouts/default/logo.png",
                 destinationDir + "logo.png");
 
     }
