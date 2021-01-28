@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import us.greatapps4you.greatsaltes.desktop.services.OrderFormLayoutService;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 

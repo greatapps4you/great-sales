@@ -7,6 +7,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="desktop" />
+          <factory-entry name="entityManagerFactory" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -26,6 +27,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="JavaFX SDK 11" level="project" />
     <orderEntry type="module" module-name="business" />
     <orderEntry type="module" module-name="entities" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
@@ -113,5 +115,14 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:12.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:linux:12.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.graalvm.nativeimage:native-image-maven-plugin:maven-plugin:20.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-archiver:3.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.0.24" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-io:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.11" level="project" />
+    <orderEntry type="library" name="Maven: org.iq80.snappy:snappy:0.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.tukaani:xz:1.5" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.graalvm.sdk:graal-sdk:21.0.0" level="project" />
   </component>
 </module>
