@@ -20,16 +20,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testcontainers.version>1.15.1</testcontainers.version>
         <graalvm.version>21.0.0</graalvm.version>
+        <javafx.version>15</javafx.version>
+        <start-class>us.greatapps4you.greatsaltes.desktop.EntryPoint</start-class>
     </properties>
 
     <dependencies>
@@ -78,33 +80,33 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>12.0.1</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>12.0.1</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>12.0.1</version>
+            <version>${javafx.version}</version>
             <classifier>win</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>12.0.1</version>
+            <version>${javafx.version}</version>
             <classifier>linux</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>12.0.1</version>
+            <version>${javafx.version}</version>
             <classifier>mac</classifier>
         </dependency>
 
-       <!-- GraalVM -->
+        <!-- GraalVM -->
         <dependency>
             <groupId>org.graalvm.nativeimage</groupId>
             <artifactId>native-image-maven-plugin</artifactId>
@@ -118,59 +120,101 @@
             <version>${graalvm.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.experimental</groupId>
+            <artifactId>spring-graal-native</artifactId>
+            <version>0.6.1.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-indexer</artifactId>
+        </dependency>
+
+        <!-- Exclusions -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
-    <build>
-        <finalName>greatsales-desktop</finalName>
-        <plugins>
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <!-- put your configurations here -->
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>greatsales-shaded-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <profiles>
+        <profile>
+            <id>graal</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.graalvm.nativeimage</groupId>
+                        <artifactId>native-image-maven-plugin</artifactId>
+                        <version>20.3.1</version>
                         <configuration>
-                            <transformers>
-                                <transformer implementation=
-                                                     "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>us.greatapps4you.greatsaltes.desktop.EntryPoint</mainClass>
-                                </transformer>
-                            </transformers>
+                            <buildArgs>
+                                -Dspring.graal.mode=initialization-only
+                                -Dspring.graal.dump-config=/tmp/computed-reflect-config.json -Dspring.graal.verbose=true
+                                -Dspring.graal.skip-logback=true
+                                --initialize-at-run-time=org.springframework.data.r2dbc.connectionfactory.ConnectionFactoryUtils
+                                --initialize-at-build-time=io.r2dbc.spi.IsolationLevel,io.r2dbc.spi
+                                --initialize-at-build-time=io.r2dbc.spi.ConstantPool,io.r2dbc.spi.Assert,io.r2dbc.spi.ValidationDepth
+                                --initialize-at-build-time=org.springframework.data.r2dbc.connectionfactory
+                                -H:+TraceClassInitialization --no-fallback --allow-incomplete-classpath
+                                --report-unsupported-elements-at-runtime -H:+ReportExceptionStackTraces --no-server
+                                --initialize-at-build-time=org.reactivestreams.Publisher
+                                --initialize-at-build-time=com.example.reactive.ReservationRepository
+                                --initialize-at-run-time=io.netty.channel.unix.Socket
+                                --initialize-at-run-time=io.netty.channel.unix.IovArray
+                                --initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop
+                                --initialize-at-run-time=io.netty.channel.unix.Errors
+                            </buildArgs>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>native-image</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
+    <build>
+        <finalName>greatsales</finalName>
+        <plugins>
             <plugin>
-                <groupId>org.graalvm.nativeimage</groupId>
-                <artifactId>native-image-maven-plugin</artifactId>
-                <version>${graalvm.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>native-image</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-                <configuration>
-                    <skip>false</skip>
-                    <imageName>example</imageName>
-                    <buildArgs>
-                        --no-fallback
-                    </buildArgs>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
         </plugins>
     </build>
 

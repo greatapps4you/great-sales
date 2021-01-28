@@ -5,10 +5,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping>
-          <factory-entry name="desktop" />
-          <factory-entry name="entityManagerFactory" />
-        </datasource-mapping>
+        <datasource-mapping />
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -27,7 +24,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="JavaFX SDK 11" level="project" />
     <orderEntry type="module" module-name="business" />
     <orderEntry type="module" module-name="entities" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
@@ -105,16 +101,16 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.7.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.200" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:mac:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:mac:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:linux:12.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:12.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:mac:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:mac:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:linux:15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:15" level="project" />
     <orderEntry type="library" name="Maven: org.graalvm.nativeimage:native-image-maven-plugin:maven-plugin:20.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-archiver:3.3" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.0.24" level="project" />
@@ -124,5 +120,7 @@
     <orderEntry type="library" name="Maven: org.iq80.snappy:snappy:0.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.tukaani:xz:1.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.graalvm.sdk:graal-sdk:21.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.experimental:spring-graal-native:0.6.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-indexer:5.2.10.RELEASE" level="project" />
   </component>
 </module>
