@@ -37,7 +37,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setScene(new Scene(rootNode));
         stage.setTitle("GreatSales");
         stage.getIcons().add(new Image(ClassLoader.getSystemResourceAsStream("images/icon.png")));
@@ -45,7 +45,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         springContext.close();
     }
 
