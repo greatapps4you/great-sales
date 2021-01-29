@@ -151,7 +151,7 @@
                 </executions>
             </plugin>
 
-           <!-- <plugin>
+           <plugin>
                 <groupId>org.graalvm.nativeimage</groupId>
                 <artifactId>native-image-maven-plugin</artifactId>
                 <version>${graalvm.version}</version>
@@ -166,12 +166,13 @@
                 <configuration>
                     <skip>false</skip>
                     <imageName>greatsales</imageName>
+                    <mainClass>us.greatapps4you.greatsaltes.desktop.EntryPoint</mainClass>
                     <buildArgs>
-                        &#45;&#45;no-fallback
-                        -H:+AllowIncompleteClasspath
+                        --no-fallback
                     </buildArgs>
+                    <skip>false</skip>
                 </configuration>
-            </plugin>-->
+            </plugin>
 
         </plugins>
     </build>
