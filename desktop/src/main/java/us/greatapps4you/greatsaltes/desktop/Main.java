@@ -24,7 +24,7 @@ public class Main extends Application {
     private ConfigurableApplicationContext springContext;
     private Parent rootNode;
 
-    public static void main(final String[] args) {
+    public static void startup(final String[] args) {
         Application.launch(args);
     }
 
