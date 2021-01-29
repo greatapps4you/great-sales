@@ -1,21 +1,25 @@
 package us.greatapps4you.greatsales;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-@Path("/product/save")
-public class GreetingResource {
+@Controller
+@Path("/products")
+public class ProductController {
 
     @Autowired
     private ProductRepository repository;
 
     @GET
+    @Path("/save")
     @Produces(MediaType.APPLICATION_JSON)
     public Product save() {
         Product product = new Product();
@@ -24,9 +28,11 @@ public class GreetingResource {
     }
 
     @GET
+    @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Product> list() {
-        //return repository.findAll().iterator();
-        return null;
+        List<Product> allProducts = new ArrayList<>();
+        repository.findAll().iterator().forEachRemaining(allProducts::add);
+        return allProducts;
     }
 }
