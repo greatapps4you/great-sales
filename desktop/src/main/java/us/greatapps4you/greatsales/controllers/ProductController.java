@@ -38,6 +38,19 @@ public class ProductController {
     }
 
     @GET
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String delete(@PathParam("id") Long id) {
+        try {
+            repository.deleteById(id);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR: " + e.getLocalizedMessage();
+        }
+    }
+
+    @GET
     @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Product> list() {
