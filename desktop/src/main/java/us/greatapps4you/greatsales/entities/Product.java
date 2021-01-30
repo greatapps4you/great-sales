@@ -1,4 +1,4 @@
-package us.greatapps4you.greatsales;
+package us.greatapps4you.greatsales.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
