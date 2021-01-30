@@ -17,6 +17,9 @@ public class AboutController {
     @Value("${greatsales.app.name}")
     private String name;
 
+    @Value("${greatsales.app.description}")
+    private String description;
+
     @GET
     @Path("/version")
     @Produces(MediaType.TEXT_HTML)
@@ -29,5 +32,12 @@ public class AboutController {
     @Produces(MediaType.TEXT_HTML)
     public String name() {
         return name;
+    }
+
+    @GET
+    @Path("/description")
+    @Produces(MediaType.TEXT_HTML)
+    public String description() {
+        return description;
     }
 }
