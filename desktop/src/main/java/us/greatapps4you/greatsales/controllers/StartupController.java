@@ -1,3 +1,4 @@
+/*
 package us.greatapps4you.greatsales.controllers;
 
 import io.quarkus.runtime.StartupEvent;
@@ -37,3 +38,4 @@ public class StartupController {
         }
     }
 }
+*/
