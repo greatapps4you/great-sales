@@ -38,8 +38,6 @@ public class StartupController {
             } else if (OsUtil.isWindows()) {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
             } else if (OsUtil.isLinux()) {
-
-            } else if (OsUtil.isSolaris()) {
                 String[] browsers = {"firefox", "epiphany", "mozilla", "konqueror",
                         "netscape", "opera", "links", "lynx"};
 
@@ -53,7 +51,6 @@ public class StartupController {
                     }
                 rt.exec(new String[]{"sh", "-c", cmd.toString()});
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
