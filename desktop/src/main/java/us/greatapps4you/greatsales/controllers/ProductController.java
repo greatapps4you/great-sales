@@ -10,7 +10,7 @@ package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import us.greatapps4you.greatsales.entities.Product;
+import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsales.repositories.ProductRepository;
 
 import javax.ws.rs.GET;
@@ -21,6 +21,7 @@ import javax.ws.rs.core.MediaType;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @Path("/products")
@@ -33,22 +34,26 @@ public class ProductController {
     @Path("/save")
     @Produces(MediaType.APPLICATION_JSON)
     public Product save() {
-        Product product = new Product();
-        product.setDescription(LocalDateTime.now().toString());
+        Product product = Product
+                .builder()
+                .uuid(UUID.randomUUID())
+                .sku("SKU_" + LocalDateTime.now().toString())
+                .description("DESCRIPTION_" + LocalDateTime.now().toString())
+                .build();
         return repository.save(product);
     }
 
     @GET
     @Path("/find/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Product find(@PathParam("id") Long id) {
+    public Product find(@PathParam("id") UUID id) {
         return repository.findById(id).orElse(new Product());
     }
 
     @GET
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String delete(@PathParam("id") Long id) {
+    public String delete(@PathParam("id") UUID id) {
         try {
             repository.deleteById(id);
             return "SUCCESS";
