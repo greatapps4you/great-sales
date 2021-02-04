@@ -161,7 +161,7 @@ public class SendOrderTest {
     void testProduct() {
         Product product = Product.builder()
                 .sku("999999")
-                .uuid(UUID.randomUUID())
+                //.uuid(UUID.randomUUID())
                 .description("Borracha")
                 .build();
 
