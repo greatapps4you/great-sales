@@ -10,7 +10,7 @@ package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import us.greatapps4you.greatsales.jpa.Product;
+import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsales.repositories.ProductRepository;
 
 import javax.ws.rs.GET;

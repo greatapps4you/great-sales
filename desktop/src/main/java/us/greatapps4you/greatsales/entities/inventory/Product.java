@@ -10,8 +10,11 @@ package us.greatapps4you.greatsales.entities.inventory;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -19,6 +22,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
+
+    @Id
     private UUID uuid;
     private String sku;
     private String description;
