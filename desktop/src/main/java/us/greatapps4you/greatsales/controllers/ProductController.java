@@ -13,12 +13,8 @@ import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.entities.inventory.Product;
 import us.greatapps4you.greatsales.repositories.ProductRepository;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -30,16 +26,18 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
-    @GET
+    @POST
     @Path("/save")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Product save() {
-        Product product = Product
-                .builder()
-                .uuid(UUID.randomUUID())
-                .sku("SKU_" + LocalDateTime.now().toString())
-                .description("DESCRIPTION_" + LocalDateTime.now().toString())
-                .build();
+    public Product save(Product product) {
+        System.out.println("Product Data Received: " + product);
+
+        if (product != null) {
+            if (product.getUuid() == null) {
+                product.setUuid(UUID.randomUUID());
+            }
+        }
         return repository.save(product);
     }
 
