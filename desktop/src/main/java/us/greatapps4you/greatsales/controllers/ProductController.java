@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     @GET
-    @Path("/delete/{id}")
+    @Path("/remove/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public String delete(@PathParam("id") UUID id) {
         try {

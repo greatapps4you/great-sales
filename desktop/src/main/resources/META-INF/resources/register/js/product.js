@@ -8,7 +8,7 @@
 
 const save_url = "http://localhost:8080/products/save";
 const list_url = "http://localhost:8080/products/list";
-const delete_url = "http://localhost:8080/products/delete/";
+const remove_url = "http://localhost:8080/products/remove/";
 const find_url = "http://localhost:8080/products/find/";
 
 list();
@@ -49,15 +49,19 @@ function list() {
             "<th>UUID</th>" +
             "<th>SKU</th>" +
             "<th>DESCRIÇÃO</th>" +
+            "<th></th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
 
         for (let i = 0; i < products.length; i++) {
+            const uuid = products[i].uuid;
             results_table += "<tr>"
-                + "<td>" + products[i].uuid + "</td>"
+                + "<td>" + uuid + "</td>"
                 + "<td>" + products[i].sku + "</td>"
                 + "<td>" + products[i].description + "</td>"
+                + "<td><a href='" +
+                remove_url + uuid + "'>excluir</a></td>"
                 + "</tr>";
         }
 
@@ -65,6 +69,18 @@ function list() {
             "</table>";
         $("#all_products").html(results_table);
     });
+}
+
+function delete_product(uuid) {
+    alert(uuid);
+    /*const product_delete_url = delete_url + encodeURIComponent(uuid);
+    $.ajax({
+        url: product_delete_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function () {
+        list();
+    });*/
 }
 
 function clearFields() {
