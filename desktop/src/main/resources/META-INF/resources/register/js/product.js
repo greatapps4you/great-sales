@@ -60,27 +60,18 @@ function list() {
                 + "<td>" + uuid + "</td>"
                 + "<td>" + products[i].sku + "</td>"
                 + "<td>" + products[i].description + "</td>"
-                + "<td><a href='" +
-                remove_url + uuid + "'>excluir</a></td>"
+                + "<td><a href='" + remove_url + uuid + "'>excluir</a></td>"
                 + "</tr>";
         }
-
         results_table += "</tbody>" +
             "</table>";
-        $("#all_products").html(results_table);
-    });
-}
 
-function delete_product(uuid) {
-    alert(uuid);
-    /*const product_delete_url = delete_url + encodeURIComponent(uuid);
-    $.ajax({
-        url: product_delete_url,
-        type: "GET",
-        dataType: "json"
-    }).done(function () {
-        list();
-    });*/
+        if(products.length == 0) {
+            $("#all_products").html("Nenhum Produto Salvo");
+        } else {
+            $("#all_products").html(results_table);
+        }
+    });
 }
 
 function clearFields() {
