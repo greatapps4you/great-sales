@@ -13,20 +13,21 @@ $(document).ready(function () {
         const sku = $("#sku").val();
         const description = $("#description").val();
 
-        const product =  JSON.stringify({
+        const product = JSON.stringify({
             sku: sku,
             description: description
-        })
+        });
 
         $.ajax({
-            url:save_url,
-            type:"POST",
-            data:product,
-            contentType:"application/json",
-            dataType:"json",
-            success: function(response){
-                $("#result").html(response);
-            }
-        })
+            url: save_url,
+            type: "POST",
+            data: product,
+            contentType: "application/json",
+            dataType: "json"
+        }).done(function (savedProduct) {
+            alert(savedProduct.uuid);
+        });
     });
 });
+
+
