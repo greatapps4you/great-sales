@@ -7,8 +7,14 @@
  */
 
 const save_url = "http://localhost:8080/products/save";
+const list_url = "http://localhost:8080/products/list";
+const delete_url = "http://localhost:8080/products/delete/";
+const find_url = "http://localhost:8080/products/find/";
+
+list();
 
 $(document).ready(function () {
+
     $("#save").click(function () {
         const sku = $("#sku").val();
         const description = $("#description").val();
@@ -25,9 +31,48 @@ $(document).ready(function () {
             contentType: "application/json",
             dataType: "json"
         }).done(function (savedProduct) {
-            alert(savedProduct.uuid);
+            clearFields();
+            list();
         });
     });
 });
+
+function list() {
+    $.ajax({
+        url: list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (products) {
+        let results_table = "<table>" +
+            "<thead>" +
+            "<tr>" +
+            "<th>UUID</th>" +
+            "<th>SKU</th>" +
+            "<th>DESCRIÇÃO</th>" +
+            "</tr>" +
+            "</thead>" +
+            "<tbody>";
+
+        for (let i = 0; i < products.length; i++) {
+            results_table += "<tr>"
+                + "<td>" + products[i].uuid + "</td>"
+                + "<td>" + products[i].sku + "</td>"
+                + "<td>" + products[i].description + "</td>"
+                + "</tr>";
+        }
+
+        results_table += "</tbody>" +
+            "</table>";
+        $("#all_products").html(results_table);
+    });
+}
+
+function clearFields() {
+    $(document).ready(function () {
+        $("#sku").val("");
+        $("#description").val("");
+    });
+}
+
 
 
