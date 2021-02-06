@@ -16,6 +16,7 @@ import us.greatapps4you.greatsales.repositories.CustomerRepository;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -41,6 +42,37 @@ public class CustomerController {
                 customer.setUuid(UUID.randomUUID());
             }
         }
+
+        if (customer != null) {
+            if (customer.getRegistrationTime() == null) {
+                customer.setRegistrationTime(LocalDateTime.now());
+            }
+        }
+
+        if (customer != null) {
+            if(customer.getIdentification() != null) {
+               if( customer.getIdentification().getUuid() == null) {
+                   customer.getIdentification().setUuid(UUID.randomUUID());
+               }
+            }
+        }
+
+        if (customer != null) {
+            if(customer.getAddress() != null) {
+                if( customer.getAddress().getUuid() == null) {
+                    customer.getAddress().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
+        if (customer != null) {
+            if(customer.getBillingAddress() != null) {
+                if( customer.getBillingAddress().getUuid() == null) {
+                    customer.getBillingAddress().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
         return repository.save(customer);
     }
 

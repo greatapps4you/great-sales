@@ -13,15 +13,25 @@
     <title>Cadastro de Cliente</title>
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/data_table.css">
+
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="js/customer.js"></script>
 </head>
 <body>
 
+<h1>Cliente</h1>
+<p><a class="back-button" href="../index.html">Voltar</a></p>
+<form id="customerForm">
+    <label for="name">Nome</label>
+    <input id="name" type="text" placeholder="Nome..."/></p>
 
-<center>
-    <h1>Cliente</h1>
-    <p><a href="../index.html">Voltar</a></p>
+    <label for="street">Rua</label>
+    <input id="street" type="text" placeholder="Rua..."/>
 
-</center>
+    <input class="button button-green" type="button" value="Salvar" id="save"/>
+</form>
+
+<div style="margin-top: 30px" id="all_customers"></div>
 
 </body>
 </html>
