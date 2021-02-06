@@ -30,7 +30,7 @@ public class ProductController {
     private String PRODUCT_HOME;
 
     @POST
-    @Path("/save")
+    @Path("save")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Product save(Product product) {
@@ -45,14 +45,14 @@ public class ProductController {
     }
 
     @GET
-    @Path("/find/{id}")
+    @Path("find/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Product find(@PathParam("id") UUID id) {
         return repository.findById(id).orElse(Product.builder().build());
     }
 
     @GET
-    @Path("/remove/{id}")
+    @Path("remove/{id}")
     @Produces(MediaType.TEXT_HTML)
     public String delete(@PathParam("id") UUID id) {
         try {
@@ -66,7 +66,7 @@ public class ProductController {
     }
 
     @GET
-    @Path("/list")
+    @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Product> list() {
         List<Product> allProducts = new ArrayList<>();
