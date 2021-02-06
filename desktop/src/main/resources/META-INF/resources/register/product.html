@@ -19,24 +19,19 @@
 </head>
 <body>
 
-
-<center>
     <h1>Produto</h1>
-    <p><a href="../index.html">Voltar</a></p>
+    <p><a class="back-button" href="../index.html">Voltar</a></p>
     <form id="productForm">
-        <p>
-        <div>SKU</div>
-        <input id="sku" type="text"/></p>
-        <p>
-        <div>Descrição</div>
-        <input id="description" type="text"/></p>
-    </form>
-    <p><input class="button button-green" type="button" value="Salvar" id="save"/></p>
+        <label for="sku">SKU</label>
+        <input id="sku" type="text" placeholder="Resumo..."/></p>
 
-    <br/>
+        <label for="description">Descrição</label>
+        <input id="description" type="text" placeholder="Descrição Detalhada..."/>
+
+        <input class="button button-green" type="button" value="Salvar" id="save"/>
+    </form>
 
     <div id="all_products"></div>
-</center>
 
 </body>
 </html>

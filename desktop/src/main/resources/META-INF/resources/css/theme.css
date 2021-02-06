@@ -10,7 +10,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Buttons*/
 .button {
+    margin-top: 10px;
+    margin-right: 10px;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -45,4 +48,25 @@ body {
 }
 .button-dark-grey:hover {background-color: #929292;}
 
+.back-button {
+    color: red;
+}
+
+/*Text Fields*/
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/*Forms*/
+form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
 
