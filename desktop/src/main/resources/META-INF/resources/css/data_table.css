@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2021 GreatApps4you LLC
+ * This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
+ * https://www.gnu.org/licenses/gpl-3.0.txt
+ * https://greatapps4you.us
+ * CSSML NDSMD VRS + SNMV SMQL IVB
+ */
+
+table {
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #585858;
+    color: white;
+}
+
+table tr:hover {background-color: #ddd;}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
