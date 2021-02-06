@@ -12,6 +12,7 @@ import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -29,11 +30,11 @@ public class Customer {
 
     @Id
     private UUID uuid;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Identification identification;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Address address;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Address billingAddress;
     private LocalDateTime registrationTime;
 
