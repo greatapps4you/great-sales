@@ -28,17 +28,21 @@ body {
 .button-red {
     background-color: #f44336;
 }
+.button-red:hover {background-color: #F8877E;}
 
 .button-blue {
     background-color: #008CBA;
 }
+.button-blue:hover {background-color: #5CB5D3;}
 
 .button-grey {
     background-color: #e7e7e7; color: black;
 }
+.button-grey:hover {background-color: #ECECEC;}
 
-.button-black {
+.button-dark-grey {
     background-color: #555555;
 }
+.button-dark-grey:hover {background-color: #929292;}
 
 
