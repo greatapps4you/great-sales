@@ -9,8 +9,12 @@
 package us.greatapps4you.greatsales.entities.registration;
 
 import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -18,6 +22,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Identification {
+
+    @Id
     private UUID uuid;
     private String name;
     private String tradeName;

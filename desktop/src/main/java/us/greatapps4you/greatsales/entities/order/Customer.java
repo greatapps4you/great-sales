@@ -11,9 +11,14 @@ package us.greatapps4you.greatsales.entities.order;
 import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -21,9 +26,14 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
+
+    @Id
     private UUID uuid;
+    @OneToOne
     private Identification identification;
+    @OneToOne
     private Address address;
+    @OneToOne
     private Address billingAddress;
     private LocalDateTime registrationTime;
 
