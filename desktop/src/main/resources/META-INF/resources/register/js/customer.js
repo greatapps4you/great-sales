@@ -68,7 +68,7 @@ function list() {
                 + "<td>" + uuid + "</td>"
                 + "<td>" + customers[i].identification.name + "</td>"
                 + "<td>" + customers[i].address.street + "</td>"
-                + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>excluir</a></td>"
+                + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
         results_table += "</tbody>" +
