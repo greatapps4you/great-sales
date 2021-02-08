@@ -88,8 +88,13 @@ form {
     background-color: #929292;
 }
 
-.button-link-remove {
+.button-link-remove, .button-link-remove:link, .button-link-remove:visited {
     background-color: #f44336;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 .button-link-remove:hover, .button-link-remove:active {
     background-color: red;

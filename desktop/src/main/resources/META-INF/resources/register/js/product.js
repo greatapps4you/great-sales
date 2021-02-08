@@ -60,7 +60,7 @@ function list() {
                 + "<td>" + uuid + "</td>"
                 + "<td>" + products[i].sku + "</td>"
                 + "<td>" + products[i].description + "</td>"
-                + "<td><a href='" + remove_url + uuid + "'>excluir</a></td>"
+                + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>excluir</a></td>"
                 + "</tr>";
         }
         results_table += "</tbody>" +
