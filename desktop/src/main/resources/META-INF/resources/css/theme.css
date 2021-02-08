@@ -70,3 +70,44 @@ form {
     padding: 20px;
 }
 
+/*Links*/
+
+.button-link:link, .button-link:visited {
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-link-menu {
+    width: 100%;
+    background-color: #555555;
+}
+.button-link-menu:hover, .button-link-menu:active {
+    background-color: #929292;
+}
+
+.button-link-remove {
+    background-color: #f44336;
+}
+.button-link-remove:hover, .button-link-remove:active {
+    background-color: red;
+}
+
+.button-link-back {
+    background-color: #555555;
+}
+.button-link-back:hover, .button-link-back:active {
+    background-color: #929292;
+}
+
+/*Panels*/
+
+.left-panel {
+    height: 600px;
+    width: 25%;
+    border-radius: 5px;
+    padding: 20px;
+}
+
