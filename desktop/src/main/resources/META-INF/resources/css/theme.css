@@ -114,7 +114,7 @@ form {
 }
 
 .button-link-remove, .button-link-remove:link, .button-link-remove:visited {
-    color: red;
+    color: #BE030F;
     padding: 5px 5px;
     text-align: center;
     text-decoration: none;
