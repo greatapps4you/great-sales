@@ -65,6 +65,7 @@ input[type=text], select {
 
 /*Forms*/
 form {
+    margin-top: 12px;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -81,7 +82,7 @@ form {
 }
 
 .button-link-menu {
-    width: 100%;
+   /* width: 100%;*/
     background-color: #555555;
 }
 .button-link-menu:hover, .button-link-menu:active {
@@ -114,5 +115,21 @@ form {
     width: 25%;
     border-radius: 5px;
     padding: 20px;
+}
+
+/* System Bar */
+.system-bar {
+    padding: 5px;
+    height: 45px;
+    width: 100%;
+    background-color: #555555;
+    color: white;
+}
+
+.screen-title {
+    font-size: 20px;
+    padding: 10px 5px;
+    display: inline-block;
+    color: yellow;
 }
 
