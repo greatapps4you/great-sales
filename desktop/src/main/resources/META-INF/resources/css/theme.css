@@ -81,14 +81,6 @@ form {
     display: inline-block;
 }
 
-.button-link-menu {
-   /* width: 100%;*/
-    background-color: #555555;
-}
-.button-link-menu:hover, .button-link-menu:active {
-    background-color: #929292;
-}
-
 .button-link-remove, .button-link-remove:link, .button-link-remove:visited {
     background-color: #f44336;
     color: white;
@@ -118,18 +110,37 @@ form {
 }
 
 /* System Bar */
-.system-bar {
-    padding: 5px;
-    height: 45px;
-    width: 100%;
-    background-color: #555555;
+.navigation-bar {
+    width: 100%;  /* i'm assuming full width */
+    height: 50px; /* change it to desired width */
+    background-color: #555555; /* change to desired color */
     color: white;
 }
 
-.screen-title {
-    font-size: 20px;
-    padding: 10px 5px;
+.logo {
     display: inline-block;
-    color: yellow;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+.navigation-bar > a {
+    padding: 0px 10px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    height: 50px;        /* if you want it to take the full height of the bar */
+    line-height: 50px;    /* if you want it vertically middle of the navbar */
+}
+
+.navigation-bar > a:link, .navigation-bar > a:visited {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navigation-bar > a:hover, .navigation-bar > a:active {
+    background-color: #929292;
 }
 
