@@ -20,33 +20,51 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 .button-green {
-    background-color: #4CAF50;
+    background-color: #06620F;
 }
-.button-green:hover {background-color: #70bf73;}
+
+.button-green:hover {
+    background-color: #70bf73;
+}
 
 .button-red {
     background-color: #f44336;
 }
-.button-red:hover {background-color: #F8877E;}
+
+.button-red:hover {
+    background-color: #F8877E;
+}
 
 .button-blue {
     background-color: #008CBA;
 }
-.button-blue:hover {background-color: #5CB5D3;}
+
+.button-blue:hover {
+    background-color: #5CB5D3;
+}
 
 .button-grey {
-    background-color: #e7e7e7; color: black;
+    background-color: #e7e7e7;
+    color: black;
 }
-.button-grey:hover {background-color: #ECECEC;}
+
+.button-grey:hover {
+    background-color: #ECECEC;
+}
 
 .button-dark-grey {
     background-color: #555555;
 }
-.button-dark-grey:hover {background-color: #929292;}
+
+.button-dark-grey:hover {
+    background-color: #929292;
+}
 
 .back-button {
     color: red;
@@ -57,18 +75,21 @@ input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 1px #C8C8C8
 }
 
 /*Forms*/
 form {
+    border: 1px solid #C4C4C4;
     margin-top: 12px;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    border-radius: 10px;
 }
 
 /*Links*/
@@ -82,20 +103,22 @@ form {
 }
 
 .button-link-remove, .button-link-remove:link, .button-link-remove:visited {
-    background-color: #f44336;
-    color: white;
+    color: red;
     padding: 5px 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    border-radius: 10px;
 }
+
 .button-link-remove:hover, .button-link-remove:active {
-    background-color: red;
+    background-color: #e6f2ff;
 }
 
 .button-link-back {
     background-color: #555555;
 }
+
 .button-link-back:hover, .button-link-back:active {
     background-color: #929292;
 }
@@ -111,9 +134,9 @@ form {
 
 /* System Bar */
 .navigation-bar {
-    width: 100%;  /* i'm assuming full width */
+    width: 100%; /* i'm assuming full width */
     height: 50px; /* change it to desired width */
-    background-color: #555555; /* change to desired color */
+    background-color: #1D1D1F; /* change to desired color */
     color: white;
 }
 
@@ -124,13 +147,14 @@ form {
     height: 50px;
     margin-right: 20px;
 }
+
 .navigation-bar > a {
     padding: 0px 10px;
     display: inline-block;
     vertical-align: top;
     margin-right: 20px;
-    height: 50px;        /* if you want it to take the full height of the bar */
-    line-height: 50px;    /* if you want it vertically middle of the navbar */
+    height: 50px; /* if you want it to take the full height of the bar */
+    line-height: 50px; /* if you want it vertically middle of the navbar */
 }
 
 .navigation-bar > a:link, .navigation-bar > a:visited {
@@ -143,4 +167,6 @@ form {
 .navigation-bar > a:hover, .navigation-bar > a:active {
     background-color: #929292;
 }
+
+/*Fonts*/
 
