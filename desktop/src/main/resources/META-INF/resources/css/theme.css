@@ -131,15 +131,6 @@ form {
     background-color: #929292;
 }
 
-/*Panels*/
-
-.left-panel {
-    height: 600px;
-    width: 25%;
-    border-radius: 5px;
-    padding: 20px;
-}
-
 /* Navigation Bar */
 .navigation-bar {
     width: 100%;
