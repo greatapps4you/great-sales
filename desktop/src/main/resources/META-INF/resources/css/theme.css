@@ -140,20 +140,12 @@ form {
     padding: 20px;
 }
 
-/* System Bar */
+/* Navigation Bar */
 .navigation-bar {
-    width: 100%; /* i'm assuming full width */
-    height: 50px; /* change it to desired width */
-    background-color: #1D1D1F; /* change to desired color */
-    color: white;
-}
-
-.logo {
-    display: inline-block;
-    vertical-align: top;
-    width: 50px;
+    width: 100%;
     height: 50px;
-    margin-right: 20px;
+    background-color: #1D1D1F;
+    color: white;
 }
 
 .navigation-bar > a {
@@ -161,8 +153,8 @@ form {
     display: inline-block;
     vertical-align: top;
     margin-right: 20px;
-    height: 50px; /* if you want it to take the full height of the bar */
-    line-height: 50px; /* if you want it vertically middle of the navbar */
+    height: 50px;
+    line-height: 50px;
 }
 
 .navigation-bar > a:link, .navigation-bar > a:visited {
@@ -174,6 +166,14 @@ form {
 
 .navigation-bar > a:hover, .navigation-bar > a:active {
     background-color: #929292;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
 }
 
 /*Fonts*/
