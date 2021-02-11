@@ -97,8 +97,6 @@ function list() {
 function clearFields() {
     $(document).ready(function () {
         $("#name").val("");
-        $("#street").val("");
-        $("#name").val("");
         $("#tradeName").val("");
         $("#taxId").val("");
         $("#street").val("");
