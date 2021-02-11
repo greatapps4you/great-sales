@@ -82,6 +82,14 @@ input[type=text], select {
     box-shadow: 2px 2px 4px 1px #C8C8C8
 }
 
+.view-title {
+    font-size: 24px;
+    font-family: roboto_regular;
+    color: white;
+    background-color: #1D1D1F;
+    padding: 10px;
+}
+
 .section-title {
     font-size: 20px;
     font-family: roboto_bold;
