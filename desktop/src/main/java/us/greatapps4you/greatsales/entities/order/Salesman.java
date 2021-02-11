@@ -11,8 +11,14 @@ package us.greatapps4you.greatsales.entities.order;
 import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
 import us.greatapps4you.greatsales.entities.registration.Identification;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -20,8 +26,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Salesman {
+
+    @Id
     private UUID uuid;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Identification identification;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Address address;
     private String password;
 

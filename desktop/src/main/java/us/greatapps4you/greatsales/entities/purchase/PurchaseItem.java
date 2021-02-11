@@ -10,9 +10,15 @@ package us.greatapps4you.greatsales.entities.purchase;
 
 import lombok.*;
 import us.greatapps4you.greatsales.entities.inventory.Inventory;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -20,7 +26,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PurchaseItem {
+    @Id
     private UUID uuid;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Inventory inventory;
     private BigDecimal quantity;
     private BigDecimal totalAmount;

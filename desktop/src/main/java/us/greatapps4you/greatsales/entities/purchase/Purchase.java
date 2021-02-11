@@ -10,11 +10,13 @@ package us.greatapps4you.greatsales.entities.purchase;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -22,9 +24,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Purchase {
+
+    @Id
     private UUID uuid;
     private LocalDateTime purchaseTime;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Vendor vendor;
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<PurchaseItem> items;
     private BigDecimal totalAmount;
 

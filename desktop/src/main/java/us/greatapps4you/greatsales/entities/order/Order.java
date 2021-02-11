@@ -10,12 +10,15 @@ package us.greatapps4you.greatsales.entities.order;
 
 import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -23,20 +26,28 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
+
+    @Id
     private UUID uuid;
     private String orderNumber;
     private LocalDateTime orderTime;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Customer customer;
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<OrderItem> items;
     private BigDecimal totalAmount;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Salesman salesman;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Address deliveryAddress;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Address billingAddress;
     private String mailMessage;
     private String mailOrderTo;
     private String mailInvoiceTo;
     private LocalDate deliveryDate;
     private BigDecimal deliveryFee;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Carrier carrier;
     private BigDecimal commissionInCurrency;
     private BigDecimal commissionInPercentage;

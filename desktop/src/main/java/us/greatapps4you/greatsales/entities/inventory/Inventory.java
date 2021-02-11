@@ -10,6 +10,10 @@ package us.greatapps4you.greatsales.entities.inventory;
 
 import lombok.*;
 import us.greatapps4you.greatsales.entities.purchase.Vendor;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
@@ -44,6 +48,7 @@ import java.util.UUID;
  * for minimizing stock holding and handling costs.
  */
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -51,8 +56,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Inventory {
+
+    @Id
     private UUID uuid;
     private String lotNumber;
+    @OneToOne
     private Product product;
     private BigDecimal quantity;
     private BigDecimal minimalThreshold;
@@ -62,6 +70,7 @@ public class Inventory {
     private BigInteger shelfLife;
     private LocalDateTime expiryDate;
     private LocalDateTime buyingDate;
+    @OneToOne
     private Vendor vendor;
 
 }

@@ -10,6 +10,8 @@ package us.greatapps4you.greatsales.entities.accounting;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
 /**
@@ -27,6 +29,7 @@ import java.util.UUID;
  * Generally the most used accounts should be kept near the top of each group.
  */
 
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -34,6 +37,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Account {
+
+    @Id
     private UUID uuid;
     private String name;
     private FinancialStatement financialStatement;

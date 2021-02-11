@@ -10,6 +10,10 @@ package us.greatapps4you.greatsales.entities.accounting;
 
 import lombok.*;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -43,6 +47,8 @@ import java.util.UUID;
  * Credit, bank account, $1500 (money came from the bank account)
  * Debit, rent expense, $1500 (money went to the rent expense account)
  */
+
+@Entity
 @Builder
 @Data
 @EqualsAndHashCode
@@ -50,9 +56,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DoubleEntry {
+
+    @Id
     private UUID uuid;
     private String description;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Account debited;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Account credited;
     private BigDecimal amount;
     private LocalDateTime transactionTime;
