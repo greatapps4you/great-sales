@@ -2,8 +2,8 @@
     Quando eu, como vendedor, recebo um pedido por telefone
     Eu crio um novo pedido no sistema.
     Os detalhes desse pedido são:
-        - Identificação e endereço do fornecedor;
         - Identificação e endereço do cliente;
+        - Identificação e endereço do fornecedor;        
         - Data de entrega, bem como transportadora de entrega;
         - Taxa de transporte e quem paga essa taxa;
         - O produto a ser comprado com quantidade, unidade;
