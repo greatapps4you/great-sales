@@ -23,9 +23,9 @@
 <nav class="navigation-bar" w3-include-html="includes/menu-items.html"></nav>
 
 <br>
-<span class="section-title">Cadastro de Clientes</span>
+<span class="section-title">Identificação</span>
 
-<form id="customerForm">
+<div class="form" id="customerIdentificationForm">
     <div style="column-count: 2;">
         <p><label for="name">Razão Social</label>
             <input id="name" type="text" placeholder="Razão Social..."/></p>
@@ -35,14 +35,54 @@
 
         <p><label for="taxId">CNPJ</label>
             <input id="taxId" type="text" placeholder="CNPJ..."/></p>
-
-        <p><label for="street">Rua</label>
-            <input id="street" type="text" placeholder="Rua..."/></p>
     </div>
+</div>
 
-    <input class="button button-green" type="button" value="Salvar" id="save"/>
+<br>
+<span class="section-title">Endereço</span>
 
-</form>
+<div class="form" id="customerAddressForm">
+    <div style="column-count: 2;">
+        <p><label for="street">Rua</label>
+            <input id="street" type="text" placeholder="Rual..."/></p>
+
+        <p><label for="streetNumber">Número</label>
+            <input id="streetNumber" type="text" placeholder="Número..."/></p>
+
+        <p><label for="complement">Complemento</label>
+            <input id="complement" type="text" placeholder="Complemento..."/></p>
+
+        <p><label for="zip">CEP</label>
+            <input id="zip" type="text" placeholder="CEP..."/></p>
+
+        <p><label for="neighborhood">Bairro</label>
+            <input id="neighborhood" type="text" placeholder="Bairro..."/></p>
+
+        <p><label for="city">Cidade</label>
+            <input id="city" type="text" placeholder="Cidade..."/></p>
+
+        <p><label for="countryState">Estado</label>
+            <input id="countryState" type="text" placeholder="Estado..."/></p>
+
+        <p><label for="country">País</label>
+            <input id="country" type="text" placeholder="País..."/></p>
+
+        <p><label for="website">Site</label>
+            <input id="website" type="text" placeholder="Site..."/></p>
+
+        <p><label for="email">Email</label>
+            <input id="email" type="text" placeholder="Email..."/></p>
+
+        <p><label for="cellPhone">Celular</label>
+            <input id="cellPhone" type="text" placeholder="Celular..."/></p>
+
+        <p><label for="phone">Telefone</label>
+            <input id="phone" type="text" placeholder="Telefone..."/></p>
+    </div>
+</div>
+<br>
+
+<input class="button button-green" type="button" value="Salvar" id="save"/>
 
 <div style="margin-top: 30px" id="all_customers"></div>
 

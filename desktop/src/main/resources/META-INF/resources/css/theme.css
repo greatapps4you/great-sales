@@ -93,7 +93,7 @@ label {
 }
 
 /*Forms*/
-form {
+.form {
     border: 1px solid #C4C4C4;
     margin-top: 12px;
     border-radius: 5px;
