@@ -76,10 +76,13 @@ function list() {
 
         for (let i = 0; i < customers.length; i++) {
             const uuid = customers[i].uuid;
+            const registrationDate = customers[i].registrationDate[2] + "/"
+                + customers[i].registrationDate[1] + "/"
+                + customers[i].registrationDate[0];
             results_table += "<tr>"
                 + "<td>" + customers[i].identification.name + "</td>"
                 + "<td>" + customers[i].identification.taxId + "</td>"
-                + "<td>" +  customers[i].registrationDate  + "</td>"
+                + "<td>" + registrationDate + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
