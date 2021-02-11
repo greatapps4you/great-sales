@@ -85,15 +85,15 @@ input[type=text], select {
 
 .view-title {
     font-size: 24px;
-    font-family: roboto_regular;
-    color: white;
-    background-color: #1D1D1F;
+    font-family: roboto_bold;
+    color: #06620F;
     padding: 10px;
 }
 
 .section-title {
     font-size: 20px;
     font-family: roboto_bold;
+    padding: 10px;
 }
 
 label {
