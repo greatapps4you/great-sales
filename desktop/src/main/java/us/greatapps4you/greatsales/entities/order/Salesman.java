@@ -33,6 +33,5 @@ public class Salesman {
     private Identification identification;
     @OneToOne(cascade = {CascadeType.ALL})
     private Address address;
-    private String password;
 
 }
