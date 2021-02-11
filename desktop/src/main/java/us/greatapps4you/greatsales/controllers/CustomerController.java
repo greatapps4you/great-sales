@@ -16,6 +16,7 @@ import us.greatapps4you.greatsales.repositories.CustomerRepository;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,8 @@ public class CustomerController {
         }
 
         if (customer != null) {
-            if (customer.getRegistrationTime() == null) {
-                customer.setRegistrationTime(LocalDateTime.now());
+            if (customer.getRegistrationDate() == null) {
+                customer.setRegistrationDate(LocalDate.now());
             }
         }
 

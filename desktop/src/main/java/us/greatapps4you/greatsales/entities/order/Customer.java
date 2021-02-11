@@ -16,7 +16,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -36,6 +36,6 @@ public class Customer {
     private Address address;
     @OneToOne(cascade = {CascadeType.ALL})
     private Address billingAddress;
-    private LocalDateTime registrationTime;
+    private LocalDate registrationDate;
 
 }

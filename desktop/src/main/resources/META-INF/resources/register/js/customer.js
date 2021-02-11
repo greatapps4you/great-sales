@@ -66,9 +66,9 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
-            "<th>UUID</th>" +
-            "<th>NOME</th>" +
-            "<th>RUA</th>" +
+            "<th>RAZÃO SOCIAL</th>" +
+            "<th>CNPJ</th>" +
+            "<th>CLIENTE DESDE</th>" +
             "<th></th>" +
             "</tr>" +
             "</thead>" +
@@ -77,9 +77,9 @@ function list() {
         for (let i = 0; i < customers.length; i++) {
             const uuid = customers[i].uuid;
             results_table += "<tr>"
-                + "<td>" + uuid + "</td>"
                 + "<td>" + customers[i].identification.name + "</td>"
-                + "<td>" + customers[i].address.street + "</td>"
+                + "<td>" + customers[i].identification.taxId + "</td>"
+                + "<td>" +  customers[i].registrationDate  + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
