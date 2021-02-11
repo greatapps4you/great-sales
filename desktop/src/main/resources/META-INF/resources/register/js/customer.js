@@ -16,20 +16,32 @@ list();
 $(document).ready(function () {
 
     $("#save").click(function () {
-        const name = $("#name").val();
-        const street = $("#street").val();
 
         const identification = {
-            name: name
+            name: $("#name").val(),
+            tradeName: $("#tradeName").val(),
+            taxId: $("#taxId").val()
         };
 
         const address = {
-            street: street
+            street: $("#street").val(),
+            number: $("#number").val(),
+            complement: $("#complement").val(),
+            zip: $("#zip").val(),
+            neighborhood: $("#neighborhood").val(),
+            city: $("#city").val(),
+            countryState: $("#countryState").val(),
+            country: $("#country").val(),
+            website: $("#website").val(),
+            email: $("#email").val(),
+            cellPhone: $("#cellPhone").val(),
+            phone: $("#phone").val()
         };
 
         const customer = JSON.stringify({
             identification: identification,
             address: address,
+            billingAddress: address
         });
 
         $.ajax({
@@ -74,7 +86,7 @@ function list() {
         results_table += "</tbody>" +
             "</table>";
 
-        if(customers.length == 0) {
+        if (customers.length == 0) {
             $("#all_customers").html("Nenhum Cliente Cadastrado");
         } else {
             $("#all_customers").html(results_table);
@@ -86,6 +98,21 @@ function clearFields() {
     $(document).ready(function () {
         $("#name").val("");
         $("#street").val("");
+        $("#name").val("");
+        $("#tradeName").val("");
+        $("#taxId").val("");
+        $("#street").val("");
+        $("#number").val("");
+        $("#complement").val("");
+        $("#zip").val("");
+        $("#neighborhood").val("");
+        $("#city").val("");
+        $("#countryState").val("");
+        $("#country").val("");
+        $("#website").val("");
+        $("#email").val("");
+        $("#cellPhone").val("");
+        $("#phone").val("");
     });
 }
 
