@@ -11,6 +11,8 @@ package us.greatapps4you.greatsales.entities.accounting;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.util.UUID;
 
@@ -41,7 +43,9 @@ public class Account {
     @Id
     private UUID uuid;
     private String name;
+    @Enumerated(EnumType.STRING)
     private FinancialStatement financialStatement;
+    @Enumerated(EnumType.STRING)
     private AccountGroup group;
     private String code;
 
