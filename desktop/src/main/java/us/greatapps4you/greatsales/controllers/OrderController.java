@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.entities.order.Order;
+import us.greatapps4you.greatsales.entities.order.OrderItem;
 import us.greatapps4you.greatsales.repositories.OrderRepository;
 
 import javax.ws.rs.*;
@@ -26,7 +27,7 @@ public class OrderController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Order save(Order order) {
-        System.out.println("Product Data Received: " + order);
+        System.out.println("Order Data Received: " + order);
 
         if (order != null) {
             if (order.getUuid() == null) {
@@ -34,6 +35,55 @@ public class OrderController {
             }
         }
 
+        if (order != null) {
+            if (order.getCustomer() != null) {
+                if (order.getCustomer().getUuid() == null) {
+                    order.getCustomer().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
+        if (order != null) {
+            if (order.getSalesman() != null) {
+                if (order.getSalesman().getUuid() == null) {
+                    order.getSalesman().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
+        if (order != null) {
+            if (order.getCarrier() != null) {
+                if (order.getCarrier().getUuid() == null) {
+                    order.getCarrier().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
+        if (order != null) {
+            if (order.getDeliveryAddress() != null) {
+                if (order.getDeliveryAddress().getUuid() == null) {
+                    order.getDeliveryAddress().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
+        if (order != null) {
+            if (order.getBillingAddress() != null) {
+                if (order.getBillingAddress().getUuid() == null) {
+                    order.getBillingAddress().setUuid(UUID.randomUUID());
+                }
+            }
+        }
+
+        List<OrderItem> itemsWithUuid = new ArrayList<>();
+        order.getItems().stream().forEach(item -> {
+            if (item.getUuid() == null) {
+                item.setUuid(UUID.randomUUID());
+            }
+            itemsWithUuid.add(item);
+        });
+
+        order.setItems(itemsWithUuid);
         return repository.save(order);
     }
 
