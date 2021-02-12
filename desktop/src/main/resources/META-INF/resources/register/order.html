@@ -10,19 +10,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pedido</title>
+    <title>Pedidos</title>
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/data_table.css">
 
     <script src="../lib/jquery-3.5.1.min.js"></script>
     <script src="../lib/w3c.js"></script>
+    <script src="js/order.js.js"></script>
 </head>
 <body>
 
 <nav class="navigation-bar" w3-include-html="includes/menu-items.html"></nav>
 
 <br>
-<span class="section-title">Pedido</span>
+<span class="view-title">Pedidos</span>
+<br><br>
+<span class="section-title">Nova Venda</span>
+
+<div class="form">
+    <div style="column-count: 2;">
+        <div><label for="customer">Cliente</label>
+            <input id="customer" type="text" placeholder="Cliente..."/></div>
+
+        <p><label for="salesman">Vendedor</label>
+            <input id="salesman" type="text" placeholder="Vendedor..."/></p>
+
+        <p><label for="orderEmail">Email Pedido</label>
+            <input id="orderEmail" type="text" placeholder="Email Pedido..."/></p>
+
+        <p><label for="invoiceEmail">Email DANFE</label>
+            <input id="invoiceEmail" type="text" placeholder="Email DANFE..."/></p>
+
+        <p><label for="orderDate">Data Pedido</label>
+            <input id="orderDate" type="text" placeholder="Data Pedido..."/></p>
+
+        <p><label for="deliveryDate">Data Entrega</label>
+            <input id="deliveryDate" type="text" placeholder="Data Entrega..."/></p>
+
+    </div>
+</div>
+
+<br>
+<span class="section-title">Produtos</span>
+
+<div class="form">
+    <div style="column-count: 4;">
+        <div><label for="product">Produto</label>
+            <input id="product" type="text" placeholder="Produto..."/></div>
+
+        <p><label for="unValue">Vlr. Un. R$</label>
+            <input id="unValue" type="text" value="0,00"/></p>
+
+        <p><label for="productQuantity">Qtde.</label>
+            <input id="productQuantity" type="text" value="1,00"/></p>
+
+        <p><label for="subTotal">Total R$</label>
+            <input id="subTotal" type="text" value="0,00"/></p>
+    </div>
+    <input class="button button-white" type="button" value="Incluir" id="include"/>
+</div>
+
+<div class="form" id="order_items">Nenhum Produto adicionado...</div>
+
+<div class="form">
+    <div style="column-count: 3;">
+        <div><label for="discount">Desconto</label>
+            <input id="discount" type="text" value="0,00 %"/></div>
+
+        <p><label for="commission">Vlr. Un.</label>
+            <input id="commission" type="text" value="2,00 %"/></p>
+
+        <div><label for="grandTotal">Total R$</label>
+            <input id="grandTotal" type="text" value="0,00"/></div>
+    </div>
+</div>
+<br>
+
+<span class="section-title">Dados de Envio</span>
+
+<div class="form">
+    <div style="column-count: 2;">
+        <div><label for="deliveryStreet">Rua</label>
+            <input id="deliveryStreet" type="text" placeholder="Rua..."/></div>
+
+        <p><label for="deliveryStreetNumber">Número</label>
+            <input id="deliveryStreetNumber" type="text" placeholder="Número..."/></p>
+
+        <p><label for="deliveryNeighborhood">Bairro</label>
+            <input id="deliveryNeighborhood" type="text" placeholder="Bairro..."/></p>
+
+        <p><label for="deliveryZip">CEP</label>
+            <input id="deliveryZip" type="text" placeholder="CEP..."/></p>
+
+        <p><label for="deliveryCity">Cidade</label>
+            <input id="deliveryCity" type="text" placeholder="Cidade..."/></p>
+
+        <p><label for="deliveryState">Estado</label>
+            <input id="deliveryState" type="text" placeholder="Estado..."/></p>
+
+        <p><label for="carrier">Data Entrega</label>
+            <input id="carrier" type="text" placeholder="Transportadora..."/></p>
+
+        <p><label for="transportationFee">Valor Frete R$</label>
+            <input id="transportationFee" type="text" value="0,00"/></p>
+
+        <p><label for="orderAmount">Total Geral R$</label>
+            <input id="orderAmount" type="text" value="0,00"/></p>
+    </div>
+    <input class="button button-green" type="button" value="Confirmar" id="save"/>
+</div>
 
 </body>
 </html>
