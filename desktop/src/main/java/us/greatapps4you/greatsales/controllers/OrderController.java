@@ -95,6 +95,15 @@ public class OrderController {
     }
 
     @GET
+    @Path("list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Order> list() {
+        List<Order> allOrders = new ArrayList<>();
+        repository.findAll().iterator().forEachRemaining(allOrders::add);
+        return allOrders;
+    }
+
+    @DELETE
     @Path("remove/{id}")
     @Produces(MediaType.TEXT_HTML)
     public String delete(@PathParam("id") UUID id) {
@@ -108,12 +117,5 @@ public class OrderController {
         }
     }
 
-    @GET
-    @Path("list")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Order> list() {
-        List<Order> allOrders = new ArrayList<>();
-        repository.findAll().iterator().forEachRemaining(allOrders::add);
-        return allOrders;
-    }
+
 }

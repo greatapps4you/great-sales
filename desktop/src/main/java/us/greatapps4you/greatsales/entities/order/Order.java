@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "ORDERS")
 @Builder
 @Data
 @EqualsAndHashCode
