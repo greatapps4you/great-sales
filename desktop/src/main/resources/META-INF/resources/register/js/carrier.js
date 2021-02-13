@@ -71,6 +71,7 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
+            "<th>UUID</th>" +
             "<th>RAZÃO SOCIAL</th>" +
             "<th>CNPJ</th>" +
             "<th>CIDADE</th>" +
@@ -82,6 +83,7 @@ function list() {
         for (let i = 0; i < carriers.length; i++) {
             const uuid = carriers[i].uuid;
             results_table += "<tr>"
+                + "<td>" + uuid + "</td>"
                 + "<td>" + carriers[i].identification.name + "</td>"
                 + "<td>" + carriers[i].identification.taxId + "</td>"
                 + "<td>" + carriers[i].address.city + "</td>"
