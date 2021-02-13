@@ -23,6 +23,7 @@ import us.greatapps4you.greatsales.repositories.OrderRepository;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -50,9 +51,16 @@ public class OrderController {
         }
 
         if (order != null) {
+            if (order.getOrderDate() == null) {
+                order.setOrderDate(LocalDate.now());
+            }
+        }
+
+        if (order != null) {
             if (order.getCustomer() != null) {
                 if (order.getCustomer().getUuid() == null) {
-                    order.getCustomer().setUuid(UUID.randomUUID());
+                    //FIXME: THIS OBJECT SHOULD BE FETCHED FROM DATABASE
+                    return null;
                 }
             }
         }
@@ -60,7 +68,8 @@ public class OrderController {
         if (order != null) {
             if (order.getSalesman() != null) {
                 if (order.getSalesman().getUuid() == null) {
-                    order.getSalesman().setUuid(UUID.randomUUID());
+                    //FIXME: THIS OBJECT SHOULD BE FETCHED FROM DATABASE
+                    return null;
                 }
             }
         }
@@ -68,7 +77,8 @@ public class OrderController {
         if (order != null) {
             if (order.getCarrier() != null) {
                 if (order.getCarrier().getUuid() == null) {
-                    order.getCarrier().setUuid(UUID.randomUUID());
+                    //FIXME: THIS OBJECT SHOULD BE FETCHED FROM DATABASE
+                    return null;
                 }
             }
         }
@@ -76,6 +86,9 @@ public class OrderController {
         if (order != null) {
             if (order.getDeliveryAddress() != null) {
                 if (order.getDeliveryAddress().getUuid() == null) {
+                    /**
+                     * New address must be created for new orders
+                     */
                     order.getDeliveryAddress().setUuid(UUID.randomUUID());
                 }
             }
@@ -84,6 +97,9 @@ public class OrderController {
         if (order != null) {
             if (order.getBillingAddress() != null) {
                 if (order.getBillingAddress().getUuid() == null) {
+                    /**
+                     * New address must be created for new orders
+                     */
                     order.getBillingAddress().setUuid(UUID.randomUUID());
                 }
             }

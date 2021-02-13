@@ -20,7 +20,6 @@ import us.greatapps4you.greatsales.entities.registration.Address;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -37,7 +36,7 @@ public class Order {
     @Id
     private UUID uuid;
     private String orderNumber;
-    private LocalDateTime orderTime;
+    private LocalDate orderDate;
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Customer customer;
     @OneToMany(cascade = {CascadeType.ALL})
