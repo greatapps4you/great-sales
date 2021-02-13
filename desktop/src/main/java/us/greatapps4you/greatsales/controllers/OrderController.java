@@ -133,7 +133,7 @@ public class OrderController {
         return allOrders;
     }
 
-    @DELETE
+    @GET
     @Path("remove/{id}")
     @Produces(MediaType.TEXT_HTML)
     public String delete(@PathParam("id") UUID id) {
