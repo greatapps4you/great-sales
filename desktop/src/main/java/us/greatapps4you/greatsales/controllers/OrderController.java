@@ -1,3 +1,17 @@
+/*
+ * Copyright (c) 2021 GreatApps4you LLC
+ * This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
+ * https://www.gnu.org/licenses/gpl-3.0.txt
+ * https://greatapps4you.us
+ *
+ * Team:
+ * José Esteves de Souza Neto (Lead Engineer)
+ * Renato Magrini (Front-End Developer)
+ * Nathan Parra Ramos (Designer)
+ *
+ * CSSML NDSMD VRS + SNMV SMQL IVB
+ */
+
 package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +23,7 @@ import us.greatapps4you.greatsales.repositories.OrderRepository;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -36,9 +51,16 @@ public class OrderController {
         }
 
         if (order != null) {
+            if (order.getOrderDate() == null) {
+                order.setOrderDate(LocalDate.now());
+            }
+        }
+
+        if (order != null) {
             if (order.getCustomer() != null) {
                 if (order.getCustomer().getUuid() == null) {
-                    order.getCustomer().setUuid(UUID.randomUUID());
+                    //FIXME: THIS OBJECT SHOULD BE FETCHED FROM DATABASE
+                    return null;
                 }
             }
         }
@@ -46,7 +68,8 @@ public class OrderController {
         if (order != null) {
             if (order.getSalesman() != null) {
                 if (order.getSalesman().getUuid() == null) {
-                    order.getSalesman().setUuid(UUID.randomUUID());
+                    //FIXME: THIS OBJECT SHOULD BE FETCHED FROM DATABASE
+                    return null;
                 }
             }
         }
@@ -54,7 +77,8 @@ public class OrderController {
         if (order != null) {
             if (order.getCarrier() != null) {
                 if (order.getCarrier().getUuid() == null) {
-                    order.getCarrier().setUuid(UUID.randomUUID());
+                    //FIXME: THIS OBJECT SHOULD BE FETCHED FROM DATABASE
+                    return null;
                 }
             }
         }
@@ -62,6 +86,9 @@ public class OrderController {
         if (order != null) {
             if (order.getDeliveryAddress() != null) {
                 if (order.getDeliveryAddress().getUuid() == null) {
+                    /**
+                     * New address must be created for new orders
+                     */
                     order.getDeliveryAddress().setUuid(UUID.randomUUID());
                 }
             }
@@ -70,6 +97,9 @@ public class OrderController {
         if (order != null) {
             if (order.getBillingAddress() != null) {
                 if (order.getBillingAddress().getUuid() == null) {
+                    /**
+                     * New address must be created for new orders
+                     */
                     order.getBillingAddress().setUuid(UUID.randomUUID());
                 }
             }
@@ -95,6 +125,15 @@ public class OrderController {
     }
 
     @GET
+    @Path("list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Order> list() {
+        List<Order> allOrders = new ArrayList<>();
+        repository.findAll().iterator().forEachRemaining(allOrders::add);
+        return allOrders;
+    }
+
+    @GET
     @Path("remove/{id}")
     @Produces(MediaType.TEXT_HTML)
     public String delete(@PathParam("id") UUID id) {
@@ -108,12 +147,5 @@ public class OrderController {
         }
     }
 
-    @GET
-    @Path("list")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Order> list() {
-        List<Order> allOrders = new ArrayList<>();
-        repository.findAll().iterator().forEachRemaining(allOrders::add);
-        return allOrders;
-    }
+
 }
