@@ -18,9 +18,63 @@ const remove_url = "http://localhost:8080/orders/remove/";
 const find_url = "http://localhost:8080/orders/find/";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
-var items = [];
+let items = [];
 
-list();
+$(document).ready(function () {
+    list();
+});
+
+$(document).ready(function () {
+    updateItems();
+});
+
+$(document).ready(function () {
+    $("#include").click(function () {
+        let item = {
+            product: $("#product").val(),
+            unValue: $("#unValue").val(),
+            productQuantity: $("#productQuantity").val(),
+            total: $("#unValue").val() * $("#productQuantity").val()
+        };
+
+        items.push(item);
+        console.log(items);
+        updateItems();
+    });
+});
+
+function updateItems() {
+    let results_table = "<table>" +
+        "<thead>" +
+        "<tr>" +
+        "<th>Descrição</th>" +
+        "<th>Quantidade</th>" +
+        "<th>Vlr. Un.</th>" +
+        "<th>Total</th>" +
+        "<th></th>" +
+        "</tr>" +
+        "</thead>" +
+        "<tbody>";
+
+    for (let i = 0; i < items.length; i++) {
+
+        results_table += "<tr>"
+            + "<td>" + items[i].product + "</td>"
+            + "<td>" + items[i].productQuantity + "</td>"
+            + "<td>" + items[i].unValue + "</td>"
+            + "<td>" + items[i].total + "</td>"
+            + "<td><a class='button-link-remove'>X</a></td>"
+            + "</tr>";
+    }
+    results_table += "</tbody>" +
+        "</table>";
+
+    if (items.length == 0) {
+        $("#order_items").html("Nenhum Produto adicionado...");
+    } else {
+        $("#order_items").html(results_table);
+    }
+}
 
 $(document).ready(function () {
     $(":input[type='number']").blur(function () {
