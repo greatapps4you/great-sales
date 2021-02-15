@@ -26,8 +26,14 @@ $(document).ready(function () {
             items: [],
             totalAmount: "150000.00",
             salesman: {uuid: "8e1b7b24-461e-4fa7-a824-7718b7fcf6b3"},
-            deliveryAddress: null,
-            billingAddress: null,
+            deliveryAddress: {
+                street: $("#deliveryStreet").val(),
+                number: $("#deliveryStreetNumber").val(),
+                zip: $("#deliveryZip").val(),
+                neighborhood: $("#deliveryNeighborhood").val(),
+                city: $("#deliveryCity").val(),
+                countryState: $("#deliveryState").val(),
+            },
             mailMessage: "",
             mailOrderTo: "",
             mailInvoiceTo: "",
@@ -100,6 +106,13 @@ function list() {
 
 function clearFields() {
     $(document).ready(function () {
+        /* Delivery Address*/
+        $("#deliveryStreet").val("");
+        $("#deliveryStreetNumber").val("");
+        $("#deliveryZip").val("");
+        $("#deliveryNeighborhood").val("");
+        $("#deliveryCity").val("");
+        $("#deliveryState").val("");
 
     });
 }
