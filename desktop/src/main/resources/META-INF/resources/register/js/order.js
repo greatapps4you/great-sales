@@ -25,7 +25,6 @@ $(document).ready(function () {
     $(":input[type='number']").blur(function () {
         let value = $(this).val();
         let input = $(this);
-        console.log(decimal_regex.test(value));
         if (decimal_regex.test(value)) {
             input.css('background-color', 'white');
         } else {

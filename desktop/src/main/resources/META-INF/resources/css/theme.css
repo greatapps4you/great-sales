@@ -127,6 +127,7 @@ input[type=text], select {
 label {
     font-size: 18px;
     font-family: roboto_light;
+    padding: 5px;
 }
 
 /*Forms*/

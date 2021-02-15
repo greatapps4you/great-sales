@@ -68,13 +68,22 @@
             <input id="product" type="text" placeholder="Produto..."/></div>
 
         <p><label for="unValue">Vlr. Un. R$</label>
-            <input id="unValue" type="text" value="0,00"/></p>
+            <input id="unValue" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"></p>
 
         <p><label for="productQuantity">Qtde.</label>
-            <input id="productQuantity" type="text" value="1,00"/></p>
+            <input id="productQuantity" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"></p>
 
         <p><label for="subTotal">Total R$</label>
-            <input id="subTotal" type="text" value="0,00"/></p>
+            <input id="subTotal" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"></p>
     </div>
     <input class="button button-white" type="button" value="Incluir" id="include"/>
 </div>
@@ -83,14 +92,28 @@
 
 <div class="form">
     <div style="column-count: 3;">
-        <div><label for="discount">Desconto</label>
-            <input id="discount" type="text" value="0,00 %"/></div>
+        <div>
+            <label for="discount">Desconto</label>
+            <input id="discount" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00"
+                   step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
+        </div>
 
-        <p><label for="commission">Vlr. Un.</label>
-            <input id="commission" type="text" value="2,00 %"/></p>
+        <p><label for="commission">Comissão</label>
+            <input id="commission" type="number"
+                   placeholder="0.00" required name="price" min="0" value="2.00"
+                   step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label></p>
 
         <div><label for="grandTotal">Total R$</label>
-            <input id="grandTotal" type="text" value="0,00"/></div>
+            <input id="grandTotal" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00"
+                   step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"></div>
     </div>
 </div>
 <br>
@@ -126,7 +149,8 @@
                    title="Currency"
                    pattern="^\d+(?:\.\d{1,2})?$"></p>
 
-        <p><div>
+        <p>
+        <div>
             <label>Total Geral R$
                 <input id="orderAmount" type="number"
                        placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
