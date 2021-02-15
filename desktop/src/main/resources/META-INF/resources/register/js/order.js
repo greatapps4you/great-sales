@@ -38,7 +38,7 @@ $(document).ready(function () {
         const order = JSON.stringify({
             customer: {uuid: "0eeb4f40-c26b-41a7-8198-86bdfe926906"},
             items: [],
-            totalAmount: "150000.00",
+            totalAmount: $("#totalAmount").val(),
             salesman: {uuid: "8e1b7b24-461e-4fa7-a824-7718b7fcf6b3"},
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
@@ -52,10 +52,10 @@ $(document).ready(function () {
             mailOrderTo: "",
             mailInvoiceTo: "",
             deliveryDate: "2021-03-25",
-            deliveryFee: "150.00",
+            deliveryFee: $("#deliveryFee").val(),
             carrier: {uuid: "8df71274-5709-41ee-adc0-a56727bdd34c"},
-            commissionInCurrency: "2000.00",
-            commissionInPercentage: "2.00",
+            commissionInCurrency: $("#totalAmount").val() * $("#commissionInPercentage").val(),
+            commissionInPercentage: $("#commissionInPercentage").val(),
             taxInPercentage: "12.00",
             customerOrderNumber: "9999",
             paymentConditions: "",
@@ -127,6 +127,12 @@ function clearFields() {
         $("#deliveryNeighborhood").val("");
         $("#deliveryCity").val("");
         $("#deliveryState").val("");
+
+        //Decimal Fields
+        $("#totalAmount").val("0.00");
+        $("#deliveryFee").val("0.00")
+        $("#commissionInPercentage").val("2.00")
+
 
     });
 }
