@@ -41,20 +41,8 @@
         <p><label for="salesman">Vendedor</label>
             <input id="salesman" type="text" placeholder="Vendedor..."/></p>
 
-        <p><label for="orderEmail">Email Pedido</label>
-            <input id="orderEmail" type="text" placeholder="Email Pedido..."/></p>
-
-        <p><label for="invoiceEmail">Email DANFE</label>
-            <input id="invoiceEmail" type="text" placeholder="Email DANFE..."/></p>
-
-        <p><label for="orderDate">Data Pedido</label>
-            <input id="orderDate" type="text" placeholder="Data Pedido..."/></p>
-
-        <p><label for="deliveryDate">Data Entrega</label>
-            <input id="deliveryDate" type="text" placeholder="Data Entrega..."/></p>
-
-        <p><label for="customerFound">Cliente Encontrado</label>
-            <input id="customerFound" type="text"/></p>
+        <p><label for="carrier">Transportadora</label>
+            <input id="carrier" type="text" placeholder="Transportadora..."/></p>
 
     </div>
 </div>
@@ -84,6 +72,7 @@
                    placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
                    title="Currency"
                    pattern="^\d+(?:\.\d{1,2})?$"></p>
+
     </div>
     <input class="button button-white" type="button" value="Incluir" id="include"/>
 </div>
@@ -114,6 +103,19 @@
                    step="0.01"
                    title="Currency"
                    pattern="^\d+(?:\.\d{1,2})?$"></div>
+
+        <p><label for="deliveryFee">Valor Frete R$</label>
+            <input id="deliveryFee" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"></p>
+
+        <p><label>Total Geral R$
+            <input id="totalAmount" type="number"
+                   placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$">
+        </label></p>
     </div>
 </div>
 <br>
@@ -140,27 +142,45 @@
         <p><label for="deliveryState">Estado</label>
             <input id="deliveryState" type="text" placeholder="Estado..."/></p>
 
-        <p><label for="carrier">Data Entrega</label>
-            <input id="carrier" type="text" placeholder="Transportadora..."/></p>
+        <p><label for="deliveryDate">Data Entrega</label>
+            <input id="deliveryDate" type="text" value="2021-03-25"/></p>
 
-        <p><label for="deliveryFee">Valor Frete R$</label>
-            <input id="deliveryFee" type="number"
-                   placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
-                   title="Currency"
-                   pattern="^\d+(?:\.\d{1,2})?$"></p>
+        <p><label for="mailOrderTo">Email Pedido</label>
+            <input id="mailOrderTo" type="text" placeholder="Email Pedido..."/></p>
 
-        <p>
-        <div>
-            <label>Total Geral R$
-                <input id="totalAmount" type="number"
-                       placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
-                       title="Currency"
-                       pattern="^\d+(?:\.\d{1,2})?$">
-            </label>
-        </div>
-        </p>
+        <p><label for="mailInvoiceTo">Email DANFE</label>
+            <input id="mailInvoiceTo" type="text" placeholder="Email DANFE..."/></p>
+
+
     </div>
     <input class="button button-green" type="button" value="Confirmar" id="save"/>
+</div>
+
+<br>
+<span class="section-title">Informações Extra</span>
+
+<div class="form">
+    <div style="column-count: 2;">
+        <div><label for="mailMessage">Msg. Email</label>
+            <input id="mailMessage" type="text" placeholder="Mensagem do Email..."/></div>
+
+        <p><label for="taxInPercentage">ICMS</label>
+            <input id="taxInPercentage" type="number"
+                   placeholder="0.00" required name="price" min="0" value="12.00"
+                   step="0.01"
+                   title="Currency"
+                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label></p>
+
+        <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
+            <input id="customerOrderNumber" type="text" placeholder="Núm. Pedido Cliente..."/></p>
+
+        <p><label for="paymentConditions">Cond. Pgto.</label>
+            <input id="paymentConditions" type="text" placeholder="Condições de Pagamento..."/></p>
+
+        <p><label for="observations">Observações</label>
+            <input id="observations" type="text" placeholder="Observações..."/></p>
+
+    </div>
 </div>
 
 <div style="margin-top: 30px" id="all_orders"></div>

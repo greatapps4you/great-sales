@@ -18,6 +18,7 @@ const remove_url = "http://localhost:8080/orders/remove/";
 const find_url = "http://localhost:8080/orders/find/";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
+var items = [];
 
 list();
 
@@ -37,9 +38,11 @@ $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
             customer: {uuid: "0eeb4f40-c26b-41a7-8198-86bdfe926906"},
-            items: [],
-            totalAmount: $("#totalAmount").val(),
             salesman: {uuid: "8e1b7b24-461e-4fa7-a824-7718b7fcf6b3"},
+            carrier: {uuid: "8df71274-5709-41ee-adc0-a56727bdd34c"},
+            items: items,
+
+            totalAmount: $("#totalAmount").val(),
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
                 number: $("#deliveryStreetNumber").val(),
@@ -48,18 +51,17 @@ $(document).ready(function () {
                 city: $("#deliveryCity").val(),
                 countryState: $("#deliveryState").val(),
             },
-            mailMessage: "",
-            mailOrderTo: "",
-            mailInvoiceTo: "",
-            deliveryDate: "2021-03-25",
+            mailMessage: $("#mailMessage").val(),
+            mailOrderTo: $("#mailOrderTo").val(),
+            mailInvoiceTo: $("#mailInvoiceTo").val(),
+            deliveryDate: $("#deliveryDate").val(),
             deliveryFee: $("#deliveryFee").val(),
-            carrier: {uuid: "8df71274-5709-41ee-adc0-a56727bdd34c"},
             commissionInCurrency: $("#totalAmount").val() * $("#commissionInPercentage").val(),
             commissionInPercentage: $("#commissionInPercentage").val(),
-            taxInPercentage: "12.00",
-            customerOrderNumber: "9999",
-            paymentConditions: "",
-            observations: ""
+            taxInPercentage: $("#taxInPercentage").val(),
+            customerOrderNumber: $("#customerOrderNumber").val(),
+            paymentConditions: $("#paymentConditions").val(),
+            observations: $("#observations").val()
         });
 
         $.ajax({
@@ -133,6 +135,8 @@ function clearFields() {
         $("#deliveryFee").val("0.00")
         $("#commissionInPercentage").val("2.00")
 
+        //Sales Fields
+        items = [];
 
     });
 }
