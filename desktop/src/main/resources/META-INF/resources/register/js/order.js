@@ -38,10 +38,18 @@ $(document).ready(function () {
         };
 
         items.push(item);
-        console.log(items);
+        clear_item_fields();
+
         updateItems();
     });
 });
+
+function clear_item_fields() {
+    $("#product").val("");
+    $("#unValue").val("");
+    $("#productQuantity").val("");
+}
+
 
 function updateItems() {
     let results_table = "<table>" +
