@@ -12,15 +12,42 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB */
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from '../node_modules/yarn/node_modules/axios';
+import ProdItem from './components/proditem.js';
 
 function App() {
+
+const [productsList, setProductsList] = useState([]);
+
+    useEffect(() => {
+ axios.get('http://localhost:8080/products/list').then((response) => {
+ setProductsList(response.data);
+ });
+ }, []);
+
+ console.log(productsList)
+
   return (
     <div>
-        <p>Great Sales App</p>
+        <h1>Great Sales App</h1>
+        <h2>Cadastro de Produtos</h2>
+        <p>...</p>
+
+        <h2>Products List</h2>
+        {productsList.map((product) =>
+        <ProdItem
+        key={product.uuid}
+        name={product.sku}
+        description={product.description} />
+        )}
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
