@@ -71,6 +71,7 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
+            "<th>UUIDL</th>" +
             "<th>RAZÃO SOCIAL</th>" +
             "<th>CNPJ</th>" +
             "<th>CIDADE</th>" +
@@ -82,6 +83,7 @@ function list() {
         for (let i = 0; i < vendors.length; i++) {
             const uuid = vendors[i].uuid;
             results_table += "<tr>"
+                + "<td>" + uuid + "</td>"
                 + "<td>" + vendors[i].identification.name + "</td>"
                 + "<td>" + vendors[i].identification.taxId + "</td>"
                 + "<td>" + vendors[i].address.city + "</td>"

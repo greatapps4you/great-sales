@@ -22,7 +22,7 @@ list();
 $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
-            orderNumber: "99999",
+            orderNumber: Math.floor(Math.random() * 10000) + 1,
             customer: {uuid: "0eeb4f40-c26b-41a7-8198-86bdfe926906"},
             items: [],
             totalAmount: "150000.00",
@@ -66,6 +66,7 @@ function list() {
             "<thead>" +
             "<tr>" +
             "<th>UUID</th>" +
+            "<th>NÚMERO PEDIDO</th>" +
             "<th>DATA PEDIDO</th>" +
             "<th></th>" +
             "</tr>" +
@@ -74,9 +75,14 @@ function list() {
 
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
+            const orderDate = orders[i].orderDate[2] + "/"
+                + orders[i].orderDate[1] + "/"
+                + orders[i].orderDate[0];
+
             results_table += "<tr>"
                 + "<td>" + uuid + "</td>"
-                + "<td>" + orders[i].orderDate + "</td>"
+                + "<td>" + orders[i].orderNumber + "</td>"
+                + "<td>" + orderDate + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }

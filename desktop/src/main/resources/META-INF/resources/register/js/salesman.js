@@ -69,6 +69,7 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
+            "<th>UUID</th>" +
             "<th>NOME</th>" +
             "<th>EMAIL</th>" +
             "<th>CELULAR</th>" +
@@ -80,6 +81,7 @@ function list() {
         for (let i = 0; i < salesmen.length; i++) {
             const uuid = salesmen[i].uuid;
             results_table += "<tr>"
+                + "<td>" + uuid + "</td>"
                 + "<td>" + salesmen[i].identification.name + "</td>"
                 + "<td>" + salesmen[i].address.email + "</td>"
                 + "<td>" + salesmen[i].address.cellPhone + "</td>"

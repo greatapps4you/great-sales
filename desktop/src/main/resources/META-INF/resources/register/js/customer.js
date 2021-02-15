@@ -72,6 +72,7 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
+            "<th>UUID</th>" +
             "<th>RAZÃO SOCIAL</th>" +
             "<th>CNPJ</th>" +
             "<th>CLIENTE DESDE</th>" +
@@ -86,6 +87,7 @@ function list() {
                 + customers[i].registrationDate[1] + "/"
                 + customers[i].registrationDate[0];
             results_table += "<tr>"
+                + "<td>" + uuid + "</td>"
                 + "<td>" + customers[i].identification.name + "</td>"
                 + "<td>" + customers[i].identification.taxId + "</td>"
                 + "<td>" + registrationDate + "</td>"
