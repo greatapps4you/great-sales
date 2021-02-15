@@ -123,8 +123,16 @@
         <p><label for="transportationFee">Valor Frete R$</label>
             <input id="transportationFee" type="text" value="0,00"/></p>
 
-        <p><label for="orderAmount">Total Geral R$</label>
-            <input id="orderAmount" type="text" value="0,00"/></p>
+        <p><div>
+            <label>Total Geral R$
+                <input id="orderAmount" type="number"
+                       placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                       title="Currency"
+                       pattern="^\d+(?:\.\d{1,2})?$"
+                       onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red';">
+            </label>
+        </div>
+        </p>
     </div>
     <input class="button button-green" type="button" value="Confirmar" id="save"/>
 </div>

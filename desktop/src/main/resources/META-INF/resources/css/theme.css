@@ -85,8 +85,21 @@ body {
 }
 
 /*Text Fields*/
+input[type=number] {
+    width: 150px;
+    padding: 8px 18px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: roboto_regular;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 1px #C8C8C8;
+    text-align: right;
+
+}
+
 input[type=text], select {
-    width: 100%;
+    width: 80%;
     padding: 8px 18px;
     margin-top: 10px;
     display: inline-block;
