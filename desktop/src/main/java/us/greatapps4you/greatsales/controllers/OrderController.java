@@ -24,6 +24,7 @@ import us.greatapps4you.greatsales.repositories.OrderRepository;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -53,6 +54,12 @@ public class OrderController {
         if (order != null) {
             if (order.getOrderDate() == null) {
                 order.setOrderDate(LocalDate.now());
+            }
+        }
+
+        if (order != null) {
+            if (order.getOrderNumber() == null) {
+                order.setOrderNumber(nextOrderNumber());
             }
         }
 
@@ -147,5 +154,16 @@ public class OrderController {
         }
     }
 
+    private String nextOrderNumber() {
+        String orderNumber = "";
+        orderNumber += LocalDate.now().getYear();
+        orderNumber += "-";
+        orderNumber += LocalDate.now().getMonthValue();
+        orderNumber += "-";
+        orderNumber += LocalDate.now().getDayOfMonth();
+        orderNumber += "-";
+        orderNumber += LocalDateTime.now().getNano() / 1000;
+        return orderNumber;
+    }
 
 }

@@ -22,7 +22,6 @@ list();
 $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
-            orderNumber: Math.floor(Math.random() * 10000) + 1,
             customer: {uuid: "0eeb4f40-c26b-41a7-8198-86bdfe926906"},
             items: [],
             totalAmount: "150000.00",
