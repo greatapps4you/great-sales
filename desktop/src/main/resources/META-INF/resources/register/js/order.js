@@ -67,6 +67,7 @@ function list() {
             "<th>UUID</th>" +
             "<th>NÚMERO PEDIDO</th>" +
             "<th>DATA PEDIDO</th>" +
+            "<th>CLIENTE</th>" +
             "<th></th>" +
             "</tr>" +
             "</thead>" +
@@ -82,6 +83,7 @@ function list() {
                 + "<td>" + uuid + "</td>"
                 + "<td>" + orders[i].orderNumber + "</td>"
                 + "<td>" + orderDate + "</td>"
+                + "<td>" + orders[i].customer.identification.name + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
