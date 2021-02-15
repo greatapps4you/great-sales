@@ -17,7 +17,22 @@ const list_url = "http://localhost:8080/orders/list";
 const remove_url = "http://localhost:8080/orders/remove/";
 const find_url = "http://localhost:8080/orders/find/";
 
+const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
+
 list();
+
+$(document).ready(function () {
+    $(":input[type='number']").blur(function () {
+        let value = $(this).val();
+        let input = $(this);
+        console.log(decimal_regex.test(value));
+        if (decimal_regex.test(value)) {
+            input.css('background-color', 'white');
+        } else {
+            input.css('background-color', 'red');
+        }
+    });
+});
 
 $(document).ready(function () {
     $("#save").click(function () {
