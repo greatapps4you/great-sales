@@ -9,18 +9,16 @@
  * Renato Magrini (Front-End Developer)
  * Nathan Parra Ramos (Designer)
  *
- * CSSML NDSMD VRS + SNMV SMQL IVB
- */
+ * CSSML NDSMD VRS + SNMV SMQL IVB */
 
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useState } from 'react';
+import axios from '../node_modules/yarn/node_modules/axios';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
         <p>Great Sales App</p>
-      </header>
     </div>
   );
 }
