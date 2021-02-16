@@ -39,8 +39,26 @@
 
         <div class="form">
             <div style="column-count: 2;">
-                <div><label for="customer">Cliente</label>
-                    <input id="customer" type="text" placeholder="Cliente..."/></div>
+                <div>
+
+                    <label for="customer">Cliente</label>
+                    <input id="customer" type="text" placeholder="Cliente..."/>
+
+                    <div class="dropdown-container">
+                        <button id="customer-toggle" class="dropdown-button">Cliente...</button>
+                        <div id="customer-dropdown" class="dropdown-content">
+                            <input type="text" placeholder="Buscar..." id="search-customer">
+                            <a href="#about">About</a>
+                            <a href="#base">Base</a>
+                            <a href="#blog">Blog</a>
+                            <a href="#contact">Contact</a>
+                            <a href="#custom">Custom</a>
+                            <a href="#support">Support</a>
+                            <a href="#tools">Tools</a>
+                        </div>
+                    </div>
+
+                </div>
 
                 <label for="cars">Choose a car:</label>
                 <select name="cars" id="cars">
@@ -187,7 +205,8 @@
             </div>
         </div>
 
-        <input style="float: right; margin-top: 12px;" class="button button-green" type="button" value="Confirmar" id="save"/>
+        <input style="float: right; margin-top: 12px;" class="button button-green" type="button" value="Confirmar"
+               id="save"/>
     </div>
     <div class="column half">
         <div style="margin-top: 30px" id="all_orders"></div>
