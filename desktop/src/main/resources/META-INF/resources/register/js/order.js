@@ -33,7 +33,10 @@ $(document).ready(function () {
     });
 
     $("#customer-dropdown span").click(function () {
+        let selected_customer = JSON.parse($(this).attr("data"));
         // Handle the selected item right here
+        $("#customer").val(selected_customer.name);
+        console.log(selected_customer);
         $("#customer-dropdown").toggleClass("show");
     });
 
