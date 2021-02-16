@@ -16,6 +16,7 @@ body {
     font-family: roboto_regular;
     padding-left: 10px;
     padding-right: 10px;
+    margin: 0;
 }
 
 /*Buttons*/
@@ -205,6 +206,34 @@ label {
     width: 50px;
     height: 50px;
     margin-right: 20px;
+}
+
+/*Layout*/
+* {
+    box-sizing: border-box;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.column.half {
+    width: 50%;
+}
+
+.column.one-third {
+    width: 33.33%;
+}
+
+.column.one-quarter {
+    width: 25%;
 }
 
 /*Fonts*/
