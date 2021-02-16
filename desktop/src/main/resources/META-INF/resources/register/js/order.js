@@ -60,10 +60,9 @@ function build_customers_dropbox() {
 
             //Only at this moment the child elements of dropdown will be in DOM
             $("#customer-dropdown span").click(function () {
+                // Handle the selected item right here
                 let fetched_customer = JSON.parse($(this).attr("data"));
                 selected_customer = fetched_customer;
-                console.log(fetched_customer);
-                // Handle the selected item right here
                 $("#customer").val(fetched_customer.identification.name);
                 $("#customer-dropdown").toggleClass("show");
             });
