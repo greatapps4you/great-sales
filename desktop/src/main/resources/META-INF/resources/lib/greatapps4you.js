@@ -12,6 +12,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
+/*Generate UUID*/
 function UUID_random() {
     let current_time = new Date().getTime();
     const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -20,4 +21,26 @@ function UUID_random() {
         return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
     return uuid;
+}
+
+/*Dropdown SearchBox*/
+function toggle(element) {
+    element.classList.toggle("show");
+}
+
+function filter(search_field, dropdown_button) {
+    let input, filter, ul, li, a, i;
+    input = search_field;
+    filter = input.value.toUpperCase();
+    let div = dropdown_button;
+    a = div.getElementsByTagName("a");
+    let value;
+    for (i = 0; i < a.length; i++) {
+        value = a[i].textContent || a[i].innerText;
+        if (value.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
 }
