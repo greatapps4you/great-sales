@@ -24,10 +24,6 @@ function UUID_random() {
 }
 
 /*Dropdown SearchBox*/
-function toggle(element) {
-    element.classList.toggle("show");
-}
-
 function filter(search_field, dropdown_button) {
     let input, filter, ul, li, a, i;
     input = search_field;

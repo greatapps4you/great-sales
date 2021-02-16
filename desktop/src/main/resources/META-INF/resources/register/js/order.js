@@ -21,6 +21,12 @@ const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
 
 $(document).ready(function () {
+    $("#customer-toggle").click(function () {
+        $("#customer-dropdown").toggleClass("show");
+    });
+});
+
+$(document).ready(function () {
     list();
 });
 
