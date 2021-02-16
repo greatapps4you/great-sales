@@ -31,6 +31,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#include").click(function () {
         let item = {
+            uuid: UUID_random(),
             product: $("#product").val(),
             unValue: $("#unValue").val(),
             productQuantity: $("#productQuantity").val(),
@@ -55,6 +56,7 @@ function updateItems() {
     let results_table = "<table>" +
         "<thead>" +
         "<tr>" +
+        "<th>UUID</th>" +
         "<th>Descrição</th>" +
         "<th>Quantidade</th>" +
         "<th>Vlr. Un.</th>" +
@@ -67,6 +69,7 @@ function updateItems() {
     for (let i = 0; i < items.length; i++) {
 
         results_table += "<tr>"
+            + "<td>" + items[i].uuid + "</td>"
             + "<td>" + items[i].product + "</td>"
             + "<td>" + items[i].productQuantity + "</td>"
             + "<td>" + items[i].unValue + "</td>"
