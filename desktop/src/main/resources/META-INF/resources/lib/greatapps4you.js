@@ -12,6 +12,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
+/*Generate UUID*/
 function UUID_random() {
     let current_time = new Date().getTime();
     const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

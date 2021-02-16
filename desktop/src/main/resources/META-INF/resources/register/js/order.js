@@ -17,17 +17,77 @@ const list_url = "http://localhost:8080/orders/list";
 const remove_url = "http://localhost:8080/orders/remove/";
 const find_url = "http://localhost:8080/orders/find/";
 
+const customers_list_url = "http://localhost:8080/customers/list";
+
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
+let selected_customer = undefined;
 
+// Init View
 $(document).ready(function () {
     list();
-});
-
-$(document).ready(function () {
     updateItems();
 });
 
+// Customer Search Box
+$(document).ready(function () {
+    $("#customer-toggle").click(function () {
+        $("#customer-dropdown").toggleClass("show");
+    });
+
+    build_customers_dropbox();
+});
+
+function build_customers_dropbox() {
+
+    $.ajax({
+        url: customers_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (customers) {
+        let dropdown_content = '<input id="customer-search-box" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < customers.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(customers[i]) + '\'>'
+                + customers[i].identification.name + '</span>';
+        }
+
+        if (customers.length == 0) {
+            $("#customer-dropdown").html("Nenhum Cliente Cadastrado");
+            selected_customer = undefined;
+        } else {
+            $("#customer-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#customer-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_customer = JSON.parse($(this).attr("data"));
+                selected_customer = fetched_customer;
+                $("#customer").val(fetched_customer.identification.name);
+                $("#customer-dropdown").toggleClass("show");
+            });
+
+            $("#customer-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("customer-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("customer-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Add Order Items
 $(document).ready(function () {
     $("#include").click(function () {
         let item = {
@@ -102,7 +162,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
-            customer: {uuid: "0eeb4f40-c26b-41a7-8198-86bdfe926906"},
+            customer: selected_customer,
             salesman: {uuid: "8e1b7b24-461e-4fa7-a824-7718b7fcf6b3"},
             carrier: {uuid: "8df71274-5709-41ee-adc0-a56727bdd34c"},
             items: items,
@@ -200,8 +260,9 @@ function clearFields() {
         $("#deliveryFee").val("0.00")
         $("#commissionInPercentage").val("2.00")
 
-        //Sales Fields
+        //Variables
         items = [];
+        selected_customer = undefined;
 
     });
 }
