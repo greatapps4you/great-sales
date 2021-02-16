@@ -3,6 +3,12 @@
  * This Software is licenced under the GNU GENERAL PUBLIC LICENSE v3
  * https://www.gnu.org/licenses/gpl-3.0.txt
  * https://greatapps4you.us
+ *
+ * Team:
+ * José Esteves de Souza Neto (Lead Engineer)
+ * Renato Magrini (Front-End Developer)
+ * Nathan Parra Ramos (Designer)
+ *
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
@@ -65,6 +71,7 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
+            "<th>UUIDL</th>" +
             "<th>RAZÃO SOCIAL</th>" +
             "<th>CNPJ</th>" +
             "<th>CIDADE</th>" +
@@ -76,6 +83,7 @@ function list() {
         for (let i = 0; i < vendors.length; i++) {
             const uuid = vendors[i].uuid;
             results_table += "<tr>"
+                + "<td>" + uuid + "</td>"
                 + "<td>" + vendors[i].identification.name + "</td>"
                 + "<td>" + vendors[i].identification.taxId + "</td>"
                 + "<td>" + vendors[i].address.city + "</td>"

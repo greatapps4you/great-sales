@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="business" />
+        <module name="entities" />
         <module name="desktop" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="desktop" target="11" />
       <module name="desktop (1)" target="11" />
       <module name="desktop (2)" target="11" />
+      <module name="entities" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
