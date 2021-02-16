@@ -32,7 +32,7 @@ $(document).ready(function () {
         $("#customer-dropdown").toggleClass("show");
     });
 
-    $("#customer-dropdown").click(function () {
+    $("#customer-dropdown span").click(function () {
         // Handle the selected item right here
         $("#customer-dropdown").toggleClass("show");
     });

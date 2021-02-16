@@ -38,12 +38,12 @@
         <span class="section-title">Dados</span>
 
         <div class="form">
-            <div style="column-count: 2;">
+            <div>
                 <div>
                     <div class="dropdown-container">
-                        <button id="customer-toggle" class="dropdown-button">Cliente...</button>
+                        <button id="customer-toggle" class="dropdown-button">Buscar...</button>
                         <div id="customer-dropdown" class="dropdown-content">
-                            <input id="customer-search-box" type="text" placeholder="Buscar...">
+                            <input id="customer-search-box" type="text" placeholder="Filtrar...">
                             <span>About</span>
                             <span>Base</span>
                             <span>Blog</span>
@@ -54,16 +54,8 @@
                         </div>
                     </div>
 
-                    <input id="customer" type="text" placeholder="Cliente..."/>
+                    <input readonly id="customer" type="text" placeholder="Cliente..."/>
                 </div>
-
-                <label for="cars">Choose a car:</label>
-                <select name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
 
                 <p><label for="salesman">Vendedor</label>
                     <input id="salesman" type="text" placeholder="Vendedor..."/></p>
