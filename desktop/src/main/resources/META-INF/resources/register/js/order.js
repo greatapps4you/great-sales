@@ -20,20 +20,37 @@ const find_url = "http://localhost:8080/orders/find/";
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
 
+// Init View
+$(document).ready(function () {
+    list();
+    updateItems();
+});
+
+// Customer Search Box
 $(document).ready(function () {
     $("#customer-toggle").click(function () {
         $("#customer-dropdown").toggleClass("show");
     });
+
+    $("#customer-search-box").keyup(function () {
+        let input, filter, ul, li, a, i;
+        input = document.getElementById("customer-search-box");
+        filter = input.value.toUpperCase();
+        let div = document.getElementById("customer-dropdown");
+        a = div.getElementsByTagName("a");
+        let value;
+        for (i = 0; i < a.length; i++) {
+            value = a[i].textContent || a[i].innerText;
+            if (value.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    });
 });
 
-$(document).ready(function () {
-    list();
-});
-
-$(document).ready(function () {
-    updateItems();
-});
-
+// Add Order Items
 $(document).ready(function () {
     $("#include").click(function () {
         let item = {

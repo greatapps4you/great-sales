@@ -22,21 +22,3 @@ function UUID_random() {
     });
     return uuid;
 }
-
-/*Dropdown SearchBox*/
-function filter(search_field, dropdown_button) {
-    let input, filter, ul, li, a, i;
-    input = search_field;
-    filter = input.value.toUpperCase();
-    let div = dropdown_button;
-    a = div.getElementsByTagName("a");
-    let value;
-    for (i = 0; i < a.length; i++) {
-        value = a[i].textContent || a[i].innerText;
-        if (value.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-        }
-    }
-}
