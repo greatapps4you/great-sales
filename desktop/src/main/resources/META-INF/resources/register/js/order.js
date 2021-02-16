@@ -32,12 +32,17 @@ $(document).ready(function () {
         $("#customer-dropdown").toggleClass("show");
     });
 
+    $("#customer-dropdown").click(function () {
+        // Handle the selected item right here
+        $("#customer-dropdown").toggleClass("show");
+    });
+
     $("#customer-search-box").keyup(function () {
         let input, filter, ul, li, a, i;
         input = document.getElementById("customer-search-box");
         filter = input.value.toUpperCase();
         let div = document.getElementById("customer-dropdown");
-        a = div.getElementsByTagName("a");
+        a = div.getElementsByTagName("span");
         let value;
         for (i = 0; i < a.length; i++) {
             value = a[i].textContent || a[i].innerText;
