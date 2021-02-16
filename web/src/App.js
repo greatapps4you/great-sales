@@ -12,36 +12,67 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB */
 
 
-import React, { useEffect, useState } from 'react';
 import axios from '../node_modules/yarn/node_modules/axios';
-import ProdItem from './components/proditem.js';
+
+import React, { useEffect, useState } from 'react';
+import Header from './components/Header.js'
+import SideNav from './components/SideNav.js'
+import ProductItem from './components/ProductItem.js';
+import CustomerItem from './components/CustomerItem.js';
 
 function App() {
 
 const [productsList, setProductsList] = useState([]);
+const [customersList, setCustomersList] = useState([]);
 
-    useEffect(() => {
+    useEffect((products) => {
  axios.get('http://localhost:8080/products/list').then((response) => {
  setProductsList(response.data);
  });
  }, []);
 
- console.log(productsList)
+    useEffect((customers) => {
+ axios.get('http://localhost:8080/customers/list').then((response) => {
+ setCustomersList(response.data);
+ });
+ }, []);
+
+ console.log(productsList);
+ console.log(customersList);
 
   return (
     <div>
+        <Header />
+        <SideNav />
+
+
+        <section className="main">
         <h1>Great Sales App</h1>
+
         <h2>Cadastro de Produtos</h2>
         <p>...</p>
 
-        <h2>Products List</h2>
+        <h2>Lista de Produtos</h2>
+        <h3>Nome : Descricao</h3>
         {productsList.map((product) =>
-        <ProdItem
+        <ProductItem
         key={product.uuid}
         name={product.sku}
-        description={product.description} />
-        )}
+        description={product.description} /> )}
 
+        <h2>Cadastro de Clientes</h2>
+        <p>...</p>
+
+        <h2>Lista de Clientes</h2>
+        <h3>Nome : CNPJ</h3>
+                {customersList.map((customer) =>
+                <CustomerItem
+                key={customer.identification.uuid}
+                name={customer.identification.name}
+                cnpj={customer.identification.taxId}
+                 />
+        )}
+    </section>
     </div>
   );
 }
