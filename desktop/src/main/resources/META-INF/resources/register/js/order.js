@@ -31,6 +31,9 @@ let selected_carrier = undefined;
 $(document).ready(function () {
     list();
     updateItems();
+    $(function () {
+        $("#deliveryDate").datepicker();
+    });
 });
 
 // Customer Search Box
