@@ -40,44 +40,42 @@
         <span class="section-title">Dados</span>
 
         <div class="form">
-            <div>
-                <div class="row">
-                    <div class="column two-tenth">
-                        <div class="dropdown-container">
-                            <button id="customer-toggle" class="dropdown-button">Cliente...</button>
-                            <div id="customer-dropdown" class="dropdown-content"></div>
-                        </div>
-                    </div>
-
-                    <div class="column eight-tenth">
-                        <input class="text-field" readonly id="customer" type="text" placeholder="Cliente..."/>
+            <div class="row">
+                <div class="column two-tenth">
+                    <div class="dropdown-container">
+                        <button id="customer-toggle" class="dropdown-button">Cliente...</button>
+                        <div id="customer-dropdown" class="dropdown-content"></div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="column two-tenth">
-                        <div class="dropdown-container">
-                            <button id="salesman-toggle" class="dropdown-button">Vendedor...</button>
-                            <div id="salesman-dropdown" class="dropdown-content"></div>
-                        </div>
-                    </div>
+                <div class="column eight-tenth">
+                    <input class="text-field" readonly id="customer" type="text" placeholder="Cliente..."/>
+                </div>
+            </div>
 
-                    <div class="column eight-tenth">
-                        <input class="text-field" readonly id="salesman" type="text" placeholder="Vendedor..."/>
+            <div class="row">
+                <div class="column two-tenth">
+                    <div class="dropdown-container">
+                        <button id="salesman-toggle" class="dropdown-button">Vendedor...</button>
+                        <div id="salesman-dropdown" class="dropdown-content"></div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="column three-tenth">
-                        <div class="dropdown-container">
-                            <button id="carrier-toggle" class="dropdown-button">Transportadora...</button>
-                            <div id="carrier-dropdown" class="dropdown-content"></div>
-                        </div>
-                    </div>
+                <div class="column eight-tenth">
+                    <input class="text-field" readonly id="salesman" type="text" placeholder="Vendedor..."/>
+                </div>
+            </div>
 
-                    <div class="column seven-tenth">
-                        <input class="text-field" readonly id="carrier" type="text" placeholder="Transportadora..."/>
+            <div class="row">
+                <div class="column three-tenth">
+                    <div class="dropdown-container">
+                        <button id="carrier-toggle" class="dropdown-button">Transportadora...</button>
+                        <div id="carrier-dropdown" class="dropdown-content"></div>
                     </div>
+                </div>
+
+                <div class="column seven-tenth">
+                    <input class="text-field" readonly id="carrier" type="text" placeholder="Transportadora..."/>
                 </div>
             </div>
         </div>
@@ -102,7 +100,7 @@
             <p><label for="unValue">Vlr. Un. R$</label>
                 <input id="unValue" type="number"
                        placeholder="0.00" required min="0" value="0.00" step="0.01"
-                      
+
                        pattern="^\d+(?:\.\d{1,2})?$"></p>
 
             <p><label for="productQuantity">Qtde.</label>
@@ -119,31 +117,31 @@
                 <div>
                     <label for="discount">Desconto</label>
                     <input id="discount" type="number"
-                           placeholder="0.00" required  min="0" value="0.00"
+                           placeholder="0.00" required min="0" value="0.00"
                            step="0.01"
                            pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
                 </div>
 
                 <p><label for="commissionInPercentage">Comissão</label>
                     <input id="commissionInPercentage" type="number"
-                           placeholder="0.00" required  min="0" value="2.00"
+                           placeholder="0.00" required min="0" value="2.00"
                            step="0.01"
                            pattern="^\d+(?:\.\d{1,2})?$"><label>%</label></p>
 
                 <div><label for="grandTotal">Total R$</label>
                     <input id="grandTotal" type="number"
-                           placeholder="0.00" required  min="0" value="0.00"
+                           placeholder="0.00" required min="0" value="0.00"
                            step="0.01"
                            pattern="^\d+(?:\.\d{1,2})?$"></div>
 
                 <p><label for="deliveryFee">Valor Frete R$</label>
                     <input id="deliveryFee" type="number"
-                           placeholder="0.00" required  min="0" value="0.00" step="0.01"
+                           placeholder="0.00" required min="0" value="0.00" step="0.01"
                            pattern="^\d+(?:\.\d{1,2})?$"></p>
 
                 <p><label>Total Geral R$
                     <input id="totalAmount" type="number"
-                           placeholder="0.00" required  min="0" value="0.00" step="0.01"
+                           placeholder="0.00" required min="0" value="0.00" step="0.01"
                            pattern="^\d+(?:\.\d{1,2})?$">
                 </label></p>
             </div>
@@ -194,9 +192,9 @@
 
                 <p><label for="taxInPercentage">ICMS</label>
                     <input id="taxInPercentage" type="number"
-                           placeholder="0.00" required  min="0" value="12.00"
+                           placeholder="0.00" required min="0" value="12.00"
                            step="0.01"
-                          
+
                            pattern="^\d+(?:\.\d{1,2})?$"><label>%</label></p>
 
                 <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
