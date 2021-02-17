@@ -15,7 +15,7 @@
 package us.greatapps4you.greatsales.entities.purchase;
 
 import lombok.*;
-import us.greatapps4you.greatsales.entities.inventory.Inventory;
+import us.greatapps4you.greatsales.entities.inventory.InventoryItem;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -35,7 +35,7 @@ public class PurchaseItem {
     @Id
     private UUID uuid;
     @OneToOne(cascade = {CascadeType.PERSIST})
-    private Inventory inventory;
+    private InventoryItem inventoryItem;
     private BigDecimal quantity;
     private BigDecimal totalAmount;
 
