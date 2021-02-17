@@ -18,6 +18,7 @@ const remove_url = "http://localhost:8080/inventory/remove/";
 const find_url = "http://localhost:8080/inventory/find/";
 
 const products_list_url = "http://localhost:8080/products/list";
+const vendors_list_url = "http://localhost:8080/vendors/list";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let selected_product = undefined;
@@ -77,6 +78,64 @@ function build_products_dropbox() {
                 input = document.getElementById("product-search-box");
                 filter = input.value.toUpperCase();
                 let div = document.getElementById("product-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Vendor Search Box
+$(document).ready(function () {
+    $("#vendor-toggle").click(function () {
+        $("#vendor-dropdown").toggleClass("show");
+    });
+
+    build_vendors_dropbox();
+});
+
+function build_vendors_dropbox() {
+
+    $.ajax({
+        url: vendors_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (vendors) {
+        let dropdown_content = '<input id="vendor-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < vendors.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(vendors[i]) + '\'>'
+                + vendors[i].identification.name + '</span>';
+        }
+
+        if (vendors.length == 0) {
+            $("#vendor-dropdown").html("Nenhum Fornecedor Cadastrado");
+            selected_vendor = undefined;
+        } else {
+            $("#vendor-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#vendor-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_vendor = JSON.parse($(this).attr("data"));
+                selected_vendor = fetched_vendor;
+                $("#vendor").val(fetched_vendor.identification.name);
+                $("#vendor-dropdown").toggleClass("show");
+            });
+
+            $("#vendor-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("vendor-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("vendor-dropdown");
                 a = div.getElementsByTagName("span");
                 let value;
                 for (i = 0; i < a.length; i++) {
