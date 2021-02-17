@@ -45,7 +45,7 @@ function build_customers_dropbox() {
         type: "GET",
         dataType: "json"
     }).done(function (customers) {
-        let dropdown_content = '<input id="customer-search-box" type="text" placeholder="Filtrar...">';
+        let dropdown_content = '<input id="customer-search-box" class="text-field" type="text" placeholder="Filtrar...">';
 
         for (let i = 0; i < customers.length; i++) {
             dropdown_content += '<span data=\'' + JSON.stringify(customers[i]) + '\'>'

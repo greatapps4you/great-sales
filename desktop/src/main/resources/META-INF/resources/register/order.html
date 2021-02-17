@@ -34,26 +34,49 @@
 <span class="view-title">Novo Pedido</span>
 <br><br>
 <div class="row">
-    <div class="column half">
+    <div class="column five-tenth">
         <span class="section-title">Dados</span>
 
         <div class="form">
             <div>
-                <div>
-                    <div class="dropdown-container">
-                        <button id="customer-toggle" class="dropdown-button">Cliente...</button>
-                        <div id="customer-dropdown" class="dropdown-content"></div>
+                <div class="row">
+                    <div class="column two-tenth">
+                        <div class="dropdown-container">
+                            <button id="customer-toggle" class="dropdown-button">Cliente...</button>
+                            <div id="customer-dropdown" class="dropdown-content"></div>
+                        </div>
                     </div>
 
-                    <input readonly id="customer" type="text" placeholder="Cliente..."/>
+                    <div class="column eight-tenth">
+                        <input class="text-field" readonly id="customer" type="text" placeholder="Cliente..."/>
+                    </div>
                 </div>
 
-                <p><label for="salesman">Vendedor</label>
-                    <input id="salesman" type="text" placeholder="Vendedor..."/></p>
+                <div class="row">
+                    <div class="column two-tenth">
+                        <div class="dropdown-container">
+                            <button id="salesman-toggle" class="dropdown-button">Vendedor...</button>
+                            <div id="salesman-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
 
-                <p><label for="carrier">Transportadora</label>
-                    <input id="carrier" type="text" placeholder="Transportadora..."/></p>
+                    <div class="column eight-tenth">
+                        <input class="text-field" readonly id="salesman" type="text" placeholder="Vendedor..."/>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="column three-tenth">
+                        <div class="dropdown-container">
+                            <button id="carrier-toggle" class="dropdown-button">Transportadora...</button>
+                            <div id="carrier-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="column seven-tenth">
+                        <input class="text-field" readonly id="carrier" type="text" placeholder="Transportadora..."/>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -188,7 +211,7 @@
         <input style="float: right; margin-top: 12px;" class="button button-green" type="button" value="Confirmar"
                id="save"/>
     </div>
-    <div class="column half">
+    <div class="column five-tenth">
         <div style="margin-top: 30px" id="all_orders"></div>
     </div>
 </div>
