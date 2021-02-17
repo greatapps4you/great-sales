@@ -338,7 +338,7 @@ function update_items() {
 }
 
 $(document).ready(function () {
-    $(":input[type='number']").blur(function () {
+    $("#quantity").blur(function () {
         let value = $(this).val();
         let input = $(this);
         if (decimal_regex.test(value)) {
