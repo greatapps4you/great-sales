@@ -27,6 +27,7 @@ let items = [];
 let selected_customer = undefined;
 let selected_salesman = undefined;
 let selected_carrier = undefined;
+let selected_inventory_item = undefined;
 
 // Init View
 $(document).ready(function () {
@@ -197,6 +198,63 @@ function build_carriers_dropbox() {
                 input = document.getElementById("carrier-search-box");
                 filter = input.value.toUpperCase();
                 let div = document.getElementById("carrier-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Product (InventoryItem) Search Box
+$(document).ready(function () {
+    $("#product-toggle").click(function () {
+        $("#product-dropdown").toggleClass("show");
+    });
+
+    build_products_dropbox();
+});
+
+function build_products_dropbox() {
+
+    $.ajax({
+        url: inventory_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (products) {
+        let dropdown_content = '<input id="product-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < products.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(products[i]) + '\'>'
+                + products[i].product.description + '</span>';
+        }
+
+        if (products.length == 0) {
+            $("#product-dropdown").html("Nenhum Produto Cadastrado");
+            selected_inventory_item = undefined;
+        } else {
+            $("#product-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#product-dropdown span").click(function () {
+                // Handle the selected item right here
+                selected_inventory_item = JSON.parse($(this).attr("data"));
+                $("#product").val(selected_inventory_item.product.description);
+                $("#product-dropdown").toggleClass("show");
+            });
+
+            $("#product-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("product-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("product-dropdown");
                 a = div.getElementsByTagName("span");
                 let value;
                 for (i = 0; i < a.length; i++) {
