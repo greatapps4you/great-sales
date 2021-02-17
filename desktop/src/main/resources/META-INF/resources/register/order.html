@@ -86,22 +86,30 @@
         <span class="section-title">Produtos</span>
 
         <div class="form">
-            <div style="column-count: 4;">
-                <div><label for="product">Produto</label>
-                    <input class="text-field" id="product" type="text" placeholder="Produto..."/></div>
+            <div class="row">
+                <div class="column two-tenth">
+                    <div class="dropdown-container">
+                        <button id="product-toggle" class="dropdown-button">Produto...</button>
+                        <div id="product-dropdown" class="dropdown-content"></div>
+                    </div>
+                </div>
 
-                <p><label for="unValue">Vlr. Un. R$</label>
-                    <input id="unValue" type="number"
-                           placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
-                           title="Currency"
-                           pattern="^\d+(?:\.\d{1,2})?$"></p>
-
-                <p><label for="productQuantity">Qtde.</label>
-                    <input id="productQuantity" type="number"
-                           placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
-                           title="Currency"
-                           pattern="^\d+(?:\.\d{1,2})?$"></p>
+                <div class="column eight-tenth">
+                    <input class="text-field" readonly id="product" type="text" placeholder="Produto..."/>
+                </div>
             </div>
+
+            <p><label for="unValue">Vlr. Un. R$</label>
+                <input id="unValue" type="number"
+                       placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                       title="Currency"
+                       pattern="^\d+(?:\.\d{1,2})?$"></p>
+
+            <p><label for="productQuantity">Qtde.</label>
+                <input id="productQuantity" type="number"
+                       placeholder="0.00" required name="price" min="0" value="0.00" step="0.01"
+                       title="Currency"
+                       pattern="^\d+(?:\.\d{1,2})?$"></p>
             <input class="button button-white" type="button" value="Incluir" id="include"/>
         </div>
 
