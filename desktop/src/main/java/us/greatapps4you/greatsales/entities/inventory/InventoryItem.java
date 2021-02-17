@@ -63,19 +63,19 @@ public class InventoryItem {
 
     @Id
     private UUID uuid;
-    private String lotNumber;
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    private Vendor vendor;
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Product product;
-    private BigDecimal quantity;
-    private BigDecimal minimalThreshold;
     @Enumerated(EnumType.STRING)
     private ProductUnit unit;
+    private String lotNumber;
+    private BigDecimal quantity;
+    private BigDecimal minimalThreshold;
     private BigDecimal buyingPrice;
     private BigDecimal sellingPrice;
     private BigInteger shelfLife;
     private LocalDateTime expiryDate;
     private LocalDateTime buyingDate;
-    @OneToOne(cascade = {CascadeType.PERSIST})
-    private Vendor vendor;
 
 }
