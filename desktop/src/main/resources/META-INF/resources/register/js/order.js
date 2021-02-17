@@ -18,10 +18,12 @@ const remove_url = "http://localhost:8080/orders/remove/";
 const find_url = "http://localhost:8080/orders/find/";
 
 const customers_list_url = "http://localhost:8080/customers/list";
+const salesmen_list_url = "http://localhost:8080/salesmen/list";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
 let selected_customer = undefined;
+let selected_salesman = undefined;
 
 // Init View
 $(document).ready(function () {
@@ -72,6 +74,64 @@ function build_customers_dropbox() {
                 input = document.getElementById("customer-search-box");
                 filter = input.value.toUpperCase();
                 let div = document.getElementById("customer-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Salesman Search Box
+$(document).ready(function () {
+    $("#salesman-toggle").click(function () {
+        $("#salesman-dropdown").toggleClass("show");
+    });
+
+    build_salesmen_dropbox();
+});
+
+function build_salesmen_dropbox() {
+
+    $.ajax({
+        url: salesmen_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (salesmen) {
+        let dropdown_content = '<input id="salesman-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < salesmen.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(salesmen[i]) + '\'>'
+                + salesmen[i].identification.name + '</span>';
+        }
+
+        if (salesmen.length == 0) {
+            $("#salesman-dropdown").html("Nenhum Vendedor Cadastrado");
+            selected_customer = undefined;
+        } else {
+            $("#salesman-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#salesman-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_salesman = JSON.parse($(this).attr("data"));
+                selected_customer = fetched_salesman;
+                $("#salesman").val(fetched_salesman.identification.name);
+                $("#salesman-dropdown").toggleClass("show");
+            });
+
+            $("#salesman-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("salesman-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("salesman-dropdown");
                 a = div.getElementsByTagName("span");
                 let value;
                 for (i = 0; i < a.length; i++) {
