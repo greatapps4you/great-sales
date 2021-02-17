@@ -379,6 +379,11 @@ function clearFields() {
         $("#deliveryFee").val("0.00")
         $("#commissionInPercentage").val("2.00")
 
+        //Entities
+        $("#customer").val("");
+        $("#salesman").val("");
+        $("#carrier").val("");
+
         //Variables
         items = [];
         selected_customer = undefined;
