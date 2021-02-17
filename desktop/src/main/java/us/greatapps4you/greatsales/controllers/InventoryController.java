@@ -32,7 +32,7 @@ public class InventoryController {
 
     @Autowired
     private InventoryRepository repository;
-    @Value("${greatsales.inventoryItem.home}")
+    @Value("${greatsales.inventory.home}")
     private String INVENTORY_HOME;
 
     @POST
