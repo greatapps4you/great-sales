@@ -60,34 +60,36 @@ function list() {
         url: list_url,
         type: "GET",
         dataType: "json"
-    }).done(function (products) {
+    }).done(function (inventoryItems) {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
             "<th>UUID</th>" +
-            "<th>SKU</th>" +
-            "<th>DESCRIÇÃO</th>" +
+            "<th>PRODUTO</th>" +
+            "<th>QUANTIDADE</th>" +
+            "<th>PREÇO VENDA</th>" +
             "<th></th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
 
-        for (let i = 0; i < products.length; i++) {
-            const uuid = products[i].uuid;
+        for (let i = 0; i < inventoryItems.length; i++) {
+            const uuid = inventoryItems[i].uuid;
             results_table += "<tr>"
                 + "<td>" + uuid + "</td>"
-                + "<td>" + products[i].sku + "</td>"
-                + "<td>" + products[i].description + "</td>"
+                + "<td>" + inventoryItems[i].product.description + "</td>"
+                + "<td>" + inventoryItems[i].quantity + "</td>"
+                + "<td>" + inventoryItems[i].sellingPrice + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
         results_table += "</tbody>" +
             "</table>";
 
-        if(products.length == 0) {
-            $("#all_products").html("Nenhum Produto Cadastrado");
+        if(inventoryItems.length == 0) {
+            $("#all_inventory").html("Estoque Vazio");
         } else {
-            $("#all_products").html(results_table);
+            $("#all_inventory").html(results_table);
         }
     });
 }
