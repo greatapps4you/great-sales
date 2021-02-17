@@ -20,6 +20,7 @@ import us.greatapps4you.greatsales.entities.purchase.Vendor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -69,13 +70,10 @@ public class InventoryItem {
     private Product product;
     @Enumerated(EnumType.STRING)
     private ProductUnit unit;
-    private String lotNumber;
     private BigDecimal quantity;
     private BigDecimal minimalThreshold;
     private BigDecimal buyingPrice;
     private BigDecimal sellingPrice;
-    private BigInteger shelfLife;
-    private LocalDateTime expiryDate;
-    private LocalDateTime buyingDate;
+    private LocalDate buyingDate;
 
 }

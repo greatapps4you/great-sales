@@ -17,11 +17,18 @@ const list_url = "http://localhost:8080/inventory/list";
 const remove_url = "http://localhost:8080/inventory/remove/";
 const find_url = "http://localhost:8080/inventory/find/";
 
+const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let selected_product = undefined;
 
 // Init Screen
 $(document).ready(function () {
     list();
+
+    $(function () {
+        $("#buyingDate").datepicker({
+            dateFormat:"yy-mm-dd"
+        });
+    });
 });
 
 $(document).ready(function () {
@@ -92,5 +99,16 @@ function clearFields() {
     });
 }
 
+$(document).ready(function () {
+    $(":input[type='number']").blur(function () {
+        let value = $(this).val();
+        let input = $(this);
+        if (decimal_regex.test(value)) {
+            input.css('background-color', 'white');
+        } else {
+            input.css('background-color', 'red');
+        }
+    });
+});
 
 
