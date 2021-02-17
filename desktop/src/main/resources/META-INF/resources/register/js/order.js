@@ -25,6 +25,7 @@ const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
 let selected_customer = undefined;
 let selected_salesman = undefined;
+let selected_carrier = undefined;
 
 // Init View
 $(document).ready(function () {
@@ -149,7 +150,61 @@ function build_salesmen_dropbox() {
 }
 
 // Carrier Search Box
+$(document).ready(function () {
+    $("#carrier-toggle").click(function () {
+        $("#carrier-dropdown").toggleClass("show");
+    });
 
+    build_carriers_dropbox();
+});
+
+function build_carriers_dropbox() {
+    $.ajax({
+        url: carriers_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (carriers) {
+        let dropdown_content = '<input id="carrier-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < carriers.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(carriers[i]) + '\'>'
+                + carriers[i].identification.name + '</span>';
+        }
+
+        if (carriers.length == 0) {
+            $("#carrier-dropdown").html("Nenhuma Transportadora Cadastrada");
+            selected_carrier = undefined;
+        } else {
+            $("#carrier-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#carrier-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_carrier = JSON.parse($(this).attr("data"));
+                selected_carrier = fetched_carrier;
+                $("#carrier").val(fetched_carrier.identification.name);
+                $("#carrier-dropdown").toggleClass("show");
+            });
+
+            $("#carrier-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("carrier-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("carrier-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
 
 // Add Order Items
 $(document).ready(function () {
