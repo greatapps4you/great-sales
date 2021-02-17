@@ -32,32 +32,35 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
-
     @Id
     private UUID uuid;
-    private String orderNumber;
-    private LocalDate orderDate;
+    // Entities
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Customer customer;
-    @OneToMany(cascade = {CascadeType.ALL})
-    private List<OrderItem> items;
-    private BigDecimal grandTotal;
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Salesman salesman;
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    private Carrier carrier;
     @OneToOne(cascade = {CascadeType.ALL})
     private Address deliveryAddress;
     @OneToOne(cascade = {CascadeType.ALL})
     private Address billingAddress;
-    private String mailMessage;
-    private String mailOrderTo;
-    private String mailInvoiceTo;
-    private LocalDate deliveryDate;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<OrderItem> items;
+    // Decimal Values
+    private BigDecimal grandTotal;
     private BigDecimal deliveryFee;
-    @OneToOne(cascade = {CascadeType.PERSIST})
-    private Carrier carrier;
     private BigDecimal commissionInCurrency;
     private BigDecimal commissionInPercentage;
     private BigDecimal taxInPercentage;
+    // Dates
+    private LocalDate orderDate;
+    private LocalDate deliveryDate;
+    // Strings
+    private String orderNumber;
+    private String mailMessage;
+    private String mailOrderTo;
+    private String mailInvoiceTo;
     private String customerOrderNumber;
     private String paymentConditions;
     private String observations;
