@@ -35,7 +35,7 @@ $(document).ready(function () {
     updateItems();
     $(function () {
         $("#deliveryDate").datepicker({
-            dateFormat:"yy-mm-dd"
+            dateFormat: "yy-mm-dd"
         });
     });
 });
@@ -246,6 +246,7 @@ function build_products_dropbox() {
                 // Handle the selected item right here
                 selected_inventory_item = JSON.parse($(this).attr("data"));
                 $("#product").val(selected_inventory_item.product.description);
+                $("#unValue").val(selected_inventory_item.sellingPrice);
                 $("#product-dropdown").toggleClass("show");
             });
 
