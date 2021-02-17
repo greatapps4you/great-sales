@@ -223,7 +223,6 @@ $(document).ready(function () {
 });
 
 function build_products_dropbox() {
-
     $.ajax({
         url: inventory_list_url,
         type: "GET",
@@ -237,7 +236,7 @@ function build_products_dropbox() {
         }
 
         if (products.length == 0) {
-            $("#product-dropdown").html("Nenhum Produto Cadastrado");
+            $("#product-dropdown").html("Estoque Vazio");
             selected_inventory_item = undefined;
         } else {
             $("#product-dropdown").html(dropdown_content);
@@ -289,9 +288,13 @@ $(document).ready(function () {
 });
 
 function clear_item_fields() {
+    //Entities
+    selected_inventory_item = undefined;
     $("#product").val("");
-    $("#unValue").val("");
-    $("#productQuantity").val("");
+
+    // Values
+    $("#unValue").val("0.00");
+    $("#productQuantity").val("0.00");
 }
 
 
