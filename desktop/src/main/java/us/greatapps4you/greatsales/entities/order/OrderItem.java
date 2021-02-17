@@ -38,6 +38,6 @@ public class OrderItem {
     @OneToOne(cascade = {CascadeType.PERSIST})
     private InventoryItem inventoryItem;
     private BigDecimal quantity;
-    private BigDecimal totalAmount;
+    private BigDecimal total;
 
 }

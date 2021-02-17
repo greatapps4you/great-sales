@@ -41,7 +41,7 @@ public class Order {
     private Customer customer;
     @OneToMany(cascade = {CascadeType.ALL})
     private List<OrderItem> items;
-    private BigDecimal totalAmount;
+    private BigDecimal grandTotal;
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Salesman salesman;
     @OneToOne(cascade = {CascadeType.ALL})

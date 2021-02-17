@@ -43,7 +43,10 @@ public class OrderController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Order save(Order order) {
-        System.out.println("Order Data Received: " + order);
+        System.out.println("*********************************");
+        System.out.println("ORDER ITEMS: " + order.getItems());
+        System.out.println("*********************************");
+        System.out.println("ORDER RECEIVED: " + order);
 
         if (order != null) {
             if (order.getUuid() == null) {

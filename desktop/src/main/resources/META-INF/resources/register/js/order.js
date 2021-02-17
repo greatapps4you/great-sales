@@ -273,17 +273,18 @@ function build_products_dropbox() {
 // Add Order Items
 $(document).ready(function () {
     $("#include").click(function () {
+        let quantity = $("#productQuantity").val();
+        let total = selected_inventory_item.sellingPrice * quantity;
         let item = {
-            uuid: UUID_random(),
-            product: $("#product").val(),
-            unValue: $("#unValue").val(),
-            productQuantity: $("#productQuantity").val(),
-            total: $("#unValue").val() * $("#productQuantity").val()
+            inventoryItem: selected_inventory_item,
+            quantity: quantity,
+            total: total
         };
-
         items.push(item);
-        clear_item_fields();
 
+        //update $("#totalAmount").val() here
+
+        clear_item_fields();
         updateItems();
     });
 });
@@ -303,7 +304,6 @@ function updateItems() {
     let results_table = "<table>" +
         "<thead>" +
         "<tr>" +
-        "<th>UUID</th>" +
         "<th>Descrição</th>" +
         "<th>Quantidade</th>" +
         "<th>Vlr. Un.</th>" +
@@ -314,12 +314,10 @@ function updateItems() {
         "<tbody>";
 
     for (let i = 0; i < items.length; i++) {
-
         results_table += "<tr>"
-            + "<td>" + items[i].uuid + "</td>"
-            + "<td>" + items[i].product + "</td>"
-            + "<td>" + items[i].productQuantity + "</td>"
-            + "<td>" + items[i].unValue + "</td>"
+            + "<td>" + items[i].inventoryItem.product.description + "</td>"
+            + "<td>" + items[i].quantity + "</td>"
+            + "<td>" + items[i].inventoryItem.sellingPrice + "</td>"
             + "<td>" + items[i].total + "</td>"
             + "<td><a class='button-link-remove'>X</a></td>"
             + "</tr>";
@@ -346,6 +344,7 @@ $(document).ready(function () {
     });
 });
 
+// Save
 $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
@@ -353,8 +352,8 @@ $(document).ready(function () {
             salesman: selected_salesman,
             carrier: selected_carrier,
             items: items,
+            grandTotal: $("#totalAmount").val(),
 
-            totalAmount: $("#totalAmount").val(),
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
                 number: $("#deliveryStreetNumber").val(),
