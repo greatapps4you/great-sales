@@ -19,6 +19,7 @@ const find_url = "http://localhost:8080/orders/find/";
 
 const customers_list_url = "http://localhost:8080/customers/list";
 const salesmen_list_url = "http://localhost:8080/salesmen/list";
+const carriers_list_url = "http://localhost:8080/carriers/list";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
@@ -114,7 +115,7 @@ function build_salesmen_dropbox() {
 
         if (salesmen.length == 0) {
             $("#salesman-dropdown").html("Nenhum Vendedor Cadastrado");
-            selected_customer = undefined;
+            selected_salesman = undefined;
         } else {
             $("#salesman-dropdown").html(dropdown_content);
 
@@ -122,7 +123,7 @@ function build_salesmen_dropbox() {
             $("#salesman-dropdown span").click(function () {
                 // Handle the selected item right here
                 let fetched_salesman = JSON.parse($(this).attr("data"));
-                selected_customer = fetched_salesman;
+                selected_salesman = fetched_salesman;
                 $("#salesman").val(fetched_salesman.identification.name);
                 $("#salesman-dropdown").toggleClass("show");
             });
@@ -146,6 +147,9 @@ function build_salesmen_dropbox() {
         }
     });
 }
+
+// Carrier Search Box
+
 
 // Add Order Items
 $(document).ready(function () {
