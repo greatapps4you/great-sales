@@ -284,7 +284,7 @@ $(document).ready(function () {
 
         // Update grandTotal
         let grandTotal = 0.00;
-        for(let i = 0; i < items.length; i++){
+        for (let i = 0; i < items.length; i++) {
             grandTotal += items[i].total;
         }
         $("#grandTotal").val(grandTotal);
@@ -404,7 +404,7 @@ function list() {
             "<tr>" +
             "<th>UUID</th>" +
             "<th>NÚMERO PEDIDO</th>" +
-            "<th>DATA PEDIDO</th>" +
+            "<th>VALOR PEDIDO</th>" +
             "<th>CLIENTE</th>" +
             "<th></th>" +
             "</tr>" +
@@ -413,14 +413,10 @@ function list() {
 
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
-            const orderDate = orders[i].orderDate[2] + "/"
-                + orders[i].orderDate[1] + "/"
-                + orders[i].orderDate[0];
-
             results_table += "<tr>"
                 + "<td>" + uuid + "</td>"
                 + "<td>" + orders[i].orderNumber + "</td>"
-                + "<td>" + orderDate + "</td>"
+                + "<td>" + orders[i].grandTotal + "</td>"
                 + "<td>" + orders[i].customer.identification.name + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
