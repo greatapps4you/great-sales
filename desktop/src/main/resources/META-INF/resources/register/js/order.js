@@ -282,8 +282,8 @@ $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
             customer: selected_customer,
-            salesman: {uuid: "8e1b7b24-461e-4fa7-a824-7718b7fcf6b3"},
-            carrier: {uuid: "8df71274-5709-41ee-adc0-a56727bdd34c"},
+            salesman: selected_salesman,
+            carrier: selected_carrier,
             items: items,
 
             totalAmount: $("#totalAmount").val(),
@@ -382,6 +382,8 @@ function clearFields() {
         //Variables
         items = [];
         selected_customer = undefined;
+        selected_salesman = undefined;
+        selected_carrier = undefined;
 
     });
 }
