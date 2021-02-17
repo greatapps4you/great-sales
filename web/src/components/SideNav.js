@@ -1,17 +1,44 @@
 import React from 'react';
-import logo from '../img/greatapps4you_logo.png'
 
 function SideNav() {
+
+const handleClick = () => console.log('Clicked');
+
     return (
         <aside className="side-nav">
-            <img className="logo" src={logo} alt="GreatApps4you"/>
+            <h1 className="app-name">GreatSales</h1>
             <div className="menu">
-                <a href="#">Pedidos</a>
-                <a href="#">Produtos</a>
-                <a href="#">Clientes</a>
-                <a href="#">Fornecedores</a>
-                <a href="#">Transportadoras</a>
-                <a href="#">Vendedores</a>
+                <button
+                    onClick={handleClick}
+                    >
+                    Pedidos
+                </button>
+                <button
+                    onClick={handleClick}
+                    >
+                    Produtos
+                </button>
+                <button
+                    onClick={handleClick}
+                    >
+                    Clientes
+                </button>
+                <button
+                    onClick={handleClick}
+                    >
+                    Fornecedores
+                </button>
+                <button
+                    onClick={handleClick}
+                    >
+                    Transportadoras
+                </button>
+                <button
+                    onClick={handleClick}
+                    >
+                    Vendedores
+                </button>
+
             </div>
         </aside>
     )

@@ -18,15 +18,26 @@ const remove_url = "http://localhost:8080/orders/remove/";
 const find_url = "http://localhost:8080/orders/find/";
 
 const customers_list_url = "http://localhost:8080/customers/list";
+const salesmen_list_url = "http://localhost:8080/salesmen/list";
+const carriers_list_url = "http://localhost:8080/carriers/list";
+const inventory_list_url = "http://localhost:8080/inventory/list";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
 let selected_customer = undefined;
+let selected_salesman = undefined;
+let selected_carrier = undefined;
+let selected_inventory_item = undefined;
 
 // Init View
 $(document).ready(function () {
     list();
-    updateItems();
+    update_items();
+    $(function () {
+        $("#deliveryDate").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+    });
 });
 
 // Customer Search Box
@@ -45,7 +56,7 @@ function build_customers_dropbox() {
         type: "GET",
         dataType: "json"
     }).done(function (customers) {
-        let dropdown_content = '<input id="customer-search-box" type="text" placeholder="Filtrar...">';
+        let dropdown_content = '<input id="customer-search-box" class="text-field" type="text" placeholder="Filtrar...">';
 
         for (let i = 0; i < customers.length; i++) {
             dropdown_content += '<span data=\'' + JSON.stringify(customers[i]) + '\'>'
@@ -87,36 +98,217 @@ function build_customers_dropbox() {
     });
 }
 
+// Salesman Search Box
+$(document).ready(function () {
+    $("#salesman-toggle").click(function () {
+        $("#salesman-dropdown").toggleClass("show");
+    });
+
+    build_salesmen_dropbox();
+});
+
+function build_salesmen_dropbox() {
+
+    $.ajax({
+        url: salesmen_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (salesmen) {
+        let dropdown_content = '<input id="salesman-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < salesmen.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(salesmen[i]) + '\'>'
+                + salesmen[i].identification.name + '</span>';
+        }
+
+        if (salesmen.length == 0) {
+            $("#salesman-dropdown").html("Nenhum Vendedor Cadastrado");
+            selected_salesman = undefined;
+        } else {
+            $("#salesman-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#salesman-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_salesman = JSON.parse($(this).attr("data"));
+                selected_salesman = fetched_salesman;
+                $("#salesman").val(fetched_salesman.identification.name);
+                $("#salesman-dropdown").toggleClass("show");
+            });
+
+            $("#salesman-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("salesman-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("salesman-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Carrier Search Box
+$(document).ready(function () {
+    $("#carrier-toggle").click(function () {
+        $("#carrier-dropdown").toggleClass("show");
+    });
+
+    build_carriers_dropbox();
+});
+
+function build_carriers_dropbox() {
+    $.ajax({
+        url: carriers_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (carriers) {
+        let dropdown_content = '<input id="carrier-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < carriers.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(carriers[i]) + '\'>'
+                + carriers[i].identification.name + '</span>';
+        }
+
+        if (carriers.length == 0) {
+            $("#carrier-dropdown").html("Nenhuma Transportadora Cadastrada");
+            selected_carrier = undefined;
+        } else {
+            $("#carrier-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#carrier-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_carrier = JSON.parse($(this).attr("data"));
+                selected_carrier = fetched_carrier;
+                $("#carrier").val(fetched_carrier.identification.name);
+                $("#carrier-dropdown").toggleClass("show");
+            });
+
+            $("#carrier-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("carrier-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("carrier-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Product (InventoryItem) Search Box
+$(document).ready(function () {
+    $("#product-toggle").click(function () {
+        $("#product-dropdown").toggleClass("show");
+    });
+
+    build_products_dropbox();
+});
+
+function build_products_dropbox() {
+    $.ajax({
+        url: inventory_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (products) {
+        let dropdown_content = '<input id="product-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < products.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(products[i]) + '\'>'
+                + products[i].product.description + '</span>';
+        }
+
+        if (products.length == 0) {
+            $("#product-dropdown").html("Estoque Vazio");
+            selected_inventory_item = undefined;
+        } else {
+            $("#product-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#product-dropdown span").click(function () {
+                // Handle the selected item right here
+                selected_inventory_item = JSON.parse($(this).attr("data"));
+                $("#product").val(selected_inventory_item.product.description);
+                $("#unValue").val(selected_inventory_item.sellingPrice);
+                $("#product-dropdown").toggleClass("show");
+            });
+
+            $("#product-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("product-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("product-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
 // Add Order Items
 $(document).ready(function () {
     $("#include").click(function () {
+        let quantity = $("#quantity").val();
+        let total = selected_inventory_item.sellingPrice * quantity;
         let item = {
-            uuid: UUID_random(),
-            product: $("#product").val(),
-            unValue: $("#unValue").val(),
-            productQuantity: $("#productQuantity").val(),
-            total: $("#unValue").val() * $("#productQuantity").val()
+            inventoryItem: selected_inventory_item,
+            quantity: quantity,
+            total: total
         };
-
         items.push(item);
-        clear_item_fields();
 
-        updateItems();
+        // Update grandTotal
+        let grandTotal = 0.00;
+        for(let i = 0; i < items.length; i++){
+            grandTotal += items[i].total;
+        }
+        $("#grandTotal").val(grandTotal);
+
+        clear_item_fields();
+        update_items();
     });
 });
 
 function clear_item_fields() {
+    //Entities
+    selected_inventory_item = undefined;
     $("#product").val("");
-    $("#unValue").val("");
-    $("#productQuantity").val("");
+
+    // Values
+    $("#unValue").val("0.00");
+    $("#quantity").val("0.00");
 }
 
 
-function updateItems() {
+function update_items() {
     let results_table = "<table>" +
         "<thead>" +
         "<tr>" +
-        "<th>UUID</th>" +
         "<th>Descrição</th>" +
         "<th>Quantidade</th>" +
         "<th>Vlr. Un.</th>" +
@@ -127,12 +319,10 @@ function updateItems() {
         "<tbody>";
 
     for (let i = 0; i < items.length; i++) {
-
         results_table += "<tr>"
-            + "<td>" + items[i].uuid + "</td>"
-            + "<td>" + items[i].product + "</td>"
-            + "<td>" + items[i].productQuantity + "</td>"
-            + "<td>" + items[i].unValue + "</td>"
+            + "<td>" + items[i].inventoryItem.product.description + "</td>"
+            + "<td>" + items[i].quantity + "</td>"
+            + "<td>" + items[i].inventoryItem.sellingPrice + "</td>"
             + "<td>" + items[i].total + "</td>"
             + "<td><a class='button-link-remove'>X</a></td>"
             + "</tr>";
@@ -148,7 +338,7 @@ function updateItems() {
 }
 
 $(document).ready(function () {
-    $(":input[type='number']").blur(function () {
+    $("#quantity").blur(function () {
         let value = $(this).val();
         let input = $(this);
         if (decimal_regex.test(value)) {
@@ -159,15 +349,16 @@ $(document).ready(function () {
     });
 });
 
+// Save
 $(document).ready(function () {
     $("#save").click(function () {
         const order = JSON.stringify({
             customer: selected_customer,
-            salesman: {uuid: "8e1b7b24-461e-4fa7-a824-7718b7fcf6b3"},
-            carrier: {uuid: "8df71274-5709-41ee-adc0-a56727bdd34c"},
+            salesman: selected_salesman,
+            carrier: selected_carrier,
             items: items,
+            grandTotal: $("#grandTotal").val(),
 
-            totalAmount: $("#totalAmount").val(),
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
                 number: $("#deliveryStreetNumber").val(),
@@ -181,7 +372,7 @@ $(document).ready(function () {
             mailInvoiceTo: $("#mailInvoiceTo").val(),
             deliveryDate: $("#deliveryDate").val(),
             deliveryFee: $("#deliveryFee").val(),
-            commissionInCurrency: $("#totalAmount").val() * $("#commissionInPercentage").val(),
+            commissionInCurrency: $("#grandTotal").val() * $("#commissionInPercentage").val(),
             commissionInPercentage: $("#commissionInPercentage").val(),
             taxInPercentage: $("#taxInPercentage").val(),
             customerOrderNumber: $("#customerOrderNumber").val(),
@@ -247,7 +438,7 @@ function list() {
 
 function clearFields() {
     $(document).ready(function () {
-        /* Delivery Address*/
+        /* Delivery */
         $("#deliveryStreet").val("");
         $("#deliveryStreetNumber").val("");
         $("#deliveryZip").val("");
@@ -255,14 +446,25 @@ function clearFields() {
         $("#deliveryCity").val("");
         $("#deliveryState").val("");
 
+        $("#deliveryDate").val("");
+
         //Decimal Fields
-        $("#totalAmount").val("0.00");
+        $("#grandTotal").val("0.00");
         $("#deliveryFee").val("0.00")
         $("#commissionInPercentage").val("2.00")
 
+        //Entities
+        $("#customer").val("");
+        $("#salesman").val("");
+        $("#carrier").val("");
+
         //Variables
         items = [];
+        update_items();
+
         selected_customer = undefined;
+        selected_salesman = undefined;
+        selected_carrier = undefined;
 
     });
 }

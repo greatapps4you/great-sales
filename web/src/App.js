@@ -17,61 +17,45 @@ import axios from '../node_modules/yarn/node_modules/axios';
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header.js'
 import SideNav from './components/SideNav.js'
-import ProductItem from './components/ProductItem.js';
-import CustomerItem from './components/CustomerItem.js';
+import Products from './components/Products.js'
+import Costumers from './components/Customers.js'
 
 function App() {
 
-const [productsList, setProductsList] = useState([]);
-const [customersList, setCustomersList] = useState([]);
-
-    useEffect((products) => {
- axios.get('http://localhost:8080/products/list').then((response) => {
- setProductsList(response.data);
- });
- }, []);
-
-    useEffect((customers) => {
- axios.get('http://localhost:8080/customers/list').then((response) => {
- setCustomersList(response.data);
- });
- }, []);
-
- console.log(productsList);
- console.log(customersList);
 
   return (
     <div>
         <Header />
         <SideNav />
 
-
         <section className="main">
-        <h1>Great Sales App</h1>
 
-        <h2>Cadastro de Produtos</h2>
-        <p>...</p>
+        <h1>Bem-Vindo(a) ao GreatSales!</h1>
+        <br />
+        <h3>Pedidos</h3>
+        <p>Cadastrar novos pedidos e Visualizar pedidos já lancados</p>
+        <br />
+        <h3>Produtos</h3>
+        <p>Cadastrar novos produtos e Visualizar produtos já cadastrados</p>
+        <br />
+        <h3>Clientes</h3>
+        <p>Cadastrar novos clientes e Visualizar clientes já cadastrados</p>
+        <br />
+        <h3>Fornecedores</h3>
+        <p>Cadastrar novos fornecedores e Visualizar fornecedores já cadastrados</p>
+        <br />
+        <h3>Transportadoras</h3>
+        <p>Cadastrar novas transportadoras e Visualizar transportadoras já cadastrados</p>
+        <br />
+        <h3>Vendedores</h3>
+        <p>Cadastrar novos vendedores e Visualizar vendedores já cadastrados</p>
+        <br />
 
-        <h2>Lista de Produtos</h2>
-        <h3>Nome : Descricao</h3>
-        {productsList.map((product) =>
-        <ProductItem
-        key={product.uuid}
-        name={product.sku}
-        description={product.description} /> )}
 
-        <h2>Cadastro de Clientes</h2>
-        <p>...</p>
+        <Products />
 
-        <h2>Lista de Clientes</h2>
-        <h3>Nome : CNPJ</h3>
-                {customersList.map((customer) =>
-                <CustomerItem
-                key={customer.identification.uuid}
-                name={customer.identification.name}
-                cnpj={customer.identification.taxId}
-                 />
-        )}
+        <Costumers />
+
     </section>
     </div>
   );
