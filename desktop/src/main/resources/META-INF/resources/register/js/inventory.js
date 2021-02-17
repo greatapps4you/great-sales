@@ -21,6 +21,7 @@ const products_list_url = "http://localhost:8080/products/list";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let selected_product = undefined;
+let selected_vendor = undefined;
 
 // Init Screen
 $(document).ready(function () {
@@ -95,7 +96,16 @@ function build_products_dropbox() {
 $(document).ready(function () {
 
     $("#save").click(function () {
-        let inventoryItem = JSON.stringify({product: selected_product});
+        let inventoryItem = JSON.stringify({
+            vendor: selected_vendor,
+            product: selected_product,
+            unit: $("#unit").val(),
+            quantity: $("#quantity").val(),
+            minimalThreshold: $("#minimalThreshold").val(),
+            buyingPrice: $("#buyingPrice").val(),
+            sellingPrice: $("#sellingPrice").val(),
+            buyingDate: $("#buyingDate").val()
+        });
 
         $.ajax({
             url: save_url,
@@ -151,8 +161,23 @@ function list() {
 
 function clearFields() {
     $(document).ready(function () {
+
+        // Values
         $("#sku").val("");
         $("#description").val("");
+        $("#quantity").val("0.00");
+        $("#minimalThreshold").val("0.00");
+        $("#buyingPrice").val("0.00");
+        $("#sellingPrice").val("0.00");
+        $("#buyingDate").val("");
+
+        // Entities
+        $("#unit").val("KG");
+        $("#product").val("");
+        $("#vendor").val("");
+
+        selected_product = undefined;
+        selected_vendor = undefined;
     });
 }
 
