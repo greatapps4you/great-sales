@@ -16,7 +16,7 @@ package us.greatapps4you.greatsales.entities.accounting;
 
 /**
  * 1. Assets
- * An asset is something that the company owns. An asset can be physical, like cash, bank accounts, inventory, or equipment. Alternatively, an asset can be part of an agreement with someone that agrees to pay the business something in the future, like accounts receivables or loans (if the company is the one loaning the money). Finally, an asset can be something intangible, like intellectual property.
+ * An asset is something that the company owns. An asset can be physical, like cash, bank accounts, inventoryItem, or equipment. Alternatively, an asset can be part of an agreement with someone that agrees to pay the business something in the future, like accounts receivables or loans (if the company is the one loaning the money). Finally, an asset can be something intangible, like intellectual property.
  *
  * 2. Liabilities
  * It’s common for businesses to take out loans to purchase goods or pay for services. These loans are called liabilities, which simply refers to the fact that money that has to be paid to someone in the future. One particularly common type of liability is accounts payable. This account refers to money that is owed to a vendor when they provide a business with a product or service up front and ask for payment later, for example, after 30 days of delivery.

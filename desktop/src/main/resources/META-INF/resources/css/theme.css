@@ -70,7 +70,7 @@ body {
 }
 
 .button-white:hover {
-    background-color: navajowhite;
+    background-color: #e6f2ff;
 }
 
 .button-dark-grey {
@@ -86,9 +86,17 @@ body {
 }
 
 /*Text Fields*/
-input[type=number] {
-    width: 150px;
+label {
     padding: 8px 18px;
+    font-size: 18px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.number-field {
+    width: 100%;
+    padding: 8px 18px;
+    display: inline-block;
     border: none;
     box-sizing: border-box;
     font-size: 18px;
@@ -96,13 +104,11 @@ input[type=number] {
     border-radius: 10px;
     box-shadow: 2px 2px 4px 1px #C8C8C8;
     text-align: right;
-
 }
 
-input[type=text], select {
-    width: 80%;
+.text-field {
+    width: 100%;
     padding: 8px 18px;
-    margin-top: 10px;
     display: inline-block;
     border: none;
     box-sizing: border-box;
@@ -137,7 +143,7 @@ label {
     margin-top: 12px;
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 18px;
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -224,16 +230,44 @@ label {
     padding: 10px;
 }
 
-.column.half {
+.column.one-tenth {
+    width: 10%;
+}
+
+.column.two-tenth {
+    width: 20%;
+}
+
+.column.three-tenth {
+    width: 30%;
+}
+
+.column.four-tenth {
+    width: 40%;
+}
+
+.column.five-tenth {
     width: 50%;
 }
 
-.column.one-third {
-    width: 33.33%;
+.column.six-tenth {
+    width: 60%;
 }
 
-.column.one-quarter {
-    width: 25%;
+.column.seven-tenth {
+    width: 70%;
+}
+
+.column.eight-tenth {
+    width: 80%;
+}
+
+.column.nine-tenth {
+    width: 90%;
+}
+
+.column.ten-tenth {
+    width: 100%;
 }
 
 /*Fonts*/

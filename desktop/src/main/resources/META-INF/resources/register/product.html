@@ -31,17 +31,37 @@
 <br>
 <span class="view-title">Cadastro de Produtos</span>
 
-<div class="form" id="productForm">
-    <p><label for="sku">SKU</label>
-        <input id="sku" type="text" placeholder="Resumo..."/></p>
+<div class="row">
+    <div class="column five-tenth">
+        <div class="form">
+            <div class="row">
+                <div class="column two-tenth">
+                    <label for="sku">SKU</label>
+                </div>
 
-    <p><label for="description">Descrição</label>
-        <input id="description" type="text" placeholder="Descrição Detalhada..."/></p>
+                <div class="column eight-tenth">
+                    <input class="text-field" id="sku" type="text" placeholder="Resumo..."/>
+                </div>
+            </div>
 
-    <p><input class="button button-green" type="button" value="Confirmar" id="save"/></p>
+            <div class="row">
+                <div class="column two-tenth">
+                    <label for="description">Descrição</label>
+                </div>
+
+                <div class="column eight-tenth">
+                    <input class="text-field" id="description" type="text" placeholder="Descrição Detalhada..."/>
+                </div>
+            </div>
+        </div>
+
+        <input id="save" style="float: right; margin-top: 12px;"
+               class="button button-green" type="button" value="Confirmar"/>
+    </div>
+
+    <div class="column five-tenth">
+        <div style="margin-top: 30px" id="all_products"></div>
+    </div>
 </div>
-
-<div style="margin-top: 30px" id="all_products"></div>
-
 </body>
 </html>

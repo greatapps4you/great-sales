@@ -22,7 +22,7 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
     <description>GreatTweet Entities</description>
     <package>us.greatapps4you.greatsales.entities</package>
 
-    <entity class="us.greatapps4you.greatsales.entities.inventory.Product" name="Product">
+    <entity class="us.greatapps4you.greatsales.entities.inventoryItem.Product" name="Product">
         <table name="PRODUCT"/>
         <attributes>
 

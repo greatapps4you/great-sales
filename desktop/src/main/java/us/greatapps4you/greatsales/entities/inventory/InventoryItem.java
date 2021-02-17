@@ -20,30 +20,31 @@ import us.greatapps4you.greatsales.entities.purchase.Vendor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
- * The scope of inventory management concerns the balance between
- * replenishment lead time, carrying costs of inventory, asset management,
- * inventory forecasting, inventory valuation, inventory visibility,
- * future inventory price forecasting, physical inventory,
+ * The scope of inventoryItem management concerns the balance between
+ * replenishment lead time, carrying costs of inventoryItem, asset management,
+ * inventoryItem forecasting, inventoryItem valuation, inventoryItem visibility,
+ * future inventoryItem price forecasting, physical inventoryItem,
  * available physical space, quality management, replenishment,
  * returns and defective goods, and demand forecasting.
- * Balancing these competing requirements leads to optimal inventory levels,
+ * Balancing these competing requirements leads to optimal inventoryItem levels,
  * which is an ongoing process as the business needs shift and react
  * to the wider environment.
- * Inventory management involves a retailer seeking to acquire
+ * InventoryItem management involves a retailer seeking to acquire
  * and maintain a proper merchandise assortment while ordering,
  * shipping, handling, and related costs are kept in check.
  * It also involves systems and processes that identify
- * inventory requirements, set targets, provide
+ * inventoryItem requirements, set targets, provide
  * replenishment techniques, report actual and
- * projected inventory status and handle all
+ * projected inventoryItem status and handle all
  * functions related to the tracking and management of material.
  * This would include the monitoring of material moved into
  * and out of stockroom locations and the reconciling
- * of the inventory balances. It also may include ABC analysis,
+ * of the inventoryItem balances. It also may include ABC analysis,
  * lot tracking, cycle counting support, etc.
  * Management of the inventories, with the primary objective
  * of determining/controlling stock levels within
@@ -59,23 +60,20 @@ import java.util.UUID;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Inventory {
+public class InventoryItem {
 
     @Id
     private UUID uuid;
-    private String lotNumber;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    private Vendor vendor;
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Product product;
-    private BigDecimal quantity;
-    private BigDecimal minimalThreshold;
     @Enumerated(EnumType.STRING)
     private ProductUnit unit;
+    private BigDecimal quantity;
+    private BigDecimal minimalThreshold;
     private BigDecimal buyingPrice;
     private BigDecimal sellingPrice;
-    private BigInteger shelfLife;
-    private LocalDateTime expiryDate;
-    private LocalDateTime buyingDate;
-    @OneToOne
-    private Vendor vendor;
+    private LocalDate buyingDate;
 
 }
