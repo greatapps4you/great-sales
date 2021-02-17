@@ -86,9 +86,17 @@ body {
 }
 
 /*Text Fields*/
-input[type=number] {
-    width: 150px;
+label {
     padding: 8px 18px;
+    font-size: 18px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.number-field {
+    width: 100%;
+    padding: 8px 18px;
+    display: inline-block;
     border: none;
     box-sizing: border-box;
     font-size: 18px;
@@ -96,7 +104,6 @@ input[type=number] {
     border-radius: 10px;
     box-shadow: 2px 2px 4px 1px #C8C8C8;
     text-align: right;
-
 }
 
 .text-field {
