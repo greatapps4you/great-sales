@@ -32,7 +32,7 @@ let selected_inventory_item = undefined;
 // Init View
 $(document).ready(function () {
     list();
-    updateItems();
+    update_items();
     $(function () {
         $("#deliveryDate").datepicker({
             dateFormat: "yy-mm-dd"
@@ -273,7 +273,7 @@ function build_products_dropbox() {
 // Add Order Items
 $(document).ready(function () {
     $("#include").click(function () {
-        let quantity = $("#productQuantity").val();
+        let quantity = $("#quantity").val();
         let total = selected_inventory_item.sellingPrice * quantity;
         let item = {
             inventoryItem: selected_inventory_item,
@@ -282,10 +282,15 @@ $(document).ready(function () {
         };
         items.push(item);
 
-        //update $("#totalAmount").val() here
+        // Update grandTotal
+        let grandTotal = 0.00;
+        for(let i = 0; i < items.length; i++){
+            grandTotal += items[i].total;
+        }
+        $("#grandTotal").val(grandTotal);
 
         clear_item_fields();
-        updateItems();
+        update_items();
     });
 });
 
@@ -296,11 +301,11 @@ function clear_item_fields() {
 
     // Values
     $("#unValue").val("0.00");
-    $("#productQuantity").val("0.00");
+    $("#quantity").val("0.00");
 }
 
 
-function updateItems() {
+function update_items() {
     let results_table = "<table>" +
         "<thead>" +
         "<tr>" +
@@ -352,7 +357,7 @@ $(document).ready(function () {
             salesman: selected_salesman,
             carrier: selected_carrier,
             items: items,
-            grandTotal: $("#totalAmount").val(),
+            grandTotal: $("#grandTotal").val(),
 
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
@@ -367,7 +372,7 @@ $(document).ready(function () {
             mailInvoiceTo: $("#mailInvoiceTo").val(),
             deliveryDate: $("#deliveryDate").val(),
             deliveryFee: $("#deliveryFee").val(),
-            commissionInCurrency: $("#totalAmount").val() * $("#commissionInPercentage").val(),
+            commissionInCurrency: $("#grandTotal").val() * $("#commissionInPercentage").val(),
             commissionInPercentage: $("#commissionInPercentage").val(),
             taxInPercentage: $("#taxInPercentage").val(),
             customerOrderNumber: $("#customerOrderNumber").val(),
@@ -444,7 +449,7 @@ function clearFields() {
         $("#deliveryDate").val("");
 
         //Decimal Fields
-        $("#totalAmount").val("0.00");
+        $("#grandTotal").val("0.00");
         $("#deliveryFee").val("0.00")
         $("#commissionInPercentage").val("2.00")
 
@@ -455,6 +460,8 @@ function clearFields() {
 
         //Variables
         items = [];
+        update_items();
+
         selected_customer = undefined;
         selected_salesman = undefined;
         selected_carrier = undefined;

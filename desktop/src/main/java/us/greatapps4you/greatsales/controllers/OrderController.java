@@ -46,7 +46,7 @@ public class OrderController {
         System.out.println("*********************************");
         System.out.println("ORDER ITEMS: " + order.getItems());
         System.out.println("*********************************");
-        System.out.println("ORDER RECEIVED: " + order);
+        System.out.println("ORDER GRAND TOTAL: " + order.getGrandTotal());
 
         if (order != null) {
             if (order.getUuid() == null) {
