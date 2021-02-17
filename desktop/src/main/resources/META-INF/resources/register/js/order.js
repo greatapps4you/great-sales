@@ -32,7 +32,9 @@ $(document).ready(function () {
     list();
     updateItems();
     $(function () {
-        $("#deliveryDate").datepicker();
+        $("#deliveryDate").datepicker({
+            dateFormat:"yy-mm-dd"
+        });
     });
 });
 
@@ -369,13 +371,15 @@ function list() {
 
 function clearFields() {
     $(document).ready(function () {
-        /* Delivery Address*/
+        /* Delivery */
         $("#deliveryStreet").val("");
         $("#deliveryStreetNumber").val("");
         $("#deliveryZip").val("");
         $("#deliveryNeighborhood").val("");
         $("#deliveryCity").val("");
         $("#deliveryState").val("");
+
+        $("#deliveryDate").val("");
 
         //Decimal Fields
         $("#totalAmount").val("0.00");
