@@ -17,6 +17,8 @@ const list_url = "http://localhost:8080/inventory/list";
 const remove_url = "http://localhost:8080/inventory/remove/";
 const find_url = "http://localhost:8080/inventory/find/";
 
+const products_list_url = "http://localhost:8080/products/list";
+
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let selected_product = undefined;
 
@@ -26,29 +28,82 @@ $(document).ready(function () {
 
     $(function () {
         $("#buyingDate").datepicker({
-            dateFormat:"yy-mm-dd"
+            dateFormat: "yy-mm-dd"
         });
     });
 });
 
+// Product Search Box
+$(document).ready(function () {
+    $("#product-toggle").click(function () {
+        $("#product-dropdown").toggleClass("show");
+    });
+
+    build_products_dropbox();
+});
+
+function build_products_dropbox() {
+
+    $.ajax({
+        url: products_list_url,
+        type: "GET",
+        dataType: "json"
+    }).done(function (products) {
+        let dropdown_content = '<input id="product-search-box" class="text-field" type="text" placeholder="Filtrar...">';
+
+        for (let i = 0; i < products.length; i++) {
+            dropdown_content += '<span data=\'' + JSON.stringify(products[i]) + '\'>'
+                + products[i].description + '</span>';
+        }
+
+        if (products.length == 0) {
+            $("#product-dropdown").html("Nenhum Produto Cadastrado");
+            selected_product = undefined;
+        } else {
+            $("#product-dropdown").html(dropdown_content);
+
+            //Only at this moment the child elements of dropdown will be in DOM
+            $("#product-dropdown span").click(function () {
+                // Handle the selected item right here
+                let fetched_product = JSON.parse($(this).attr("data"));
+                selected_product = fetched_product;
+                $("#product").val(fetched_product.description);
+                $("#product-dropdown").toggleClass("show");
+            });
+
+            $("#product-search-box").keyup(function () {
+                let input, filter, ul, li, a, i;
+                input = document.getElementById("product-search-box");
+                filter = input.value.toUpperCase();
+                let div = document.getElementById("product-dropdown");
+                a = div.getElementsByTagName("span");
+                let value;
+                for (i = 0; i < a.length; i++) {
+                    value = a[i].textContent || a[i].innerText;
+                    if (value.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Save
 $(document).ready(function () {
 
     $("#save").click(function () {
-        const sku = $("#sku").val();
-        const description = $("#description").val();
-
-        const product = JSON.stringify({
-            sku: sku,
-            description: description
-        });
+        let inventoryItem = JSON.stringify({product: selected_product});
 
         $.ajax({
             url: save_url,
             type: "POST",
-            data: product,
+            data: inventoryItem,
             contentType: "application/json",
             dataType: "json"
-        }).done(function (savedProduct) {
+        }).done(function (savedInventoryItem) {
             clearFields();
             list();
         });
@@ -86,7 +141,7 @@ function list() {
         results_table += "</tbody>" +
             "</table>";
 
-        if(inventoryItems.length == 0) {
+        if (inventoryItems.length == 0) {
             $("#all_inventory").html("Estoque Vazio");
         } else {
             $("#all_inventory").html(results_table);
