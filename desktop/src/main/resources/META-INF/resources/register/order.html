@@ -125,33 +125,38 @@
         <div class="form" id="order_items">Nenhum Produto adicionado...</div>
 
         <div class="form">
-            <div style="column-count: 3;">
-                <div>
-                    <label for="discount">Desconto</label>
-                    <input id="discount" type="number"
-                           placeholder="0.00" required min="0" value="0.00"
-                           step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
+            <div class="row">
+                <div class="column seven-tenth">
+                    <label class="section-title" for="grandTotal">Total</label>
                 </div>
 
-                <p><label for="commissionInPercentage">Comissão</label>
-                    <input id="commissionInPercentage" type="number"
-                           placeholder="0.00" required min="0" value="2.00"
-                           step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$"><label>%</label></p>
-
-                <div><label for="grandTotal">Total R$</label>
-                    <input id="grandTotal" type="number"
+                <div class="column three-tenth">
+                    <input readonly class="number-field section-title" id="grandTotal" type="number"
                            placeholder="0.00" required min="0" value="0.00"
                            step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$"></div>
-
-                <p><label for="deliveryFee">Valor Frete R$</label>
-                    <input id="deliveryFee" type="number"
-                           placeholder="0.00" required min="0" value="0.00" step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$"></p>
-
+                           pattern="^\d+(?:\.\d{1,2})?$">
+                </div>
             </div>
+        </div>
+
+        <div class="form">
+            <label for="commissionInPercentage">Comissão</label>
+            <input id="commissionInPercentage" type="number"
+                   placeholder="0.00" required min="0" value="2.00"
+                   step="0.01"
+                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
+
+            <label for="deliveryFee">Valor Frete R$</label>
+            <input id="deliveryFee" type="number"
+                   placeholder="0.00" required min="0" value="0.00" step="0.01"
+                   pattern="^\d+(?:\.\d{1,2})?$">
+
+            <label for="taxInPercentage">ICMS</label>
+            <input id="taxInPercentage" type="number"
+                   placeholder="0.00" required min="0" value="12.00"
+                   step="0.01"
+                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
+
         </div>
         <br>
 
@@ -196,13 +201,6 @@
             <div style="column-count: 2;">
                 <div><label for="mailMessage">Msg. Email</label>
                     <input class="text-field" id="mailMessage" type="text" placeholder="Mensagem do Email..."/></div>
-
-                <p><label for="taxInPercentage">ICMS</label>
-                    <input id="taxInPercentage" type="number"
-                           placeholder="0.00" required min="0" value="12.00"
-                           step="0.01"
-
-                           pattern="^\d+(?:\.\d{1,2})?$"><label>%</label></p>
 
                 <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
                     <input class="text-field" id="customerOrderNumber" type="text"
