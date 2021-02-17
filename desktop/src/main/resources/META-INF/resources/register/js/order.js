@@ -20,6 +20,7 @@ const find_url = "http://localhost:8080/orders/find/";
 const customers_list_url = "http://localhost:8080/customers/list";
 const salesmen_list_url = "http://localhost:8080/salesmen/list";
 const carriers_list_url = "http://localhost:8080/carriers/list";
+const inventory_list_url = "http://localhost:8080/inventory/list";
 
 const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let items = [];
