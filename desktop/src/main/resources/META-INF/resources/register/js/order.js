@@ -38,6 +38,10 @@ $(document).ready(function () {
             dateFormat: "yy-mm-dd"
         });
     });
+
+    $(function () {
+        $("#tabs").tabs();
+    });
 });
 
 // Customer Search Box
