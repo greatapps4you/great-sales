@@ -438,12 +438,16 @@ function list() {
 
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
+            const delivery_date = leftPad(orders[i].deliveryDate[2], 2) + " / "
+                + leftPad(orders[i].deliveryDate[1], 2) + " / "
+                + orders[i].deliveryDate[0];
+
             results_table += "<tr>"
                 + "<td>" + orders[i].orderNumber + "</td>"
                 + "<td>" + number_to_BRL(orders[i].grandTotal) + "</td>"
                 + "<td>" + orders[i].customer.identification.name + "</td>"
                 + "<td>" + orders[i].shipping + "</td>"
-                + "<td>" + orders[i].deliveryDate + "</td>"
+                + "<td>" + delivery_date + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
@@ -456,6 +460,12 @@ function list() {
             $("#all_orders").html(results_table);
         }
     });
+}
+
+function leftPad(value, length) {
+    value = String(value);
+    length = length - value.length;
+    return ('0'.repeat(length) + value)
 }
 
 function validate_form() {
@@ -491,6 +501,11 @@ function validate_form() {
 
     if ($("#mailMessage").val().length == 0) {
         alert("Informe a mensagem do Email!");
+        return false;
+    }
+
+    if ($("#deliveryDate").val().length == 0) {
+        alert("Informe a Data de Entrega!");
         return false;
     }
 
