@@ -156,31 +156,30 @@
         </div>
 
         <div class="form">
-            <label for="commission">Comissão</label>
-            <input id="commission" type="number"
-                   placeholder="0.00" required min="0" value="2.00"
-                   step="0.01"
-                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
-
             <div class="row">
                 <div class="column two-tenth">
                     <label for="shipping">Frete</label>
                 </div>
 
-                <div class="column eight-tenth">
+                <div class="column three-tenth">
                     <select class="text-field" id="shipping">
                         <option value="CIF">CIF</option>
                         <option value="FOB">FOB</option>
                     </select>
                 </div>
+
+                <div class="column two-tenth">
+                    <label for="tax">ICMS</label>
+                </div>
+
+                <div class="column three-tenth">
+                    <input id="tax" type="number"
+                           class="number-field"
+                           placeholder="0.00" required min="0" value="12.00"
+                           step="0.01"
+                           pattern="^\d+(?:\.\d{1,2})?$">
+                </div>
             </div>
-
-            <label for="tax">ICMS</label>
-            <input id="tax" type="number"
-                   placeholder="0.00" required min="0" value="12.00"
-                   step="0.01"
-                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
-
         </div>
         <br>
 
@@ -237,6 +236,17 @@
                 <p><label for="observations">Observações</label>
                     <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
 
+                <div class="column two-tenth">
+                    <label for="commission">Comissão</label>
+                </div>
+
+                <div class="column two-tenth">
+                    <input id="commission" type="number"
+                           class="number-field"
+                           placeholder="0.00" required min="0" value="2.00"
+                           step="0.01"
+                           pattern="^\d+(?:\.\d{1,2})?$">
+                </div>
             </div>
         </div>
 
