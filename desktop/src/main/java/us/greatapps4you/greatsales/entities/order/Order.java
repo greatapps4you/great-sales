@@ -15,7 +15,9 @@
 package us.greatapps4you.greatsales.entities.order;
 
 import lombok.*;
+import us.greatapps4you.greatsales.entities.shipping.Carrier;
 import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.shipping.ShippingType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -32,32 +34,35 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
-
     @Id
     private UUID uuid;
-    private String orderNumber;
-    private LocalDate orderDate;
+    // Entities
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Customer customer;
-    @OneToMany(cascade = {CascadeType.ALL})
-    private List<OrderItem> items;
-    private BigDecimal grandTotal;
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Salesman salesman;
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    private Carrier carrier;
     @OneToOne(cascade = {CascadeType.ALL})
     private Address deliveryAddress;
     @OneToOne(cascade = {CascadeType.ALL})
     private Address billingAddress;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<OrderItem> items;
+    @Enumerated(EnumType.STRING)
+    private ShippingType shipping;
+    // Decimal Values
+    private BigDecimal grandTotal;
+    private BigDecimal commission;
+    private BigDecimal tax;
+    // Dates
+    private LocalDate orderDate;
+    private LocalDate deliveryDate;
+    // Strings
+    private String orderNumber;
     private String mailMessage;
     private String mailOrderTo;
     private String mailInvoiceTo;
-    private LocalDate deliveryDate;
-    private BigDecimal deliveryFee;
-    @OneToOne(cascade = {CascadeType.PERSIST})
-    private Carrier carrier;
-    private BigDecimal commissionInCurrency;
-    private BigDecimal commissionInPercentage;
-    private BigDecimal taxInPercentage;
     private String customerOrderNumber;
     private String paymentConditions;
     private String observations;
