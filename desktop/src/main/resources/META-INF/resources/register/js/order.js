@@ -396,7 +396,7 @@ $(document).ready(function () {
             commission: $("#commission").val(),
             tax: $("#tax").val(),
             customerOrderNumber: $("#customerOrderNumber").val(),
-            paymentConditions: $("#paymentConditions").val(),
+            paymentPlan: $("#paymentPlan").val(),
             observations: $("#observations").val()
         });
 
@@ -453,22 +453,22 @@ function list() {
 }
 
 function validate_form() {
-    if(!selected_customer) {
+    if (!selected_customer) {
         alert("Selecione o Cliente!");
         return false;
     }
 
-    if(!selected_salesman) {
+    if (!selected_salesman) {
         alert("Selecione o Vendedor!");
         return false;
     }
 
-    if(!selected_carrier) {
+    if (!selected_carrier) {
         alert("Selecione a Transportadora!");
         return false;
     }
 
-    if(!items || items.length == 0) {
+    if (!items || items.length == 0) {
         alert("Adicione Produtos!");
         return false;
     }
@@ -478,6 +478,16 @@ function validate_form() {
 
 function clearFields() {
     $(document).ready(function () {
+        /* Payment */
+        $("#paymentPlan").val("");
+        $("#grandTotal").val("R$ 0,00");
+        $("#commission").val("2.00")
+
+        /*Email*/
+        $("#mailOrderTo").val("");
+        $("#mailInvoiceTo").val("");
+        $("#mailMessage").val("")
+
         /* Delivery */
         $("#deliveryStreet").val("");
         $("#deliveryStreetNumber").val("");
@@ -485,18 +495,17 @@ function clearFields() {
         $("#deliveryNeighborhood").val("");
         $("#deliveryCity").val("");
         $("#deliveryState").val("");
-
         $("#deliveryDate").val("");
-
-        //Decimal Fields
-        $("#grandTotal").val("R$ 0,00");
-        $("#commission").val("2.00")
 
         //Entities
         $("#customer").val("");
         $("#salesman").val("");
         $("#carrier").val("");
         $("#shipping").val("CIF")
+
+        /* Miscellaneous */
+        $("#customerOrderNumber").val("");
+        $("#observations").val("");
 
         //Variables
         items = [];

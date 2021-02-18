@@ -64,7 +64,7 @@ public class Order {
     private String mailOrderTo;
     private String mailInvoiceTo;
     private String customerOrderNumber;
-    private String paymentConditions;
+    private String paymentPlan;
     private String observations;
 
 }
