@@ -284,7 +284,7 @@ $(document).ready(function () {
 
         // Update grandTotal
         let grandTotal = 0.00;
-        for(let i = 0; i < items.length; i++){
+        for (let i = 0; i < items.length; i++) {
             grandTotal += items[i].total;
         }
         $("#grandTotal").val(grandTotal);
@@ -371,10 +371,9 @@ $(document).ready(function () {
             mailOrderTo: $("#mailOrderTo").val(),
             mailInvoiceTo: $("#mailInvoiceTo").val(),
             deliveryDate: $("#deliveryDate").val(),
-            deliveryFee: $("#deliveryFee").val(),
-            commissionInCurrency: $("#grandTotal").val() * $("#commissionInPercentage").val(),
-            commissionInPercentage: $("#commissionInPercentage").val(),
-            taxInPercentage: $("#taxInPercentage").val(),
+            shipping: $("#shipping").val(),
+            commission: $("#commission").val(),
+            tax: $("#tax").val(),
             customerOrderNumber: $("#customerOrderNumber").val(),
             paymentConditions: $("#paymentConditions").val(),
             observations: $("#observations").val()
@@ -404,7 +403,7 @@ function list() {
             "<tr>" +
             "<th>UUID</th>" +
             "<th>NÚMERO PEDIDO</th>" +
-            "<th>DATA PEDIDO</th>" +
+            "<th>VALOR PEDIDO</th>" +
             "<th>CLIENTE</th>" +
             "<th></th>" +
             "</tr>" +
@@ -413,14 +412,10 @@ function list() {
 
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
-            const orderDate = orders[i].orderDate[2] + "/"
-                + orders[i].orderDate[1] + "/"
-                + orders[i].orderDate[0];
-
             results_table += "<tr>"
                 + "<td>" + uuid + "</td>"
                 + "<td>" + orders[i].orderNumber + "</td>"
-                + "<td>" + orderDate + "</td>"
+                + "<td>" + orders[i].grandTotal + "</td>"
                 + "<td>" + orders[i].customer.identification.name + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
@@ -450,13 +445,13 @@ function clearFields() {
 
         //Decimal Fields
         $("#grandTotal").val("0.00");
-        $("#deliveryFee").val("0.00")
-        $("#commissionInPercentage").val("2.00")
+        $("#commission").val("2.00")
 
         //Entities
         $("#customer").val("");
         $("#salesman").val("");
         $("#carrier").val("");
+        $("#shipping").val("CIF")
 
         //Variables
         items = [];

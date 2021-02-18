@@ -156,23 +156,30 @@
         </div>
 
         <div class="form">
-            <label for="commissionInPercentage">Comissão</label>
-            <input id="commissionInPercentage" type="number"
-                   placeholder="0.00" required min="0" value="2.00"
-                   step="0.01"
-                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
+            <div class="row">
+                <div class="column two-tenth">
+                    <label for="shipping">Frete</label>
+                </div>
 
-            <label for="deliveryFee">Valor Frete R$</label>
-            <input id="deliveryFee" type="number"
-                   placeholder="0.00" required min="0" value="0.00" step="0.01"
-                   pattern="^\d+(?:\.\d{1,2})?$">
+                <div class="column three-tenth">
+                    <select class="text-field" id="shipping">
+                        <option value="CIF">CIF</option>
+                        <option value="FOB">FOB</option>
+                    </select>
+                </div>
 
-            <label for="taxInPercentage">ICMS</label>
-            <input id="taxInPercentage" type="number"
-                   placeholder="0.00" required min="0" value="12.00"
-                   step="0.01"
-                   pattern="^\d+(?:\.\d{1,2})?$"><label>%</label>
+                <div class="column two-tenth">
+                    <label for="tax">ICMS</label>
+                </div>
 
+                <div class="column three-tenth">
+                    <input id="tax" type="number"
+                           class="number-field"
+                           placeholder="0.00" required min="0" value="12.00"
+                           step="0.01"
+                           pattern="^\d+(?:\.\d{1,2})?$">
+                </div>
+            </div>
         </div>
         <br>
 
@@ -229,6 +236,17 @@
                 <p><label for="observations">Observações</label>
                     <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
 
+                <div class="column two-tenth">
+                    <label for="commission">Comissão</label>
+                </div>
+
+                <div class="column two-tenth">
+                    <input id="commission" type="number"
+                           class="number-field"
+                           placeholder="0.00" required min="0" value="2.00"
+                           step="0.01"
+                           pattern="^\d+(?:\.\d{1,2})?$">
+                </div>
             </div>
         </div>
 

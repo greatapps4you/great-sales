@@ -12,7 +12,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.entities.order;
+package us.greatapps4you.greatsales.entities.shipping;
 
 import lombok.*;
 import us.greatapps4you.greatsales.entities.registration.Address;
