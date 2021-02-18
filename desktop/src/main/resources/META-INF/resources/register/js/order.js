@@ -22,7 +22,7 @@ const salesmen_list_url = "http://localhost:8080/salesmen/list";
 const carriers_list_url = "http://localhost:8080/carriers/list";
 const inventory_list_url = "http://localhost:8080/inventory/list";
 
-const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
+const decimal_regex = /^\d+(?:\.\d{1,9})?$/;
 let items = [];
 let selected_customer = undefined;
 let selected_salesman = undefined;
@@ -275,7 +275,6 @@ $(document).ready(function () {
     $("#include").click(function () {
         let quantity = $("#quantity").val();
         let total = selected_inventory_item.sellingPrice * quantity;
-
         let item = {
             inventoryItem: selected_inventory_item,
             quantity: quantity,
@@ -283,17 +282,23 @@ $(document).ready(function () {
         };
         items.push(item);
 
-        // Update grandTotal
-        let grandTotal = 0.00;
-        for (let i = 0; i < items.length; i++) {
-            grandTotal += items[i].total;
-        }
-        $("#grandTotal").val(number_to_BRL(grandTotal));
-
+        update_grand_total();
         clear_item_fields();
         update_items();
     });
 });
+
+function update_grand_total() {
+    $("#grandTotal").val(number_to_BRL(calculate_grand_total()));
+}
+
+function calculate_grand_total() {
+    let grandTotal = 0.00;
+    for (let i = 0; i < items.length; i++) {
+        grandTotal += items[i].total;
+    }
+    return grandTotal;
+}
 
 function number_to_BRL(amount) {
     return new Intl.NumberFormat('pt-BR', {
@@ -370,7 +375,7 @@ $(document).ready(function () {
             salesman: selected_salesman,
             carrier: selected_carrier,
             items: items,
-            grandTotal: $("#grandTotal").val(),
+            grandTotal: calculate_grand_total(),
 
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
@@ -457,7 +462,7 @@ function clearFields() {
         $("#deliveryDate").val("");
 
         //Decimal Fields
-        $("#grandTotal").val("0.00");
+        $("#grandTotal").val("R$ 0,00");
         $("#commission").val("2.00")
 
         //Entities
