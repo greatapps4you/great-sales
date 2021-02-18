@@ -438,9 +438,9 @@ function list() {
 
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
-            const delivery_date = leftPad(orders[i].deliveryDate[2], 2) + " / "
-                + leftPad(orders[i].deliveryDate[1], 2) + " / "
-                + orders[i].deliveryDate[0];
+            const delivery_date = leftPad(orders[i].deliveryDate[2], 2)
+                + " / " + leftPad(orders[i].deliveryDate[1], 2)
+                + " / " + orders[i].deliveryDate[0];
 
             results_table += "<tr>"
                 + "<td>" + orders[i].orderNumber + "</td>"
