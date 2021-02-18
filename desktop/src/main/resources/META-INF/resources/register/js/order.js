@@ -426,10 +426,11 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
-            "<th>UUID</th>" +
-            "<th>NÚMERO PEDIDO</th>" +
-            "<th>VALOR PEDIDO</th>" +
+            "<th>NÚMERO</th>" +
+            "<th>TOTAL</th>" +
             "<th>CLIENTE</th>" +
+            "<th>FRETE</th>" +
+            "<th>ENTREGA</th>" +
             "<th></th>" +
             "</tr>" +
             "</thead>" +
@@ -438,10 +439,11 @@ function list() {
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
             results_table += "<tr>"
-                + "<td>" + uuid + "</td>"
                 + "<td>" + orders[i].orderNumber + "</td>"
-                + "<td>" + orders[i].grandTotal + "</td>"
+                + "<td>" + number_to_BRL(orders[i].grandTotal) + "</td>"
                 + "<td>" + orders[i].customer.identification.name + "</td>"
+                + "<td>" + orders[i].shipping + "</td>"
+                + "<td>" + orders[i].deliveryDate + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
