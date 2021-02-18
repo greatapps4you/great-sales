@@ -322,7 +322,6 @@ function clear_item_fields() {
     $("#quantity").val("0.00");
 }
 
-
 function update_items() {
     let results_table = "<table>" +
         "<thead>" +
@@ -370,6 +369,10 @@ $(document).ready(function () {
 // Save
 $(document).ready(function () {
     $("#save").click(function () {
+        if (!validate_form()) {
+            return;
+        }
+
         const order = JSON.stringify({
             customer: selected_customer,
             salesman: selected_salesman,
@@ -447,6 +450,30 @@ function list() {
             $("#all_orders").html(results_table);
         }
     });
+}
+
+function validate_form() {
+    if(!selected_customer) {
+        alert("Selecione o Cliente!");
+        return false;
+    }
+
+    if(!selected_salesman) {
+        alert("Selecione o Vendedor!");
+        return false;
+    }
+
+    if(!selected_carrier) {
+        alert("Selecione a Transportadora!");
+        return false;
+    }
+
+    if(!items || items.length == 0) {
+        alert("Adicione Produtos!");
+        return false;
+    }
+
+    return true;
 }
 
 function clearFields() {
