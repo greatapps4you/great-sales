@@ -31,12 +31,9 @@
 <body>
 
 <nav class="navigation-bar" w3-include-html="includes/menu-items.html"></nav>
-
 <br>
-<span class="view-title">Pedidos</span>
-<br><br>
 
-<div id="tabs" style="height: 700px;">
+<div id="tabs">
     <ul>
         <li><a href="#tabs-1">Pedido</a></li>
         <li><a href="#tabs-2">Pagamento</a></li>
@@ -44,224 +41,232 @@
         <li><a href="#tabs-4">Todos</a></li>
     </ul>
     <div id="tabs-1">
-        <span class="section-title">Dados</span>
+        <div class="tab-scroll-panel">
+            <span class="section-title">Dados</span>
 
-        <div class="form">
-            <div class="row">
-                <div class="column two-tenth">
-                    <div class="dropdown-container">
-                        <button id="customer-toggle" class="dropdown-button">Cliente...</button>
-                        <div id="customer-dropdown" class="dropdown-content"></div>
+            <div class="form">
+                <div class="row">
+                    <div class="column two-tenth">
+                        <div class="dropdown-container">
+                            <button id="customer-toggle" class="dropdown-button">Cliente...</button>
+                            <div id="customer-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="column eight-tenth">
+                        <input class="text-field"
+                               style="background-color: lightyellow;"
+                               readonly id="customer" type="text"
+                               placeholder="Cliente..."/>
                     </div>
                 </div>
 
-                <div class="column eight-tenth">
-                    <input class="text-field"
-                           style="background-color: lightyellow;"
-                           readonly id="customer" type="text"
-                           placeholder="Cliente..."/>
-                </div>
-            </div>
+                <div class="row">
+                    <div class="column two-tenth">
+                        <div class="dropdown-container">
+                            <button id="salesman-toggle" class="dropdown-button">Vendedor...</button>
+                            <div id="salesman-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
 
-            <div class="row">
-                <div class="column two-tenth">
-                    <div class="dropdown-container">
-                        <button id="salesman-toggle" class="dropdown-button">Vendedor...</button>
-                        <div id="salesman-dropdown" class="dropdown-content"></div>
+                    <div class="column eight-tenth">
+                        <input class="text-field"
+                               readonly id="salesman" type="text"
+                               style="background-color: lightyellow;"
+                               placeholder="Vendedor..."/>
                     </div>
                 </div>
 
-                <div class="column eight-tenth">
-                    <input class="text-field"
-                           readonly id="salesman" type="text"
-                           style="background-color: lightyellow;"
-                           placeholder="Vendedor..."/>
+                <div class="row">
+                    <div class="column three-tenth">
+                        <div class="dropdown-container">
+                            <button id="carrier-toggle" class="dropdown-button">Transportadora...</button>
+                            <div id="carrier-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="column seven-tenth">
+                        <input class="text-field"
+                               readonly id="carrier" type="text"
+                               style="background-color: lightyellow;"
+                               placeholder="Transportadora..."/>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="column three-tenth">
-                    <div class="dropdown-container">
-                        <button id="carrier-toggle" class="dropdown-button">Transportadora...</button>
-                        <div id="carrier-dropdown" class="dropdown-content"></div>
+            <br>
+            <span class="section-title">Produtos</span>
+
+            <div class="form">
+                <div class="row">
+                    <div class="column two-tenth">
+                        <div class="dropdown-container">
+                            <button id="product-toggle" class="dropdown-button">Produto...</button>
+                            <div id="product-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="column eight-tenth">
+                        <input class="text-field"
+                               readonly id="product" type="text"
+                               style="background-color: lightyellow;"
+                               placeholder="Produto..."/>
                     </div>
                 </div>
 
-                <div class="column seven-tenth">
-                    <input class="text-field"
-                           readonly id="carrier" type="text"
-                           style="background-color: lightyellow;"
-                           placeholder="Transportadora..."/>
-                </div>
-            </div>
-        </div>
+                <div class="row">
+                    <div class="column one-tenth">
+                        <label for="quantity">Qtde.</label>
+                    </div>
+                    <div class="column three-tenth">
+                        <input class="number-field" id="quantity" type="number"
+                               placeholder="0.00" required min="0" value="0.00" step="0.01"
+                               pattern="^\d+(?:\.\d{1,9})?$">
+                    </div>
 
-        <br>
-        <span class="section-title">Produtos</span>
+                    <div class="column one-tenth">
+                        <label for="unValue">Vlr. Un.</label>
+                    </div>
+                    <div class="column three-tenth">
+                        <input readonly class="text-field"
+                               id="unValue"
+                               type="text"
+                               style="background-color: lightyellow; text-align: right;"
+                               value="R$ 0,00">
+                    </div>
 
-        <div class="form">
-            <div class="row">
-                <div class="column two-tenth">
-                    <div class="dropdown-container">
-                        <button id="product-toggle" class="dropdown-button">Produto...</button>
-                        <div id="product-dropdown" class="dropdown-content"></div>
+                    <div class="column two-tenth">
+                        <input class="button button-white" type="button" value="Incluir" id="include"/>
                     </div>
                 </div>
+            </div>
 
-                <div class="column eight-tenth">
-                    <input class="text-field"
-                           readonly id="product" type="text"
-                           style="background-color: lightyellow;"
-                           placeholder="Produto..."/>
+            <div class="form" id="order_items">Nenhum Produto adicionado...</div>
+
+            <div class="form">
+                <div class="row">
+                    <div class="column seven-tenth">
+                        <label class="section-title" for="grandTotal">Total</label>
+                    </div>
+
+                    <div class="column three-tenth">
+                        <input readonly
+                               class="text-field section-title"
+                               id="grandTotal" type="text"
+                               style="background-color: lightyellow; text-align: right;"
+                               value="R$ 0,00">
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="column one-tenth">
-                    <label for="quantity">Qtde.</label>
-                </div>
-                <div class="column three-tenth">
-                    <input class="number-field" id="quantity" type="number"
-                           placeholder="0.00" required min="0" value="0.00" step="0.01"
-                           pattern="^\d+(?:\.\d{1,9})?$">
-                </div>
+            <div class="form">
+                <div class="row">
+                    <div class="column two-tenth">
+                        <label for="shipping">Frete</label>
+                    </div>
 
-                <div class="column one-tenth">
-                    <label for="unValue">Vlr. Un.</label>
-                </div>
-                <div class="column three-tenth">
-                    <input readonly class="text-field"
-                           id="unValue"
-                           type="text"
-                           style="background-color: lightyellow; text-align: right;"
-                           value="R$ 0,00">
-                </div>
+                    <div class="column three-tenth">
+                        <select class="text-field" id="shipping">
+                            <option value="CIF">CIF</option>
+                            <option value="FOB">FOB</option>
+                        </select>
+                    </div>
 
-                <div class="column two-tenth">
-                    <input class="button button-white" type="button" value="Incluir" id="include"/>
-                </div>
-            </div>
-        </div>
+                    <div class="column two-tenth">
+                        <label for="tax">ICMS</label>
+                    </div>
 
-        <div class="form" id="order_items">Nenhum Produto adicionado...</div>
-
-        <div class="form">
-            <div class="row">
-                <div class="column seven-tenth">
-                    <label class="section-title" for="grandTotal">Total</label>
-                </div>
-
-                <div class="column three-tenth">
-                    <input readonly
-                           class="text-field section-title"
-                           id="grandTotal" type="text"
-                           style="background-color: lightyellow; text-align: right;"
-                           value="R$ 0,00">
-                </div>
-            </div>
-        </div>
-
-        <div class="form">
-            <div class="row">
-                <div class="column two-tenth">
-                    <label for="shipping">Frete</label>
-                </div>
-
-                <div class="column three-tenth">
-                    <select class="text-field" id="shipping">
-                        <option value="CIF">CIF</option>
-                        <option value="FOB">FOB</option>
-                    </select>
-                </div>
-
-                <div class="column two-tenth">
-                    <label for="tax">ICMS</label>
-                </div>
-
-                <div class="column three-tenth">
-                    <input id="tax" type="number"
-                           class="number-field"
-                           placeholder="0.00" required min="0" value="12.00"
-                           step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$">
+                    <div class="column three-tenth">
+                        <input id="tax" type="number"
+                               class="number-field"
+                               placeholder="0.00" required min="0" value="12.00"
+                               step="0.01"
+                               pattern="^\d+(?:\.\d{1,2})?$">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="tabs-2">
-        <span class="section-title">Pagamento</span>
+        <div class="tab-scroll-panel">
+            <span class="section-title">Pagamento</span>
 
-        <div class="form">
-            <div style="column-count: 2;">
-                <div><label for="mailMessage">Msg. Email</label>
-                    <input class="text-field" id="mailMessage" type="text" placeholder="Mensagem do Email..."/>
-                </div>
+            <div class="form">
+                <div>
+                    <div><label for="mailMessage">Msg. Email</label>
+                        <input class="text-field" id="mailMessage" type="text" placeholder="Mensagem do Email..."/>
+                    </div>
 
-                <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
-                    <input class="text-field" id="customerOrderNumber" type="text"
-                           placeholder="Núm. Pedido Cliente..."/></p>
+                    <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
+                        <input class="text-field" id="customerOrderNumber" type="text"
+                               placeholder="Núm. Pedido Cliente..."/></p>
 
-                <p><label for="paymentPlan">Cond. Pgto.</label>
-                    <input class="text-field" id="paymentPlan" type="text"
-                           placeholder="Condições de Pagamento..."/></p>
+                    <p><label for="paymentPlan">Cond. Pgto.</label>
+                        <input class="text-field" id="paymentPlan" type="text"
+                               placeholder="Condições de Pagamento..."/></p>
 
-                <p><label for="observations">Observações</label>
-                    <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
+                    <p><label for="observations">Observações</label>
+                        <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
 
-                <div class="column two-tenth">
-                    <label for="commission">Comissão</label>
-                </div>
+                    <div>
+                        <label for="commission">Comissão</label>
+                    </div>
 
-                <div class="column four-tenth">
-                    <input id="commission" type="number"
-                           class="number-field"
-                           placeholder="0.00" required min="0" value="2.00"
-                           step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$">
+                    <div>
+                        <input id="commission" type="number"
+                               class="number-field"
+                               placeholder="0.00" required min="0" value="2.00"
+                               step="0.01"
+                               pattern="^\d+(?:\.\d{1,2})?$">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="tabs-3">
-        <span class="section-title">Envio</span>
-        <br>
-        <div class="form">
-            <div style="column-count: 2;">
-                <div><label for="deliveryStreet">Rua</label>
-                    <input class="text-field" id="deliveryStreet" type="text" placeholder="Rua..."/></div>
+        <div class="tab-scroll-panel">
+            <span class="section-title">Envio</span>
+            <br>
+            <div class="form">
+                <div style="column-count: 2;">
+                    <div><label for="deliveryStreet">Rua</label>
+                        <input class="text-field" id="deliveryStreet" type="text" placeholder="Rua..."/></div>
 
-                <p><label for="deliveryStreetNumber">Número</label>
-                    <input class="text-field" id="deliveryStreetNumber" type="text" placeholder="Número..."/></p>
+                    <p><label for="deliveryStreetNumber">Número</label>
+                        <input class="text-field" id="deliveryStreetNumber" type="text" placeholder="Número..."/></p>
 
-                <p><label for="deliveryNeighborhood">Bairro</label>
-                    <input class="text-field" id="deliveryNeighborhood" type="text" placeholder="Bairro..."/></p>
+                    <p><label for="deliveryNeighborhood">Bairro</label>
+                        <input class="text-field" id="deliveryNeighborhood" type="text" placeholder="Bairro..."/></p>
 
-                <p><label for="deliveryZip">CEP</label>
-                    <input class="text-field" id="deliveryZip" type="text" placeholder="CEP..."/></p>
+                    <p><label for="deliveryZip">CEP</label>
+                        <input class="text-field" id="deliveryZip" type="text" placeholder="CEP..."/></p>
 
-                <p><label for="deliveryCity">Cidade</label>
-                    <input class="text-field" id="deliveryCity" type="text" placeholder="Cidade..."/></p>
+                    <p><label for="deliveryCity">Cidade</label>
+                        <input class="text-field" id="deliveryCity" type="text" placeholder="Cidade..."/></p>
 
-                <p><label for="deliveryState">Estado</label>
-                    <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/></p>
+                    <p><label for="deliveryState">Estado</label>
+                        <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/></p>
 
-                <p><label for="deliveryDate">Data Entrega</label>
-                    <input readonly class="text-field" id="deliveryDate" type="text"/></p>
+                    <p><label for="deliveryDate">Data Entrega</label>
+                        <input readonly class="text-field" id="deliveryDate" type="text"/></p>
 
-                <p><label for="mailOrderTo">Email Pedido</label>
-                    <input class="text-field" id="mailOrderTo" type="text" placeholder="Email Pedido..."/></p>
+                    <p><label for="mailOrderTo">Email Pedido</label>
+                        <input class="text-field" id="mailOrderTo" type="text" placeholder="Email Pedido..."/></p>
 
-                <p><label for="mailInvoiceTo">Email DANFE</label>
-                    <input class="text-field" id="mailInvoiceTo" type="text" placeholder="Email DANFE..."/></p>
+                    <p><label for="mailInvoiceTo">Email DANFE</label>
+                        <input class="text-field" id="mailInvoiceTo" type="text" placeholder="Email DANFE..."/></p>
 
+                </div>
             </div>
         </div>
     </div>
 
     <div id="tabs-4">
-        <div style="margin-top: 30px" id="all_orders"></div>
+        <div class="tab-scroll-panel">
+            <div style="margin-top: 30px" id="all_orders"></div>
+        </div>
     </div>
 </div>
 
