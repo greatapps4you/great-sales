@@ -60,6 +60,7 @@ public class Order {
     private LocalDate deliveryDate;
     // Strings
     private String orderNumber;
+    @Lob
     private String mailMessage;
     private String mailOrderTo;
     private String mailInvoiceTo;

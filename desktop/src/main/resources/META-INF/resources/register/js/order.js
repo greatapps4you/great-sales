@@ -477,6 +477,21 @@ function validate_form() {
         return false;
     }
 
+    if ($("#mailOrderTo").val().length == 0) {
+        alert("Informe o Email do Pedido!");
+        return false;
+    }
+
+    if ($("#mailInvoiceTo").val().length == 0) {
+        alert("Informe o Email da DANFE!");
+        return false;
+    }
+
+    if ($("#mailMessage").val().length == 0) {
+        alert("Informe a mensagem do Email!");
+        return false;
+    }
+
     return true;
 }
 
