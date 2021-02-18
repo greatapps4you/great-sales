@@ -371,10 +371,9 @@ $(document).ready(function () {
             mailOrderTo: $("#mailOrderTo").val(),
             mailInvoiceTo: $("#mailInvoiceTo").val(),
             deliveryDate: $("#deliveryDate").val(),
-            deliveryFee: $("#deliveryFee").val(),
-            commissionInCurrency: $("#grandTotal").val() * $("#commissionInPercentage").val(),
-            commissionInPercentage: $("#commissionInPercentage").val(),
-            taxInPercentage: $("#taxInPercentage").val(),
+            shipping: $("#shipping").val(),
+            commission: $("#commission").val(),
+            tax: $("#tax").val(),
             customerOrderNumber: $("#customerOrderNumber").val(),
             paymentConditions: $("#paymentConditions").val(),
             observations: $("#observations").val()
@@ -446,13 +445,13 @@ function clearFields() {
 
         //Decimal Fields
         $("#grandTotal").val("0.00");
-        $("#deliveryFee").val("0.00")
-        $("#commissionInPercentage").val("2.00")
+        $("#commission").val("2.00")
 
         //Entities
         $("#customer").val("");
         $("#salesman").val("");
         $("#carrier").val("");
+        $("#shipping").val("CIF")
 
         //Variables
         items = [];

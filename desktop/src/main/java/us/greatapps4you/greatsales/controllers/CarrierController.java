@@ -17,7 +17,7 @@ package us.greatapps4you.greatsales.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import us.greatapps4you.greatsales.entities.order.Carrier;
+import us.greatapps4you.greatsales.entities.shipping.Carrier;
 import us.greatapps4you.greatsales.repositories.CarrierRepository;
 
 import javax.ws.rs.*;

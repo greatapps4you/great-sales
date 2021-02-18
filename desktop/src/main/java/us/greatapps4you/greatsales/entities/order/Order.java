@@ -15,7 +15,9 @@
 package us.greatapps4you.greatsales.entities.order;
 
 import lombok.*;
+import us.greatapps4you.greatsales.entities.shipping.Carrier;
 import us.greatapps4you.greatsales.entities.registration.Address;
+import us.greatapps4you.greatsales.entities.shipping.ShippingType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -47,12 +49,12 @@ public class Order {
     private Address billingAddress;
     @OneToMany(cascade = {CascadeType.ALL})
     private List<OrderItem> items;
+    @Enumerated(EnumType.STRING)
+    private ShippingType shipping;
     // Decimal Values
     private BigDecimal grandTotal;
-    private BigDecimal deliveryFee;
-    private BigDecimal commissionInCurrency;
-    private BigDecimal commissionInPercentage;
-    private BigDecimal taxInPercentage;
+    private BigDecimal commission;
+    private BigDecimal tax;
     // Dates
     private LocalDate orderDate;
     private LocalDate deliveryDate;

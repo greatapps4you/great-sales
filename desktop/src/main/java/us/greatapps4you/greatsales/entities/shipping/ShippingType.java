@@ -12,12 +12,8 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.repositories;
+package us.greatapps4you.greatsales.entities.shipping;
 
-import org.springframework.data.repository.CrudRepository;
-import us.greatapps4you.greatsales.entities.shipping.Carrier;
-
-import java.util.UUID;
-
-public interface CarrierRepository extends CrudRepository<Carrier, UUID> {
+public enum ShippingType {
+    CIF, FOB
 }
