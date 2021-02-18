@@ -275,6 +275,7 @@ $(document).ready(function () {
     $("#include").click(function () {
         let quantity = $("#quantity").val();
         let total = selected_inventory_item.sellingPrice * quantity;
+
         let item = {
             inventoryItem: selected_inventory_item,
             quantity: quantity,
@@ -287,12 +288,24 @@ $(document).ready(function () {
         for (let i = 0; i < items.length; i++) {
             grandTotal += items[i].total;
         }
-        $("#grandTotal").val(grandTotal);
+        $("#grandTotal").val(number_to_BRL(grandTotal));
 
         clear_item_fields();
         update_items();
     });
 });
+
+function number_to_BRL(amount) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        maximumFractionDigits: 2
+    }).format(amount);
+}
+
+function BRL_to_number(amount) {
+    return amount.replace('R$', '').replace('.', '').replace(',', '.').trim();
+}
 
 function clear_item_fields() {
     //Entities
@@ -322,8 +335,8 @@ function update_items() {
         results_table += "<tr>"
             + "<td>" + items[i].inventoryItem.product.description + "</td>"
             + "<td>" + items[i].quantity + "</td>"
-            + "<td>" + items[i].inventoryItem.sellingPrice + "</td>"
-            + "<td>" + items[i].total + "</td>"
+            + "<td>" + number_to_BRL(items[i].inventoryItem.sellingPrice) + "</td>"
+            + "<td>" + number_to_BRL(items[i].total) + "</td>"
             + "<td><a class='button-link-remove'>X</a></td>"
             + "</tr>";
     }
