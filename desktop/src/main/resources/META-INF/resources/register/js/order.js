@@ -246,7 +246,7 @@ function build_products_dropbox() {
                 // Handle the selected item right here
                 selected_inventory_item = JSON.parse($(this).attr("data"));
                 $("#product").val(selected_inventory_item.product.description);
-                $("#unValue").val(selected_inventory_item.sellingPrice);
+                $("#unValue").val(number_to_BRL(selected_inventory_item.sellingPrice));
                 $("#product-dropdown").toggleClass("show");
             });
 
@@ -318,7 +318,7 @@ function clear_item_fields() {
     $("#product").val("");
 
     // Values
-    $("#unValue").val("0.00");
+    $("#unValue").val("R$ 0,00");
     $("#quantity").val("0.00");
 }
 
