@@ -36,7 +36,7 @@
 <div id="tabs">
     <ul>
         <li><a href="#tabs-1">Pedido</a></li>
-        <li><a href="#tabs-2">Pagamento</a></li>
+        <li><a href="#tabs-2">Email</a></li>
         <li><a href="#tabs-3">Envio</a></li>
         <li><a href="#tabs-4">Todos</a></li>
     </ul>
@@ -190,13 +190,71 @@
 
     <div id="tabs-2">
         <div class="tab-scroll-panel">
-            <span class="section-title">Pagamento</span>
+            <span class="section-title">Email</span>
 
             <div class="form">
-                <div>
-                    <div><label for="mailMessage">Msg. Email</label>
-                        <input class="text-field" id="mailMessage" type="text" placeholder="Mensagem do Email..."/>
+
+                <div class="row">
+                    <div class="column two-tenth">
+                        <label for="mailOrderTo">Email Pedido</label>
                     </div>
+                    <div class="column three-tenth">
+                        <input class="text-field" id="mailOrderTo" type="text" placeholder="Email Pedido..."/>
+                    </div>
+
+                    <div class="column two-tenth">
+                        <label for="mailInvoiceTo">Email DANFE</label>
+                    </div>
+                    <div class="column three-tenth">
+                        <input class="text-field" id="mailInvoiceTo" type="text" placeholder="Email DANFE..."/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column two-tenth">
+                        <label for="mailMessage">Mensagem</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column ten-tenth">
+                        <textarea id="mailMessage"
+                                  style="width: 100%"
+                                  rows="24"
+                                  wrap="on"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="tabs-3">
+        <div class="tab-scroll-panel">
+            <span class="section-title">Envio</span>
+            <br>
+            <div class="form">
+                <div>
+                    <div><label for="deliveryStreet">Rua</label>
+                        <input class="text-field" id="deliveryStreet" type="text" placeholder="Rua..."/></div>
+
+                    <p><label for="deliveryStreetNumber">Número</label>
+                        <input class="text-field" id="deliveryStreetNumber" type="text" placeholder="Número..."/></p>
+
+                    <p><label for="deliveryNeighborhood">Bairro</label>
+                        <input class="text-field" id="deliveryNeighborhood" type="text" placeholder="Bairro..."/></p>
+
+                    <p><label for="deliveryZip">CEP</label>
+                        <input class="text-field" id="deliveryZip" type="text" placeholder="CEP..."/></p>
+
+                    <p><label for="deliveryCity">Cidade</label>
+                        <input class="text-field" id="deliveryCity" type="text" placeholder="Cidade..."/></p>
+
+                    <p><label for="deliveryState">Estado</label>
+                        <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/></p>
+
+                    <p><label for="deliveryDate">Data Entrega</label>
+                        <input readonly class="text-field" id="deliveryDate" type="text"/></p>
 
                     <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
                         <input class="text-field" id="customerOrderNumber" type="text"
@@ -220,43 +278,6 @@
                                step="0.01"
                                pattern="^\d+(?:\.\d{1,2})?$">
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="tabs-3">
-        <div class="tab-scroll-panel">
-            <span class="section-title">Envio</span>
-            <br>
-            <div class="form">
-                <div style="column-count: 2;">
-                    <div><label for="deliveryStreet">Rua</label>
-                        <input class="text-field" id="deliveryStreet" type="text" placeholder="Rua..."/></div>
-
-                    <p><label for="deliveryStreetNumber">Número</label>
-                        <input class="text-field" id="deliveryStreetNumber" type="text" placeholder="Número..."/></p>
-
-                    <p><label for="deliveryNeighborhood">Bairro</label>
-                        <input class="text-field" id="deliveryNeighborhood" type="text" placeholder="Bairro..."/></p>
-
-                    <p><label for="deliveryZip">CEP</label>
-                        <input class="text-field" id="deliveryZip" type="text" placeholder="CEP..."/></p>
-
-                    <p><label for="deliveryCity">Cidade</label>
-                        <input class="text-field" id="deliveryCity" type="text" placeholder="Cidade..."/></p>
-
-                    <p><label for="deliveryState">Estado</label>
-                        <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/></p>
-
-                    <p><label for="deliveryDate">Data Entrega</label>
-                        <input readonly class="text-field" id="deliveryDate" type="text"/></p>
-
-                    <p><label for="mailOrderTo">Email Pedido</label>
-                        <input class="text-field" id="mailOrderTo" type="text" placeholder="Email Pedido..."/></p>
-
-                    <p><label for="mailInvoiceTo">Email DANFE</label>
-                        <input class="text-field" id="mailInvoiceTo" type="text" placeholder="Email DANFE..."/></p>
 
                 </div>
             </div>
