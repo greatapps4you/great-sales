@@ -22,7 +22,7 @@ const salesmen_list_url = "http://localhost:8080/salesmen/list";
 const carriers_list_url = "http://localhost:8080/carriers/list";
 const inventory_list_url = "http://localhost:8080/inventory/list";
 
-const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
+const decimal_regex = /^\d+(?:\.\d{1,9})?$/;
 let items = [];
 let selected_customer = undefined;
 let selected_salesman = undefined;
@@ -37,6 +37,10 @@ $(document).ready(function () {
         $("#deliveryDate").datepicker({
             dateFormat: "yy-mm-dd"
         });
+    });
+
+    $(function () {
+        $("#tabs").tabs();
     });
 });
 
@@ -246,7 +250,7 @@ function build_products_dropbox() {
                 // Handle the selected item right here
                 selected_inventory_item = JSON.parse($(this).attr("data"));
                 $("#product").val(selected_inventory_item.product.description);
-                $("#unValue").val(selected_inventory_item.sellingPrice);
+                $("#unValue").val(number_to_BRL(selected_inventory_item.sellingPrice));
                 $("#product-dropdown").toggleClass("show");
             });
 
@@ -282,17 +286,35 @@ $(document).ready(function () {
         };
         items.push(item);
 
-        // Update grandTotal
-        let grandTotal = 0.00;
-        for (let i = 0; i < items.length; i++) {
-            grandTotal += items[i].total;
-        }
-        $("#grandTotal").val(grandTotal);
-
+        update_grand_total();
         clear_item_fields();
         update_items();
     });
 });
+
+function update_grand_total() {
+    $("#grandTotal").val(number_to_BRL(calculate_grand_total()));
+}
+
+function calculate_grand_total() {
+    let grandTotal = 0.00;
+    for (let i = 0; i < items.length; i++) {
+        grandTotal += items[i].total;
+    }
+    return grandTotal;
+}
+
+function number_to_BRL(amount) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        maximumFractionDigits: 2
+    }).format(amount);
+}
+
+function BRL_to_number(amount) {
+    return amount.replace('R$', '').replace('.', '').replace(',', '.').trim();
+}
 
 function clear_item_fields() {
     //Entities
@@ -300,10 +322,9 @@ function clear_item_fields() {
     $("#product").val("");
 
     // Values
-    $("#unValue").val("0.00");
+    $("#unValue").val("R$ 0,00");
     $("#quantity").val("0.00");
 }
-
 
 function update_items() {
     let results_table = "<table>" +
@@ -322,8 +343,8 @@ function update_items() {
         results_table += "<tr>"
             + "<td>" + items[i].inventoryItem.product.description + "</td>"
             + "<td>" + items[i].quantity + "</td>"
-            + "<td>" + items[i].inventoryItem.sellingPrice + "</td>"
-            + "<td>" + items[i].total + "</td>"
+            + "<td>" + number_to_BRL(items[i].inventoryItem.sellingPrice) + "</td>"
+            + "<td>" + number_to_BRL(items[i].total) + "</td>"
             + "<td><a class='button-link-remove'>X</a></td>"
             + "</tr>";
     }
@@ -352,12 +373,16 @@ $(document).ready(function () {
 // Save
 $(document).ready(function () {
     $("#save").click(function () {
+        if (!validate_form()) {
+            return;
+        }
+
         const order = JSON.stringify({
             customer: selected_customer,
             salesman: selected_salesman,
             carrier: selected_carrier,
             items: items,
-            grandTotal: $("#grandTotal").val(),
+            grandTotal: calculate_grand_total(),
 
             deliveryAddress: {
                 street: $("#deliveryStreet").val(),
@@ -375,7 +400,7 @@ $(document).ready(function () {
             commission: $("#commission").val(),
             tax: $("#tax").val(),
             customerOrderNumber: $("#customerOrderNumber").val(),
-            paymentConditions: $("#paymentConditions").val(),
+            paymentPlan: $("#paymentPlan").val(),
             observations: $("#observations").val()
         });
 
@@ -401,10 +426,11 @@ function list() {
         let results_table = "<table>" +
             "<thead>" +
             "<tr>" +
-            "<th>UUID</th>" +
-            "<th>NÚMERO PEDIDO</th>" +
-            "<th>VALOR PEDIDO</th>" +
+            "<th>NÚMERO</th>" +
+            "<th>TOTAL</th>" +
             "<th>CLIENTE</th>" +
+            "<th>FRETE</th>" +
+            "<th>ENTREGA</th>" +
             "<th></th>" +
             "</tr>" +
             "</thead>" +
@@ -412,11 +438,16 @@ function list() {
 
         for (let i = 0; i < orders.length; i++) {
             const uuid = orders[i].uuid;
+            const delivery_date = leftPad(orders[i].deliveryDate[2], 2)
+                + " / " + leftPad(orders[i].deliveryDate[1], 2)
+                + " / " + orders[i].deliveryDate[0];
+
             results_table += "<tr>"
-                + "<td>" + uuid + "</td>"
                 + "<td>" + orders[i].orderNumber + "</td>"
-                + "<td>" + orders[i].grandTotal + "</td>"
+                + "<td>" + number_to_BRL(orders[i].grandTotal) + "</td>"
                 + "<td>" + orders[i].customer.identification.name + "</td>"
+                + "<td>" + orders[i].shipping + "</td>"
+                + "<td>" + delivery_date + "</td>"
                 + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
                 + "</tr>";
         }
@@ -431,8 +462,87 @@ function list() {
     });
 }
 
+function leftPad(value, length) {
+    value = String(value);
+    length = length - value.length;
+    return ('0'.repeat(length) + value)
+}
+
+function validate_form() {
+    // Order
+    if (!selected_customer) {
+        alert("Selecione o Cliente!");
+        return false;
+    }
+
+    if (!selected_salesman) {
+        alert("Selecione o Vendedor!");
+        return false;
+    }
+
+    if (!selected_carrier) {
+        alert("Selecione a Transportadora!");
+        return false;
+    }
+
+    if (!items || items.length == 0) {
+        alert("Adicione Produtos!");
+        return false;
+    }
+
+    // Email
+    if ($("#mailOrderTo").val().length == 0) {
+        alert("Informe o Email do Pedido!");
+        return false;
+    }
+
+    if ($("#mailInvoiceTo").val().length == 0) {
+        alert("Informe o Email da DANFE!");
+        return false;
+    }
+
+    if ($("#mailMessage").val().length == 0) {
+        alert("Informe a mensagem do Email!");
+        return false;
+    }
+
+    // Shipping
+    if ($("#deliveryDate").val().length == 0) {
+        alert("Informe a Data de Entrega!");
+        return false;
+    }
+
+    if ($("#deliveryStreet").val().length == 0
+        || $("#deliveryStreetNumber").val().length == 0
+        || $("#deliveryNeighborhood").val().length == 0
+        || $("#deliveryZip").val().length == 0
+        || $("#deliveryCity").val().length == 0
+        || $("#deliveryState").val().length == 0) {
+        alert("Endereço de Entrega INCOMPLETO!");
+        return false;
+    }
+
+    // Payment
+    if ($("#paymentPlan").val().length == 0) {
+        alert("Informe o Prazo de Pagamento!");
+        return false;
+    }
+
+    return true;
+}
+
 function clearFields() {
     $(document).ready(function () {
+        /* Payment */
+        $("#paymentPlan").val("");
+        $("#grandTotal").val("R$ 0,00");
+        $("#commission").val("2.00")
+
+        /*Email*/
+        $("#mailOrderTo").val("");
+        $("#mailInvoiceTo").val("");
+        $("#mailMessage").val("")
+
         /* Delivery */
         $("#deliveryStreet").val("");
         $("#deliveryStreetNumber").val("");
@@ -440,18 +550,26 @@ function clearFields() {
         $("#deliveryNeighborhood").val("");
         $("#deliveryCity").val("");
         $("#deliveryState").val("");
-
         $("#deliveryDate").val("");
 
-        //Decimal Fields
-        $("#grandTotal").val("0.00");
-        $("#commission").val("2.00")
+        /* Delivery */
+        $("#billingStreet").val("");
+        $("#billingStreetNumber").val("");
+        $("#billingZip").val("");
+        $("#billingNeighborhood").val("");
+        $("#billingCity").val("");
+        $("#billingState").val("");
+        $("#billingDate").val("");
 
         //Entities
         $("#customer").val("");
         $("#salesman").val("");
         $("#carrier").val("");
         $("#shipping").val("CIF")
+
+        /* Miscellaneous */
+        $("#customerOrderNumber").val("");
+        $("#observations").val("");
 
         //Variables
         items = [];

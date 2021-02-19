@@ -60,11 +60,12 @@ public class Order {
     private LocalDate deliveryDate;
     // Strings
     private String orderNumber;
+    @Lob
     private String mailMessage;
     private String mailOrderTo;
     private String mailInvoiceTo;
     private String customerOrderNumber;
-    private String paymentConditions;
+    private String paymentPlan;
     private String observations;
 
 }

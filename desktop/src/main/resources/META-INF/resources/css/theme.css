@@ -270,6 +270,12 @@ label {
     width: 100%;
 }
 
+/*Scroll Panel*/
+.tab-scroll-panel {
+    height: 650px;
+    overflow: auto;
+}
+
 /*Fonts*/
 @font-face {
     font-family: roboto_bold;
