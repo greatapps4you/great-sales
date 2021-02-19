@@ -38,7 +38,8 @@
         <li><a href="#tabs-1">Pedido</a></li>
         <li><a href="#tabs-2">Email</a></li>
         <li><a href="#tabs-3">Frete</a></li>
-        <li><a href="#tabs-4">Todos</a></li>
+        <li><a href="#tabs-4">Pagamento</a></li>
+        <li><a href="#tabs-5">Todos</a></li>
     </ul>
     <div id="tabs-1">
         <div class="tab-scroll-panel">
@@ -230,7 +231,16 @@
 
     <div id="tabs-3">
         <div class="tab-scroll-panel">
-            <span class="section-title">Endereço de Entrega</span>
+            <span class="section-title">Dados da Entrega</span>
+            <br>
+            <div class="form">
+                <p><label for="deliveryDate">Data Entrega</label>
+                    <input readonly class="text-field" id="deliveryDate" type="text"/></p>
+
+            </div>
+
+            <br>
+            <span class="section-title">Endereço da Entrega</span>
             <br>
             <div class="form">
                 <div>
@@ -252,31 +262,6 @@
                     <p><label for="deliveryState">Estado</label>
                         <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/></p>
 
-                    <p><label for="deliveryDate">Data Entrega</label>
-                        <input readonly class="text-field" id="deliveryDate" type="text"/></p>
-
-                    <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
-                        <input class="text-field" id="customerOrderNumber" type="text"
-                               placeholder="Núm. Pedido Cliente..."/></p>
-
-                    <p><label for="paymentPlan">Cond. Pgto.</label>
-                        <input class="text-field" id="paymentPlan" type="text"
-                               placeholder="Condições de Pagamento..."/></p>
-
-                    <p><label for="observations">Observações</label>
-                        <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
-
-                    <div>
-                        <label for="commission">Comissão</label>
-                    </div>
-
-                    <div>
-                        <input id="commission" type="number"
-                               class="number-field"
-                               placeholder="0.00" required min="0" value="2.00"
-                               step="0.01"
-                               pattern="^\d+(?:\.\d{1,2})?$">
-                    </div>
 
                 </div>
             </div>
@@ -284,6 +269,62 @@
     </div>
 
     <div id="tabs-4">
+        <div class="tab-scroll-panel">
+            <span class="section-title">Dados do Pagamento</span>
+            <br>
+            <div class="form">
+                <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
+                    <input class="text-field" id="customerOrderNumber" type="text"
+                           placeholder="Núm. Pedido Cliente..."/></p>
+
+                <p><label for="paymentPlan">Cond. Pgto.</label>
+                    <input class="text-field" id="paymentPlan" type="text"
+                           placeholder="Condições de Pagamento..."/></p>
+
+                <div>
+                    <label for="commission">Comissão</label>
+                </div>
+                <div>
+                    <input id="commission" type="number"
+                           class="number-field"
+                           placeholder="0.00" required min="0" value="2.00"
+                           step="0.01"
+                           pattern="^\d+(?:\.\d{1,2})?$">
+                </div>
+
+                <p><label for="observations">Observações</label>
+                    <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
+
+            </div>
+            <br>
+
+            <span class="section-title">Endereço de Cobrança</span>
+            <br>
+            <div class="form">
+                <div>
+                    <div><label for="deliveryStreet">Rua</label>
+                        <input class="text-field" id="billingStreet" type="text" placeholder="Rua..."/></div>
+
+                    <p><label for="deliveryStreetNumber">Número</label>
+                        <input class="text-field" id="billingStreetNumber" type="text" placeholder="Número..."/></p>
+
+                    <p><label for="deliveryNeighborhood">Bairro</label>
+                        <input class="text-field" id="billingNeighborhood" type="text" placeholder="Bairro..."/></p>
+
+                    <p><label for="deliveryZip">CEP</label>
+                        <input class="text-field" id="billingZip" type="text" placeholder="CEP..."/></p>
+
+                    <p><label for="deliveryCity">Cidade</label>
+                        <input class="text-field" id="billingCity" type="text" placeholder="Cidade..."/></p>
+
+                    <p><label for="deliveryState">Estado</label>
+                        <input class="text-field" id="billingState" type="text" placeholder="Estado..."/></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tabs-5">
         <div class="tab-scroll-panel">
             <div style="margin-top: 30px" id="all_orders"></div>
         </div>
