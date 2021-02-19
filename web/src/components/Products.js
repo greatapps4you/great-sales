@@ -1,43 +1,73 @@
+import React, { useEffect, useState, setState } from 'react';
 import axios from '../../node_modules/yarn/node_modules/axios';
+import ProductsList from './ProductsList.js';
 
-import React, { useEffect, useState } from 'react';
-import ProductItem from './ProductItem.js';
 
-function Products() {
+class Products extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sku: "",
+      description: "",
+    };
 
-const [productsList, setProductsList] = useState([]);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    useEffect((products) => {
-        axios.get('http://localhost:8080/products/list').then((response) => {
-            setProductsList(response.data);
-        });
-    }, []);
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-const handleClick = (event) => {
-    event.preventDefault();
-}
+    this.setState({
+      [name]: value
+    });
+  }
 
-return (
-    <div>
-        <h1>Cadastro de Produtos</h1>
-        <form className="new_product" onSubmit={handleClick}>
-            <label>SKU: </label>
-            <input />
-            <label>Descricao: </label>
-            <input />
-            <button type="submit">Cadastrar</button>
-        </form>
+  handleSubmit(event) {
+  event.preventDefault();
+  console.log(this.state);
+  axios.post("http://localhost:8080/products/save", this.state)
+  .then(response => { console.log(response) } )
+  .catch(error => { console.log(error) } )
+  }
 
-        <h3>Lista de Produtos</h3>
-        <h3>Nome : Descricao</h3>
-        {productsList.map((product) =>
-        <ProductItem
-        key={product.uuid}
-        name={product.sku}
-        description={product.description} /> )}
+  render() {
+    return (
+     <div>
+      <form onSubmit={this.handleSubmit} >
+        <label>
+          SKU:
+          <input
+            name="sku"
+            type="text"
+            placeholder="Resumo"
+            value={this.state.name}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Descricao:
+          <input
+            name="description"
+            type="text"
+            placeholder="Descricao Detalhada"
+            value={this.state.description}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <input
+            type="submit"
+            value="Cadastrar" />
+      </form>
 
-</div>
-)
+      <div>
+      </div>
+    </div>
+
+    );
+  }
 }
 
 export default Products;

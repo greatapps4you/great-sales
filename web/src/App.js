@@ -22,13 +22,12 @@ import Costumers from './components/Customers.js'
 
 function App() {
 
-
   return (
     <div>
         <Header />
         <SideNav />
 
-        <section className="main">
+        <main>
 
         <h1>Bem-Vindo(a) ao GreatSales!</h1>
         <br />
@@ -56,7 +55,7 @@ function App() {
 
         <Costumers />
 
-    </section>
+    </main>
     </div>
   );
 }
