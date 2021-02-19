@@ -37,13 +37,10 @@ $(document).ready(function () {
         const address = {
             street: $("#street").val(),
             number: $("#number").val(),
-            complement: $("#complement").val(),
             zip: $("#zip").val(),
             neighborhood: $("#neighborhood").val(),
             city: $("#city").val(),
             countryState: $("#countryState").val(),
-            country: $("#country").val(),
-            website: $("#website").val(),
             email: $("#email").val(),
             cellPhone: $("#cellPhone").val(),
             phone: $("#phone").val()
@@ -60,7 +57,7 @@ $(document).ready(function () {
             data: salesman,
             contentType: "application/json",
             dataType: "json"
-        }).done(function (savedProduct) {
+        }).done(function (savedSaleman) {
             clearFields();
             list();
         });
@@ -111,13 +108,10 @@ function clearFields() {
         $("#name").val("");
         $("#street").val("");
         $("#number").val("");
-        $("#complement").val("");
         $("#zip").val("");
         $("#neighborhood").val("");
         $("#city").val("");
         $("#countryState").val("");
-        $("#country").val("");
-        $("#website").val("");
         $("#email").val("");
         $("#cellPhone").val("");
         $("#phone").val("");
