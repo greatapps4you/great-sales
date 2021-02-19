@@ -297,6 +297,7 @@ $(document).ready(function () {
 function remove_order_item(item) {
     let view_uuid = item.getAttribute('view_uuid');
     items = items.filter(order_item => order_item.view_uuid !== view_uuid);
+    update_grand_total();
     update_items();
 }
 
