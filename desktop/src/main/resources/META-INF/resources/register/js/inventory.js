@@ -24,7 +24,7 @@ const decimal_regex = /^\d+(?:\.\d{1,2})?$/;
 let selected_product = undefined;
 let selected_vendor = undefined;
 
-// Init Screen
+// Init UI
 $(document).ready(function () {
     list();
 
@@ -32,6 +32,10 @@ $(document).ready(function () {
         $("#buyingDate").datepicker({
             dateFormat: "yy-mm-dd"
         });
+    });
+
+    $(function () {
+        $("#tabs").tabs();
     });
 });
 

@@ -17,7 +17,13 @@ const list_url = "http://localhost:8080/products/list";
 const remove_url = "http://localhost:8080/products/remove/";
 const find_url = "http://localhost:8080/products/find/";
 
-list();
+// Init UI
+$(document).ready(function () {
+    list();
+    $(function () {
+        $("#tabs").tabs();
+    });
+});
 
 $(document).ready(function () {
 
@@ -72,7 +78,7 @@ function list() {
         results_table += "</tbody>" +
             "</table>";
 
-        if(products.length == 0) {
+        if (products.length == 0) {
             $("#all_products").html("Nenhum Produto Cadastrado");
         } else {
             $("#all_products").html(results_table);

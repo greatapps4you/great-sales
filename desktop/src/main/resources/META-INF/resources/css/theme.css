@@ -159,11 +159,12 @@ label {
 
 .button-link-remove, .button-link-remove:link, .button-link-remove:visited {
     color: #BE030F;
+    background-color: white;
     padding: 5px 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .button-link-remove:hover, .button-link-remove:active {
@@ -268,6 +269,12 @@ label {
 
 .column.ten-tenth {
     width: 100%;
+}
+
+/*Scroll Panel*/
+.tab-scroll-panel {
+    height: 650px;
+    overflow: auto;
 }
 
 /*Fonts*/

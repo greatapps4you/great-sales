@@ -44,9 +44,12 @@ public class OrderController {
     @Produces(MediaType.APPLICATION_JSON)
     public Order save(Order order) {
         System.out.println("*********************************");
-        System.out.println("ORDER ITEMS: " + order.getItems());
+        System.out.println("MAIL TO: " + order.getMailOrderTo());
         System.out.println("*********************************");
-        System.out.println("ORDER GRAND TOTAL: " + order.getGrandTotal());
+        System.out.println("INVOICE TO: " + order.getMailInvoiceTo());
+        System.out.println("*********************************");
+        System.out.println("MESSAGE: " + order.getMailMessage());
+
 
         if (order != null) {
             if (order.getUuid() == null) {
