@@ -17,6 +17,7 @@ const list_url = "http://localhost:8080/products/list";
 const remove_url = "http://localhost:8080/products/remove/";
 const find_url = "http://localhost:8080/products/find/";
 
+// Init UI
 $(document).ready(function () {
     list();
     $(function () {
