@@ -119,7 +119,7 @@
                     <div class="column one-tenth">
                         <label for="quantity">Qtde.</label>
                     </div>
-                    <div class="column three-tenth">
+                    <div class="column two-tenth">
                         <input class="number-field" id="quantity" type="number"
                                placeholder="0.00" required min="0" value="0.00" step="0.01"
                                pattern="^\d+(?:\.\d{1,9})?$">
@@ -128,7 +128,7 @@
                     <div class="column one-tenth">
                         <label for="unValue">Vlr. Un.</label>
                     </div>
-                    <div class="column three-tenth">
+                    <div class="column two-tenth">
                         <input readonly class="text-field"
                                id="unValue"
                                type="text"
@@ -156,33 +156,6 @@
                                id="grandTotal" type="text"
                                style="background-color: lightyellow; text-align: right;"
                                value="R$ 0,00">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form">
-                <div class="row">
-                    <div class="column two-tenth">
-                        <label for="shipping">Frete</label>
-                    </div>
-
-                    <div class="column three-tenth">
-                        <select class="text-field" id="shipping">
-                            <option value="CIF">CIF</option>
-                            <option value="FOB">FOB</option>
-                        </select>
-                    </div>
-
-                    <div class="column two-tenth">
-                        <label for="tax">ICMS</label>
-                    </div>
-
-                    <div class="column three-tenth">
-                        <input id="tax" type="number"
-                               class="number-field"
-                               placeholder="0.00" required min="0" value="12.00"
-                               step="0.01"
-                               pattern="^\d+(?:\.\d{1,2})?$">
                     </div>
                 </div>
             </div>
@@ -235,10 +208,32 @@
             <br>
             <div class="form">
                 <div class="row">
+                    <div class="column one-tenth">
+                        <label for="shipping">Frete</label>
+                    </div>
+
+                    <div class="column two-tenth">
+                        <select class="text-field" id="shipping">
+                            <option value="CIF">CIF</option>
+                            <option value="FOB">FOB</option>
+                        </select>
+                    </div>
+
+                    <div class="column one-tenth">
+                        <label for="tax">ICMS</label>
+                    </div>
+
+                    <div class="column two-tenth">
+                        <input id="tax" type="number"
+                               class="number-field"
+                               placeholder="0.00" required min="0" value="12.00"
+                               step="0.01"
+                               pattern="^\d+(?:\.\d{1,2})?$">
+                    </div>
+
                     <div class="column two-tenth">
                         <label for="deliveryDate">Data Entrega</label>
                     </div>
-
                     <div class="column two-tenth">
                         <input readonly class="text-field" id="deliveryDate" type="text"/>
                     </div>
@@ -249,26 +244,52 @@
             <span class="section-title">Endereço da Entrega</span>
             <br>
             <div class="form">
-                <div>
-                    <div><label for="deliveryStreet">Rua</label>
-                        <input class="text-field" id="deliveryStreet" type="text" placeholder="Rua..."/></div>
+                <div class="row">
+                    <div class="column one-tenth">
+                        <label for="deliveryStreet">Rua</label>
+                    </div>
+                    <div class="column six-tenth">
+                        <input class="text-field" id="deliveryStreet" type="text" placeholder="Rua..."/>
+                    </div>
 
-                    <p><label for="deliveryStreetNumber">Número</label>
-                        <input class="text-field" id="deliveryStreetNumber" type="text" placeholder="Número..."/></p>
+                    <div class="column one-tenth">
+                        <label for="deliveryStreetNumber">Número</label>
+                    </div>
+                    <div class="column two-tenth">
+                        <input class="text-field" id="deliveryStreetNumber" type="text" placeholder="Número..."/>
+                    </div>
+                </div>
 
-                    <p><label for="deliveryNeighborhood">Bairro</label>
-                        <input class="text-field" id="deliveryNeighborhood" type="text" placeholder="Bairro..."/></p>
+                <div class="row">
+                    <div class="column one-tenth">
+                        <label for="deliveryNeighborhood">Bairro</label>
+                    </div>
+                    <div class="column six-tenth">
+                        <input class="text-field" id="deliveryNeighborhood" type="text" placeholder="Bairro..."/>
+                    </div>
 
-                    <p><label for="deliveryZip">CEP</label>
-                        <input class="text-field" id="deliveryZip" type="text" placeholder="CEP..."/></p>
+                    <div class="column one-tenth">
+                        <label for="deliveryZip">CEP</label>
+                    </div>
+                    <div class="column two-tenth">
+                        <input class="text-field" id="deliveryZip" type="text" placeholder="CEP..."/>
+                    </div>
+                </div>
 
-                    <p><label for="deliveryCity">Cidade</label>
-                        <input class="text-field" id="deliveryCity" type="text" placeholder="Cidade..."/></p>
+                <div class="row">
+                    <div class="column one-tenth">
+                        <label for="deliveryCity">Cidade</label>
+                    </div>
+                    <div class="column six-tenth">
+                        <input class="text-field" id="deliveryCity" type="text" placeholder="Cidade..."/>
+                    </div>
 
-                    <p><label for="deliveryState">Estado</label>
-                        <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/></p>
-
-
+                    <div class="column one-tenth">
+                        <label for="deliveryState">Estado</label>
+                    </div>
+                    <div class="column two-tenth">
+                        <input class="text-field" id="deliveryState" type="text" placeholder="Estado..."/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -279,13 +300,13 @@
             <span class="section-title">Dados do Pagamento</span>
             <br>
             <div class="form">
-                <p><label for="customerOrderNumber">Num. Pedido Cliente</label>
-                    <input class="text-field" id="customerOrderNumber" type="text"
-                           placeholder="Núm. Pedido Cliente..."/></p>
+                <label for="customerOrderNumber">Num. Pedido Cliente</label>
+                <input class="text-field" id="customerOrderNumber" type="text"
+                       placeholder="Núm. Pedido Cliente..."/>
 
-                <p><label for="paymentPlan">Cond. Pgto.</label>
-                    <input class="text-field" id="paymentPlan" type="text"
-                           placeholder="Condições de Pagamento..."/></p>
+                <label for="paymentPlan">Cond. Pgto.</label>
+                <input class="text-field" id="paymentPlan" type="text"
+                       placeholder="Condições de Pagamento..."/>
 
                 <div>
                     <label for="commission">Comissão</label>
@@ -298,8 +319,8 @@
                            pattern="^\d+(?:\.\d{1,2})?$">
                 </div>
 
-                <p><label for="observations">Observações</label>
-                    <input class="text-field" id="observations" type="text" placeholder="Observações..."/></p>
+                <label for="observations">Observações</label>
+                <input class="text-field" id="observations" type="text" placeholder="Observações..."/>
 
             </div>
             <br>
@@ -311,20 +332,20 @@
                     <div><label for="deliveryStreet">Rua</label>
                         <input class="text-field" id="billingStreet" type="text" placeholder="Rua..."/></div>
 
-                    <p><label for="deliveryStreetNumber">Número</label>
-                        <input class="text-field" id="billingStreetNumber" type="text" placeholder="Número..."/></p>
+                    <label for="deliveryStreetNumber">Número</label>
+                    <input class="text-field" id="billingStreetNumber" type="text" placeholder="Número..."/>
 
-                    <p><label for="deliveryNeighborhood">Bairro</label>
-                        <input class="text-field" id="billingNeighborhood" type="text" placeholder="Bairro..."/></p>
+                    <label for="deliveryNeighborhood">Bairro</label>
+                    <input class="text-field" id="billingNeighborhood" type="text" placeholder="Bairro..."/>
 
-                    <p><label for="deliveryZip">CEP</label>
-                        <input class="text-field" id="billingZip" type="text" placeholder="CEP..."/></p>
+                    <label for="deliveryZip">CEP</label>
+                    <input class="text-field" id="billingZip" type="text" placeholder="CEP..."/>
 
-                    <p><label for="deliveryCity">Cidade</label>
-                        <input class="text-field" id="billingCity" type="text" placeholder="Cidade..."/></p>
+                    <label for="deliveryCity">Cidade</label>
+                    <input class="text-field" id="billingCity" type="text" placeholder="Cidade..."/>
 
-                    <p><label for="deliveryState">Estado</label>
-                        <input class="text-field" id="billingState" type="text" placeholder="Estado..."/></p>
+                    <label for="deliveryState">Estado</label>
+                    <input class="text-field" id="billingState" type="text" placeholder="Estado..."/>
                 </div>
             </div>
         </div>
@@ -342,3 +363,8 @@
 
 </body>
 </html>
+
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
