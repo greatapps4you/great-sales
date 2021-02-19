@@ -469,6 +469,7 @@ function leftPad(value, length) {
 }
 
 function validate_form() {
+    // Order
     if (!selected_customer) {
         alert("Selecione o Cliente!");
         return false;
@@ -489,6 +490,7 @@ function validate_form() {
         return false;
     }
 
+    // Email
     if ($("#mailOrderTo").val().length == 0) {
         alert("Informe o Email do Pedido!");
         return false;
@@ -504,8 +506,25 @@ function validate_form() {
         return false;
     }
 
+    // Shipping
     if ($("#deliveryDate").val().length == 0) {
         alert("Informe a Data de Entrega!");
+        return false;
+    }
+
+    if ($("#deliveryStreet").val().length == 0
+        || $("#deliveryStreetNumber").val().length == 0
+        || $("#deliveryNeighborhood").val().length == 0
+        || $("#deliveryZip").val().length == 0
+        || $("#deliveryCity").val().length == 0
+        || $("#deliveryState").val().length == 0) {
+        alert("Endereço de Entrega INCOMPLETO!");
+        return false;
+    }
+
+    // Payment
+    if ($("#paymentPlan").val().length == 0) {
+        alert("Informe o Prazo de Pagamento!");
         return false;
     }
 
@@ -532,6 +551,15 @@ function clearFields() {
         $("#deliveryCity").val("");
         $("#deliveryState").val("");
         $("#deliveryDate").val("");
+
+        /* Delivery */
+        $("#billingStreet").val("");
+        $("#billingStreetNumber").val("");
+        $("#billingZip").val("");
+        $("#billingNeighborhood").val("");
+        $("#billingCity").val("");
+        $("#billingState").val("");
+        $("#billingDate").val("");
 
         //Entities
         $("#customer").val("");
