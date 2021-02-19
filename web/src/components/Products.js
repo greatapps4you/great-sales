@@ -63,6 +63,7 @@ class Products extends React.Component {
       </form>
 
       <div>
+      <ProductsList />
       </div>
     </div>
 
