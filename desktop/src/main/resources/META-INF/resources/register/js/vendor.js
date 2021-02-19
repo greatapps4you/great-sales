@@ -17,7 +17,14 @@ const list_url = "http://localhost:8080/vendors/list";
 const remove_url = "http://localhost:8080/vendors/remove/";
 const find_url = "http://localhost:8080/vendors/find/";
 
-list();
+// Init UI
+$(document).ready(function () {
+    list();
+
+    $(function () {
+        $("#tabs").tabs();
+    });
+});
 
 $(document).ready(function () {
 
