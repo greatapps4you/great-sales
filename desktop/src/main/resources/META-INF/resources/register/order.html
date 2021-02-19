@@ -300,28 +300,45 @@
             <span class="section-title">Dados do Pagamento</span>
             <br>
             <div class="form">
-                <label for="customerOrderNumber">Num. Pedido Cliente</label>
-                <input class="text-field" id="customerOrderNumber" type="text"
-                       placeholder="Núm. Pedido Cliente..."/>
-
-                <label for="paymentPlan">Cond. Pgto.</label>
-                <input class="text-field" id="paymentPlan" type="text"
-                       placeholder="Condições de Pagamento..."/>
-
-                <div>
-                    <label for="commission">Comissão</label>
-                </div>
-                <div>
-                    <input id="commission" type="number"
-                           class="number-field"
-                           placeholder="0.00" required min="0" value="2.00"
-                           step="0.01"
-                           pattern="^\d+(?:\.\d{1,2})?$">
+                <div class="row">
+                    <div class="column two-tenth">
+                        <label for="customerOrderNumber">Num. Pedido Cliente</label>
+                    </div>
+                    <div class="column two-tenth">
+                        <input class="text-field" id="customerOrderNumber" type="text"
+                               placeholder="Núm. Pedido Cliente..."/>
+                    </div>
                 </div>
 
-                <label for="observations">Observações</label>
-                <input class="text-field" id="observations" type="text" placeholder="Observações..."/>
+                <div class="row">
+                    <div class="column two-tenth">
+                        <label for="paymentPlan">Prazo</label>
+                    </div>
+                    <div class="column five-tenth">
+                        <input class="text-field" id="paymentPlan" type="text"
+                               placeholder="Condições de Pagamento..."/>
+                    </div>
 
+                    <div class="column one-tenth">
+                        <label for="commission">Comissão</label>
+                    </div>
+                    <div class="column two-tenth">
+                        <input id="commission" type="number"
+                               class="number-field"
+                               placeholder="0.00" required min="0" value="2.00"
+                               step="0.01"
+                               pattern="^\d+(?:\.\d{1,2})?$">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column two-tenth">
+                        <label for="observations">Observações</label>
+                    </div>
+                    <div class="column eight-tenth">
+                        <input class="text-field" id="observations" type="text" placeholder="Observações..."/>
+                    </div>
+                </div>
             </div>
             <br>
 
@@ -391,8 +408,3 @@
 
 </body>
 </html>
-
-<div class="row">
-    <div class="column"></div>
-    <div class="column"></div>
-</div>
