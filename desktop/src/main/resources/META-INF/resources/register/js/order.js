@@ -279,7 +279,9 @@ $(document).ready(function () {
     $("#include").click(function () {
         let quantity = $("#quantity").val();
         let total = selected_inventory_item.sellingPrice * quantity;
+        let random_view_uuid = UUID_random();
         let item = {
+            view_uuid: random_view_uuid,
             inventoryItem: selected_inventory_item,
             quantity: quantity,
             total: total
@@ -291,6 +293,12 @@ $(document).ready(function () {
         update_items();
     });
 });
+
+function remove_order_item(item) {
+    let view_uuid = item.getAttribute('view_uuid');
+    items = items.filter(order_item => order_item.view_uuid !== view_uuid);
+    update_items();
+}
 
 function update_grand_total() {
     $("#grandTotal").val(number_to_BRL(calculate_grand_total()));
@@ -345,7 +353,8 @@ function update_items() {
             + "<td>" + items[i].quantity + "</td>"
             + "<td>" + number_to_BRL(items[i].inventoryItem.sellingPrice) + "</td>"
             + "<td>" + number_to_BRL(items[i].total) + "</td>"
-            + "<td><a class='button-link-remove'>X</a></td>"
+            + "<td><button onclick='remove_order_item(this)' class='button-link-remove' view_uuid='" +
+            items[i].view_uuid + "'>X</button></td>"
             + "</tr>";
     }
     results_table += "</tbody>" +
