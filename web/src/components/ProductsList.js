@@ -29,6 +29,16 @@ class ProductsList extends Component {
 
     deleteProduct = (productId) => {
         console.log(productId);
+        if (window.confirm('Voce tem certeza que deseja excluir esse item?')) {
+            axios.get('http://localhost:8080/products/remove/'+productId)
+                .then(response => {
+                    if (response.data != null) {
+                        this.setState({
+                            products: this.state.products.filter(product => product.uuid !== productId )  })
+                        alert('Produto excluido com sucesso.');
+                    }
+                })
+        }
     }
 
     render() {
