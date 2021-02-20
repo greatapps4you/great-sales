@@ -23,3 +23,15 @@ function ProductItem(props) {
 }
 
 export default ProductItem;
+
+//    handleDelete(props.uuid) {
+//         if (window.confirm('Voce tem certeza que deseja deletar esse item?')) {
+//             axios.delete("http://localhost:8080/products/remove/"+props.uuid)
+//             .then(data => {
+//             console.log(data)
+//             })
+//             .catch(error => {
+//             console.log(error)
+//             })
+//         }
+//     }

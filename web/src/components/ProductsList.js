@@ -14,6 +14,10 @@ class ProductsList extends Component {
     }
 
     componentDidMount() {
+        this.listAllProducts()
+    }
+
+    listAllProducts() {
         axios.get('http://localhost:8080/products/list')
             .then(response => {
                 this.setState({products: response.data})
@@ -31,7 +35,10 @@ class ProductsList extends Component {
             <div>
                 <h1>Lista de Produtos</h1>
                 {products.map((product, index) =>
-                <ProductItem key={index} sku={product.sku} description={product.description} />
+                    <ProductItem
+                        key={index + 1}
+                        sku={product.sku}
+                        description={product.description}/>
                 )}
             </div>
 
