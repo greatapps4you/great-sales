@@ -31,10 +31,15 @@ class Products extends React.Component {
         axios.post("http://localhost:8080/products/save", this.state)
             .then(response => {
                 console.log(response)
+                const { data: { description } } = response;
+                alert(`${description} cadastrado com sucesso.`)
+
             })
             .catch(error => {
                 console.log(error)
             })
+
+
     }
 
     render() {
@@ -53,11 +58,11 @@ class Products extends React.Component {
                     </label>
                     <br/>
                     <label>
-                        Descricao:
+                        Produto:
                         <input
                             name="description"
                             type="text"
-                            placeholder="Descricao Detalhada"
+                            placeholder="Descricao Detalhada do Produto"
                             value={this.state.description}
                             onChange={this.handleInputChange}/>
                     </label>

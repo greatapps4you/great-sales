@@ -29,13 +29,13 @@ class ProductsList extends Component {
 
     deleteProduct = (productId) => {
         console.log(productId);
-        if (window.confirm('Voce tem certeza que deseja excluir esse item?')) {
+        if (window.confirm('Você tem certeza que deseja excluir este item?')) {
             axios.get('http://localhost:8080/products/remove/'+productId)
                 .then(response => {
                     if (response.data != null) {
                         this.setState({
                             products: this.state.products.filter(product => product.uuid !== productId )  })
-                        alert('Produto excluido com sucesso.');
+                        alert('Produto excluído com sucesso.');
                     }
                 })
         }
@@ -54,7 +54,7 @@ class ProductsList extends Component {
                         key={index + 1}
                         sku={product.sku}
                         description={product.description}/>
-                        <button onClick={this.deleteProduct.bind(this, product.uuid)}>DELETAR</button>
+                        <button onClick={this.deleteProduct.bind(this, product.uuid)}>Excluir</button>
                     </div>
                     )
                 )}
