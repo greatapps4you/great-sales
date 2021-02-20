@@ -20,42 +20,42 @@ import Costumers from './components/Customers.js'
 
 function App() {
 
-  return (
-    <div>
-        <Header />
-        <SideNav />
+    return (
+        <div>
+            <Header/>
+            <SideNav/>
 
-        <main>
+            <main>
 
-        <h1>Bem-Vindo(a) ao GreatSales!</h1>
-        <br />
-        <h3>Pedidos</h3>
-        <p>Cadastrar novos pedidos e Visualizar pedidos já lancados</p>
-        <br />
-        <h3>Produtos</h3>
-        <p>Cadastrar novos produtos e Visualizar produtos já cadastrados</p>
-        <br />
-        <h3>Clientes</h3>
-        <p>Cadastrar novos clientes e Visualizar clientes já cadastrados</p>
-        <br />
-        <h3>Fornecedores</h3>
-        <p>Cadastrar novos fornecedores e Visualizar fornecedores já cadastrados</p>
-        <br />
-        <h3>Transportadoras</h3>
-        <p>Cadastrar novas transportadoras e Visualizar transportadoras já cadastrados</p>
-        <br />
-        <h3>Vendedores</h3>
-        <p>Cadastrar novos vendedores e Visualizar vendedores já cadastrados</p>
-        <br />
+                <h1>Bem-Vindo(a) ao GreatSales!</h1>
+                <br/>
+                <h3>Pedidos</h3>
+                <p>Cadastrar novos pedidos e Visualizar pedidos já lancados</p>
+                <br/>
+                <h3>Produtos</h3>
+                <p>Cadastrar novos produtos e Visualizar produtos já cadastrados</p>
+                <br/>
+                <h3>Clientes</h3>
+                <p>Cadastrar novos clientes e Visualizar clientes já cadastrados</p>
+                <br/>
+                <h3>Fornecedores</h3>
+                <p>Cadastrar novos fornecedores e Visualizar fornecedores já cadastrados</p>
+                <br/>
+                <h3>Transportadoras</h3>
+                <p>Cadastrar novas transportadoras e Visualizar transportadoras já cadastrados</p>
+                <br/>
+                <h3>Vendedores</h3>
+                <p>Cadastrar novos vendedores e Visualizar vendedores já cadastrados</p>
+                <br/>
 
 
-        <Products />
+                <Products/>
 
-        <Costumers />
+                <Costumers/>
 
-    </main>
-    </div>
-  );
+            </main>
+        </div>
+    );
 }
 
 export default App;
