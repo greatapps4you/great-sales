@@ -4,9 +4,9 @@ import React from 'react';
 class CustomersList extends React.Component {
     render() {
         return (
-        <div>
-            <h1>Lista de Clientes</h1>
-        </div>
+            <div>
+                <h1>Lista de Clientes</h1>
+            </div>
 
         )
     }
