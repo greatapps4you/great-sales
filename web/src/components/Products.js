@@ -43,11 +43,11 @@ class Products extends React.Component {
                 <h1>Cadastro de Produtos</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        SKU:
+                        Codigo de Barras:
                         <input
                             name="sku"
                             type="text"
-                            placeholder="Resumo"
+                            placeholder="Codigo de Barras"
                             value={this.state.name}
                             onChange={this.handleInputChange}/>
                     </label>

@@ -12,7 +12,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-import React, {Component} from "react";
+import React from "react";
 
 function ProductItem(props) {
     return (

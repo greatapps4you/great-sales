@@ -14,7 +14,7 @@ class ProductsList extends Component {
     }
 
     componentDidMount() {
-        this.listAllProducts()
+        this.listAllProducts();
     }
 
     listAllProducts() {
@@ -27,6 +27,10 @@ class ProductsList extends Component {
             })
     }
 
+    deleteProduct = (productId) => {
+        console.log(productId);
+    }
+
     render() {
 
         const {products} = this.state;
@@ -34,11 +38,15 @@ class ProductsList extends Component {
         return (
             <div>
                 <h1>Lista de Produtos</h1>
-                {products.map((product, index) =>
+                {products.map((product, index) => (
+                    <div key={index + 1}>
                     <ProductItem
                         key={index + 1}
                         sku={product.sku}
                         description={product.description}/>
+                        <button onClick={this.deleteProduct.bind(this, product.uuid)}>DELETAR</button>
+                    </div>
+                    )
                 )}
             </div>
 
