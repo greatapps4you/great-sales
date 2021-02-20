@@ -12,9 +12,7 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB */
 
 
-import axios from '../node_modules/yarn/node_modules/axios';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from './components/Header.js'
 import SideNav from './components/SideNav.js'
 import Products from './components/Products.js'

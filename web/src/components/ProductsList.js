@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from '../../node_modules/yarn/node_modules/axios';
+import axios from 'axios';
 
 
 class ProductsList extends React.Component {
@@ -30,7 +30,7 @@ class ProductsList extends React.Component {
         return (
         <div>
             <h1>Lista de Produtos</h1>
-            {products.map(product => <div>{product.sku}: {product.description}</div>)}
+            {products.map(product => <div>{product.uuid}: {product.sku}: {product.description}</div>)}
         </div>
 
         )

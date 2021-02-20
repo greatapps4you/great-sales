@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from '../../node_modules/yarn/node_modules/axios';
+import React from 'react';
+import axios from 'axios';
 import CustomersList from './CustomersList.js';
 
 

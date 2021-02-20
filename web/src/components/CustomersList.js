@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from '../../node_modules/yarn/node_modules/axios';
 
 
 class CustomersList extends React.Component {
