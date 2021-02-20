@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
+import ProductItem from "./ProductItem";
 
 
-class ProductsList extends React.Component {
+class ProductsList extends Component {
 
     constructor(props) {
         super(props)
@@ -15,7 +16,6 @@ class ProductsList extends React.Component {
     componentDidMount() {
         axios.get('http://localhost:8080/products/list')
             .then(response => {
-                console.log(response)
                 this.setState({products: response.data})
             })
             .catch(error => {
@@ -25,12 +25,14 @@ class ProductsList extends React.Component {
 
     render() {
 
-        const {products} = this.state
+        const {products} = this.state;
 
         return (
             <div>
                 <h1>Lista de Produtos</h1>
-                {products.map(product => <div>{product.uuid}: {product.sku}: {product.description}</div>)}
+                {products.map((product, index) =>
+                <ProductItem key={index} sku={product.sku} description={product.description} />
+                )}
             </div>
 
         )

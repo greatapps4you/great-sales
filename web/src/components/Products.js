@@ -40,6 +40,7 @@ class Products extends React.Component {
     render() {
         return (
             <div>
+                <h1>Cadastro de Produtos</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         SKU:
