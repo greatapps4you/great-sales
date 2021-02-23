@@ -45,7 +45,6 @@ class ProductRegister extends React.Component {
             .then(response => {
                 console.log(response)
                 const { data: { description } } = response;
-                alert(`${description} cadastrado com sucesso.`);
             })
             .catch(error => {
                 console.log(error)
