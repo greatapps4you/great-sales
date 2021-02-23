@@ -33,13 +33,13 @@ public class Email {
 
     @Id
     private UUID uuid;
-    private String from;
-    private String to;
+    private String fromEmail;
+    private String toEmail;
     @Lob
     private byte[] pdf;
-    private String subject;
+    private String emailSubject;
     @Lob
-    private String text;
+    private String emailText;
     private LocalDateTime timeSent;
 
 }

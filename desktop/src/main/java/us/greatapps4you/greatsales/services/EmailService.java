@@ -36,9 +36,9 @@ public class EmailService {
             repository.save(email);
 
             // for (String to : email.getTo()) {
-            mailer.send(Mail.withText(email.getTo(),
-                    email.getSubject(),
-                    email.getText()));
+            mailer.send(Mail.withText(email.getToEmail(),
+                    email.getEmailSubject(),
+                    email.getEmailText()));
             // }
 
 

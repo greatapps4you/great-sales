@@ -143,10 +143,10 @@ public class OrderController {
     private void emailOrder(Order order) {
         Email email = Email.builder()
                 .uuid(UUID.randomUUID())
-                .to(order.getMailOrderTo())
-                .subject(order.getCustomer().getIdentification().getName()
+                .toEmail(order.getMailOrderTo())
+                .emailSubject(order.getCustomer().getIdentification().getName()
                         + " | " + order.getOrderNumber())
-                .text(order.getMailMessage())
+                .emailText(order.getMailMessage())
                 .build();
         emailService.send(email);
     }
