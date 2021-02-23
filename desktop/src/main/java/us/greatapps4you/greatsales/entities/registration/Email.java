@@ -16,10 +16,12 @@ package us.greatapps4you.greatsales.entities.registration;
 
 import lombok.*;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -34,7 +36,8 @@ public class Email {
     @Id
     private UUID uuid;
     private String fromEmail;
-    private String toEmail;
+    @ElementCollection
+    private List<String> toEmails;
     @Lob
     private byte[] pdf;
     private String emailSubject;

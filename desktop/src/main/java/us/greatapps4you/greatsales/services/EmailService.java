@@ -35,12 +35,11 @@ public class EmailService {
         try {
             repository.save(email);
 
-            // for (String to : email.getTo()) {
-            mailer.send(Mail.withText(email.getToEmail(),
-                    email.getEmailSubject(),
-                    email.getEmailText()));
-            // }
-
+            for (String to : email.getToEmails()) {
+                mailer.send(Mail.withText(to,
+                        email.getEmailSubject(),
+                        email.getEmailText()));
+            }
 
             return true;
         } catch (Exception e) {

@@ -27,6 +27,7 @@ import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -143,7 +144,7 @@ public class OrderController {
     private void emailOrder(Order order) {
         Email email = Email.builder()
                 .uuid(UUID.randomUUID())
-                .toEmail(order.getMailOrderTo())
+                .toEmails(Arrays.asList(new String[]{order.getMailOrderTo()}))
                 .emailSubject(order.getCustomer().getIdentification().getName()
                         + " | " + order.getOrderNumber())
                 .emailText(order.getMailMessage())
