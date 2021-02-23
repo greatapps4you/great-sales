@@ -148,6 +148,7 @@ public class OrderController {
                 .emailSubject(order.getCustomer().getIdentification().getName()
                         + " | " + order.getOrderNumber())
                 .emailText(order.getMailMessage())
+                .timeSent(LocalDateTime.now())
                 .build();
         emailService.send(email);
     }
