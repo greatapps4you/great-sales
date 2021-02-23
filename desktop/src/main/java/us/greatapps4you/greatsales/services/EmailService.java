@@ -17,6 +17,7 @@ package us.greatapps4you.greatsales.services;
 import io.quarkus.mailer.Mail;
 import io.quarkus.mailer.Mailer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import us.greatapps4you.greatsales.entities.registration.Email;
 import us.greatapps4you.greatsales.repositories.EmailRepository;
@@ -30,9 +31,12 @@ public class EmailService {
     private Mailer mailer;
     @Autowired
     private EmailRepository repository;
+    @Value("${quarkus.mailer.from}")
+    private String EMAIL_FROM;
 
     public boolean send(Email email) {
         try {
+            email.setFromEmail(EMAIL_FROM);
             repository.save(email);
 
             for (String to : email.getToEmails()) {
