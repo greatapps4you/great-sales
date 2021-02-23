@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import ProductsList from './ProductsList.js';
-
+import ProductRegister from "./ProductRegister";
 
 class Products extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,45 +32,21 @@ class Products extends React.Component {
         axios.post("http://localhost:8080/products/save", this.state)
             .then(response => {
                 console.log(response)
+                const { data: { description } } = response;
+                alert(`${description} cadastrado com sucesso.`);
             })
             .catch(error => {
                 console.log(error)
             })
     }
 
+
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        SKU:
-                        <input
-                            name="sku"
-                            type="text"
-                            placeholder="Resumo"
-                            value={this.state.name}
-                            onChange={this.handleInputChange}/>
-                    </label>
-                    <br/>
-                    <label>
-                        Descricao:
-                        <input
-                            name="description"
-                            type="text"
-                            placeholder="Descricao Detalhada"
-                            value={this.state.description}
-                            onChange={this.handleInputChange}/>
-                    </label>
-                    <br/>
-                    <input
-                        type="submit"
-                        value="Cadastrar"/>
-                </form>
-
                 <div>
-                    <ProductsList/>
+                    <ProductRegister />
+                    <ProductsList />
                 </div>
-            </div>
 
         );
     }
