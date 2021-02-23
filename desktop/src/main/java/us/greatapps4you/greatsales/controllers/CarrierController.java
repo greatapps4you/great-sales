@@ -15,7 +15,6 @@
 package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.entities.shipping.Carrier;
 import us.greatapps4you.greatsales.repositories.CarrierRepository;
@@ -32,8 +31,6 @@ public class CarrierController {
 
     @Autowired
     private CarrierRepository repository;
-    @Value("${greatsales.carrier.home}")
-    private String CARRIER_HOME;
 
     @POST
     @Path("save")
@@ -80,8 +77,7 @@ public class CarrierController {
     public String delete(@PathParam("id") UUID id) {
         try {
             repository.deleteById(id);
-            //FIXME: When we have a serious view framework like React this concern goes away
-            return "<script>window.location.replace('" + CARRIER_HOME + "')</script>";
+            return id.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR: " + e.getLocalizedMessage();

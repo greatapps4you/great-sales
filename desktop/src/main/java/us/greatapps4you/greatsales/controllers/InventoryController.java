@@ -15,7 +15,6 @@
 package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.entities.inventory.InventoryItem;
 import us.greatapps4you.greatsales.repositories.InventoryRepository;
@@ -32,8 +31,6 @@ public class InventoryController {
 
     @Autowired
     private InventoryRepository repository;
-    @Value("${greatsales.inventory.home}")
-    private String INVENTORY_HOME;
 
     @POST
     @Path("save")
@@ -63,8 +60,7 @@ public class InventoryController {
     public String delete(@PathParam("id") UUID id) {
         try {
             repository.deleteById(id);
-            //FIXME: When we have a serious view framework like React this concern goes away
-            return "<script>window.location.replace('" + INVENTORY_HOME + "')</script>";
+            return id.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR: " + e.getLocalizedMessage();
