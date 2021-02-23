@@ -16,7 +16,10 @@ package us.greatapps4you.greatsales.services;
 
 import io.quarkus.mailer.Mail;
 import io.quarkus.mailer.Mailer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import us.greatapps4you.greatsales.entities.registration.Email;
+import us.greatapps4you.greatsales.repositories.EmailRepository;
 
 import javax.inject.Inject;
 
@@ -25,14 +28,23 @@ public class EmailService {
 
     @Inject
     private Mailer mailer;
+    @Autowired
+    private EmailRepository repository;
 
-    public void send(String subject, String text, String to) {
-        mailer.send(Mail.withText(to, subject, text));
-    }
+    public boolean send(Email email) {
+        try {
+            repository.save(email);
 
-    public void send(String subject, String text, String... to) {
-        for (String email : to) {
-            mailer.send(Mail.withText(email, subject, text));
+            // for (String to : email.getTo()) {
+            mailer.send(Mail.withText(email.getTo(),
+                    email.getSubject(),
+                    email.getText()));
+            // }
+
+
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 }
