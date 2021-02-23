@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.repositories.EmailRepository;
 import us.greatapps4you.greatsales.services.EmailService;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -30,23 +31,19 @@ public class EmailController {
 
     @Autowired
     private EmailService service;
-    //private QuarkusEmailService service;
     private EmailRepository repository;
 
     @GET
     @Path("send")
     @Produces(MediaType.APPLICATION_JSON)
     public Response sendASimpleEmail() {
-        service.send("",
+        service.send(
                 "TESTE GreatSales",
-                "Esete e apenas um teste. Deu certo!!");
-        return Response.accepted().build();
-    }
-
-    @GET
-    @Path("user")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response createUser() {
+                "Este é apenas um teste. Deu certo!!",
+                "josethedeveloper@gmail.com",
+                "support@greatapps4you.us",
+                "braulinoguerra@gmail.com",
+                "imobiliariabguerra@gmail.com");
         return Response.accepted().build();
     }
 }

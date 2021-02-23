@@ -14,70 +14,25 @@
 
 package us.greatapps4you.greatsales.services;
 
+import io.quarkus.mailer.Mail;
+import io.quarkus.mailer.Mailer;
 import org.springframework.stereotype.Service;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.Properties;
+import javax.inject.Inject;
 
 @Service
 public class EmailService {
 
-    private String PASSWORD = "";
-    private String USER = "";;
-    private String NAME = "";
-    private final String SMTP_PORT = "587";
-    private final String IMAP_PORT = "143";
-    private final String MAIL_HOST = "smtp.gmail.com";
+    @Inject
+    private Mailer mailer;
 
-    private Session initMailSession(Properties props, final String username, final String password) {
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    @Override
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
-        return session;
+    public void send(String subject, String text, String to) {
+        mailer.send(Mail.withText(to, subject, text));
     }
 
-    private Properties initMailProperties() {
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", MAIL_HOST);
-        props.put("mail.smtp.port", SMTP_PORT);
-        props.put("mail.imap.auth", "true");
-        props.put("mail.imap.host", MAIL_HOST);
-        props.put("mail.imap.port", IMAP_PORT);
-        return props;
-    }
-
-    public boolean send(String to, String subject, String messageText) {
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-        Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(USER, PASSWORD);
-            }
-        });
-
-        try {
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(USER));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject(subject);
-            message.setText(messageText);
-            Transport.send(message);
-            return true;
-        } catch (MessagingException var8) {
-            var8.printStackTrace();
-            return false;
+    public void send(String subject, String text, String... to) {
+        for (String email : to) {
+            mailer.send(Mail.withText(email, subject, text));
         }
     }
-
 }

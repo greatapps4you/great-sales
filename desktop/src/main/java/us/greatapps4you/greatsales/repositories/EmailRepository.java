@@ -15,7 +15,9 @@
 package us.greatapps4you.greatsales.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import us.greatapps4you.greatsales.entities.registration.EmailConfiguration;
+import us.greatapps4you.greatsales.entities.registration.Email;
 
-public interface EmailRepository extends CrudRepository<EmailConfiguration, String> {
+import java.util.UUID;
+
+public interface EmailRepository extends CrudRepository<Email, UUID> {
 }

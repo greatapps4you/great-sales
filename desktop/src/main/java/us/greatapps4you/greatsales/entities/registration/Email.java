@@ -16,8 +16,13 @@ package us.greatapps4you.greatsales.entities.registration;
 
 import lombok.*;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Builder
@@ -26,17 +31,17 @@ import javax.persistence.Id;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmailConfiguration {
+public class Email {
 
     @Id
-    private String id = "default_user";
-    private String username;
-    private String password;
-    private String authMethods;
-    private String ssl;
+    private UUID uuid;
     private String from;
-    private String host;
-    private String port;
-
+    @ElementCollection
+    private List<String> to;
+    @ElementCollection
+    private List<String> attachments;
+    @Lob
+    private String text;
+    private LocalDateTime timeSent;
 
 }
