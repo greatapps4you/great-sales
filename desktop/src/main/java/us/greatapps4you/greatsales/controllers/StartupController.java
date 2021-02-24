@@ -17,7 +17,7 @@ package us.greatapps4you.greatsales.controllers;
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.springframework.stereotype.Controller;
-import us.greatapps4you.greatsales.utils.OsUtil;
+import us.greatapps4you.greatsales.services.WhichOS;
 
 import javax.enterprise.event.Observes;
 import java.io.IOException;
@@ -39,11 +39,11 @@ public class StartupController {
         String url = "http://localhost:" + port;
         Runtime rt = Runtime.getRuntime();
         try {
-            if (OsUtil.isMac()) {
+            if (WhichOS.isMac()) {
                 rt.exec("open " + url);
-            } else if (OsUtil.isWindows()) {
+            } else if (WhichOS.isWindows()) {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } else if (OsUtil.isLinux()) {
+            } else if (WhichOS.isLinux()) {
                 String[] browsers = {"firefox", "epiphany", "mozilla", "konqueror",
                         "netscape", "opera", "links", "lynx"};
 

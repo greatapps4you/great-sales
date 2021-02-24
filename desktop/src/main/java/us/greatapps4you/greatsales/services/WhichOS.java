@@ -12,13 +12,13 @@
  * CSSML NDSMD VRS + SNMV SMQL IVB
  */
 
-package us.greatapps4you.greatsales.utils;
+package us.greatapps4you.greatsales.services;
 
-public final class OsUtil {
+public final class WhichOS {
 
     private static final String OSName = System.getProperty("os.name").toLowerCase();
 
-    private OsUtil() {
+    private WhichOS() {
     }
 
     public static boolean isWindows() {
