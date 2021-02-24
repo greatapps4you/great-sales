@@ -52,7 +52,7 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private FinancialStatement financialStatement;
     @Enumerated(EnumType.STRING)
-    private AccountGroup group;
-    private String code;
+    private AccountGroup accountGroup;
+    private String accountCode;
 
 }

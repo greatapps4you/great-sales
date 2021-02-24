@@ -14,20 +14,6 @@
 
 package us.greatapps4you.greatsales.services;
 
-import io.quarkus.mailer.Mail;
-import io.quarkus.mailer.Mailer;
-import org.springframework.stereotype.Service;
-
-import javax.inject.Inject;
-
-@Service
-public class QuarkusEmailService {
-
-    @Inject
-    private Mailer mailer;
-
-    public void send(String to, String subject, String text) {
-        mailer.send(Mail.withText(to, subject, text));
-    }
-
+public enum OS {
+    MAC, LINUX, SOLARIS, RUINDOWS
 }
