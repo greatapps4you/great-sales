@@ -115,6 +115,15 @@ body {
     color: white;
 }
 
+.button-icon-red {
+    color: red;
+}
+
+.button-icon-red:hover {
+    background-color: red;
+    color: white;
+}
+
 
 /*Text Fields*/
 label {

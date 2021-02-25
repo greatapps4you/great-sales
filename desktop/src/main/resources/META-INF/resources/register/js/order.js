@@ -354,8 +354,8 @@ function update_items() {
             + "<td>" + items[i].quantity + "</td>"
             + "<td>" + number_to_BRL(items[i].inventoryItem.sellingPrice) + "</td>"
             + "<td>" + number_to_BRL(items[i].total) + "</td>"
-            + "<td><button onclick='remove_order_item(this)' class='button-link-remove' view_uuid='" +
-            items[i].view_uuid + "'>X</button></td>"
+            + "<td><button onclick='remove_order_item(this)' class='button-icon button-icon-red' view_uuid='" +
+            items[i].view_uuid + "'><i class='fas fa-trash'></i></button></td>"
             + "</tr>";
     }
     results_table += "</tbody>" +
@@ -458,7 +458,7 @@ function list() {
                 + "<td>" + orders[i].customer.identification.name + "</td>"
                 + "<td>" + orders[i].shipping + "</td>"
                 + "<td>" + delivery_date + "</td>"
-                + "<td><a class='button-link-remove' href='" + remove_url + uuid + "'>X</a></td>"
+                + "<td><button class='button-icon button-icon-red' href='" + remove_url + uuid + "'><i class='fas fa-trash'></i></button></td>"
                 + "</tr>";
         }
         results_table += "</tbody>" +
