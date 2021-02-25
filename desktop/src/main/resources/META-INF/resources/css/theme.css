@@ -19,7 +19,7 @@ body {
     margin: 0;
 }
 
-/*Buttons*/
+/*Button*/
 .button {
     border: none;
     color: white;
@@ -85,21 +85,45 @@ body {
     color: red;
 }
 
-/* Green */
-.add-button {
-    border: 2px solid #4CAF50;
-    background-color: white;
-    color: black;
-    padding: 8px 18px;
-    font-size: 16px;
-    cursor: pointer;
+/*Button Icon*/
+.button-icon {
+    font-size: 25px;
+    border: none;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    background: none;
+}
+
+.button-icon-dark-grey {
+    color: #555555;
+}
+
+.button-icon-dark-grey:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.button-icon-green {
     color: green;
 }
 
-.add-button:hover {
+.button-icon-green:hover {
     background-color: #4CAF50;
     color: white;
 }
+
+.button-icon-red {
+    color: red;
+}
+
+.button-icon-red:hover {
+    background-color: red;
+    color: white;
+}
+
 
 /*Text Fields*/
 label {
