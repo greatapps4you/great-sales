@@ -15,17 +15,19 @@
 package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.entities.order.Order;
 import us.greatapps4you.greatsales.entities.order.OrderItem;
+import us.greatapps4you.greatsales.entities.registration.Email;
 import us.greatapps4you.greatsales.repositories.OrderRepository;
+import us.greatapps4you.greatsales.services.EmailService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,8 +37,8 @@ public class OrderController {
 
     @Autowired
     private OrderRepository repository;
-    @Value("${greatsales.order.home}")
-    private String ORDER_HOME;
+    @Autowired
+    private EmailService emailService;
 
     @POST
     @Path("save")
@@ -118,6 +120,17 @@ public class OrderController {
             }
         }
 
+        setItemsUuid(order);
+
+        Order saved = repository.save(order);
+        // Email order
+        if (saved != null) {
+            emailOrder(saved);
+        }
+        return saved;
+    }
+
+    private void setItemsUuid(Order order) {
         List<OrderItem> itemsWithUuid = new ArrayList<>();
         order.getItems().stream().forEach(item -> {
             if (item.getUuid() == null) {
@@ -125,9 +138,19 @@ public class OrderController {
             }
             itemsWithUuid.add(item);
         });
-
         order.setItems(itemsWithUuid);
-        return repository.save(order);
+    }
+
+    private void emailOrder(Order order) {
+        Email email = Email.builder()
+                .uuid(UUID.randomUUID())
+                .toEmails(Arrays.asList(new String[]{order.getMailOrderTo()}))
+                .emailSubject(order.getCustomer().getIdentification().getName()
+                        + " | " + order.getOrderNumber())
+                .emailText(order.getMailMessage())
+                .timeSent(LocalDateTime.now())
+                .build();
+        emailService.send(email);
     }
 
     @GET
@@ -152,8 +175,7 @@ public class OrderController {
     public String delete(@PathParam("id") UUID id) {
         try {
             repository.deleteById(id);
-            //FIXME: When we have a serious view framework like React this concern goes away
-            return "<script>window.location.replace('" + ORDER_HOME + "')</script>";
+            return id.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR: " + e.getLocalizedMessage();

@@ -15,6 +15,7 @@
 import React from 'react';
 import Header from './components/Header.js'
 import SideNav from './components/SideNav.js'
+import Welcome from "./components/Welcome";
 import Products from './components/Products.js'
 import Costumers from './components/Customers.js'
 
@@ -26,33 +27,7 @@ function App() {
             <SideNav/>
 
             <main>
-
-                <h1>Bem-Vindo(a) ao GreatSales!</h1>
-                <br/>
-                <h3>Pedidos</h3>
-                <p>Cadastrar novos pedidos e Visualizar pedidos já lancados</p>
-                <br/>
-                <h3>Produtos</h3>
-                <p>Cadastrar novos produtos e Visualizar produtos já cadastrados</p>
-                <br/>
-                <h3>Clientes</h3>
-                <p>Cadastrar novos clientes e Visualizar clientes já cadastrados</p>
-                <br/>
-                <h3>Fornecedores</h3>
-                <p>Cadastrar novos fornecedores e Visualizar fornecedores já cadastrados</p>
-                <br/>
-                <h3>Transportadoras</h3>
-                <p>Cadastrar novas transportadoras e Visualizar transportadoras já cadastrados</p>
-                <br/>
-                <h3>Vendedores</h3>
-                <p>Cadastrar novos vendedores e Visualizar vendedores já cadastrados</p>
-                <br/>
-
-
                 <Products/>
-
-                <Costumers/>
-
             </main>
         </div>
     );

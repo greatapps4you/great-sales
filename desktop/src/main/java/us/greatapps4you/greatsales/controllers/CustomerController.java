@@ -15,7 +15,6 @@
 package us.greatapps4you.greatsales.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import us.greatapps4you.greatsales.entities.order.Customer;
 import us.greatapps4you.greatsales.repositories.CustomerRepository;
@@ -23,7 +22,6 @@ import us.greatapps4you.greatsales.repositories.CustomerRepository;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,8 +32,6 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository repository;
-    @Value("${greatsales.customer.home}")
-    private String CUSTOMER_HOME;
 
     @POST
     @Path("save")
@@ -96,8 +92,7 @@ public class CustomerController {
     public String delete(@PathParam("id") UUID id) {
         try {
             repository.deleteById(id);
-            //FIXME: When we have a serious view framework like React this concern goes away
-            return "<script>window.location.replace('" + CUSTOMER_HOME + "')</script>";
+            return id.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR: " + e.getLocalizedMessage();

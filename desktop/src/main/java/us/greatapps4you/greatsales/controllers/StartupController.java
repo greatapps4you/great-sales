@@ -16,8 +16,10 @@ package us.greatapps4you.greatsales.controllers;
 
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import us.greatapps4you.greatsales.utils.OsUtil;
+import us.greatapps4you.greatsales.services.OS;
+import us.greatapps4you.greatsales.services.OSService;
 
 import javax.enterprise.event.Observes;
 import java.io.IOException;
@@ -28,6 +30,8 @@ public class StartupController {
     boolean startupOpenBrowser;
     @ConfigProperty(name = "quarkus.http.port", defaultValue = "8080")
     int httpPort;
+    @Autowired
+    private OSService osService;
 
     public void setup(@Observes StartupEvent startupEvent) {
         if (startupOpenBrowser) {
@@ -39,11 +43,11 @@ public class StartupController {
         String url = "http://localhost:" + port;
         Runtime rt = Runtime.getRuntime();
         try {
-            if (OsUtil.isMac()) {
+            if (osService.which() == OS.MAC) {
                 rt.exec("open " + url);
-            } else if (OsUtil.isWindows()) {
+            } else if (osService.which() == OS.RUINDOWS) {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } else if (OsUtil.isLinux()) {
+            } else if (osService.which() == OS.LINUX) {
                 String[] browsers = {"firefox", "epiphany", "mozilla", "konqueror",
                         "netscape", "opera", "links", "lynx"};
 

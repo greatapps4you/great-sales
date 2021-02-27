@@ -80,8 +80,7 @@ public class VendorController {
     public String delete(@PathParam("id") UUID id) {
         try {
             repository.deleteById(id);
-            //FIXME: When we have a serious view framework like React this concern goes away
-            return "<script>window.location.replace('" + VENDOR_HOME + "')</script>";
+            return id.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR: " + e.getLocalizedMessage();
